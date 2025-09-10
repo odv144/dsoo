@@ -17,8 +17,7 @@ namespace Biblioteca
         public Form1()
         {
             InitializeComponent();
-            
-           
+              
              
         }
 
@@ -75,6 +74,16 @@ namespace Biblioteca
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             biblioteca.cargarLibros(dgvLibros, txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtGenero.Text);
+        }
+
+        private void btnNuevoLector_Click(object sender, EventArgs e)
+        {
+            biblioteca.AltaLector(txtLector.Text, txtDniLector.Text);
+        }
+
+        private void btnPrestar_Click(object sender, EventArgs e)
+        {
+            biblioteca.PrestarLibro(txtTitulo.Text,txtDniLector.Text);
         }
     }
 }

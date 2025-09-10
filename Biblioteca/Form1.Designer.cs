@@ -43,6 +43,13 @@
             this.dgvLibros = new System.Windows.Forms.DataGridView();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.btnDatos = new System.Windows.Forms.Button();
+            this.btnNuevoLector = new System.Windows.Forms.Button();
+            this.btnPrestar = new System.Windows.Forms.Button();
+            this.btnDevolver = new System.Windows.Forms.Button();
+            this.lblLector = new System.Windows.Forms.Label();
+            this.txtLector = new System.Windows.Forms.TextBox();
+            this.lblDniLector = new System.Windows.Forms.Label();
+            this.txtDniLector = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -183,7 +190,7 @@
             this.btnGenerar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerar.ForeColor = System.Drawing.Color.Blue;
-            this.btnGenerar.Location = new System.Drawing.Point(632, 55);
+            this.btnGenerar.Location = new System.Drawing.Point(632, 60);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(148, 42);
             this.btnGenerar.TabIndex = 13;
@@ -197,7 +204,7 @@
             this.btnDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDatos.ForeColor = System.Drawing.Color.Blue;
-            this.btnDatos.Location = new System.Drawing.Point(461, 55);
+            this.btnDatos.Location = new System.Drawing.Point(632, 12);
             this.btnDatos.Name = "btnDatos";
             this.btnDatos.Size = new System.Drawing.Size(148, 42);
             this.btnDatos.TabIndex = 14;
@@ -206,11 +213,87 @@
             this.btnDatos.UseVisualStyleBackColor = false;
             this.btnDatos.Click += new System.EventHandler(this.btnDatos_Click);
             // 
+            // btnNuevoLector
+            // 
+            this.btnNuevoLector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnNuevoLector.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnNuevoLector.Location = new System.Drawing.Point(215, 64);
+            this.btnNuevoLector.Name = "btnNuevoLector";
+            this.btnNuevoLector.Size = new System.Drawing.Size(126, 37);
+            this.btnNuevoLector.TabIndex = 15;
+            this.btnNuevoLector.Text = "Nuevo Lector";
+            this.btnNuevoLector.UseVisualStyleBackColor = false;
+            this.btnNuevoLector.Click += new System.EventHandler(this.btnNuevoLector_Click);
+            // 
+            // btnPrestar
+            // 
+            this.btnPrestar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnPrestar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnPrestar.Location = new System.Drawing.Point(359, 64);
+            this.btnPrestar.Name = "btnPrestar";
+            this.btnPrestar.Size = new System.Drawing.Size(126, 37);
+            this.btnPrestar.TabIndex = 16;
+            this.btnPrestar.Text = "Prestar";
+            this.btnPrestar.UseVisualStyleBackColor = false;
+            this.btnPrestar.Click += new System.EventHandler(this.btnPrestar_Click);
+            // 
+            // btnDevolver
+            // 
+            this.btnDevolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnDevolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnDevolver.Location = new System.Drawing.Point(491, 64);
+            this.btnDevolver.Name = "btnDevolver";
+            this.btnDevolver.Size = new System.Drawing.Size(126, 37);
+            this.btnDevolver.TabIndex = 17;
+            this.btnDevolver.Text = "Devolver";
+            this.btnDevolver.UseVisualStyleBackColor = false;
+            // 
+            // lblLector
+            // 
+            this.lblLector.AutoSize = true;
+            this.lblLector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLector.Location = new System.Drawing.Point(211, 9);
+            this.lblLector.Name = "lblLector";
+            this.lblLector.Size = new System.Drawing.Size(127, 20);
+            this.lblLector.TabIndex = 19;
+            this.lblLector.Text = "Nombre Lector";
+            // 
+            // txtLector
+            // 
+            this.txtLector.Location = new System.Drawing.Point(215, 38);
+            this.txtLector.Name = "txtLector";
+            this.txtLector.Size = new System.Drawing.Size(126, 20);
+            this.txtLector.TabIndex = 18;
+            // 
+            // lblDniLector
+            // 
+            this.lblDniLector.AutoSize = true;
+            this.lblDniLector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDniLector.Location = new System.Drawing.Point(355, 9);
+            this.lblDniLector.Name = "lblDniLector";
+            this.lblDniLector.Size = new System.Drawing.Size(55, 20);
+            this.lblDniLector.TabIndex = 20;
+            this.lblDniLector.Text = "D.N.I.";
+            // 
+            // txtDniLector
+            // 
+            this.txtDniLector.Location = new System.Drawing.Point(359, 38);
+            this.txtDniLector.Name = "txtDniLector";
+            this.txtDniLector.Size = new System.Drawing.Size(126, 20);
+            this.txtDniLector.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtDniLector);
+            this.Controls.Add(this.lblDniLector);
+            this.Controls.Add(this.lblLector);
+            this.Controls.Add(this.txtLector);
+            this.Controls.Add(this.btnDevolver);
+            this.Controls.Add(this.btnPrestar);
+            this.Controls.Add(this.btnNuevoLector);
             this.Controls.Add(this.btnDatos);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dgvLibros);
@@ -252,6 +335,13 @@
         private System.Windows.Forms.DataGridView dgvLibros;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.Button btnDatos;
+        private System.Windows.Forms.Button btnNuevoLector;
+        private System.Windows.Forms.Button btnPrestar;
+        private System.Windows.Forms.Button btnDevolver;
+        private System.Windows.Forms.Label lblLector;
+        private System.Windows.Forms.TextBox txtLector;
+        private System.Windows.Forms.Label lblDniLector;
+        private System.Windows.Forms.TextBox txtDniLector;
     }
 }
 

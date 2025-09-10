@@ -12,7 +12,7 @@ namespace Biblioteca
     {
         private List<Libro> Libros;
         private DataTable dt = new DataTable();
-
+        private List<Lector> lector = new List<Lector>();
         public Biblioteca()
         {
             this.Libros = new List<Libro>();
@@ -29,6 +29,7 @@ namespace Biblioteca
             }
             return libroBuscado;
         }
+       
         public bool agregarLibro(string Titulo, string Autor, string Editorial, string Genero)
         {
             bool resultado = false;
@@ -93,6 +94,71 @@ namespace Biblioteca
                 
             }
            
+        }
+        public Lector BuscarLector(string dni)
+        {
+            int x = 0;
+            while (x < lector.Count && !lector[x].Dni.Equals(dni))
+            {
+                x++;
+            }
+            if (x < lector.Count)
+            {
+                return lector[x];
+            }
+            else
+            {
+                MessageBox.Show("El lector no existe");
+                return null;
+            }
+        }
+        public Lector AltaLector(string Nombre, string dni)
+        {
+            Lector lector=null;
+            if(BuscarLector(dni) == null)
+            {
+                lector = new Lector(Nombre, dni);
+                this.lector.Add(lector);
+             }
+            else
+            {
+                MessageBox.Show("El Lector ya Existe");
+            }
+            return lector;
+        }
+
+        public void PrestarLibro(string titulo, string dni)
+        {
+            Lector lector = BuscarLector(dni);
+            if ( lector != null)
+            {
+                if (lector.VerificarCantidadPrestamos() < 3)
+                {
+                    Libro libro = BuscarLibro(titulo);
+                    if(libro != null)
+                    {
+                        lector.AgregarPrestamo(libro);
+                        QuitarDeBiblioteca(titulo);
+                        MessageBox.Show("El Libro se presto correctamente");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ha superado el máximo de prestamos permitidos ");
+                }
+            }
+        }
+        public void QuitarDeBiblioteca(string titulo)
+        {
+            if (Libros.Remove(BuscarLibro(titulo)))
+            {
+               
+                MessageBox.Show("Se quito de la biblioteca");
+            }
+            else
+            {
+                MessageBox.Show("No se quito de la biblioteca");
+            }
         }
     }
 }

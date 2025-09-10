@@ -9,3 +9,14 @@ D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\Practicas\formula
 D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\Practicas\formulario\Biblioteca\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
 D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\Practicas\formulario\Biblioteca\obj\Debug\Biblioteca.exe
 D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\Practicas\formulario\Biblioteca\obj\Debug\Biblioteca.pdb
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\obj\Debug\Biblioteca.csproj.AssemblyReference.cache
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\obj\Debug\Biblioteca.csproj.SuggestedBindingRedirects.cache
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\obj\Debug\Biblioteca.Form1.resources
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\obj\Debug\Biblioteca.Properties.Resources.resources
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\obj\Debug\Biblioteca.csproj.GenerateResource.cache
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\obj\Debug\Biblioteca.exe
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\obj\Debug\Biblioteca.pdb
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\bin\Debug\Biblioteca.exe.config
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\bin\Debug\Biblioteca.exe
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\Biblioteca\bin\Debug\Biblioteca.pdb
