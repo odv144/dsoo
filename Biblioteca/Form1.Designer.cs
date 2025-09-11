@@ -50,6 +50,7 @@
             this.txtLector = new System.Windows.Forms.TextBox();
             this.lblDniLector = new System.Windows.Forms.Label();
             this.txtDniLector = new System.Windows.Forms.TextBox();
+            this.btnPrestados = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -282,11 +283,24 @@
             this.txtDniLector.Size = new System.Drawing.Size(126, 20);
             this.txtDniLector.TabIndex = 21;
             // 
+            // btnPrestados
+            // 
+            this.btnPrestados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnPrestados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnPrestados.Location = new System.Drawing.Point(491, 21);
+            this.btnPrestados.Name = "btnPrestados";
+            this.btnPrestados.Size = new System.Drawing.Size(126, 37);
+            this.btnPrestados.TabIndex = 22;
+            this.btnPrestados.Text = "Prestados";
+            this.btnPrestados.UseVisualStyleBackColor = false;
+            this.btnPrestados.Click += new System.EventHandler(this.btnPrestados_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPrestados);
             this.Controls.Add(this.txtDniLector);
             this.Controls.Add(this.lblDniLector);
             this.Controls.Add(this.lblLector);
@@ -342,6 +356,7 @@
         private System.Windows.Forms.TextBox txtLector;
         private System.Windows.Forms.Label lblDniLector;
         private System.Windows.Forms.TextBox txtDniLector;
+        private System.Windows.Forms.Button btnPrestados;
     }
 }
 

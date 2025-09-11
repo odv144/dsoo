@@ -55,11 +55,10 @@ namespace Biblioteca
                 MessageBox.Show("Ha superado el máximo de prestamos permitidos");
             }
         }
-        
-        public string  ListarPrestamos(DataGridView data)
+
+        public List<Libro> ListarPrestamos()
         {
-            return "intentando devolver listado de prestamo";
-            //data.DataSource = _prestamos;
+            return _prestamos;
         }
 
     }

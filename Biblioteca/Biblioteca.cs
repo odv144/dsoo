@@ -17,11 +17,11 @@ namespace Biblioteca
         {
             this.Libros = new List<Libro>();
         }
-        public Libro BuscarLibro(string Titulo)
+        public Libro BuscarLibro(string titulo)
         {
             Libro libroBuscado = null;
             int i = 0;
-            while (i < Libros.Count && !Libros[i].Titulo.Equals(Titulo))
+            while (i < Libros.Count && !Libros[i].Titulo.Equals(titulo))
                 i++;
             if (i != Libros.Count)
             {
@@ -30,30 +30,30 @@ namespace Biblioteca
             return libroBuscado;
         }
        
-        public bool agregarLibro(string Titulo, string Autor, string Editorial, string Genero)
+        public bool AgregarLibro(string titulo, string autor, string editorial, string genero)
         {
             bool resultado = false;
             Libro libro;
-            libro = BuscarLibro(Titulo);
+            libro = BuscarLibro(titulo);
             if(libro == null)
             {
-                libro = new Libro(Titulo, Autor, Editorial, Genero);
+                libro = new Libro(titulo, autor, editorial,genero);
                 Libros.Add(libro);
                 resultado = true;
             }
             return resultado;
         }
-        public void listarLibros()
+        public void ListarLibros(DataGridView data)
         {
-            foreach (var libro in Libros)
-                Console.WriteLine(libro.ToString());
+         
+              data.DataSource=Libros;
         }
-        public bool eliminarLibro(string Titulo, DataGridView data)
+        public bool EliminarLibro(string titulo, DataGridView data)
         {
             bool resultado = false;
            
             int i = 0;
-            while (i < Libros.Count && !Libros[i].Titulo.Equals(Titulo))
+            while (i < Libros.Count && !Libros[i].Titulo.Equals(titulo))
                 i++;
             if (i != Libros.Count)
             {
@@ -65,7 +65,7 @@ namespace Biblioteca
 
             return resultado;
         }
-        public void cargarLibros( DataGridView data,string titulo,string autor,string editorial, string genero)
+        public void CargarLibros( DataGridView data,string titulo,string autor,string editorial, string genero)
         {
             bool pude;
            if(data.RowCount == 0)
@@ -80,7 +80,7 @@ namespace Biblioteca
            
             string nro = (data.Rows.Count + 1).ToString();
 //            pude = agregarLibro("Libro" + nro, "Autor" +nro, "Editorial" + nro, "Genero" + nro);
-            pude = agregarLibro(titulo,autor,editorial,genero);
+            pude = AgregarLibro(titulo,autor,editorial,genero);
 
             if (pude)
             {
@@ -108,7 +108,7 @@ namespace Biblioteca
             }
             else
             {
-                MessageBox.Show("El lector no existe");
+                MessageBox.Show("LECTOR INEXISTENTE");
                 return null;
             }
         }
@@ -122,7 +122,7 @@ namespace Biblioteca
              }
             else
             {
-                MessageBox.Show("El Lector ya Existe");
+                MessageBox.Show("EL LECTOR YA EXISTE");
             }
             return lector;
         }
@@ -139,12 +139,16 @@ namespace Biblioteca
                     {
                         lector.AgregarPrestamo(libro);
                         QuitarDeBiblioteca(titulo);
-                        MessageBox.Show("El Libro se presto correctamente");
+                        MessageBox.Show("PRESTAMO EXITOSO");
+                    }
+                    else
+                    {
+                        MessageBox.Show("LIBRO INEXISTENTE");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ha superado el máximo de prestamos permitidos ");
+                    MessageBox.Show("TOPE DE PRESTAMO ALCAZADO");
                 }
             }
         }
@@ -153,12 +157,13 @@ namespace Biblioteca
             if (Libros.Remove(BuscarLibro(titulo)))
             {
                
-                MessageBox.Show("Se quito de la biblioteca");
+                MessageBox.Show("SE QUITO DE LA BIBLIOTECA");
             }
             else
             {
-                MessageBox.Show("No se quito de la biblioteca");
+                MessageBox.Show("NO SE QUITO DE LA BIBLIOTECA");
             }
         }
+
     }
 }

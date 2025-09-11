@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Biblioteca
 {
@@ -47,5 +48,6 @@ namespace Biblioteca
         {
             return "Titulo: " + _titulo + " Autor: " + _autor + " Editorial: " + _editorial + " Genero: " + _genero;
         }
+       
     }
 }

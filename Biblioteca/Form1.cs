@@ -34,12 +34,12 @@ namespace Biblioteca
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            biblioteca.listarLibros();
+            biblioteca.ListarLibros(dgvLibros);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(biblioteca.eliminarLibro(txtTitulo.Text,dgvLibros))
+            if(biblioteca.EliminarLibro(txtTitulo.Text,dgvLibros))
             {
 
                
@@ -54,7 +54,7 @@ namespace Biblioteca
         private void btnDatos_Click(object sender, EventArgs e)
         {
            for(int i = 1; i<10;i++)
-                biblioteca.cargarLibros(dgvLibros, txtTitulo.Text+i.ToString(),
+                biblioteca.CargarLibros(dgvLibros, txtTitulo.Text+i.ToString(),
                                     txtAutor.Text+i.ToString(), txtEditorial.Text+i.ToString(), txtGenero.Text);
         }
 
@@ -73,7 +73,7 @@ namespace Biblioteca
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            biblioteca.cargarLibros(dgvLibros, txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtGenero.Text);
+            biblioteca.CargarLibros(dgvLibros, txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtGenero.Text);
         }
 
         private void btnNuevoLector_Click(object sender, EventArgs e)
@@ -84,6 +84,15 @@ namespace Biblioteca
         private void btnPrestar_Click(object sender, EventArgs e)
         {
             biblioteca.PrestarLibro(txtTitulo.Text,txtDniLector.Text);
+        }
+
+        private void btnPrestados_Click(object sender, EventArgs e)
+        {
+            Lector lector=biblioteca.BuscarLector(txtDniLector.Text);
+            if(lector != null)
+            {
+                dgvLibros.DataSource = lector.ListarPrestamos();
+            }
         }
     }
 }
