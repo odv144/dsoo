@@ -83,7 +83,18 @@ namespace Biblioteca
 
         private void btnPrestar_Click(object sender, EventArgs e)
         {
-            biblioteca.PrestarLibro(txtTitulo.Text,txtDniLector.Text);
+            Lector lector;
+            lector= biblioteca.PrestarLibro(txtTitulo.Text,txtDniLector.Text);
+            if (lector != null)
+            {
+                List<Libro> libro;
+                libro=lector.ListarPrestamos();
+                cboPrestado.Items.Clear();
+                foreach (Libro book in libro)
+                    cboPrestado.Items.Add(book.ToString());
+
+                cboPrestado.SelectedIndex = 0;
+            }
         }
 
         private void btnPrestados_Click(object sender, EventArgs e)
@@ -92,7 +103,9 @@ namespace Biblioteca
             if(lector != null)
             {
                 dgvLibros.DataSource = lector.ListarPrestamos();
+                cboPrestado.DataSource = lector.ListarPrestamos();
             }
+
         }
     }
 }

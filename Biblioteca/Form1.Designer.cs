@@ -41,7 +41,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvLibros = new System.Windows.Forms.DataGridView();
-            this.btnGenerar = new System.Windows.Forms.Button();
             this.btnDatos = new System.Windows.Forms.Button();
             this.btnNuevoLector = new System.Windows.Forms.Button();
             this.btnPrestar = new System.Windows.Forms.Button();
@@ -51,6 +50,8 @@
             this.lblDniLector = new System.Windows.Forms.Label();
             this.txtDniLector = new System.Windows.Forms.TextBox();
             this.btnPrestados = new System.Windows.Forms.Button();
+            this.cboPrestado = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,26 +187,12 @@
             this.dgvLibros.Size = new System.Drawing.Size(575, 307);
             this.dgvLibros.TabIndex = 12;
             // 
-            // btnGenerar
-            // 
-            this.btnGenerar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerar.ForeColor = System.Drawing.Color.Blue;
-            this.btnGenerar.Location = new System.Drawing.Point(632, 60);
-            this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(148, 42);
-            this.btnGenerar.TabIndex = 13;
-            this.btnGenerar.Text = "Generar Nuevo";
-            this.btnGenerar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerar.UseVisualStyleBackColor = false;
-            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
-            // 
             // btnDatos
             // 
             this.btnDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDatos.ForeColor = System.Drawing.Color.Blue;
-            this.btnDatos.Location = new System.Drawing.Point(632, 12);
+            this.btnDatos.Location = new System.Drawing.Point(205, 427);
             this.btnDatos.Name = "btnDatos";
             this.btnDatos.Size = new System.Drawing.Size(148, 42);
             this.btnDatos.TabIndex = 14;
@@ -287,7 +274,7 @@
             // 
             this.btnPrestados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnPrestados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnPrestados.Location = new System.Drawing.Point(491, 21);
+            this.btnPrestados.Location = new System.Drawing.Point(634, 64);
             this.btnPrestados.Name = "btnPrestados";
             this.btnPrestados.Size = new System.Drawing.Size(126, 37);
             this.btnPrestados.TabIndex = 22;
@@ -295,11 +282,31 @@
             this.btnPrestados.UseVisualStyleBackColor = false;
             this.btnPrestados.Click += new System.EventHandler(this.btnPrestados_Click);
             // 
+            // cboPrestado
+            // 
+            this.cboPrestado.FormattingEnabled = true;
+            this.cboPrestado.Location = new System.Drawing.Point(491, 37);
+            this.cboPrestado.Name = "cboPrestado";
+            this.cboPrestado.Size = new System.Drawing.Size(269, 21);
+            this.cboPrestado.TabIndex = 23;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(559, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 20);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Libros Prestados";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 481);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cboPrestado);
             this.Controls.Add(this.btnPrestados);
             this.Controls.Add(this.txtDniLector);
             this.Controls.Add(this.lblDniLector);
@@ -309,7 +316,6 @@
             this.Controls.Add(this.btnPrestar);
             this.Controls.Add(this.btnNuevoLector);
             this.Controls.Add(this.btnDatos);
-            this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dgvLibros);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
@@ -347,7 +353,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dgvLibros;
-        private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.Button btnDatos;
         private System.Windows.Forms.Button btnNuevoLector;
         private System.Windows.Forms.Button btnPrestar;
@@ -357,6 +362,8 @@
         private System.Windows.Forms.Label lblDniLector;
         private System.Windows.Forms.TextBox txtDniLector;
         private System.Windows.Forms.Button btnPrestados;
+        private System.Windows.Forms.ComboBox cboPrestado;
+        private System.Windows.Forms.Label label1;
     }
 }
 

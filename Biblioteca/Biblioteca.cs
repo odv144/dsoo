@@ -68,23 +68,25 @@ namespace Biblioteca
         public void CargarLibros( DataGridView data,string titulo,string autor,string editorial, string genero)
         {
             bool pude;
+           
            if(data.RowCount == 0)
             {
-
+            
             dt.Columns.Add("Titulo", typeof(string));
             dt.Columns.Add("Autor", typeof(string));
             dt.Columns.Add("Editorial", typeof(string));
             dt.Columns.Add("Genero", typeof(string));
             }
-
            
-            string nro = (data.Rows.Count + 1).ToString();
+         
+           // string nro = (data.Rows.Count + 1).ToString();
 //            pude = agregarLibro("Libro" + nro, "Autor" +nro, "Editorial" + nro, "Genero" + nro);
             pude = AgregarLibro(titulo,autor,editorial,genero);
 
             if (pude)
             {
                 dt.Rows.Add(titulo, autor, editorial, genero);
+              
                 data.DataSource = dt;
 
             }
@@ -127,7 +129,7 @@ namespace Biblioteca
             return lector;
         }
 
-        public void PrestarLibro(string titulo, string dni)
+        public Lector PrestarLibro(string titulo, string dni)
         {
             Lector lector = BuscarLector(dni);
             if ( lector != null)
@@ -151,6 +153,7 @@ namespace Biblioteca
                     MessageBox.Show("TOPE DE PRESTAMO ALCAZADO");
                 }
             }
+            return lector;
         }
         public void QuitarDeBiblioteca(string titulo)
         {
