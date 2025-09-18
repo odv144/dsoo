@@ -48,11 +48,11 @@ namespace Biblioteca
             if (VerificarCantidadPrestamos() < 3)
             {
                 _prestamos.Add(libro);
-             
+                MessageBox.Show("PRESTAMO EXITOSO");
             }
             else
             {
-                MessageBox.Show("Ha superado el máximo de prestamos permitidos");
+                MessageBox.Show("TOPE DE PRESTAMO ALCAZADO");
             }
         }
 

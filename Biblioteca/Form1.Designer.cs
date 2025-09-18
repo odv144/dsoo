@@ -44,7 +44,6 @@
             this.btnDatos = new System.Windows.Forms.Button();
             this.btnNuevoLector = new System.Windows.Forms.Button();
             this.btnPrestar = new System.Windows.Forms.Button();
-            this.btnDevolver = new System.Windows.Forms.Button();
             this.lblLector = new System.Windows.Forms.Label();
             this.txtLector = new System.Windows.Forms.TextBox();
             this.lblDniLector = new System.Windows.Forms.Label();
@@ -225,17 +224,6 @@
             this.btnPrestar.UseVisualStyleBackColor = false;
             this.btnPrestar.Click += new System.EventHandler(this.btnPrestar_Click);
             // 
-            // btnDevolver
-            // 
-            this.btnDevolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnDevolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDevolver.Location = new System.Drawing.Point(491, 64);
-            this.btnDevolver.Name = "btnDevolver";
-            this.btnDevolver.Size = new System.Drawing.Size(126, 37);
-            this.btnDevolver.TabIndex = 17;
-            this.btnDevolver.Text = "Devolver";
-            this.btnDevolver.UseVisualStyleBackColor = false;
-            // 
             // lblLector
             // 
             this.lblLector.AutoSize = true;
@@ -312,7 +300,6 @@
             this.Controls.Add(this.lblDniLector);
             this.Controls.Add(this.lblLector);
             this.Controls.Add(this.txtLector);
-            this.Controls.Add(this.btnDevolver);
             this.Controls.Add(this.btnPrestar);
             this.Controls.Add(this.btnNuevoLector);
             this.Controls.Add(this.btnDatos);
@@ -356,7 +343,6 @@
         private System.Windows.Forms.Button btnDatos;
         private System.Windows.Forms.Button btnNuevoLector;
         private System.Windows.Forms.Button btnPrestar;
-        private System.Windows.Forms.Button btnDevolver;
         private System.Windows.Forms.Label lblLector;
         private System.Windows.Forms.TextBox txtLector;
         private System.Windows.Forms.Label lblDniLector;

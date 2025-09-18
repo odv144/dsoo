@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,13 @@ namespace Biblioteca
               
              
         }
-
+        DataTable table = new DataTable();
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+            table.Columns.Add("Titulo", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
+            table.Columns.Add("Editorial", typeof(string));
+            table.Columns.Add("Genero", typeof(string));
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -34,14 +38,29 @@ namespace Biblioteca
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            biblioteca.ListarLibros(dgvLibros);
+            List<Libro> libros;
+            libros = biblioteca.ListarLibros();
+            table.Clear();
+            foreach(Libro lib in libros)
+            {
+                table.Rows.Add(lib.Titulo,lib.Autor,lib.Editorial,lib.Genero);
+            }
+            dgvLibros.DataSource = table;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(biblioteca.EliminarLibro(txtTitulo.Text,dgvLibros))
+            
+            if (biblioteca.EliminarLibro(txtTitulo.Text, dgvLibros))
             {
-
+                List<Libro> libros;
+                libros = biblioteca.ListarLibros();
+                table.Clear();
+                foreach (Libro lib in libros)
+                {
+                    table.Rows.Add(lib.Titulo, lib.Autor, lib.Editorial, lib.Genero);
+                }
+                dgvLibros.DataSource = table;
                
                 MessageBox.Show("SE elimino correctamente");
             }
@@ -53,17 +72,28 @@ namespace Biblioteca
 
         private void btnDatos_Click(object sender, EventArgs e)
         {
-           for(int i = 1; i<10;i++)
-                biblioteca.CargarLibros(dgvLibros, txtTitulo.Text+i.ToString(),
-                                    txtAutor.Text+i.ToString(), txtEditorial.Text+i.ToString(), txtGenero.Text);
+            Boolean flag=false;
+            for (int i = 1; i < 10; i++)
+            {
+                flag = biblioteca.AgregarLibro(txtTitulo.Text + i.ToString(),
+                                    txtAutor.Text + i.ToString(), txtEditorial.Text + i.ToString(), txtGenero.Text);
+                if (flag)
+                {
+                    table.Rows.Add(txtTitulo.Text + i.ToString(),txtAutor.Text + i.ToString(), txtEditorial.Text + i.ToString(), txtGenero.Text);
+                }
+            }
+            dgvLibros.DataSource = table;
+           
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Libro book;
             book= biblioteca.BuscarLibro(txtTitulo.Text);
             if(book != null)
             {
+                table.Rows.Clear();
+                table.Rows.Add(book.Titulo, book.Editorial, book.Autor, book.Genero);
+                dgvLibros.DataSource=table;
                 MessageBox.Show("Se encontro el libro");
             }else
             {
@@ -73,7 +103,14 @@ namespace Biblioteca
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            biblioteca.CargarLibros(dgvLibros, txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtGenero.Text);
+            bool agregado;
+            agregado=biblioteca.AgregarLibro(txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtGenero.Text);
+            if (agregado)
+            {
+                table.Rows.Add(txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtGenero.Text);
+                dgvLibros.DataSource = table;
+            }
+            //biblioteca.CargarLibros(dgvLibros, txtTitulo.Text, txtAutor.Text, txtEditorial.Text, txtGenero.Text);
         }
 
         private void btnNuevoLector_Click(object sender, EventArgs e)
@@ -89,11 +126,31 @@ namespace Biblioteca
             {
                 List<Libro> libro;
                 libro=lector.ListarPrestamos();
-                cboPrestado.Items.Clear();
-                foreach (Libro book in libro)
-                    cboPrestado.Items.Add(book.ToString());
+                
+                if (libro != null)
+                {
 
-                cboPrestado.SelectedIndex = 0;
+                foreach (Libro book in libro)
+                    {
+                        cboPrestado.Items.Add(book.ToString());
+                        cboPrestado.SelectedIndex = 0;
+                    }
+                
+                libro = biblioteca.ListarLibros();      
+                foreach (Libro book in libro)
+                        table.Rows.Add(book.Titulo, book.Editorial, book.Autor, book.Genero);
+
+                   
+
+                }
+                else
+                {
+                    MessageBox.Show("LIBRO INEXISTENTE");
+                }
+            }
+            else
+            {
+                MessageBox.Show("LECTOR INEXISTENTE");
             }
         }
 
@@ -107,5 +164,16 @@ namespace Biblioteca
             }
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int n = dgvLibros.Rows.Add();
+            dgvLibros.Rows[n].Cells[0].Value = "titulo";
+            dgvLibros.Rows[n].Cells[1].Value = "autor";
+            dgvLibros.Rows[n].Cells[2].Value = "editoria";
+            dgvLibros.Rows[n].Cells[3].Value = "genero";
+        }
+
+       
     }
 }

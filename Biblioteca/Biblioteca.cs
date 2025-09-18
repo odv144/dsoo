@@ -43,10 +43,9 @@ namespace Biblioteca
             }
             return resultado;
         }
-        public void ListarLibros(DataGridView data)
+        public List<Libro> ListarLibros()
         {
-         
-              data.DataSource=Libros;
+            return Libros;
         }
         public bool EliminarLibro(string titulo, DataGridView data)
         {
@@ -58,45 +57,14 @@ namespace Biblioteca
             if (i != Libros.Count)
             {
                 Libros.RemoveAt(i);
-                data.Rows.RemoveAt(i);
+               // data.Rows.RemoveAt(i);
                 resultado = true;
                
             }
 
             return resultado;
         }
-        public void CargarLibros( DataGridView data,string titulo,string autor,string editorial, string genero)
-        {
-            bool pude;
-           
-           if(data.RowCount == 0)
-            {
-            
-            dt.Columns.Add("Titulo", typeof(string));
-            dt.Columns.Add("Autor", typeof(string));
-            dt.Columns.Add("Editorial", typeof(string));
-            dt.Columns.Add("Genero", typeof(string));
-            }
-           
-         
-           // string nro = (data.Rows.Count + 1).ToString();
-//            pude = agregarLibro("Libro" + nro, "Autor" +nro, "Editorial" + nro, "Genero" + nro);
-            pude = AgregarLibro(titulo,autor,editorial,genero);
-
-            if (pude)
-            {
-                dt.Rows.Add(titulo, autor, editorial, genero);
-              
-                data.DataSource = dt;
-
-            }
-            else
-            {
-                MessageBox.Show(titulo+" ya existe en la biblioteca", "Existe Libro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                
-            }
-           
-        }
+        
         public Lector BuscarLector(string dni)
         {
             int x = 0;
@@ -107,10 +75,10 @@ namespace Biblioteca
             if (x < lector.Count)
             {
                 return lector[x];
+               
             }
             else
             {
-                MessageBox.Show("LECTOR INEXISTENTE");
                 return null;
             }
         }
@@ -121,7 +89,8 @@ namespace Biblioteca
             {
                 lector = new Lector(Nombre, dni);
                 this.lector.Add(lector);
-             }
+                MessageBox.Show("LECTOR CREADO EXITOSAMENTE");
+            }
             else
             {
                 MessageBox.Show("EL LECTOR YA EXISTE");
