@@ -180,6 +180,7 @@
             // 
             // dgvLibros
             // 
+            this.dgvLibros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLibros.Location = new System.Drawing.Point(205, 108);
             this.dgvLibros.Name = "dgvLibros";
@@ -317,7 +318,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtTitulo);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Trabajo Practico Biblioteca";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).EndInit();
             this.ResumeLayout(false);

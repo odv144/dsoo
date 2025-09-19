@@ -109,7 +109,7 @@ namespace Biblioteca
                     if(libro != null)
                     {
                         lector.AgregarPrestamo(libro);
-                        QuitarDeBiblioteca(titulo);
+                        Libros.Remove(BuscarLibro(titulo));
                         MessageBox.Show("PRESTAMO EXITOSO");
                     }
                     else
@@ -124,18 +124,7 @@ namespace Biblioteca
             }
             return lector;
         }
-        public void QuitarDeBiblioteca(string titulo)
-        {
-            if (Libros.Remove(BuscarLibro(titulo)))
-            {
-               
-                MessageBox.Show("SE QUITO DE LA BIBLIOTECA");
-            }
-            else
-            {
-                MessageBox.Show("NO SE QUITO DE LA BIBLIOTECA");
-            }
-        }
+       
 
     }
 }

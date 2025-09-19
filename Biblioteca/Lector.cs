@@ -44,16 +44,8 @@ namespace Biblioteca
        
 
         public void AgregarPrestamo(Libro libro)
-        {
-            if (VerificarCantidadPrestamos() < 3)
-            {
+        {            
                 _prestamos.Add(libro);
-                MessageBox.Show("PRESTAMO EXITOSO");
-            }
-            else
-            {
-                MessageBox.Show("TOPE DE PRESTAMO ALCAZADO");
-            }
         }
 
         public List<Libro> ListarPrestamos()

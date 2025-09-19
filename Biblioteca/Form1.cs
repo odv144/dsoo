@@ -25,8 +25,8 @@ namespace Biblioteca
         private void Form1_Load(object sender, EventArgs e)
         {
             table.Columns.Add("Titulo", typeof(string));
-            table.Columns.Add("Autor", typeof(string));
             table.Columns.Add("Editorial", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
             table.Columns.Add("Genero", typeof(string));
         }
 
@@ -72,16 +72,28 @@ namespace Biblioteca
 
         private void btnDatos_Click(object sender, EventArgs e)
         {
-            Boolean flag=false;
-            for (int i = 1; i < 10; i++)
-            {
-                flag = biblioteca.AgregarLibro(txtTitulo.Text + i.ToString(),
-                                    txtAutor.Text + i.ToString(), txtEditorial.Text + i.ToString(), txtGenero.Text);
-                if (flag)
-                {
-                    table.Rows.Add(txtTitulo.Text + i.ToString(),txtAutor.Text + i.ToString(), txtEditorial.Text + i.ToString(), txtGenero.Text);
-                }
-            }
+            biblioteca.AgregarLibro("Harry Potter y la piedra filosofal", "Salamandra", "J.K. Rowling", "Fantasía");
+            biblioteca.AgregarLibro("El código Da Vinci", "Roca Editorial", "Dan Brown", "Misterio/Thriller");
+            biblioteca.AgregarLibro("El nombre del viento", "Plaza & Janés", "Patrick Rothfuss", "Fantasía épica");
+            biblioteca.AgregarLibro("Perdida", "RBA Libros", "Gillian Flynn", "Thriller psicológico");
+            biblioteca.AgregarLibro("La chica del tren", "Planeta", "Paula Hawkins", "Thriller");
+            biblioteca.AgregarLibro("El camino de los reyes", "Ediciones B", "Brandon Sanderson", "Fantasía épica");
+            biblioteca.AgregarLibro("El problema de los tres cuerpos", "Nova", "Cixin Liu", "Ciencia ficción");
+            biblioteca.AgregarLibro("Educated", "Plataforma Editorial", "Tara Westover", "No ficción/Memorias");
+            biblioteca.AgregarLibro("Los siete maridos de Evelyn Hugo", "Titania", "Taylor Jenkins Reid", "Ficción histórica");
+            biblioteca.AgregarLibro("Nacidos de la bruma: El imperio final", "Ediciones B", "Brandon Sanderson", "Fantasía");
+
+            table.Rows.Add("Harry Potter y la piedra filosofal", "Salamandra", "J.K. Rowling", "Fantasía");
+            table.Rows.Add("El código Da Vinci", "Roca Editorial", "Dan Brown", "Misterio/Thriller");
+            table.Rows.Add("El nombre del viento", "Plaza & Janés", "Patrick Rothfuss", "Fantasía épica");
+            table.Rows.Add("Perdida", "RBA Libros", "Gillian Flynn", "Thriller psicológico");
+            table.Rows.Add("La chica del tren", "Planeta", "Paula Hawkins", "Thriller");
+            table.Rows.Add("El camino de los reyes", "Ediciones B", "Brandon Sanderson", "Fantasía épica");
+            table.Rows.Add("El problema de los tres cuerpos", "Nova", "Cixin Liu", "Ciencia ficción");
+            table.Rows.Add("Educated", "Plataforma Editorial", "Tara Westover", "No ficción/Memorias");
+            table.Rows.Add("Los siete maridos de Evelyn Hugo", "Titania", "Taylor Jenkins Reid", "Ficción histórica");
+            table.Rows.Add("Nacidos de la bruma: El imperio final", "Ediciones B", "Brandon Sanderson", "Fantasía");
+
             dgvLibros.DataSource = table;
            
         }
@@ -130,14 +142,17 @@ namespace Biblioteca
                 if (libro != null)
                 {
 
-                foreach (Libro book in libro)
+                    List<Libro> prestado=new List<Libro>();
+                    foreach (Libro book in libro)
                     {
-                        cboPrestado.Items.Add(book.ToString());
-                        cboPrestado.SelectedIndex = 0;
+                        prestado.Add(book);
+                       
                     }
-                
-                libro = biblioteca.ListarLibros();      
-                foreach (Libro book in libro)
+                    cboPrestado.DataSource = prestado;
+                    cboPrestado.SelectedIndex = 0;
+                    libro = biblioteca.ListarLibros();
+                    table.Rows.Clear();
+                    foreach (Libro book in libro)
                         table.Rows.Add(book.Titulo, book.Editorial, book.Autor, book.Genero);
 
                    
