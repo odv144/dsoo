@@ -85,6 +85,11 @@ namespace Biblioteca
         public Lector AltaLector(string Nombre, string dni)
         {
             Lector lector=null;
+            if(Nombre=="" && dni == "")
+            {
+                MessageBox.Show("NO SE PUEDE CREAR LECTOR SIN DATOS");
+                return null;
+            }
             if(BuscarLector(dni) == null)
             {
                 lector = new Lector(Nombre, dni);
@@ -100,6 +105,7 @@ namespace Biblioteca
 
         public Lector PrestarLibro(string titulo, string dni)
         {
+      
             Lector lector = BuscarLector(dni);
             if ( lector != null)
             {

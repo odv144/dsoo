@@ -133,13 +133,14 @@ namespace Biblioteca
         private void btnPrestar_Click(object sender, EventArgs e)
         {
             Lector lector;
+            
             lector= biblioteca.PrestarLibro(txtTitulo.Text,txtDniLector.Text);
             if (lector != null)
             {
                 List<Libro> libro;
                 libro=lector.ListarPrestamos();
                 
-                if (libro != null)
+                if (libro != null && libro.Count!=0)
                 {
 
                     List<Libro> prestado=new List<Libro>();
@@ -158,10 +159,7 @@ namespace Biblioteca
                    
 
                 }
-                else
-                {
-                    MessageBox.Show("LIBRO INEXISTENTE");
-                }
+               
             }
             else
             {
