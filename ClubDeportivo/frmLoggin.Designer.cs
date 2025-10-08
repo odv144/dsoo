@@ -39,10 +39,10 @@
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.DodgerBlue;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.BackColor = System.Drawing.Color.LimeGreen;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(-18, 9);
+            this.label4.Location = new System.Drawing.Point(-6, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(246, 29);
             this.label4.TabIndex = 7;
@@ -51,27 +51,31 @@
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(11, 206);
+            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtPass.Location = new System.Drawing.Point(22, 208);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(188, 20);
+            this.txtPass.Size = new System.Drawing.Size(188, 22);
             this.txtPass.TabIndex = 11;
             this.txtPass.Text = "PASSWORD";
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(11, 180);
+            this.txtUser.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUser.Location = new System.Drawing.Point(22, 180);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(188, 20);
+            this.txtUser.Size = new System.Drawing.Size(188, 22);
             this.txtUser.TabIndex = 10;
             this.txtUser.Text = "USUARIO";
             // 
             // btnIngreso
             // 
-            this.btnIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngreso.ForeColor = System.Drawing.Color.Red;
-            this.btnIngreso.Location = new System.Drawing.Point(12, 232);
+            this.btnIngreso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngreso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnIngreso.Location = new System.Drawing.Point(22, 236);
             this.btnIngreso.Name = "btnIngreso";
-            this.btnIngreso.Size = new System.Drawing.Size(186, 41);
+            this.btnIngreso.Size = new System.Drawing.Size(188, 41);
             this.btnIngreso.TabIndex = 9;
             this.btnIngreso.Text = "INGRESAR";
             this.btnIngreso.UseVisualStyleBackColor = true;
@@ -80,9 +84,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(50, 52);
+            this.pictureBox1.Location = new System.Drawing.Point(53, 52);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(110, 97);
+            this.pictureBox1.Size = new System.Drawing.Size(127, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -91,6 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Blue;
             this.ClientSize = new System.Drawing.Size(233, 301);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
