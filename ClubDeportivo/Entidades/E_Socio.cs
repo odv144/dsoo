@@ -17,26 +17,18 @@ namespace ClubDeportivo.Entidades
 
 
         // Constructor con parámetros
-        public E_Socio(
-            //int idUsuario,
-            string nombre,
-            string apellido,
-            string dni,
-            string telefono,
-            string email,
-            DateTime fechaRegistro,
-            bool certificadoMedico,
-            //int nroSocio,
+        public E_Socio(E_Usuario usuario,
             string estadoHabilitacion,
             double cuotaMensual,
             bool carnetEntregado)
-            : base(/*idUsuario*/ nombre, apellido, dni, telefono, email, fechaRegistro, certificadoMedico)
+            : base(usuario.Nombre, usuario.Apellido, usuario.Dni, usuario.Telefono, usuario.Email, usuario.FechaRegistro, usuario.CertificadoMedico)
         {
-            //NroSocio = nroSocio;
+            NroSocio = usuario.IdUsuario;
             EstadoHabilitacion = estadoHabilitacion;
             CuotaMensual = cuotaMensual;
             CarnetEntregado = carnetEntregado;
         }
+       
     }
 
    

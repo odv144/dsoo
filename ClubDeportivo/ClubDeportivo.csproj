@@ -125,6 +125,7 @@
     <Compile Include="frmRegistro.Designer.cs">
       <DependentUpon>frmRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="RepositorySocio.cs" />
     <EmbeddedResource Include="frmApp.resx">
       <DependentUpon>frmApp.cs</DependentUpon>
     </EmbeddedResource>

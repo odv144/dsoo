@@ -46,6 +46,9 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.chkAsociar = new System.Windows.Forms.CheckBox();
+            this.txtImporte = new System.Windows.Forms.TextBox();
+            this.lblImporte = new System.Windows.Forms.Label();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -105,7 +108,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(166, 310);
+            this.label7.Location = new System.Drawing.Point(166, 308);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 13);
             this.label7.TabIndex = 6;
@@ -113,7 +116,7 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(697, 402);
+            this.btnRegistrar.Location = new System.Drawing.Point(454, 402);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(131, 50);
             this.btnRegistrar.TabIndex = 7;
@@ -123,7 +126,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(370, 402);
+            this.btnLimpiar.Location = new System.Drawing.Point(252, 402);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(142, 50);
             this.btnLimpiar.TabIndex = 8;
@@ -142,7 +145,7 @@
             // chkCerMedico
             // 
             this.chkCerMedico.AutoSize = true;
-            this.chkCerMedico.Location = new System.Drawing.Point(342, 310);
+            this.chkCerMedico.Location = new System.Drawing.Point(342, 308);
             this.chkCerMedico.Name = "chkCerMedico";
             this.chkCerMedico.Size = new System.Drawing.Size(15, 14);
             this.chkCerMedico.TabIndex = 10;
@@ -154,6 +157,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(170, 20);
             this.txtNombre.TabIndex = 11;
+            this.txtNombre.Text = "Omar Dario";
             // 
             // txtApellido
             // 
@@ -161,6 +165,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(170, 20);
             this.txtApellido.TabIndex = 12;
+            this.txtApellido.Text = "Virili";
             // 
             // txtDni
             // 
@@ -168,6 +173,7 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(170, 20);
             this.txtDni.TabIndex = 13;
+            this.txtDni.Text = "30729505";
             // 
             // txtTelefono
             // 
@@ -175,6 +181,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(170, 20);
             this.txtTelefono.TabIndex = 14;
+            this.txtTelefono.Text = "3482558453";
             // 
             // txtEmail
             // 
@@ -182,11 +189,12 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(170, 20);
             this.txtEmail.TabIndex = 15;
+            this.txtEmail.Text = "omar.virili@gmail.com";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(166, 354);
+            this.label8.Location = new System.Drawing.Point(166, 356);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 13);
             this.label8.TabIndex = 16;
@@ -195,17 +203,46 @@
             // chkAsociar
             // 
             this.chkAsociar.AutoSize = true;
-            this.chkAsociar.Location = new System.Drawing.Point(342, 353);
+            this.chkAsociar.Location = new System.Drawing.Point(342, 355);
             this.chkAsociar.Name = "chkAsociar";
             this.chkAsociar.Size = new System.Drawing.Size(15, 14);
             this.chkAsociar.TabIndex = 17;
             this.chkAsociar.UseVisualStyleBackColor = true;
+            // 
+            // txtImporte
+            // 
+            this.txtImporte.Location = new System.Drawing.Point(678, 91);
+            this.txtImporte.Name = "txtImporte";
+            this.txtImporte.Size = new System.Drawing.Size(100, 20);
+            this.txtImporte.TabIndex = 18;
+            // 
+            // lblImporte
+            // 
+            this.lblImporte.AutoSize = true;
+            this.lblImporte.Location = new System.Drawing.Point(551, 94);
+            this.lblImporte.Name = "lblImporte";
+            this.lblImporte.Size = new System.Drawing.Size(88, 13);
+            this.lblImporte.TabIndex = 19;
+            this.lblImporte.Text = "Importe a Abonar";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(645, 402);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(131, 50);
+            this.btnImprimir.TabIndex = 20;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 481);
+            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.lblImporte);
+            this.Controls.Add(this.txtImporte);
             this.Controls.Add(this.chkAsociar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtEmail);
@@ -252,5 +289,8 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox chkAsociar;
+        private System.Windows.Forms.TextBox txtImporte;
+        private System.Windows.Forms.Label lblImporte;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }
