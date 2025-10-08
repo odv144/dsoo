@@ -46,6 +46,7 @@
             this.btnRegistrar.TabIndex = 0;
             this.btnRegistrar.Text = "Registrar Socio";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnCobro
             // 

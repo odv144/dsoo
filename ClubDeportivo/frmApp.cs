@@ -23,5 +23,10 @@ namespace ClubDeportivo
             login.ShowDialog();
         }
 
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            frmRegistro registro = new frmRegistro();
+            registro.ShowDialog();
+        }
     }
 }

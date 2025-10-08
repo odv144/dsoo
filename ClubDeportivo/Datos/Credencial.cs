@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClubDeportivo.Datos
 {
-    internal class Usuarios
+    internal class Credencial
     {
         public DataTable Log_Usu(string L_Usu, string P_Usu)
         {

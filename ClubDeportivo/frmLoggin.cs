@@ -59,7 +59,7 @@ namespace ClubDeportivo
         private void btnIngreso_Click(object sender, EventArgs e)
         {
             DataTable tablaLogin = new DataTable();
-            Datos.Usuarios datos = new Datos.Usuarios();
+            Datos.Credencial datos = new Datos.Credencial();
             tablaLogin = datos.Log_Usu(txtUser.Text, txtPass.Text);
             if (tablaLogin.Rows.Count > 0)
             {

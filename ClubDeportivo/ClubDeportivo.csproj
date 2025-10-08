@@ -98,6 +98,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\RegistrarSocio.cs" />
+    <Compile Include="Entidades\E_NoSocio.cs" />
+    <Compile Include="Entidades\E_Socio.cs" />
+    <Compile Include="Entidades\E_Usuario.cs" />
     <Compile Include="frmLoggin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,7 +109,7 @@
       <DependentUpon>frmLoggin.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos\Conexion.cs" />
-    <Compile Include="Datos\Usuarios.cs" />
+    <Compile Include="Datos\Credencial.cs" />
     <Compile Include="frmApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +118,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frmRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistro.Designer.cs">
+      <DependentUpon>frmRegistro.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmApp.resx">
       <DependentUpon>frmApp.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +134,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistro.resx">
+      <DependentUpon>frmRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
