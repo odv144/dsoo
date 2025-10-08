@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\RegistrarSocio.cs" />
+    <Compile Include="Datos\RepositoryUsuario.cs" />
     <Compile Include="Entidades\E_NoSocio.cs" />
     <Compile Include="Entidades\E_Socio.cs" />
     <Compile Include="Entidades\E_Usuario.cs" />

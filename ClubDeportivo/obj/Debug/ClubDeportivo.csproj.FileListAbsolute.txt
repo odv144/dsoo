@@ -89,3 +89,4 @@ D:\Visual Studio\proyectos\dsoo\ClubDeportivo\obj\Debug\ClubDepo.31FF01E1.Up2Dat
 D:\Visual Studio\proyectos\dsoo\ClubDeportivo\obj\Debug\ClubDeportivo.exe
 D:\Visual Studio\proyectos\dsoo\ClubDeportivo\obj\Debug\ClubDeportivo.pdb
 D:\Visual Studio\proyectos\dsoo\ClubDeportivo\obj\Debug\ClubDeportivo.frmRegistro.resources
+D:\2025\Tecnicatura\Desarrollo de Software  Orientado a Objeto\dsoo\ClubDeportivo\obj\Debug\ClubDeportivo.frmRegistro.resources

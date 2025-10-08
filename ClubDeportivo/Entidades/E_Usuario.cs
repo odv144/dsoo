@@ -19,9 +19,12 @@ namespace ClubDeportivo.Entidades
         public bool CertificadoMedico { get; set; }
 
         public E_Usuario( string nombre, 
-            string apellido, string dni,
+            string apellido, 
+            string dni,
             string telefono, 
-            string email, DateTime fechaRegistro, bool certificadoMedico)
+            string email, 
+            DateTime fechaRegistro, 
+            bool certificadoMedico)
         {
            
             Nombre = nombre;
