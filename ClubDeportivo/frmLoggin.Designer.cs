@@ -58,6 +58,8 @@
             this.txtPass.Size = new System.Drawing.Size(188, 22);
             this.txtPass.TabIndex = 11;
             this.txtPass.Text = "PASSWORD";
+            this.txtPass.Enter += new System.EventHandler(this.LimpiarCampo);
+            this.txtPass.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtUser
             // 
@@ -68,6 +70,8 @@
             this.txtUser.Size = new System.Drawing.Size(188, 22);
             this.txtUser.TabIndex = 10;
             this.txtUser.Text = "USUARIO";
+            this.txtUser.Enter += new System.EventHandler(this.LimpiarCampo);
+            this.txtUser.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // btnIngreso
             // 

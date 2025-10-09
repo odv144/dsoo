@@ -27,23 +27,26 @@ namespace ClubDeportivo
         private void btnRegistrar_Click(object sender, EventArgs e)
 
         {
-            RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
-           
-            Entidades.E_Usuario usuario;
-           
-            usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text,txtTelefono.Text,
-                                                                   txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
-            id = repositoryUsuario.InsertarUsuario(usuario, chkAsociar.Checked);
+            if (chkCerMedico.Checked)
+            {
+                RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
 
-            repositoryUsuario.InsertarSocio(usuario, "activo",double.Parse(txtImporte.Text), false);
-            //MessageBox.Show(usuario.Nombre);
-           /* frmCarnet carnet = new frmCarnet(id);
-            carnet.ShowDialog();
-           */
+                Entidades.E_Usuario usuario;
 
-               // RegistrarSocio reg = new RegistrarSocio(usuario, chkAsociar.Checked);
+                usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
+                                                                       txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
+                id = repositoryUsuario.InsertarUsuario(usuario, chkAsociar.Checked);
 
+                repositoryUsuario.InsertarSocio(usuario, "activo", double.Parse(txtImporte.Text), false);
+                //MessageBox.Show(usuario.Nombre);
+                /* frmCarnet carnet = new frmCarnet(id);
+                 carnet.ShowDialog();
+                */
 
+                // RegistrarSocio reg = new RegistrarSocio(usuario, chkAsociar.Checked);
+                // RegistrarSocio reg = new RegistrarSocio(usuario, chkAsociar.Checked);
+
+            }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

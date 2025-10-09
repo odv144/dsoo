@@ -35,44 +35,7 @@ namespace ClubDeportivo.Datos
                    
                     sqlCon.Close();
                      return (int)comando.LastInsertedId;
-                /* if (asociar)
-            {
-                string insertSocio = "INSERT INTO socios (EstadoHabilitacion,CuotaMensual,CarnetEntregado) VALUES (@EstadoHabilitacion,@CuotaMensaul,@CarnetEntregado)";
-                MySqlCommand cmd = new MySqlCommand(insertSocio, sqlCon);
-
-                cmd.Parameters.AddWithValue("@EstadoHabilitacion",true);
-                    cmd.Parameters.AddWithValue("@CuotaMensual", );
-                    cmd.Parameters.AddWithValue("@CarnetEnregado", false);
-                    cmd.ExecuteNonQuery();
-
-            }
-            else
-            {
-
-            }
-                    // 2️⃣ Insertar según el tipo
-                    if (usuario is Socio socio)
-                    {
-                        string insertSocio = "INSERT INTO socios (id, cuota_mensual) VALUES (@id, @cuota)";
-                        using (var cmd = new MySqlCommand(insertSocio, connection, transaction))
-                        {
-                            cmd.Parameters.AddWithValue("@id", socio.Id);
-                            cmd.Parameters.AddWithValue("@cuota", socio.CuotaMensual);
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                    else if (usuario is NoSocio noSocio)
-                    {
-                        string insertNoSocio = "INSERT INTO no_socios (id, tarifa_diaria) VALUES (@id, @tarifa)";
-                        using (var cmd = new MySqlCommand(insertNoSocio, connection, transaction))
-                        {
-                            cmd.Parameters.AddWithValue("@id", noSocio.Id);
-                            cmd.Parameters.AddWithValue("@tarifa", noSocio.TarifaDiaria);
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-
-                   */
+               
             }
             catch
                     {

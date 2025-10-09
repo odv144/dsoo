@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Tls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace ClubDeportivo
 
         private void App_Load(object sender, EventArgs e)
         {
-          
+
         }
         private void txtUser_Enter(object sender, EventArgs e)
         {
@@ -69,6 +70,39 @@ namespace ClubDeportivo
             else
             {
                 MessageBox.Show("Usuario y/o password incorrecto");
+            }
+        }
+
+
+        private void LimpiarCampo(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            txt.Text = string.Empty;
+            if (txt.Name == "txtPass")
+            {
+                txt.UseSystemPasswordChar=true;
+            }
+        }
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Si el usuario deja el campo vacío, restauramos el texto predeterminado
+            if (string.IsNullOrWhiteSpace(txt.Text))
+            {
+                // Determinamos qué placeholder restaurar basado en el nombre del control
+                switch (txt.Name)
+                {
+                    case "txtUser":
+                        txt.Text = "USUARIO";
+                        break;
+                    case "txtPass":
+                        txt.Text = "PASSWORD";
+                        break;
+                    
+                }
+            
+         
             }
         }
     }
