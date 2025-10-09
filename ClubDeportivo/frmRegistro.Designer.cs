@@ -49,6 +49,8 @@
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.lblImporte = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.lblObs = new System.Windows.Forms.Label();
+            this.txtObs = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -116,6 +118,7 @@
             // 
             // btnRegistrar
             // 
+            this.btnRegistrar.Enabled = false;
             this.btnRegistrar.Location = new System.Drawing.Point(454, 402);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(131, 50);
@@ -132,6 +135,7 @@
             this.btnLimpiar.TabIndex = 8;
             this.btnLimpiar.Text = "Limpiar datos";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnAtras
             // 
@@ -141,6 +145,7 @@
             this.btnAtras.TabIndex = 9;
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // chkCerMedico
             // 
@@ -150,6 +155,7 @@
             this.chkCerMedico.Size = new System.Drawing.Size(15, 14);
             this.chkCerMedico.TabIndex = 10;
             this.chkCerMedico.UseVisualStyleBackColor = true;
+            this.chkCerMedico.CheckedChanged += new System.EventHandler(this.HabilitarBotones);
             // 
             // txtNombre
             // 
@@ -157,7 +163,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(170, 20);
             this.txtNombre.TabIndex = 11;
-            this.txtNombre.Text = "Omar Dario";
             // 
             // txtApellido
             // 
@@ -165,7 +170,6 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(170, 20);
             this.txtApellido.TabIndex = 12;
-            this.txtApellido.Text = "Virili";
             // 
             // txtDni
             // 
@@ -173,7 +177,6 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(170, 20);
             this.txtDni.TabIndex = 13;
-            this.txtDni.Text = "30729505";
             // 
             // txtTelefono
             // 
@@ -181,7 +184,6 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(170, 20);
             this.txtTelefono.TabIndex = 14;
-            this.txtTelefono.Text = "3482558453";
             // 
             // txtEmail
             // 
@@ -189,7 +191,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(170, 20);
             this.txtEmail.TabIndex = 15;
-            this.txtEmail.Text = "omar.virili@gmail.com";
             // 
             // label8
             // 
@@ -208,12 +209,13 @@
             this.chkAsociar.Size = new System.Drawing.Size(15, 14);
             this.chkAsociar.TabIndex = 17;
             this.chkAsociar.UseVisualStyleBackColor = true;
+            this.chkAsociar.CheckedChanged += new System.EventHandler(this.HabilitarObs);
             // 
             // txtImporte
             // 
-            this.txtImporte.Location = new System.Drawing.Point(678, 91);
+            this.txtImporte.Location = new System.Drawing.Point(645, 91);
             this.txtImporte.Name = "txtImporte";
-            this.txtImporte.Size = new System.Drawing.Size(100, 20);
+            this.txtImporte.Size = new System.Drawing.Size(177, 20);
             this.txtImporte.TabIndex = 18;
             // 
             // lblImporte
@@ -227,6 +229,7 @@
             // 
             // btnImprimir
             // 
+            this.btnImprimir.Enabled = false;
             this.btnImprimir.Location = new System.Drawing.Point(645, 402);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(131, 50);
@@ -235,11 +238,32 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // lblObs
+            // 
+            this.lblObs.AutoSize = true;
+            this.lblObs.Enabled = false;
+            this.lblObs.Location = new System.Drawing.Point(549, 137);
+            this.lblObs.Name = "lblObs";
+            this.lblObs.Size = new System.Drawing.Size(67, 13);
+            this.lblObs.TabIndex = 22;
+            this.lblObs.Text = "Observación";
+            // 
+            // txtObs
+            // 
+            this.txtObs.Enabled = false;
+            this.txtObs.Location = new System.Drawing.Point(645, 134);
+            this.txtObs.Multiline = true;
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(177, 84);
+            this.txtObs.TabIndex = 21;
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 481);
+            this.Controls.Add(this.lblObs);
+            this.Controls.Add(this.txtObs);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lblImporte);
             this.Controls.Add(this.txtImporte);
@@ -292,5 +316,7 @@
         private System.Windows.Forms.TextBox txtImporte;
         private System.Windows.Forms.Label lblImporte;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Label lblObs;
+        private System.Windows.Forms.TextBox txtObs;
     }
 }

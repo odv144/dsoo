@@ -9,6 +9,32 @@ namespace ClubDeportivo.util
 {
     internal static class Utilidades
     {
+        public static void LimpiarControles(Object sender)
+        {
+            TextBox txt = sender as TextBox;
+             txt.Text= string.Empty;
+          
+        }
+        public static void LimpiarControles(Form formulario)
+        {
+            foreach (Control control in formulario.Controls)
+            {
+                if (control is CheckBox)
+                {
+                    CheckBox chk = control as CheckBox;
+                    chk.Checked = false;
+                  
+                }
+                if (control is TextBox)
+                {
+                    control.Text = string.Empty;
+
+                }
+                
+            }
+            
+
+        }
         public static void TextBox_Leave(object sender, EventArgs e)
         {
             TextBox txt = sender as TextBox;

@@ -13,7 +13,7 @@ namespace ClubDeportivo.Datos
     internal class RepositoryUsuario
     {
         MySqlConnection sqlCon;
-        public int InsertarUsuario(E_Usuario usuario, Boolean asociar)
+        public int InsertarUsuario(E_Usuario usuario)
         {
 
                     try
@@ -68,6 +68,28 @@ namespace ClubDeportivo.Datos
                 
             }
         }
+        public void InsertarNoSocio(E_Usuario usuario, string Obs)
+        {
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                string query = @"INSERT INTO Nosocio (NroNoSocio,Observacion)
+                         VALUES (@NroNoSocio,@Observacion)";
+                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                cmd.Parameters.AddWithValue("@NroNoSocio", usuario.IdUsuario); // FK al Usuario
+                cmd.Parameters.AddWithValue("@Observacion", Obs);
+
+                sqlCon.Open();
+                cmd.ExecuteNonQuery();
+                sqlCon.Close();
+                MessageBox.Show("Registro Exito de No socio");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error a la hora de vincular el usuario con el NO socio");
+
+            }
+        }
         public void CambioEstadoCarnet(int id,bool Estado)
         {
             //llamar a proceso para realizar impresion fisica
@@ -88,6 +110,10 @@ namespace ClubDeportivo.Datos
             {
                 MessageBox.Show("Error al momento de Imprimir");
             }
+        }
+        public void ImpresionComprobante(E_Usuario usuario,int id)
+        {
+            MessageBox.Show("Comprobante de pago por actividad para: "+usuario.Nombre.ToString());
         }
       }
         

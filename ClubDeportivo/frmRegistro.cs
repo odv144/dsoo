@@ -1,5 +1,6 @@
 ﻿using ClubDeportivo.Datos;
 using ClubDeportivo.Entidades;
+using ClubDeportivo.util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace ClubDeportivo
             InitializeComponent();
         }
         public int id;
+        private Entidades.E_Usuario usuario;
         private void frmRegistroUsuario_Load(object sender, EventArgs e)
         {
 
@@ -27,32 +29,83 @@ namespace ClubDeportivo
         private void btnRegistrar_Click(object sender, EventArgs e)
 
         {
+
+            RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
+            usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
+                                                                          txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
             if (chkCerMedico.Checked)
             {
-                RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
+                if (chkAsociar.Checked)
+                {
 
-                Entidades.E_Usuario usuario;
+                    id = repositoryUsuario.InsertarUsuario(usuario);
 
-                usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
-                                                                       txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
-                id = repositoryUsuario.InsertarUsuario(usuario, chkAsociar.Checked);
+                    repositoryUsuario.InsertarSocio(usuario, "activo", double.Parse(txtImporte.Text), false);
 
-                repositoryUsuario.InsertarSocio(usuario, "activo", double.Parse(txtImporte.Text), false);
-                //MessageBox.Show(usuario.Nombre);
-                /* frmCarnet carnet = new frmCarnet(id);
-                 carnet.ShowDialog();
-                */
 
-                // RegistrarSocio reg = new RegistrarSocio(usuario, chkAsociar.Checked);
-                // RegistrarSocio reg = new RegistrarSocio(usuario, chkAsociar.Checked);
+                }
+                else
+                {
+                    //registro no socio
 
+                    id = repositoryUsuario.InsertarUsuario(usuario);
+
+                    repositoryUsuario.InsertarNoSocio(usuario, txtObs.Text);
+
+                }
             }
+
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             RepositoryUsuario repo = new RepositoryUsuario();
-            repo.CambioEstadoCarnet(id, true);
+            if (chkAsociar.Checked)
+            {
+                repo.CambioEstadoCarnet(id, true);
+            }
+            else
+            {
+                repo.ImpresionComprobante(usuario, id);
+            }
+        }
+
+        private void HabilitarObs(object sender, EventArgs e)
+        {
+            if(!chkAsociar.Checked)
+            {
+                txtObs.Enabled = true;
+                lblObs.Enabled = true;
+            }
+            else
+            {
+                txtObs.Enabled = false;
+                lblObs.Enabled = false;
+            }
+        }
+
+        private void HabilitarBotones(object sender, EventArgs e)
+        {
+            if(chkCerMedico.Checked)
+            {
+                btnImprimir.Enabled = true;
+                btnRegistrar.Enabled = true;
+            }
+            else
+            {
+                btnImprimir.Enabled = false;
+               btnRegistrar.Enabled = false;
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Utilidades.LimpiarControles(this);
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
