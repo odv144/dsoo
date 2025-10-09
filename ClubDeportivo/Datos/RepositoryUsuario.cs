@@ -116,7 +116,7 @@ namespace ClubDeportivo.Datos
                      WHERE NroSocio = @NroSocio";
                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
                 cmd.Parameters.AddWithValue("@NroSocio",id); // FK al Usuario
-                cmd.Parameters.AddWithValue("@EstadoHabilitacion", Estado);
+                cmd.Parameters.AddWithValue("@CarnetEntregado", Estado);
                 sqlCon.Open();
                 cmd.ExecuteNonQuery();
                 sqlCon.Close();

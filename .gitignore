@@ -1,7 +1,9 @@
 # Visual Studio
+ClubDeportivo/.vs
 ClubDeportivo/.vs/
-ClubDeportivo/.vs/
-ClubDeportivo/bin/
+ClubDeportivo/bin
 ClubDeportivo/obj/
+ClubDeportivo/bin/
+
 *.user
 *.suo
