@@ -308,7 +308,6 @@
             // txtObs
             // 
             this.txtObs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtObs.Enabled = false;
             this.txtObs.Location = new System.Drawing.Point(698, 145);
             this.txtObs.Margin = new System.Windows.Forms.Padding(4);
             this.txtObs.Multiline = true;
