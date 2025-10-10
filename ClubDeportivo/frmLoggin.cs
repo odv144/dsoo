@@ -19,13 +19,10 @@ namespace ClubDeportivo
             InitializeComponent();
         }
 
-        private void App_Load(object sender, EventArgs e)
-        {
-
-        }
         private void txtUser_Enter(object sender, EventArgs e)
         {
-            if (txtUser.Text == "USUARIO")
+
+            if (txtUser.Text == "Usuario")
             {
                 txtUser.Text = "";
             }
@@ -35,14 +32,14 @@ namespace ClubDeportivo
         {
             if (txtUser.Text == "")
             {
-                txtUser.Text = "USUARIO";
+                txtUser.Text = "Usuario";
             }
         }
 
 
         private void txtPass_Enter_1(object sender, EventArgs e)
         {
-            if (txtPass.Text == "PASSWORD")
+            if (txtPass.Text == "Contraseña")
             {
                 txtPass.Text = "";
                 txtPass.UseSystemPasswordChar = true;
@@ -54,7 +51,7 @@ namespace ClubDeportivo
             {
                 if (txtPass.Text == "")
                 {
-                    txtPass.Text = "PASSWORD";
+                    txtPass.Text = "Contraseña";
                 }
             }
         }
@@ -70,7 +67,7 @@ namespace ClubDeportivo
             }
             else
             {
-                MessageBox.Show("Usuario y/o password incorrecto");
+                MessageBox.Show("Usuario y/o contraseña incorrecta.");
             }
         }
 
@@ -97,17 +94,22 @@ namespace ClubDeportivo
                 switch (txt.Name)
                 {
                     case "txtUser":
-                        txt.Text = "USUARIO";
+                        txt.Text = "Usuario";
                         break;
                     case "txtPass":
                         txt.UseSystemPasswordChar = false;
-                        txt.Text = "PASSWORD";
+                        txt.Text = "Password";
                         break;
                     
                 }
             
          
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

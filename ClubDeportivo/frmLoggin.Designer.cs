@@ -1,4 +1,7 @@
-﻿namespace ClubDeportivo
+﻿using System;
+using System.Windows.Forms;
+
+namespace ClubDeportivo
 {
     partial class frmLoggin
     {
@@ -39,7 +42,7 @@
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.LimeGreen;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(68)))), ((int)(((byte)(94)))));
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Location = new System.Drawing.Point(-6, 9);
@@ -48,41 +51,47 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "INICIAR SESIÓN";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtPass
             // 
+            this.txtPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
             this.txtPass.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtPass.Location = new System.Drawing.Point(22, 208);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(188, 22);
             this.txtPass.TabIndex = 11;
-            this.txtPass.Text = "PASSWORD";
+            this.txtPass.Text = "Contraseña";
+            this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPass.Enter += new System.EventHandler(this.LimpiarCampo);
             this.txtPass.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtUser
             // 
+            this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
             this.txtUser.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUser.Location = new System.Drawing.Point(22, 180);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(188, 22);
             this.txtUser.TabIndex = 10;
-            this.txtUser.Text = "USUARIO";
+            this.txtUser.Text = "Usuario";
+            this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtUser.Enter += new System.EventHandler(this.LimpiarCampo);
             this.txtUser.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // btnIngreso
             // 
+            this.btnIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.btnIngreso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngreso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnIngreso.ForeColor = System.Drawing.Color.White;
             this.btnIngreso.Location = new System.Drawing.Point(22, 236);
             this.btnIngreso.Name = "btnIngreso";
             this.btnIngreso.Size = new System.Drawing.Size(188, 41);
             this.btnIngreso.TabIndex = 9;
             this.btnIngreso.Text = "INGRESAR";
-            this.btnIngreso.UseVisualStyleBackColor = true;
+            this.btnIngreso.UseVisualStyleBackColor = false;
             this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
             // pictureBox1
@@ -99,25 +108,30 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Blue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(233, 301);
-            this.ControlBox = false;
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.btnIngreso);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLoggin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Loggin";
+            this.Text = "Iniciar Sesión";
             this.Load += new System.EventHandler(this.App_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void App_Load(object sender, EventArgs e)
+        {
+           
         }
 
         #endregion
