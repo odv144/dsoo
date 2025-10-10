@@ -51,7 +51,6 @@ namespace ClubDeportivo
             this.label4.TabIndex = 7;
             this.label4.Text = "INICIAR SESIÓN";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtPass
             // 
@@ -122,6 +121,7 @@ namespace ClubDeportivo
             this.Name = "frmLoggin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Cerrar);
             this.Load += new System.EventHandler(this.App_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -128,6 +128,11 @@
     <Compile Include="frmRegistro.Designer.cs">
       <DependentUpon>frmRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="util\Utilidades.cs" />
     <EmbeddedResource Include="frmApp.resx">
       <DependentUpon>frmApp.cs</DependentUpon>
@@ -138,6 +143,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistro.resx">
       <DependentUpon>frmRegistro.cs</DependentUpon>
@@ -160,13 +166,7 @@
     <None Include="Resources\usuario.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fondo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\gimnasio-cercano.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fondo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

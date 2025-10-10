@@ -16,17 +16,25 @@ namespace ClubDeportivo
         {
             InitializeComponent();
         }
+        internal string rol;
+        internal string usuario;
 
         private void frmApp_Load(object sender, EventArgs e)
         {
-            frmLoggin login = new frmLoggin();
-            login.ShowDialog();
+            lblSeccion.Text += "USUARIO: " + usuario + " (" + rol + ")"; 
+            //frmLoggin login = new frmLoggin();
+            //login.ShowDialog();
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             frmRegistro registro = new frmRegistro();
             registro.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

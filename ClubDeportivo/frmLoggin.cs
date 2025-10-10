@@ -18,52 +18,22 @@ namespace ClubDeportivo
         {
             InitializeComponent();
         }
-
-        private void txtUser_Enter(object sender, EventArgs e)
-        {
-
-            if (txtUser.Text == "Usuario")
-            {
-                txtUser.Text = "";
-            }
-        }
-
-        private void txtUser_Leave(object sender, EventArgs e)
-        {
-            if (txtUser.Text == "")
-            {
-                txtUser.Text = "Usuario";
-            }
-        }
-
-
-        private void txtPass_Enter_1(object sender, EventArgs e)
-        {
-            if (txtPass.Text == "Contraseña")
-            {
-                txtPass.Text = "";
-                txtPass.UseSystemPasswordChar = true;
-            }
-        }
-
-        private void txtPass_Leave(object sender, EventArgs e)
-        {
-            {
-                if (txtPass.Text == "")
-                {
-                    txtPass.Text = "Contraseña";
-                }
-            }
-        }
+       
+        DataTable tablaLogin = new DataTable();
+        
         private void btnIngreso_Click(object sender, EventArgs e)
         {
-            DataTable tablaLogin = new DataTable();
             Datos.Credencial datos = new Datos.Credencial();
+            // Log_Usu metodo que llama al Stored Procedure de la base de datos
             tablaLogin = datos.Log_Usu(txtUser.Text, txtPass.Text);
             if (tablaLogin.Rows.Count > 0)
             {
+                frmApp frmApp = new frmApp();
+                frmApp.rol = Convert.ToString(tablaLogin.Rows[0][0]);
+                frmApp.usuario = Convert.ToString(txtUser.Text);
+                frmApp.Show();
                 this.Hide();
-
+               
             }
             else
             {
@@ -107,9 +77,9 @@ namespace ClubDeportivo
             }
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Cerrar(object sender, FormClosedEventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

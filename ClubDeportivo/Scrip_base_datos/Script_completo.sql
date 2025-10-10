@@ -22,8 +22,13 @@ constraint pk_credencial primary key (CodUsu),
 constraint fk_credencial foreign key(RolUsu) references roles(RolUsu)
 );
 
-insert into credencial(CodUsu,NombreUsu,PassUsu,RolUsu) values
-(1,'Omar2025','1234',1);
+insert into credencial(NombreUsu,PassUsu,RolUsu) values
+('omar','1234',1),
+('cynthia','1234',1),
+('cristian','1234',1),
+('analia','1234',1),
+('jairo','1234',1),
+('admin','1234',1);
 
 
 create table Usuario(
@@ -33,7 +38,7 @@ Apellido varchar (15),
 Dni varchar(8),
 Telefono varchar(15),
 Email varchar(60),
-FechaRegistro date,
+Fecharegistro date,
 CertificadoMedico boolean,
 constraint pk_IdUsuario primary key (IdUsuario)
 );
@@ -43,7 +48,6 @@ create table Socio(
     EstadoHabilitacion enum('activo', 'suspendido', 'vencido') NOT NULL DEFAULT 'activo',
     CuotaMensual double,
     CarnetEntregado boolean,
-    
     constraint pk_NroSocio primary key (NroSocio),
     constraint fk_Usuario foreign key(NroSocio) references Usuario(IdUsuario)
 );
@@ -80,10 +84,6 @@ create table Actividad (
     constraint fk_Act_Socio foreign key (NroSocio) references Socio(NroSocio),
     constraint fk_Act_NoSocio foreign key (NroSocio) references NoSocio(NroNoSocio)
 );
-
--- ----------------------------
--- Procedure structure for IngresoLogin
--- ----------------------------
 DROP PROCEDURE IF EXISTS `IngresoLogin`;
 delimiter ;;
 CREATE PROCEDURE `IngresoLogin`(in Usu varchar(20),in Pass varchar(15))

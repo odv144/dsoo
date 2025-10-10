@@ -16,7 +16,7 @@ namespace ClubDeportivo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmApp());
+            Application.Run(new frmLoggin());
         }
     }
 }

@@ -10,6 +10,8 @@ namespace ClubDeportivo.Datos
 {
     internal class Credencial
     {
+        //Metodo que permite llamar al stored procede IngresoLogin de la bd  y retorna un DataTable
+        //con los valores adecuado
         public DataTable Log_Usu(string L_Usu, string P_Usu)
         {
             MySqlDataReader resultado;
