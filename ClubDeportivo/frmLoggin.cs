@@ -79,13 +79,12 @@ namespace ClubDeportivo
         {
             Utilidades.LimpiarControles(sender);
             
-          /*    TextBox txt = sender as TextBox;
-            txt.Text = string.Empty;
+            TextBox txt = sender as TextBox;
             if (txt.Name == "txtPass")
             {
                 txt.UseSystemPasswordChar=true;
             }
-            */
+            
         }
         private void TextBox_Leave(object sender, EventArgs e)
         {
@@ -101,6 +100,7 @@ namespace ClubDeportivo
                         txt.Text = "USUARIO";
                         break;
                     case "txtPass":
+                        txt.UseSystemPasswordChar = false;
                         txt.Text = "PASSWORD";
                         break;
                     
