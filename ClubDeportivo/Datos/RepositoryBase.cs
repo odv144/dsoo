@@ -1,0 +1,100 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClubDeportivo.Datos
+{
+    internal abstract class RepositoryBase<T>: IRepository<T> where T : class
+    {
+        protected MySqlConnection ObtenerConexion()
+        {
+            return Conexion.getInstancia().CrearConexion();
+        }
+
+        // Métodos abstractos que cada repositorio debe implementar
+        protected abstract T MapearDesdeReader(MySqlDataReader reader);
+        protected abstract string ObtenerNombreTabla();
+        protected abstract string ObtenerNombreClavePrimaria();
+        protected abstract Dictionary<string, object> ObtenerParametros(T entidad);
+
+        // Implementación genérica de operaciones comunes
+        public virtual T ObtenerPorId(int id)
+        {
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = $@"SELECT * FROM {ObtenerNombreTabla()} 
+                            WHERE {ObtenerNombreClavePrimaria()} = @Id";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                conn.Open();
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return MapearDesdeReader(reader);
+                    }
+                }
+            }
+            return null;
+        }
+
+        public virtual List<T> ObtenerTodos()
+        {
+            List<T> lista = new List<T>();
+
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = $"SELECT * FROM {ObtenerNombreTabla()}";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                conn.Open();
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(MapearDesdeReader(reader));
+                    }
+                }
+            }
+            return lista;
+        }
+
+        public virtual int Contar()
+        {
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = $"SELECT COUNT(*) FROM {ObtenerNombreTabla()}";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                conn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public virtual bool Existe(int id)
+        {
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = $@"SELECT COUNT(*) FROM {ObtenerNombreTabla()} 
+                            WHERE {ObtenerNombreClavePrimaria()} = @Id";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                conn.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+        }
+
+        // Métodos abstractos para operaciones específicas
+        public abstract T Insertar(T entidad);
+        public abstract T Actualizar(T entidad);
+        public abstract bool Eliminar(int id);
+    }
+}

@@ -102,10 +102,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\IRepository.cs" />
+    <Compile Include="Datos\RepositoryActividad.cs" />
+    <Compile Include="Datos\RepositoryBase.cs" />
     <Compile Include="Datos\RepositoryUsuario.cs" />
+    <Compile Include="Entidades\E_Actividad.cs" />
     <Compile Include="Entidades\E_NoSocio.cs" />
     <Compile Include="Entidades\E_Socio.cs" />
     <Compile Include="Entidades\E_Usuario.cs" />
+    <Compile Include="frmCarnetPrinter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCarnetPrinter.Designer.cs">
+      <DependentUpon>frmCarnetPrinter.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoggin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +146,9 @@
     <Compile Include="util\Utilidades.cs" />
     <EmbeddedResource Include="frmApp.resx">
       <DependentUpon>frmApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCarnetPrinter.resx">
+      <DependentUpon>frmCarnetPrinter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoggin.resx">
       <DependentUpon>frmLoggin.cs</DependentUpon>

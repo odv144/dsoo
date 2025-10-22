@@ -28,6 +28,7 @@ namespace ClubDeportivo.Entidades
             CuotaMensual = cuotaMensual;
             CarnetEntregado = carnetEntregado;
         }
+        
        
     }
 
