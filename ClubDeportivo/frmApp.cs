@@ -36,5 +36,12 @@ namespace ClubDeportivo
         {
             Application.Exit();
         }
+
+        private void btnRegistroNoSocio_Click(object sender, EventArgs e)
+        {
+            frmRegistroNoSocio registro = new frmRegistroNoSocio();
+            registro.ShowDialog();
+        
+        }
     }
 }

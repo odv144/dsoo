@@ -90,5 +90,10 @@ namespace ClubDeportivo.Datos
                 {"@CarnetEntregado", entidad.CarnetEntregado }
             };
         }
+
+       internal E_Usuario InsertarNoSocio(E_NoSocio e_NoSocio)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

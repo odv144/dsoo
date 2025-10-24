@@ -36,6 +36,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lblSeccion = new System.Windows.Forms.Label();
+            this.btnRegistroNoSocio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,9 +93,9 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(42, 104);
+            this.pictureBox1.Location = new System.Drawing.Point(63, 104);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(722, 334);
+            this.pictureBox1.Size = new System.Drawing.Size(804, 334);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
@@ -103,7 +104,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(320, 379);
+            this.button1.Location = new System.Drawing.Point(410, 379);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 59);
             this.button1.TabIndex = 5;
@@ -120,12 +121,23 @@
             this.lblSeccion.TabIndex = 6;
             this.lblSeccion.Text = "Inicio Sección como:";
             // 
+            // btnRegistroNoSocio
+            // 
+            this.btnRegistroNoSocio.Location = new System.Drawing.Point(205, 22);
+            this.btnRegistroNoSocio.Name = "btnRegistroNoSocio";
+            this.btnRegistroNoSocio.Size = new System.Drawing.Size(141, 59);
+            this.btnRegistroNoSocio.TabIndex = 7;
+            this.btnRegistroNoSocio.Text = "RegistroNoSocio";
+            this.btnRegistroNoSocio.UseVisualStyleBackColor = true;
+            this.btnRegistroNoSocio.Click += new System.EventHandler(this.btnRegistroNoSocio_Click);
+            // 
             // frmApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(940, 450);
+            this.ClientSize = new System.Drawing.Size(929, 450);
+            this.Controls.Add(this.btnRegistroNoSocio);
             this.Controls.Add(this.lblSeccion);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
@@ -153,5 +165,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblSeccion;
+        private System.Windows.Forms.Button btnRegistroNoSocio;
     }
 }

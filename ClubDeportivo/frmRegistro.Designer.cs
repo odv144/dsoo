@@ -36,7 +36,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
             this.chkCerMedico = new System.Windows.Forms.CheckBox();
@@ -45,14 +44,11 @@
             this.txtDni = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.chkAsociar = new System.Windows.Forms.CheckBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.lblImporte = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.lblObs = new System.Windows.Forms.Label();
-            this.txtObs = new System.Windows.Forms.TextBox();
             this.dgvActividades = new System.Windows.Forms.DataGridView();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +69,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(88, 100);
+            this.label2.Location = new System.Drawing.Point(88, 151);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 19);
@@ -84,7 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(88, 153);
+            this.label3.Location = new System.Drawing.Point(88, 204);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 19);
@@ -95,7 +91,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(88, 201);
+            this.label4.Location = new System.Drawing.Point(88, 96);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 19);
@@ -134,21 +130,6 @@
             this.label7.Size = new System.Drawing.Size(137, 19);
             this.label7.TabIndex = 6;
             this.label7.Text = "Certificado Médico";
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.btnRegistrar.Enabled = false;
-            this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Location = new System.Drawing.Point(529, 463);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(152, 57);
-            this.btnRegistrar.TabIndex = 7;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnLimpiar
             // 
@@ -193,7 +174,7 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtNombre.Location = new System.Drawing.Point(215, 96);
+            this.txtNombre.Location = new System.Drawing.Point(215, 147);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(197, 23);
@@ -202,7 +183,7 @@
             // txtApellido
             // 
             this.txtApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtApellido.Location = new System.Drawing.Point(215, 145);
+            this.txtApellido.Location = new System.Drawing.Point(215, 196);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(197, 23);
@@ -211,11 +192,12 @@
             // txtDni
             // 
             this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtDni.Location = new System.Drawing.Point(215, 201);
+            this.txtDni.Location = new System.Drawing.Point(215, 96);
             this.txtDni.Margin = new System.Windows.Forms.Padding(4);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(197, 23);
             this.txtDni.TabIndex = 13;
+            this.txtDni.Leave += new System.EventHandler(this.txtDni_Leave);
             // 
             // txtTelefono
             // 
@@ -235,29 +217,6 @@
             this.txtEmail.Size = new System.Drawing.Size(197, 23);
             this.txtEmail.TabIndex = 15;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(88, 402);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(118, 19);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Asociar Mensual";
-            // 
-            // chkAsociar
-            // 
-            this.chkAsociar.AutoSize = true;
-            this.chkAsociar.BackColor = System.Drawing.Color.White;
-            this.chkAsociar.Location = new System.Drawing.Point(294, 407);
-            this.chkAsociar.Margin = new System.Windows.Forms.Padding(4);
-            this.chkAsociar.Name = "chkAsociar";
-            this.chkAsociar.Size = new System.Drawing.Size(15, 14);
-            this.chkAsociar.TabIndex = 17;
-            this.chkAsociar.UseVisualStyleBackColor = false;
-            this.chkAsociar.CheckedChanged += new System.EventHandler(this.HabilitarObs);
-            // 
             // txtImporte
             // 
             this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
@@ -276,9 +235,9 @@
             this.lblImporte.Location = new System.Drawing.Point(561, 100);
             this.lblImporte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblImporte.Name = "lblImporte";
-            this.lblImporte.Size = new System.Drawing.Size(129, 19);
+            this.lblImporte.Size = new System.Drawing.Size(107, 19);
             this.lblImporte.TabIndex = 19;
-            this.lblImporte.Text = "Importe a Abonar";
+            this.lblImporte.Text = "Cuota Mensual";
             // 
             // btnImprimir
             // 
@@ -295,27 +254,6 @@
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
-            // lblObs
-            // 
-            this.lblObs.AutoSize = true;
-            this.lblObs.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblObs.Location = new System.Drawing.Point(582, 269);
-            this.lblObs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblObs.Name = "lblObs";
-            this.lblObs.Size = new System.Drawing.Size(94, 19);
-            this.lblObs.TabIndex = 22;
-            this.lblObs.Text = "Observación";
-            // 
-            // txtObs
-            // 
-            this.txtObs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtObs.Location = new System.Drawing.Point(698, 269);
-            this.txtObs.Margin = new System.Windows.Forms.Padding(4);
-            this.txtObs.Multiline = true;
-            this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(206, 97);
-            this.txtObs.TabIndex = 21;
-            // 
             // dgvActividades
             // 
             this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -324,6 +262,21 @@
             this.dgvActividades.Size = new System.Drawing.Size(342, 80);
             this.dgvActividades.TabIndex = 23;
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
+            this.btnRegistrar.Enabled = false;
+            this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrar.Location = new System.Drawing.Point(529, 463);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(152, 57);
+            this.btnRegistrar.TabIndex = 7;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -331,13 +284,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(973, 555);
             this.Controls.Add(this.dgvActividades);
-            this.Controls.Add(this.lblObs);
-            this.Controls.Add(this.txtObs);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lblImporte);
             this.Controls.Add(this.txtImporte);
-            this.Controls.Add(this.chkAsociar);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtDni);
@@ -375,7 +324,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.CheckBox chkCerMedico;
@@ -384,13 +332,10 @@
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox chkAsociar;
         private System.Windows.Forms.TextBox txtImporte;
         private System.Windows.Forms.Label lblImporte;
         private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.Label lblObs;
-        private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.DataGridView dgvActividades;
+        private System.Windows.Forms.Button btnRegistrar;
     }
 }

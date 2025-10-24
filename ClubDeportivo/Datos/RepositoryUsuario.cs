@@ -13,30 +13,6 @@ namespace ClubDeportivo.Datos
     internal class RepositoryUsuario : RepositoryBase<E_Usuario>
     {
         MySqlConnection sqlCon;
-        /*public void InsertarSocio(E_Usuario usuario, string Estado, double Cuota, bool Carnet)
-        {
-            try
-            {
-                sqlCon = Conexion.getInstancia().CrearConexion();
-                string query = @"INSERT INTO Socio (NroSocio, EstadoHabilitacion, CuotaMensual, CarnetEntregado)
-                         VALUES (@NroSocio, @EstadoHabilitacion, @CuotaMensual, @CarnetEntregado)";
-                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
-                cmd.Parameters.AddWithValue("@NroSocio", usuario.IdUsuario); // FK al Usuario
-                cmd.Parameters.AddWithValue("@EstadoHabilitacion", Estado);
-                cmd.Parameters.AddWithValue("@CuotaMensual", Cuota);
-                cmd.Parameters.AddWithValue("@CarnetEntregado", Carnet);
-
-                sqlCon.Open();
-                cmd.ExecuteNonQuery();
-                sqlCon.Close();
-                MessageBox.Show("Registro Exito");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error a la hora de vincular el usuario con el socio");
-
-            }
-        }*/
         public void InsertarNoSocio(E_Usuario usuario, string Obs)
         {
             try
@@ -175,7 +151,7 @@ namespace ClubDeportivo.Datos
                 entidad.IdUsuario = Convert.ToInt32(comando.ExecuteScalar());
 
 
-                return ObtenerPorId(entidad.IdUsuario);
+                return entidad;
 
             }
             catch
@@ -193,6 +169,27 @@ namespace ClubDeportivo.Datos
         public override bool Eliminar(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public E_Usuario ObtenerUsuarioPorDni(string dni)
+        {
+            E_Usuario usuario = null;
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = $@"SELECT * FROM {ObtenerNombreTabla()} 
+                             WHERE Dni = @Dni";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Dni", dni);
+                conn.Open();
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        usuario = MapearDesdeReader(reader);
+                    }
+                }
+            }
+            return usuario;
         }
     }  
 }
