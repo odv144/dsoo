@@ -31,14 +31,20 @@ namespace ClubDeportivo
             RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
             usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
                                                                           txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
+
+            E_Usuario usuario1 = null;
             if (chkCerMedico.Checked)
             {
                 if (chkAsociar.Checked)
                 {
 
-                    id = repositoryUsuario.InsertarUsuario(usuario);
-                    repositoryUsuario.InsertarSocio(usuario, "activo", double.Parse(txtImporte.Text), false);
-                    usuario = repositoryUsuario.ObtenerSocio(id);
+                    //id = repositoryUsuario.InsertarUsuario(usuario);
+
+                    RepositorySocio repoSocio = new RepositorySocio();
+                    usuario1 = repositoryUsuario.Insertar(usuario);
+                    //repositoryUsuario.InsertarSocio(usuario, "activo", double.Parse(txtImporte.Text), false);
+                   
+                    usuario1 = repoSocio.Insertar(new E_Socio(usuario1, "activo", double.Parse(txtImporte.Text), false));
                     frmCarnetPrinter carnet = new frmCarnetPrinter();
                     carnet.nroSocio = id.ToString();
                     carnet.nombre = usuario.Nombre;
@@ -51,8 +57,8 @@ namespace ClubDeportivo
                 {
                     //registro no socio
 
-                    id = repositoryUsuario.InsertarUsuario(usuario);
-
+                    //id = repositoryUsuario.InsertarUsuario(usuario);
+                    usuario = repositoryUsuario.Insertar(usuario);
                     repositoryUsuario.InsertarNoSocio(usuario, txtObs.Text);
 
                 }
@@ -61,6 +67,7 @@ namespace ClubDeportivo
             Utilidades.LimpiarControles(this);
 
         }
+
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {

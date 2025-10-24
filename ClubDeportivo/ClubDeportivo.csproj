@@ -105,6 +105,8 @@
     <Compile Include="Datos\IRepository.cs" />
     <Compile Include="Datos\RepositoryActividad.cs" />
     <Compile Include="Datos\RepositoryBase.cs" />
+    <Compile Include="Datos\RepositoryNoSocio.cs" />
+    <Compile Include="Datos\RepositorySocio.cs" />
     <Compile Include="Datos\RepositoryUsuario.cs" />
     <Compile Include="Entidades\E_Actividad.cs" />
     <Compile Include="Entidades\E_NoSocio.cs" />

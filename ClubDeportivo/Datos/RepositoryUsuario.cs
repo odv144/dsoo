@@ -13,38 +13,7 @@ namespace ClubDeportivo.Datos
     internal class RepositoryUsuario : RepositoryBase<E_Usuario>
     {
         MySqlConnection sqlCon;
-        public int InsertarUsuario(E_Usuario usuario)
-        {
-
-            try
-            {
-                sqlCon = Conexion.getInstancia().CrearConexion();
-                string insertUsuario = "INSERT INTO usuario (Nombre,Apellido,Dni,Telefono,Email,FechaRegistro,CertificadoMedico)" +
-                                        "VALUES (@Nombre,@Apellido,@Dni,@Telefono,@Email,@FechaRegistro,@CertificadoMedico)";
-                MySqlCommand comando = new MySqlCommand(insertUsuario, sqlCon);
-                comando.Parameters.AddWithValue("@nombre", usuario.Nombre);
-                comando.Parameters.AddWithValue("@Apellido", usuario.Apellido);
-                comando.Parameters.AddWithValue("@Dni", usuario.Dni);
-                comando.Parameters.AddWithValue("@Telefono", usuario.Telefono);
-                comando.Parameters.AddWithValue("Email", usuario.Email);
-                comando.Parameters.AddWithValue("FechaRegistro", usuario.FechaRegistro);
-                comando.Parameters.AddWithValue("CertificadoMedico", usuario.CertificadoMedico);
-                sqlCon.Open();
-                comando.ExecuteNonQuery();
-                usuario.IdUsuario = (int)comando.LastInsertedId;
-
-                sqlCon.Close();
-                return (int)comando.LastInsertedId;
-
-            }
-            catch
-            {
-
-                throw; // Propagamos el error para manejo superior
-            }
-        }
-
-        public void InsertarSocio(E_Usuario usuario, string Estado, double Cuota, bool Carnet)
+        /*public void InsertarSocio(E_Usuario usuario, string Estado, double Cuota, bool Carnet)
         {
             try
             {
@@ -67,7 +36,7 @@ namespace ClubDeportivo.Datos
                 MessageBox.Show("Error a la hora de vincular el usuario con el socio");
 
             }
-        }
+        }*/
         public void InsertarNoSocio(E_Usuario usuario, string Obs)
         {
             try
@@ -150,6 +119,80 @@ namespace ClubDeportivo.Datos
             {
             }
             return socio;
+        }
+
+        protected override E_Usuario MapearDesdeReader(MySqlDataReader reader)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override string ObtenerNombreTabla() => "Usuario";
+
+
+
+
+        protected override string ObtenerNombreClavePrimaria() => "IdUsuario";
+
+
+
+
+        protected override Dictionary<string, object> ObtenerParametros(E_Usuario entidad)
+        {
+            return new Dictionary<string, object>
+            { 
+
+                { "@IdUsuario", entidad.IdUsuario},
+                { "@Nombre", entidad.Nombre },
+                { "@Apellido", entidad.Apellido },
+                { "@Dni", entidad.Dni },
+                { "@Telefono", entidad.Telefono },
+                { "@Email", entidad.Email },
+                { "@FechaRegistro", entidad.FechaRegistro },
+                { "@CertificadoMedico", entidad.CertificadoMedico}
+            };
+        }
+
+        public override E_Usuario Insertar(E_Usuario entidad)
+        {
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                string insertUsuario = "INSERT INTO usuario (Nombre,Apellido,Dni,Telefono,Email,FechaRegistro,CertificadoMedico)" +
+                                        "VALUES (@Nombre,@Apellido,@Dni,@Telefono,@Email,@FechaRegistro,@CertificadoMedico)";
+                MySqlCommand comando = new MySqlCommand(insertUsuario, sqlCon);
+
+                var parametros = ObtenerParametros(entidad);
+
+                foreach (var param in parametros)
+                {
+                    if (param.Key != "@IdActividad")
+                        comando.Parameters.AddWithValue(param.Key, param.Value);
+                }
+
+                sqlCon.Open();
+
+                //actividad.IdActividad = Convert.ToInt32(cmd.ExecuteScalar());
+                entidad.IdUsuario = Convert.ToInt32(comando.ExecuteScalar());
+
+
+                return ObtenerPorId(entidad.IdUsuario);
+
+            }
+            catch
+            {
+
+                throw; // Propagamos el error para manejo superior
+            }
+        }
+
+        public override E_Usuario Actualizar(E_Usuario entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Eliminar(int id)
+        {
+            throw new NotImplementedException();
         }
     }  
 }

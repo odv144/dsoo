@@ -57,7 +57,7 @@
             this.btnCobro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.btnCobro.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnCobro.ForeColor = System.Drawing.Color.White;
-            this.btnCobro.Location = new System.Drawing.Point(223, 22);
+            this.btnCobro.Location = new System.Drawing.Point(372, 22);
             this.btnCobro.Name = "btnCobro";
             this.btnCobro.Size = new System.Drawing.Size(152, 59);
             this.btnCobro.TabIndex = 1;
@@ -69,7 +69,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(423, 22);
+            this.button2.Location = new System.Drawing.Point(572, 22);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 59);
             this.button2.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(623, 22);
+            this.button3.Location = new System.Drawing.Point(772, 22);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(152, 59);
             this.button3.TabIndex = 3;
@@ -125,7 +125,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.lblSeccion);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
