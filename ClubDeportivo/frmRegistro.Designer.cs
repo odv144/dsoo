@@ -254,12 +254,33 @@
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // lblObs
+            // 
+            this.lblObs.AutoSize = true;
+            this.lblObs.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblObs.Location = new System.Drawing.Point(587, 324);
+            this.lblObs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblObs.Name = "lblObs";
+            this.lblObs.Size = new System.Drawing.Size(94, 19);
+            this.lblObs.TabIndex = 22;
+            this.lblObs.Text = "Observación";
+            // 
+            // txtObs
+            // 
+            this.txtObs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
+            this.txtObs.Location = new System.Drawing.Point(698, 324);
+            this.txtObs.Margin = new System.Windows.Forms.Padding(4);
+            this.txtObs.Multiline = true;
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(206, 97);
+            this.txtObs.TabIndex = 21;
+            // 
             // dgvActividades
             // 
             this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvActividades.Location = new System.Drawing.Point(561, 139);
             this.dgvActividades.Name = "dgvActividades";
-            this.dgvActividades.Size = new System.Drawing.Size(342, 80);
+            this.dgvActividades.Size = new System.Drawing.Size(342, 178);
             this.dgvActividades.TabIndex = 23;
             // 
             // btnRegistrar

@@ -84,6 +84,23 @@ create table Actividad (
     constraint fk_Act_Socio foreign key (NroSocio) references Socio(NroSocio),
     constraint fk_Act_NoSocio foreign key (NroSocio) references NoSocio(NroNoSocio)
 );
+-- Tabla intermedia para relacionar socios y no socios con actividad
+CREATE TABLE Socio_Actividad (
+    IdInscripcion INT PRIMARY KEY AUTO_INCREMENT,
+    NroSocio INT ,
+    NroNoSocio INT,
+    IdActividad INT NOT NULL,
+    FechaInscripcion DATETIME NOT NULL,
+    Estado VARCHAR(20), -- 'Activo', 'Cancelado', 'Completado'
+    FOREIGN KEY (NroSocio) REFERENCES Socio(NroSocio),
+    FOREIGN KEY (NroNoSocio) REFERENCES nosocio(NroNoSocio),
+    FOREIGN KEY (IdActividad) REFERENCES Actividad(IdActividad),
+    UNIQUE KEY (NroSocio, IdActividad), -- Un socio no puede inscribirse 2 veces en la misma actividad
+    UNIQUE KEY (NroNoSocio, IdActividad) -- Un No socio no puede inscribirse 2 veces en la misma actividad
+);
+
+
+
 DROP PROCEDURE IF EXISTS `IngresoLogin`;
 delimiter ;;
 CREATE PROCEDURE `IngresoLogin`(in Usu varchar(20),in Pass varchar(15))

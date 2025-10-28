@@ -102,6 +102,7 @@ namespace ClubDeportivo.Datos
             throw new NotImplementedException();
         }
 
+<<<<<<< Updated upstream
         protected override string ObtenerNombreTabla() => "Usuario";
 
 
@@ -126,6 +127,7 @@ namespace ClubDeportivo.Datos
                 { "@FechaRegistro", entidad.FechaRegistro },
                 { "@CertificadoMedico", entidad.CertificadoMedico}
             };
+
         }
 
         public override E_Usuario Insertar(E_Usuario entidad)
@@ -159,6 +161,7 @@ namespace ClubDeportivo.Datos
 
                 throw; // Propagamos el error para manejo superior
             }
+
         }
 
         public override E_Usuario Actualizar(E_Usuario entidad)
@@ -170,6 +173,7 @@ namespace ClubDeportivo.Datos
         {
             throw new NotImplementedException();
         }
+
 
         public E_Usuario ObtenerUsuarioPorDni(string dni)
         {
@@ -191,5 +195,6 @@ namespace ClubDeportivo.Datos
             }
             return usuario;
         }
+
     }  
 }

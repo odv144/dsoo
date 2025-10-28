@@ -9,6 +9,8 @@ namespace ClubDeportivo.Entidades
     internal class E_Actividad
     {
         public int IdActividad { get; set; }
+        public int NroSocio {  get; set; }
+        public int NroNoSocio { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public double TarifaSocio { get; set; } 
@@ -20,11 +22,13 @@ namespace ClubDeportivo.Entidades
         public E_Actividad() { }
 
         // Constructor con parámetros (actualizado con nombres correctos)
-        public E_Actividad(int idActividad, string nombre, string descripcion,
+        public E_Actividad(int idActividad,int NroSocio,int NroNoSocio, string nombre, string descripcion,
             double tarifaSocio, double tarifaNoSocio, int cupoMaximo, string turno)
         {
             this.IdActividad = idActividad;
             this.Nombre = nombre;
+            this.NroSocio= NroSocio;
+            this.NroNoSocio= NroNoSocio;
             this.Descripcion = descripcion;
             this.TarifaSocio = tarifaSocio;
             this.TarifaNoSocio = tarifaNoSocio;

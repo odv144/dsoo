@@ -118,6 +118,59 @@ namespace ClubDeportivo
         {
             RepositoryActividad repo = new RepositoryActividad();
             repo.ObtenerActividadesConCupoDisponible();
+            try
+            {
+
+                RepositoryActividad repo = new RepositoryActividad();
+                List<E_Actividad> actividades = repo.ObtenerTodos();
+                dgvActividades.DataSource = null;
+                dgvActividades.Rows.Clear();
+                dgvActividades.DataSource = actividades;
+                PersonalizarColumnas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar actividades: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // repo.ObtenerActividadesConCupoDisponible();
+        }
+        private void PersonalizarColumnas()
+        { // Ocultar columnas que no quieres mostrar
+            if (dgvActividades.Columns["IdActividad"] != null)
+                dgvActividades.Columns["IdActividad"].Visible = false;
+
+            // Cambiar nombres de encabezados
+            if (dgvActividades.Columns["Nombre"] != null)
+                dgvActividades.Columns["Nombre"].Visible=false;
+                dgvActividades.Columns["Nombre"].HeaderText = "Actividad";
+
+            if (dgvActividades.Columns["Descripcion"] != null)
+                dgvActividades.Columns["Descripcion"].HeaderText = "Descripción";
+
+            if (dgvActividades.Columns["TarifaSocio"] != null)
+            {
+                dgvActividades.Columns["TarifaSocio"].Visible = false;
+                dgvActividades.Columns["TarifaSocio"].HeaderText = "Tarifa Socio";
+                dgvActividades.Columns["TarifaSocio"].DefaultCellStyle.Format = "C2"; // Formato moneda
+            }
+
+            if (dgvActividades.Columns["TarifaNoSocio"] != null)
+            {
+                dgvActividades.Columns["TarifaNoSocio"].HeaderText = "Tarifa No Socio";
+                dgvActividades.Columns["TarifaNoSocio"].DefaultCellStyle.Format = "C2";
+            }
+
+            if (dgvActividades.Columns["CupoMaximo"] != null)
+                dgvActividades.Columns["CupoMaximo"].HeaderText = "Cupo Máximo";
+
+            if (dgvActividades.Columns["Turno"] != null)
+                dgvActividades.Columns["Turno"].HeaderText = "Turno";
+
+            // Ajustar ancho de columnas
+            dgvActividades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
         }
 
         private void txtObs_TextChanged(object sender, EventArgs e)

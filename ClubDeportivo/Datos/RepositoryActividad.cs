@@ -18,6 +18,8 @@ namespace ClubDeportivo.Datos
             return new E_Actividad
             (
                  Convert.ToInt32(reader["IdActividad"]),
+                 Convert.ToInt32(reader["NroSocio"]),
+                 Convert.ToInt32(reader["NroNoSocio"]),
          reader["Nombre"].ToString(),
          reader["Descripcion"].ToString(),
         Convert.ToDouble(reader["TarifaSocio"]),
@@ -32,6 +34,9 @@ namespace ClubDeportivo.Datos
             return new Dictionary<string, object>
         {
             { "@IdActividad", actividad.IdActividad },
+                {"@NroSocio" ,actividad.NroSocio},
+                {"@NroNoSocio", actividad.NroNoSocio },
+
             { "@Nombre", actividad.Nombre },
             { "@Descripcion", actividad.Descripcion },
             { "@TarifaSocio", actividad.TarifaSocio },
@@ -46,7 +51,7 @@ namespace ClubDeportivo.Datos
             using (MySqlConnection conn = ObtenerConexion())
             {
                 string query = @"INSERT INTO Actividad 
-                (Nombre, Descripcion, TarifaSocio, TarifaNoSocio, CupoMaximo, Turno)
+                (NroSocio,NroNoSocio,Nombre, Descripcion, TarifaSocio, TarifaNoSocio, CupoMaximo, Turno)
                 VALUES (@Nombre, @Descripcion, @TarifaSocio, @TarifaNoSocio, @CupoMaximo, @Turno);
                 SELECT LAST_INSERT_ID();";
 
@@ -71,7 +76,9 @@ namespace ClubDeportivo.Datos
             using (MySqlConnection conn = ObtenerConexion())
             {
                 string query = @"UPDATE Actividad 
-                SET Nombre = @Nombre,
+                SET NroSocio = @NroSocio,
+                    NroNoSocio=@NroNoSocio,
+                    Nombre = @Nombre,
                     Descripcion = @Descripcion,
                     TarifaSocio = @TarifaSocio,
                     TarifaNoSocio = @TarifaNoSocio,

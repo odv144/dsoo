@@ -37,6 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblSeccion = new System.Windows.Forms.Label();
             this.btnRegistroNoSocio = new System.Windows.Forms.Button();
+            this.btnCuota = new System.Windows.Forms.Button();
+            this.btnActividad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +123,30 @@
             this.lblSeccion.TabIndex = 6;
             this.lblSeccion.Text = "Inicio Sección como:";
             // 
+            // btnCuota
+            // 
+            this.btnCuota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
+            this.btnCuota.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCuota.ForeColor = System.Drawing.Color.White;
+            this.btnCuota.Location = new System.Drawing.Point(12, 314);
+            this.btnCuota.Name = "btnCuota";
+            this.btnCuota.Size = new System.Drawing.Size(152, 59);
+            this.btnCuota.TabIndex = 7;
+            this.btnCuota.Text = "Gestion Cuota";
+            this.btnCuota.UseVisualStyleBackColor = false;
+            // 
+            // btnActividad
+            // 
+            this.btnActividad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
+            this.btnActividad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnActividad.ForeColor = System.Drawing.Color.White;
+            this.btnActividad.Location = new System.Drawing.Point(12, 379);
+            this.btnActividad.Name = "btnActividad";
+            this.btnActividad.Size = new System.Drawing.Size(152, 59);
+            this.btnActividad.TabIndex = 8;
+            this.btnActividad.Text = "Gestion Actividades";
+            this.btnActividad.UseVisualStyleBackColor = false;
+            // 
             // btnRegistroNoSocio
             // 
             this.btnRegistroNoSocio.Location = new System.Drawing.Point(205, 22);
@@ -138,6 +164,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(929, 450);
             this.Controls.Add(this.btnRegistroNoSocio);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnActividad);
+            this.Controls.Add(this.btnCuota);
             this.Controls.Add(this.lblSeccion);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
@@ -166,5 +195,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblSeccion;
         private System.Windows.Forms.Button btnRegistroNoSocio;
+        private System.Windows.Forms.Button btnCuota;
+        private System.Windows.Forms.Button btnActividad;
     }
 }
