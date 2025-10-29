@@ -13,10 +13,12 @@ namespace ClubDeportivo.Entidades
         public string EstadoHabilitacion { get; set; }
         public double CuotaMensual { get; set; }
         public bool CarnetEntregado { get; set; }
-
+        
+        public List<E_Socio_Actividad> Actividades { get; set; }
 
 
         // Constructor con parámetros
+        
         public E_Socio(E_Usuario usuario,
             string estadoHabilitacion,
             double cuotaMensual,
@@ -27,8 +29,9 @@ namespace ClubDeportivo.Entidades
             EstadoHabilitacion = estadoHabilitacion;
             CuotaMensual = cuotaMensual;
             CarnetEntregado = carnetEntregado;
+            Actividades = new List<E_Socio_Actividad>();
         }
-        
+        public E_Socio() { }
        
     }
 

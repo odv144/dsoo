@@ -16,17 +16,16 @@ namespace ClubDeportivo.Datos
         protected override E_Actividad MapearDesdeReader(MySqlDataReader reader)
         {
             return new E_Actividad
-            (
-                 Convert.ToInt32(reader["IdActividad"]),
-                 Convert.ToInt32(reader["NroSocio"]),
-                 Convert.ToInt32(reader["NroNoSocio"]),
-         reader["Nombre"].ToString(),
-         reader["Descripcion"].ToString(),
-        Convert.ToDouble(reader["TarifaSocio"]),
-         Convert.ToDouble(reader["TarifaNoSocio"]),
-         Convert.ToInt32(reader["CupoMaximo"]),
-         reader["Turno"].ToString()
-            );
+            {
+                IdActividad = reader.GetInt32("IdActividad"),
+                Nombre = reader.GetString("Nombre"),
+                Descripcion = reader.GetString("Descripcion"),
+                TarifaSocio = reader.GetDouble("TarifaSocio"),
+                TarifaNoSocio = reader.GetDouble("TarifaNoSocio"),
+                CupoMaximo = reader.GetInt32("CupoMaximo"),
+                Turno = reader.GetString("Turno")
+            };
+      
         }
 
         protected override Dictionary<string, object> ObtenerParametros(E_Actividad actividad)
@@ -34,9 +33,8 @@ namespace ClubDeportivo.Datos
             return new Dictionary<string, object>
         {
             { "@IdActividad", actividad.IdActividad },
-                {"@NroSocio" ,actividad.NroSocio},
-                {"@NroNoSocio", actividad.NroNoSocio },
-
+            {"@NroSocio" ,actividad.NroSocio},
+            {"@NroNoSocio", actividad.NroNoSocio },
             { "@Nombre", actividad.Nombre },
             { "@Descripcion", actividad.Descripcion },
             { "@TarifaSocio", actividad.TarifaSocio },
@@ -114,7 +112,7 @@ namespace ClubDeportivo.Datos
             }
         }
 
-        // ====== MÉTODOS ESPECÍFICOS DEL NEGOCIO ======
+        // ====== MÉTODOS ESPECÍFICOS COMO REGLAS DEL NEGOCIO ======
 
         public bool TieneCupoDisponible(int idActividad)
         {

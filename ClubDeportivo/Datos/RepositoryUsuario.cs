@@ -99,10 +99,21 @@ namespace ClubDeportivo.Datos
 
         protected override E_Usuario MapearDesdeReader(MySqlDataReader reader)
         {
-            throw new NotImplementedException();
+            return new E_Usuario
+            {
+                IdUsuario = reader.GetInt32("IdUsuario"),
+                Nombre = reader.GetString("Nombre"),
+                Apellido = reader.GetString("Apellido"),
+                Dni = reader.GetString("Dni"),
+                Telefono = reader.GetString("Telefono"),
+                Email = reader.GetString("Email"),
+                FechaRegistro = reader.GetDateTime("FechaRegistro"),
+                CertificadoMedico = reader.GetBoolean("CertificadoMedico")
+            };
+        
         }
 
-<<<<<<< Updated upstream
+
         protected override string ObtenerNombreTabla() => "Usuario";
 
 

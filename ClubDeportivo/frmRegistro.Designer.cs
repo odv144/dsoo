@@ -49,6 +49,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.dgvActividades = new System.Windows.Forms.DataGridView();
             this.btnRegistrar = new System.Windows.Forms.Button();
+            this.cboActividad = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -254,27 +255,6 @@
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
-            // lblObs
-            // 
-            this.lblObs.AutoSize = true;
-            this.lblObs.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblObs.Location = new System.Drawing.Point(587, 324);
-            this.lblObs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblObs.Name = "lblObs";
-            this.lblObs.Size = new System.Drawing.Size(94, 19);
-            this.lblObs.TabIndex = 22;
-            this.lblObs.Text = "Observación";
-            // 
-            // txtObs
-            // 
-            this.txtObs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtObs.Location = new System.Drawing.Point(698, 324);
-            this.txtObs.Margin = new System.Windows.Forms.Padding(4);
-            this.txtObs.Multiline = true;
-            this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(206, 97);
-            this.txtObs.TabIndex = 21;
-            // 
             // dgvActividades
             // 
             this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -298,12 +278,21 @@
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
+            // cboActividad
+            // 
+            this.cboActividad.FormattingEnabled = true;
+            this.cboActividad.Location = new System.Drawing.Point(561, 342);
+            this.cboActividad.Name = "cboActividad";
+            this.cboActividad.Size = new System.Drawing.Size(342, 23);
+            this.cboActividad.TabIndex = 24;
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(973, 555);
+            this.Controls.Add(this.cboActividad);
             this.Controls.Add(this.dgvActividades);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lblImporte);
@@ -358,5 +347,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.DataGridView dgvActividades;
         private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.ComboBox cboActividad;
     }
 }

@@ -17,26 +17,31 @@ namespace ClubDeportivo
 {
     public partial class frmRegistro : Form
     {
+        public int id;
+        private Entidades.E_Usuario usuario;
+        private RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
+        private RepositoryActividad repoActividad;
+        private RepositorySocioActividad repoSocioActividad;
+        private RepositorySocio repoSocio = new RepositorySocio();
         public frmRegistro()
         {
             InitializeComponent();
+            repoActividad = new RepositoryActividad();
+            repoSocioActividad = new RepositorySocioActividad();
+            repoSocio = new RepositorySocio();
         }
 
-        public int id;
-        private Entidades.E_Usuario usuario;
 
         private void btnRegistrar_Click(object sender, EventArgs e)
 
         {
-
-            RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
-            usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
-                                      txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
+            this.usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
+                                        txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
 
             E_Usuario usuario1 = null;
             if (chkCerMedico.Checked)
             {
-                RepositorySocio repoSocio = new RepositorySocio();
+
                 usuario1 = repositoryUsuario.Insertar(usuario);
                 usuario1 = repoSocio.Insertar(new E_Socio(usuario1, "activo", double.Parse(txtImporte.Text), false));
                 frmCarnetPrinter carnet = new frmCarnetPrinter();
@@ -66,6 +71,13 @@ namespace ClubDeportivo
 
 
             repo.CambioEstadoCarnet(id, true);
+            
+            frmCarnetPrinter carnet = new frmCarnetPrinter();
+            carnet.nroSocio = id.ToString();
+            carnet.nombre = usuario.Nombre;
+            carnet.apellido = usuario.Apellido;
+            carnet.importe = txtImporte.Text;
+
             /*
              * Esto seria para la reimpresion en caso de algun error cuando se registro
              * tener en cuenta que el importe se toma del textbox que ahora estaria vacio
@@ -90,13 +102,13 @@ namespace ClubDeportivo
         {
             if (chkCerMedico.Checked)
             {
-                btnImprimir.Enabled = true;
-                btnRegistrar.Enabled = true;
+
+                Utilidades.HabilitarBotones(this, true);
             }
             else
             {
-                btnImprimir.Enabled = false;
-                btnRegistrar.Enabled = false;
+                Utilidades.HabilitarBotones(this, false);
+
             }
         }
 
@@ -112,16 +124,25 @@ namespace ClubDeportivo
 
         private void frmRegistro_Load(object sender, EventArgs e)
         {
+            CargarActividades();
             CargarGrilla();
+        }
+        public void CargarActividades()
+        {
+            var actividades = repoActividad.ObtenerActividadesConCupoDisponible();
+            cboActividad.DataSource = actividades;
+            cboActividad.DisplayMember = "Nombre";
+            cboActividad.ValueMember = "IdActividad";
         }
         public void CargarGrilla()
         {
-            RepositoryActividad repo = new RepositoryActividad();
-            repo.ObtenerActividadesConCupoDisponible();
             try
             {
 
                 RepositoryActividad repo = new RepositoryActividad();
+                repo.ObtenerActividadesConCupoDisponible();
+
+
                 List<E_Actividad> actividades = repo.ObtenerTodos();
                 dgvActividades.DataSource = null;
                 dgvActividades.Rows.Clear();
@@ -142,8 +163,8 @@ namespace ClubDeportivo
 
             // Cambiar nombres de encabezados
             if (dgvActividades.Columns["Nombre"] != null)
-                dgvActividades.Columns["Nombre"].Visible=false;
-                dgvActividades.Columns["Nombre"].HeaderText = "Actividad";
+                dgvActividades.Columns["Nombre"].Visible = false;
+            dgvActividades.Columns["Nombre"].HeaderText = "Actividad";
 
             if (dgvActividades.Columns["Descripcion"] != null)
                 dgvActividades.Columns["Descripcion"].HeaderText = "Descripción";
@@ -185,6 +206,7 @@ namespace ClubDeportivo
 
             if (usuario != null)
             {
+                Utilidades.HabilitarBotones(this, false);
                 MessageBox.Show("El DNI ingresado ya se encuentra registrado.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDni.Focus();
             }

@@ -18,6 +18,7 @@ namespace ClubDeportivo.Entidades
         public int CupoMaximo { get; set; }  
         public string Turno { get; set; }
 
+        public List<E_Socio_Actividad> Socios { get; set; }
         // Constructor vacío
         public E_Actividad() { }
 
@@ -34,6 +35,7 @@ namespace ClubDeportivo.Entidades
             this.TarifaNoSocio = tarifaNoSocio;
             this.CupoMaximo = cupoMaximo;
             this.Turno = turno;
+            this.Socios = new List<E_Socio_Actividad>();
         }
 
     }

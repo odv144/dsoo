@@ -17,6 +17,7 @@ namespace ClubDeportivo.Entidades
         public string Email { get; set; }
         public DateTime FechaRegistro { get; set; }
         public bool CertificadoMedico { get; set; }
+        public E_Usuario Usuario { get; set; }
 
         public E_Usuario() { }
 

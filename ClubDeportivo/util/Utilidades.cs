@@ -35,6 +35,23 @@ namespace ClubDeportivo.util
             
 
         }
+        public static void HabilitarBotones(Form frm, bool estado)
+        {
+            foreach (Control control in frm.Controls)
+            {
+                if (control is Button)
+                {
+                    if (control.Name == "btnRegistrar")
+                    {
+                        control.Enabled = estado;
+                    }
+                    if (control.Name == "btnImprimir")
+                    {
+                        control.Enabled = estado;
+                    }
+                }
+            }
+        }
         public static void TextBox_Leave(object sender, EventArgs e)
         {
             TextBox txt = sender as TextBox;
