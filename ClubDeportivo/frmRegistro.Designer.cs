@@ -74,7 +74,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 19);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Nombre";
             // 
             // label3
@@ -85,7 +85,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 19);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Apellido";
             // 
             // label4
@@ -96,7 +96,7 @@
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 19);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 0;
             this.label4.Text = "DNI";
             // 
             // label5
@@ -107,7 +107,7 @@
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 19);
-            this.label5.TabIndex = 4;
+            this.label5.TabIndex = 6;
             this.label5.Text = "Télefono";
             // 
             // label6
@@ -118,7 +118,7 @@
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 19);
-            this.label6.TabIndex = 5;
+            this.label6.TabIndex = 8;
             this.label6.Text = "E-mail";
             // 
             // label7
@@ -141,7 +141,7 @@
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(165, 57);
-            this.btnLimpiar.TabIndex = 8;
+            this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "Limpiar datos";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -155,7 +155,7 @@
             this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(164, 57);
-            this.btnAtras.TabIndex = 9;
+            this.btnAtras.TabIndex = 8;
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
@@ -168,7 +168,7 @@
             this.chkCerMedico.Margin = new System.Windows.Forms.Padding(4);
             this.chkCerMedico.Name = "chkCerMedico";
             this.chkCerMedico.Size = new System.Drawing.Size(15, 14);
-            this.chkCerMedico.TabIndex = 10;
+            this.chkCerMedico.TabIndex = 5;
             this.chkCerMedico.UseVisualStyleBackColor = false;
             this.chkCerMedico.CheckedChanged += new System.EventHandler(this.HabilitarBotones);
             // 
@@ -179,7 +179,7 @@
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(197, 23);
-            this.txtNombre.TabIndex = 11;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtApellido
             // 
@@ -188,7 +188,7 @@
             this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(197, 23);
-            this.txtApellido.TabIndex = 12;
+            this.txtApellido.TabIndex = 2;
             // 
             // txtDni
             // 
@@ -197,7 +197,8 @@
             this.txtDni.Margin = new System.Windows.Forms.Padding(4);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(197, 23);
-            this.txtDni.TabIndex = 13;
+            this.txtDni.TabIndex = 0;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.Leave += new System.EventHandler(this.txtDni_Leave);
             // 
             // txtTelefono
@@ -207,7 +208,7 @@
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(197, 23);
-            this.txtTelefono.TabIndex = 14;
+            this.txtTelefono.TabIndex = 3;
             // 
             // txtEmail
             // 
@@ -216,7 +217,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(197, 23);
-            this.txtEmail.TabIndex = 15;
+            this.txtEmail.TabIndex = 4;
             // 
             // txtImporte
             // 
@@ -225,7 +226,7 @@
             this.txtImporte.Margin = new System.Windows.Forms.Padding(4);
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.Size = new System.Drawing.Size(206, 23);
-            this.txtImporte.TabIndex = 18;
+            this.txtImporte.TabIndex = 6;
             this.txtImporte.Text = "0";
             this.txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -250,7 +251,7 @@
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(152, 57);
-            this.btnImprimir.TabIndex = 20;
+            this.btnImprimir.TabIndex = 11;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
@@ -262,6 +263,7 @@
             this.dgvActividades.Name = "dgvActividades";
             this.dgvActividades.Size = new System.Drawing.Size(342, 178);
             this.dgvActividades.TabIndex = 23;
+            this.dgvActividades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActividades_CellContentClick);
             // 
             // btnRegistrar
             // 
@@ -273,7 +275,7 @@
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(152, 57);
-            this.btnRegistrar.TabIndex = 7;
+            this.btnRegistrar.TabIndex = 10;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -284,7 +286,7 @@
             this.cboActividad.Location = new System.Drawing.Point(561, 342);
             this.cboActividad.Name = "cboActividad";
             this.cboActividad.Size = new System.Drawing.Size(342, 23);
-            this.cboActividad.TabIndex = 24;
+            this.cboActividad.TabIndex = 7;
             // 
             // frmRegistro
             // 

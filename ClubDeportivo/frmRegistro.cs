@@ -211,5 +211,25 @@ namespace ClubDeportivo
                 txtDni.Focus();
             }
         }
+
+        private void dgvActividades_CellContentClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        {
+            // Protección básica: fila o columna de encabezado (índice -1) no procesar.
+            if (e == null || e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            // Ejemplo seguro de acceso a la celda clickeada (sin asumir tipos):
+            var fila = dgvActividades.Rows[e.RowIndex];
+            var celda = fila?.Cells[e.ColumnIndex];
+            var valor = celda?.Value;
+
+            // Actualmente no se añade más lógica para no cambiar comportamiento.
+            // Si quieres que ocurra algo al hacer clic, añade código aquí.
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

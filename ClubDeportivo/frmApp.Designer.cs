@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApp));
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnCobro = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -39,21 +38,9 @@
             this.btnRegistroNoSocio = new System.Windows.Forms.Button();
             this.btnCuota = new System.Windows.Forms.Button();
             this.btnActividad = new System.Windows.Forms.Button();
+            this.btnSocio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Location = new System.Drawing.Point(23, 22);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(152, 59);
-            this.btnRegistrar.TabIndex = 0;
-            this.btnRegistrar.Text = "Registrar Socio";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnCobro
             // 
@@ -123,6 +110,16 @@
             this.lblSeccion.TabIndex = 6;
             this.lblSeccion.Text = "Inicio Sección como:";
             // 
+            // btnRegistroNoSocio
+            // 
+            this.btnRegistroNoSocio.Location = new System.Drawing.Point(205, 22);
+            this.btnRegistroNoSocio.Name = "btnRegistroNoSocio";
+            this.btnRegistroNoSocio.Size = new System.Drawing.Size(141, 59);
+            this.btnRegistroNoSocio.TabIndex = 7;
+            this.btnRegistroNoSocio.Text = "RegistroNoSocio";
+            this.btnRegistroNoSocio.UseVisualStyleBackColor = true;
+            this.btnRegistroNoSocio.Click += new System.EventHandler(this.btnRegistroNoSocio_Click);
+            // 
             // btnCuota
             // 
             this.btnCuota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
@@ -147,15 +144,15 @@
             this.btnActividad.Text = "Gestion Actividades";
             this.btnActividad.UseVisualStyleBackColor = false;
             // 
-            // btnRegistroNoSocio
+            // btnSocio
             // 
-            this.btnRegistroNoSocio.Location = new System.Drawing.Point(205, 22);
-            this.btnRegistroNoSocio.Name = "btnRegistroNoSocio";
-            this.btnRegistroNoSocio.Size = new System.Drawing.Size(141, 59);
-            this.btnRegistroNoSocio.TabIndex = 7;
-            this.btnRegistroNoSocio.Text = "RegistroNoSocio";
-            this.btnRegistroNoSocio.UseVisualStyleBackColor = true;
-            this.btnRegistroNoSocio.Click += new System.EventHandler(this.btnRegistroNoSocio_Click);
+            this.btnSocio.Location = new System.Drawing.Point(31, 27);
+            this.btnSocio.Name = "btnSocio";
+            this.btnSocio.Size = new System.Drawing.Size(156, 54);
+            this.btnSocio.TabIndex = 9;
+            this.btnSocio.Text = "Apartado Socio";
+            this.btnSocio.UseVisualStyleBackColor = true;
+            this.btnSocio.Click += new System.EventHandler(this.btnSocio_Click);
             // 
             // frmApp
             // 
@@ -163,8 +160,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(929, 450);
+            this.Controls.Add(this.btnSocio);
             this.Controls.Add(this.btnRegistroNoSocio);
-            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnActividad);
             this.Controls.Add(this.btnCuota);
             this.Controls.Add(this.lblSeccion);
@@ -173,7 +170,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCobro);
-            this.Controls.Add(this.btnRegistrar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -186,8 +182,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnCobro;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -197,5 +191,6 @@
         private System.Windows.Forms.Button btnRegistroNoSocio;
         private System.Windows.Forms.Button btnCuota;
         private System.Windows.Forms.Button btnActividad;
+        private System.Windows.Forms.Button btnSocio;
     }
 }

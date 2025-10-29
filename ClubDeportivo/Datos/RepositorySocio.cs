@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -91,7 +92,43 @@ namespace ClubDeportivo.Datos
             };
         }
 
-       internal E_Usuario InsertarNoSocio(E_NoSocio e_NoSocio)
+        //metodo para mostrar socios en el datagridview
+     
+
+        public DataTable ListarSocios()
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+
+                string query = @"
+                SELECT 
+                    s.NroSocio,
+                    u.Nombre,
+                    u.Apellido,
+                    u.Dni,
+                    u.Telefono,
+                    u.Email,
+                    s.EstadoHabilitacion,
+                    s.CuotaMensual,
+                    s.CarnetEntregado
+                FROM Socio s
+                INNER JOIN Usuario u ON s.NroSocio = u.IdUsuario";
+
+                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(tabla);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar socios: " + ex.Message);
+            }
+            return tabla;
+        }
+
+
+    internal E_Usuario InsertarNoSocio(E_NoSocio e_NoSocio)
         {
             throw new NotImplementedException();
         }

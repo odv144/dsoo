@@ -43,5 +43,11 @@ namespace ClubDeportivo
             registro.ShowDialog();
         
         }
+
+        private void btnSocio_Click(object sender, EventArgs e)
+        {
+            frmApartadoSocio  registro = new frmApartadoSocio();
+            registro.ShowDialog();
+        }
     }
 }
