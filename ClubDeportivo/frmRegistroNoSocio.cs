@@ -15,10 +15,15 @@ namespace ClubDeportivo
 {
     public partial class frmRegistroNoSocio : Form
     {
-        public frmRegistroNoSocio()
+        private frmApartadoNoSocio formNoSocio;
+
+        public frmRegistroNoSocio(frmApartadoNoSocio formNoSocio = null)
         {
             InitializeComponent();
+
+            formNoSocio = formNoSocio;
         }
+        
         public int id;
         private Entidades.E_Usuario usuario;
 
@@ -104,6 +109,24 @@ namespace ClubDeportivo
         }
         //agregar funcionalidad de imprimir comprobante
         private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAtras_Click_1(object sender, EventArgs e)
+        {
+            formNoSocio.CargarNoSocios();
+            formNoSocio.Show();
+            this.Close();
+
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
 
         }

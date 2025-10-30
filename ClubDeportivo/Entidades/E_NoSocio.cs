@@ -12,10 +12,13 @@ namespace ClubDeportivo.Entidades
     {
 
         public int NroNoSocio { get; set; }
+
+        public int IdUsuario { get; set; }
         public string Observacion { get; set; }
-        public E_NoSocio(E_Usuario usuario, string Obs) : base(usuario.Nombre,usuario.Apellido,usuario.Dni, usuario.Telefono, usuario.Email, usuario.FechaRegistro, usuario.CertificadoMedico)
-        {
-            NroNoSocio = usuario.IdUsuario;
+        public E_NoSocio(E_Usuario usuario,/* int IdUsuario */string Obs) : base(usuario.Nombre,usuario.Apellido,usuario.Dni, usuario.Telefono, usuario.Email, usuario.FechaRegistro, usuario.CertificadoMedico)
+        {   
+            
+            IdUsuario = usuario.IdUsuario;
             Observacion = Obs;
         }
     }

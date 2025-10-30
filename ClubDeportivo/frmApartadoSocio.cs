@@ -13,11 +13,14 @@ namespace ClubDeportivo
 {
     public partial class frmApartadoSocio : Form
     {
+        
+
         public frmApartadoSocio()
         {
             InitializeComponent();
 
-            // Suscribimos el Load para cargar socios al abrir el formulario
+            
+           
             this.Load += frmApartadoSocio_Load;
         }
 
@@ -27,12 +30,14 @@ namespace ClubDeportivo
         internal string usuario;
         private void btnRegistrarSocio_Click(object sender, EventArgs e)
         {
-            frmRegistro registro = new frmRegistro();
+            frmRegistro registro = new frmRegistro(this);
             registro.ShowDialog();
+
+            CargarSocios();
         }
 
         // cargo los socios 
-        private void CargarSocios()
+        public void CargarSocios()
         {
             try
             {
@@ -43,7 +48,7 @@ namespace ClubDeportivo
                     dgvListaSocio.DataSource = socios;
                     dgvListaSocio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dgvListaSocio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                    dgvListaSocio.ReadOnly = true;
+                    dgvListaSocio.ReadOnly = true;  
                 }
                 else
                 {
@@ -64,43 +69,19 @@ namespace ClubDeportivo
           CargarSocios();
         }
 
-        // Agrega el método frmApartadoSocio_Load para solucionar el error CS0103
-        private void frmApartadoSocio_Load(object sender, EventArgs e)
-        {
-            CargarSocios();
-        }
+        // Agrega el método frmApartadoSocio_Load para solucionar el error CS010
+
+
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Hide();        
+            this.Close();
         }
 
-        /*
-          
-
-        private void frmApp_Load(object sender, EventArgs e)
+        private void frmApartadoSocio_Load(object sender, EventArgs e)
         {
-            lblSeccion.Text += "USUARIO: " + usuario + " (" + rol + ")"; 
-            //frmLoggin login = new frmLoggin();
-            //login.ShowDialog();
+            CargarSocios();
+
         }
-
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            frmRegistro registro = new frmRegistro();
-            registro.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnRegistroNoSocio_Click(object sender, EventArgs e)
-        {
-            frmRegistroNoSocio registro = new frmRegistroNoSocio();
-            registro.ShowDialog();
-        
-        }*/
     }
 }

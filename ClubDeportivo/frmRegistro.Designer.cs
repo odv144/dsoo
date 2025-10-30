@@ -63,7 +63,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(969, 33);
             this.label1.TabIndex = 0;
-            this.label1.Text = "REGISTRO DE USUARIO";
+            this.label1.Text = "REGISTRO DE SOCIO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -180,6 +180,9 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(197, 23);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
+            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
             // txtApellido
             // 
@@ -189,6 +192,9 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(197, 23);
             this.txtApellido.TabIndex = 2;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
+            this.txtApellido.Leave += new System.EventHandler(this.txtApellido_Leave);
             // 
             // txtDni
             // 
@@ -199,6 +205,7 @@
             this.txtDni.Size = new System.Drawing.Size(197, 23);
             this.txtDni.TabIndex = 0;
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             this.txtDni.Leave += new System.EventHandler(this.txtDni_Leave);
             // 
             // txtTelefono
@@ -209,6 +216,8 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(197, 23);
             this.txtTelefono.TabIndex = 3;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtEmail
             // 
@@ -218,6 +227,8 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(197, 23);
             this.txtEmail.TabIndex = 4;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtImporte
             // 
@@ -229,6 +240,7 @@
             this.txtImporte.TabIndex = 6;
             this.txtImporte.Text = "0";
             this.txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtImporte.TextChanged += new System.EventHandler(this.txtImporte_TextChanged);
             // 
             // lblImporte
             // 

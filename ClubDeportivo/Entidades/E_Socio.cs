@@ -10,6 +10,8 @@ namespace ClubDeportivo.Entidades
     internal class E_Socio : E_Usuario
     {
         public int NroSocio { get; set; }
+
+        public int IdUsuario { get; set; }
         public string EstadoHabilitacion { get; set; }
         public double CuotaMensual { get; set; }
         public bool CarnetEntregado { get; set; }
@@ -20,12 +22,13 @@ namespace ClubDeportivo.Entidades
         // Constructor con parámetros
         
         public E_Socio(E_Usuario usuario,
+            int IdUsuario,
             string estadoHabilitacion,
             double cuotaMensual,
             bool carnetEntregado)
             : base(usuario.Nombre, usuario.Apellido, usuario.Dni, usuario.Telefono, usuario.Email, usuario.FechaRegistro, usuario.CertificadoMedico)
         {
-            NroSocio = usuario.IdUsuario;
+            IdUsuario = usuario.IdUsuario;
             EstadoHabilitacion = estadoHabilitacion;
             CuotaMensual = cuotaMensual;
             CarnetEntregado = carnetEntregado;

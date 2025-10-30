@@ -17,6 +17,19 @@ namespace ClubDeportivo
 {
     public partial class frmRegistro : Form
     {
+        private frmApartadoSocio formSocio;
+
+        public frmRegistro(frmApartadoSocio formSocio = null)
+        {
+            InitializeComponent();
+            this.formSocio = formSocio;
+
+
+            repoActividad = new RepositoryActividad();
+            repoSocioActividad = new RepositorySocioActividad();
+            repoSocio = new RepositorySocio();
+        }
+
         public int id;
         private Entidades.E_Usuario usuario;
         private RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
@@ -33,7 +46,6 @@ namespace ClubDeportivo
 
 
         private void btnRegistrar_Click(object sender, EventArgs e)
-
         {
             this.usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
                                         txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
@@ -41,15 +53,14 @@ namespace ClubDeportivo
             E_Usuario usuario1 = null;
             if (chkCerMedico.Checked)
             {
-
                 usuario1 = repositoryUsuario.Insertar(usuario);
-                usuario1 = repoSocio.Insertar(new E_Socio(usuario1, "activo", double.Parse(txtImporte.Text), false));
-                frmCarnetPrinter carnet = new frmCarnetPrinter();
-                carnet.nroSocio = id.ToString();
-                carnet.nombre = usuario.Nombre;
-                carnet.apellido = usuario.Apellido;
-                carnet.importe = txtImporte.Text;
-                carnet.ShowDialog();
+                usuario1 = repoSocio.Insertar(new E_Socio(usuario1,usuario1.IdUsuario , "activo", double.Parse(txtImporte.Text), false));
+
+                // Notificar al formulario padre para recargar el grid (si existe)
+                formSocio?.CargarSocios();
+
+                // Opcional: cerrar el formulario tras registrar
+                this.Close();
             }
             else
             {
@@ -119,7 +130,11 @@ namespace ClubDeportivo
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
+                formSocio.CargarSocios();
+                formSocio.Show();
+            
+            this.Close();
         }
 
         private void frmRegistro_Load(object sender, EventArgs e)
@@ -229,7 +244,97 @@ namespace ClubDeportivo
 
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            int pos = txtNombre.SelectionStart;
+            txtNombre.Text = txtNombre.Text.ToUpper();
+            txtNombre.SelectionStart = pos;
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtImporte_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+                e.Handled = true;
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+            int pos = txtApellido.SelectionStart;
+            txtApellido.Text = txtApellido.Text.ToUpper();
+            txtApellido.SelectionStart = pos;
+        }
+
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            if (txtNombre.Text.Trim().Length < 3)
+            {
+                MessageBox.Show("El nombre debe tener al menos 3 letras.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNombre.Focus();
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+                e.Handled = true;
+        }
+        private void txtApellido_Leave(object sender, EventArgs e)
+        {
+            if (txtApellido.Text.Trim().Length < 3)
+            {
+                MessageBox.Show("El apellido debe tener al menos 3 letras.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtApellido.Focus();
+            }
+        }
+
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (!EsEmailValido(txtEmail.Text))
+            {
+                MessageBox.Show("Ingrese un correo electrónico válido.");
+                txtEmail.Focus();
+            }
+        }
+
+        private bool EsEmailValido(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch { return false; }
         }
     }
 }

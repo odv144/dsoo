@@ -31,8 +31,8 @@ namespace ClubDeportivo.Datos
             try
             {
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                string query = @"INSERT INTO Socio (NroSocio, EstadoHabilitacion, CuotaMensual, CarnetEntregado)
-                         VALUES (@NroSocio, @EstadoHabilitacion, @CuotaMensual, @CarnetEntregado)";
+                string query = @"INSERT INTO Socio (IdUsuario, EstadoHabilitacion, CuotaMensual, CarnetEntregado)
+                         VALUES (@IdUsuario, @EstadoHabilitacion, @CuotaMensual, @CarnetEntregado)";
                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
                 
 
@@ -73,10 +73,11 @@ namespace ClubDeportivo.Datos
             E_Usuario usuario = null;
             return new E_Socio
             ( usuario,
-         reader.GetString("EstadoHabilitacion"),
-         reader.GetDouble("CuotaMensual"),
-         reader.GetBoolean("CarnetEntregado")
-            );
+            usuario.IdUsuario,
+             reader.GetString("EstadoHabilitacion"),
+             reader.GetDouble("CuotaMensual"),
+             reader.GetBoolean("CarnetEntregado")
+                );
         }
 
        
@@ -86,6 +87,7 @@ namespace ClubDeportivo.Datos
             return new Dictionary<string, object>
                 {
                 {"@NroSocio", entidad.NroSocio },
+                {"@IdUsuario", entidad.IdUsuario },
                 {"@EstadoHabilitacion", entidad.EstadoHabilitacion },
                 {"@CuotaMensual", entidad.CuotaMensual },
                 {"@CarnetEntregado", entidad.CarnetEntregado }
@@ -114,7 +116,7 @@ namespace ClubDeportivo.Datos
                     s.CuotaMensual,
                     s.CarnetEntregado
                 FROM Socio s
-                INNER JOIN Usuario u ON s.NroSocio = u.IdUsuario";
+                INNER JOIN Usuario u ON s.IdUsuario = u.IdUsuario";
 
                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -127,10 +129,5 @@ namespace ClubDeportivo.Datos
             return tabla;
         }
 
-
-    internal E_Usuario InsertarNoSocio(E_NoSocio e_NoSocio)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

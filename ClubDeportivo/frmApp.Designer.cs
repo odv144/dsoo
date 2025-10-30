@@ -32,13 +32,13 @@
             this.btnCobro = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lblSeccion = new System.Windows.Forms.Label();
-            this.btnRegistroNoSocio = new System.Windows.Forms.Button();
             this.btnCuota = new System.Windows.Forms.Button();
             this.btnActividad = new System.Windows.Forms.Button();
             this.btnSocio = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnApartadoNoSocio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,16 +78,6 @@
             this.button3.Text = "Listado Vencimientos";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(63, 104);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(804, 334);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
@@ -109,16 +99,6 @@
             this.lblSeccion.Size = new System.Drawing.Size(106, 13);
             this.lblSeccion.TabIndex = 6;
             this.lblSeccion.Text = "Inicio Sección como:";
-            // 
-            // btnRegistroNoSocio
-            // 
-            this.btnRegistroNoSocio.Location = new System.Drawing.Point(205, 22);
-            this.btnRegistroNoSocio.Name = "btnRegistroNoSocio";
-            this.btnRegistroNoSocio.Size = new System.Drawing.Size(141, 59);
-            this.btnRegistroNoSocio.TabIndex = 7;
-            this.btnRegistroNoSocio.Text = "RegistroNoSocio";
-            this.btnRegistroNoSocio.UseVisualStyleBackColor = true;
-            this.btnRegistroNoSocio.Click += new System.EventHandler(this.btnRegistroNoSocio_Click);
             // 
             // btnCuota
             // 
@@ -154,14 +134,34 @@
             this.btnSocio.UseVisualStyleBackColor = true;
             this.btnSocio.Click += new System.EventHandler(this.btnSocio_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(63, 104);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(804, 334);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnApartadoNoSocio
+            // 
+            this.btnApartadoNoSocio.Location = new System.Drawing.Point(208, 27);
+            this.btnApartadoNoSocio.Name = "btnApartadoNoSocio";
+            this.btnApartadoNoSocio.Size = new System.Drawing.Size(141, 54);
+            this.btnApartadoNoSocio.TabIndex = 11;
+            this.btnApartadoNoSocio.Text = "Apartado No Socio";
+            this.btnApartadoNoSocio.UseVisualStyleBackColor = true;
+            this.btnApartadoNoSocio.Click += new System.EventHandler(this.btnApartadoNoSocio_Click);
+            // 
             // frmApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(929, 450);
+            this.Controls.Add(this.btnApartadoNoSocio);
             this.Controls.Add(this.btnSocio);
-            this.Controls.Add(this.btnRegistroNoSocio);
             this.Controls.Add(this.btnActividad);
             this.Controls.Add(this.btnCuota);
             this.Controls.Add(this.lblSeccion);
@@ -188,9 +188,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblSeccion;
-        private System.Windows.Forms.Button btnRegistroNoSocio;
         private System.Windows.Forms.Button btnCuota;
         private System.Windows.Forms.Button btnActividad;
         private System.Windows.Forms.Button btnSocio;
+        private System.Windows.Forms.Button btnApartadoNoSocio;
     }
 }

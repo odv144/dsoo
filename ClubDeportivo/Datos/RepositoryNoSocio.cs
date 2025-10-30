@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +25,8 @@ namespace ClubDeportivo.Datos
             {
                 sqlCon = Conexion.getInstancia().CrearConexion();
 
-                string query = @"INSERT INTO nosocio (NroNoSocio, Observacion)
-                                 VALUES (@NroNoSocio, @Observacion)";
+                string query = @"INSERT INTO nosocio (IdUsuario, Observacion)
+                                 VALUES (@IdUsuario, @Observacion)";
 
                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
                 var parametros = ObtenerParametros(entidad);
@@ -57,7 +58,9 @@ namespace ClubDeportivo.Datos
             {
                 E_Usuario usuario = new E_Usuario
                 {
+                    
                     IdUsuario = reader.GetInt32("NroNoSocio"),
+                    
                     Nombre = reader["Nombre"] != DBNull.Value ? reader.GetString("Nombre") : "",
                     Apellido = reader["Apellido"] != DBNull.Value ? reader.GetString("Apellido") : "",
                     Dni = reader["Dni"] != DBNull.Value ? reader.GetString("Dni") : "",
@@ -81,7 +84,9 @@ namespace ClubDeportivo.Datos
         {
             return new Dictionary<string, object>
             {
+           
                 { "@NroNoSocio", entidad.NroNoSocio },
+                { "@IdUsuario", entidad.IdUsuario },
                 { "@Observacion", entidad.Observacion }
             };
         }
@@ -95,6 +100,37 @@ namespace ClubDeportivo.Datos
         {
             throw new NotImplementedException();
         }
+
+        public DataTable ListarNoSocios()
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+
+                string query = @"
+            SELECT 
+                n.NroNoSocio,
+                u.Nombre,
+                u.Apellido,
+                u.Dni,
+                u.Telefono,
+                u.Email,
+                n.Observacion
+            FROM nosocio n
+            INNER JOIN usuario u ON n.NroNoSocio = u.IdUsuario";
+
+                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(tabla);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar no socios: " + ex.Message);
+            }
+            return tabla;
+        }
+
 
         /*  public override E_NoSocio ObtenerPorId(int id)
           {

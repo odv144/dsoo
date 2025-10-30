@@ -78,7 +78,7 @@
             this.txtImporte.Margin = new System.Windows.Forms.Padding(4);
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.Size = new System.Drawing.Size(206, 20);
-            this.txtImporte.TabIndex = 36;
+            this.txtImporte.TabIndex = 6;
             this.txtImporte.Text = "0";
             this.txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -89,7 +89,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(197, 20);
-            this.txtEmail.TabIndex = 35;
+            this.txtEmail.TabIndex = 4;
             // 
             // txtTelefono
             // 
@@ -98,7 +98,8 @@
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(197, 20);
-            this.txtTelefono.TabIndex = 34;
+            this.txtTelefono.TabIndex = 3;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             // 
             // txtDni
             // 
@@ -107,7 +108,7 @@
             this.txtDni.Margin = new System.Windows.Forms.Padding(4);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(197, 20);
-            this.txtDni.TabIndex = 33;
+            this.txtDni.TabIndex = 0;
             // 
             // txtApellido
             // 
@@ -116,7 +117,8 @@
             this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(197, 20);
-            this.txtApellido.TabIndex = 32;
+            this.txtApellido.TabIndex = 2;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             // 
             // txtNombre
             // 
@@ -125,7 +127,7 @@
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(197, 20);
-            this.txtNombre.TabIndex = 31;
+            this.txtNombre.TabIndex = 1;
             // 
             // chkCerMedico
             // 
@@ -135,7 +137,7 @@
             this.chkCerMedico.Margin = new System.Windows.Forms.Padding(4);
             this.chkCerMedico.Name = "chkCerMedico";
             this.chkCerMedico.Size = new System.Drawing.Size(15, 14);
-            this.chkCerMedico.TabIndex = 30;
+            this.chkCerMedico.TabIndex = 5;
             this.chkCerMedico.UseVisualStyleBackColor = false;
             // 
             // label7
@@ -213,9 +215,10 @@
             this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(164, 57);
-            this.btnAtras.TabIndex = 39;
+            this.btnAtras.TabIndex = 8;
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click_1);
             // 
             // btnLimpiar
             // 
@@ -226,7 +229,7 @@
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(165, 57);
-            this.btnLimpiar.TabIndex = 40;
+            this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "Limpiar datos";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
@@ -235,7 +238,7 @@
             this.txtObservacion.Location = new System.Drawing.Point(510, 231);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(326, 174);
-            this.txtObservacion.TabIndex = 43;
+            this.txtObservacion.TabIndex = 7;
             this.txtObservacion.Text = "";
             // 
             // lblObservaciones
@@ -252,7 +255,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(460, 435);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(151, 57);
-            this.btnRegistrar.TabIndex = 45;
+            this.btnRegistrar.TabIndex = 10;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click_1);
@@ -262,7 +265,7 @@
             this.btnImprimir.Location = new System.Drawing.Point(647, 435);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(178, 57);
-            this.btnImprimir.TabIndex = 46;
+            this.btnImprimir.TabIndex = 11;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
