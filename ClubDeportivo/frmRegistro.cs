@@ -61,6 +61,14 @@ namespace ClubDeportivo
 
                 // Opcional: cerrar el formulario tras registrar
                 this.Close();
+                usuario1 = repoSocio.Insertar(new E_Socio(usuario1, "activo", double.Parse(txtImporte.Text), false));
+                //crear cuota
+                frmCarnetPrinter carnet = new frmCarnetPrinter();
+                carnet.nroSocio = id.ToString();
+                carnet.nombre = usuario.Nombre;
+                carnet.apellido = usuario.Apellido;
+                carnet.importe = txtImporte.Text;
+                carnet.ShowDialog();
             }
             else
             {

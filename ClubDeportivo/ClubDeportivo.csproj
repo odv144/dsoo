@@ -122,6 +122,12 @@
     <Compile Include="frmApartadoNoSocio.Designer.cs">
       <DependentUpon>frmApartadoNoSocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActividad.Designer.cs">
+      <DependentUpon>frmActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmApartadoSocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,9 +174,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="util\Utilidades.cs" />
-    <EmbeddedResource Include="frmApartadoNoSocio.resx">
-      <DependentUpon>frmApartadoNoSocio.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmApartadoSocio.resx">
       <DependentUpon>frmApartadoSocio.cs</DependentUpon>
     </EmbeddedResource>
