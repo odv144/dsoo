@@ -19,7 +19,7 @@ namespace ClubDeportivo
         }
         public string nombre;
         public string apellido;
-        public string nroSocio;
+        public int nroSocio;
         public string importe;
         private void btnImprimir_Click(object sender, EventArgs e)
         {
@@ -48,7 +48,7 @@ namespace ClubDeportivo
 
         private void frmCarnetPrinter_Load(object sender, EventArgs e)
         {
-            lblNro.Text=nroSocio;
+            lblNro.Text=nroSocio.ToString();
             lblAyN.Text = apellido + " " + nombre;
             lblImporte.Text = importe;
         }

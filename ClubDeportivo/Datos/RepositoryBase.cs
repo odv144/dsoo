@@ -91,7 +91,33 @@ namespace ClubDeportivo.Datos
                 return count > 0;
             }
         }
+        // Método para verificar si un usuario ya es socio o no socio
+        public string ObtenerTipoUsuario(int idUsuario)
+        {
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                // Verificar en tabla Socio
+                string querySocio = "SELECT COUNT(*) FROM Socio WHERE IdUsuario = @IdUsuario";
+                MySqlCommand cmdSocio = new MySqlCommand(querySocio, conn);
+                cmdSocio.Parameters.AddWithValue("@IdUsuario", idUsuario);
 
+                conn.Open();
+                int esSocio = Convert.ToInt32(cmdSocio.ExecuteScalar());
+
+                if (esSocio > 0) return "Socio";
+
+                // Verificar en tabla NoSocio
+                string queryNoSocio = "SELECT COUNT(*) FROM NoSocio WHERE IdUsuario = @IdUsuario";
+                MySqlCommand cmdNoSocio = new MySqlCommand(queryNoSocio, conn);
+                cmdNoSocio.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+                int esNoSocio = Convert.ToInt32(cmdNoSocio.ExecuteScalar());
+
+                if (esNoSocio > 0) return "NoSocio";
+
+                return "SinAsignar"; // Usuario sin tipo definido
+            }
+        }
         // Métodos abstractos para operaciones específicas
         public abstract T Insertar(T entidad);
         public abstract T Actualizar(T entidad);

@@ -47,28 +47,28 @@ namespace ClubDeportivo
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            this.usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
+            E_Usuario usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
                                         txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
 
-            E_Usuario usuario1 = null;
+           
             if (chkCerMedico.Checked)
             {
-                usuario1 = repositoryUsuario.Insertar(usuario);
-                usuario1 = repoSocio.Insertar(new E_Socio(usuario1,usuario1.IdUsuario , "activo", double.Parse(txtImporte.Text), false));
-
+                E_Usuario user = repositoryUsuario.Insertar(usuario);
+                E_Socio socio = repoSocio.Insertar(new E_Socio(user , "activo", double.Parse(txtImporte.Text), false));
+                
+                //usuario1 = repoSocio.Insertar(new E_Socio(usuario1, "activo", double.Parse(txtImporte.Text), false));
+                //crear cuota
+                frmCarnetPrinter carnet = new frmCarnetPrinter();
+                carnet.nroSocio = socio.NroSocio;
+                carnet.nombre = usuario.Nombre;
+                carnet.apellido = usuario.Apellido;
+                carnet.importe = txtImporte.Text;
+                carnet.ShowDialog();
                 // Notificar al formulario padre para recargar el grid (si existe)
                 formSocio?.CargarSocios();
 
                 // Opcional: cerrar el formulario tras registrar
                 this.Close();
-                usuario1 = repoSocio.Insertar(new E_Socio(usuario1, "activo", double.Parse(txtImporte.Text), false));
-                //crear cuota
-                frmCarnetPrinter carnet = new frmCarnetPrinter();
-                carnet.nroSocio = id.ToString();
-                carnet.nombre = usuario.Nombre;
-                carnet.apellido = usuario.Apellido;
-                carnet.importe = txtImporte.Text;
-                carnet.ShowDialog();
             }
             else
             {
@@ -92,7 +92,7 @@ namespace ClubDeportivo
             repo.CambioEstadoCarnet(id, true);
             
             frmCarnetPrinter carnet = new frmCarnetPrinter();
-            carnet.nroSocio = id.ToString();
+            carnet.nroSocio = id;
             carnet.nombre = usuario.Nombre;
             carnet.apellido = usuario.Apellido;
             carnet.importe = txtImporte.Text;

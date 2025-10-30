@@ -147,7 +147,7 @@ namespace ClubDeportivo.Datos
             {
                 sqlCon = Conexion.getInstancia().CrearConexion();
                 string insertUsuario = "INSERT INTO usuario (Nombre,Apellido,Dni,Telefono,Email,FechaRegistro,CertificadoMedico)" +
-                                        "VALUES (@Nombre,@Apellido,@Dni,@Telefono,@Email,@FechaRegistro,@CertificadoMedico)";
+                                        "VALUES (@Nombre,@Apellido,@Dni,@Telefono,@Email,@FechaRegistro,@CertificadoMedico);SELECT LAST_INSERT_ID();";
                 MySqlCommand comando = new MySqlCommand(insertUsuario, sqlCon);
 
                 var parametros = ObtenerParametros(entidad);
@@ -161,6 +161,8 @@ namespace ClubDeportivo.Datos
                 sqlCon.Open();
 
                 //actividad.IdActividad = Convert.ToInt32(cmd.ExecuteScalar());
+                //comando.ExecuteNonQuery();
+
                 entidad.IdUsuario = Convert.ToInt32(comando.ExecuteScalar());
 
 

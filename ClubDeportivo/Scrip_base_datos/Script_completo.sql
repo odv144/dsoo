@@ -45,17 +45,19 @@ constraint pk_IdUsuario primary key (IdUsuario)
 
 create table Socio(
 	NroSocio int auto_increment,
+    IdUsuario int,
     EstadoHabilitacion enum('activo', 'suspendido', 'vencido') NOT NULL DEFAULT 'activo',
     CuotaMensual double,
     CarnetEntregado boolean,
     constraint pk_NroSocio primary key (NroSocio),
-    constraint fk_Usuario foreign key(NroSocio) references Usuario(IdUsuario)
+    constraint fk_Usuario foreign key(IdUsuario) references Usuario(IdUsuario)
 );
 create table NoSocio(
 	NroNoSocio int auto_increment,
+    IdUsuario int,
     Observacion varchar(150),
     constraint pk_NroNoSocio primary key (NroNoSocio),
-    constraint fk_NroNoSocio foreign key(NroNoSocio) references Usuario(IdUsuario)
+    constraint fk_NroNoSocio foreign key(IdUsuario) references Usuario(IdUsuario)
 );
 create table Cuota(
 	IdCuota int auto_increment,

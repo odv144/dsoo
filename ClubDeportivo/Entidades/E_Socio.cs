@@ -15,14 +15,16 @@ namespace ClubDeportivo.Entidades
         public string EstadoHabilitacion { get; set; }
         public double CuotaMensual { get; set; }
         public bool CarnetEntregado { get; set; }
+
+        public E_Usuario Usuario { get; set; }
         
         public List<E_Socio_Actividad> Actividades { get; set; }
 
 
-        // Constructor con parámetros
+        public E_Socio() { }
         
+        // Constructor con parámetros
         public E_Socio(E_Usuario usuario,
-            int IdUsuario,
             string estadoHabilitacion,
             double cuotaMensual,
             bool carnetEntregado)
@@ -34,7 +36,6 @@ namespace ClubDeportivo.Entidades
             CarnetEntregado = carnetEntregado;
             Actividades = new List<E_Socio_Actividad>();
         }
-        public E_Socio() { }
        
     }
 

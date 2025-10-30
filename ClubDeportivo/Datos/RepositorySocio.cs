@@ -32,7 +32,7 @@ namespace ClubDeportivo.Datos
             {
                 sqlCon = Conexion.getInstancia().CrearConexion();
                 string query = @"INSERT INTO Socio (IdUsuario, EstadoHabilitacion, CuotaMensual, CarnetEntregado)
-                         VALUES (@IdUsuario, @EstadoHabilitacion, @CuotaMensual, @CarnetEntregado)";
+                         VALUES (@IdUsuario, @EstadoHabilitacion, @CuotaMensual, @CarnetEntregado);SELECT LAST_INSERT_ID();";
                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
                 
 
@@ -47,11 +47,11 @@ namespace ClubDeportivo.Datos
                 sqlCon.Open();
 
                 //actividad.IdActividad = Convert.ToInt32(cmd.ExecuteScalar());
-                entidad.IdUsuario = Convert.ToInt32(cmd.ExecuteScalar());
+                int NroSocio = Convert.ToInt32(cmd.ExecuteScalar());
 
-                sqlCon.Close();
                 MessageBox.Show("Registro Exito");
-                E_Socio socio =  ObtenerPorId(entidad.IdUsuario); ;
+                E_Socio socio =  ObtenerPorId(NroSocio); ;
+                sqlCon.Close();
                 return socio;
                
                 
@@ -70,14 +70,23 @@ namespace ClubDeportivo.Datos
         protected override E_Socio MapearDesdeReader(MySqlDataReader reader)
         {
             //buscar como mapear el usuario dentro del socio
-            E_Usuario usuario = null;
             return new E_Socio
-            ( usuario,
-            usuario.IdUsuario,
-             reader.GetString("EstadoHabilitacion"),
-             reader.GetDouble("CuotaMensual"),
-             reader.GetBoolean("CarnetEntregado")
-                );
+            {
+                EstadoHabilitacion = reader.GetString("EstadoHabilitacion"),
+                CuotaMensual = reader.GetDouble("CuotaMensual"),
+                CarnetEntregado = reader.GetBoolean("CarnetEntregado"),
+                Usuario = new E_Usuario
+                {
+                    IdUsuario = reader.GetInt32("IdUsuario"),
+                    Nombre = reader.GetString("Nombre"),
+                    Apellido = reader.GetString("Apellido"),
+                    Dni = reader.GetString("Dni"),
+                    Telefono = reader.GetString("Telefono"),
+                    Email = reader.GetString("Email"),
+                    FechaRegistro = reader.GetDateTime("FechaRegistro"),
+                    CertificadoMedico = reader.GetBoolean("CertificadoMedico")
+                }
+            };
         }
 
        
@@ -127,6 +136,114 @@ namespace ClubDeportivo.Datos
                 MessageBox.Show("Error al listar socios: " + ex.Message);
             }
             return tabla;
+        }
+        // ⭐ MÉTODO CLAVE: Obtener Socio CON su Usuario (JOIN)
+        public E_Socio ObtenerConUsuario(int nroSocio)
+        {
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                // JOIN entre Socio y Usuario
+                string query = @"
+                SELECT 
+                    s.NroSocio, 
+                    s.IdUsuario,
+                    s.EstadoHabilitacion, 
+                    s.CarnetEntregado, 
+                    s.CuotaMensual,
+                    u.Nombre, 
+                    u.Apellido, 
+                    u.Dni, 
+                    u.Telefono, 
+                    u.Email
+                FROM Socio s
+                INNER JOIN Usuario u ON s.IdUsuario = u.IdUsuario
+                WHERE s.NroSocio = @NroSocio";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@NroSocio", nroSocio);
+
+                conn.Open();
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        // ⭐ MAPEO: Crear objeto Socio
+                        E_Socio socio = new E_Socio
+                        {
+                            NroSocio = reader.GetInt32("NroSocio"),
+                            IdUsuario = reader.GetInt32("IdUsuario"),
+                            EstadoHabilitacion = reader.GetString("EstadoHabilitacion"),
+                            CarnetEntregado = reader.GetBoolean("CarnetEntregado"),
+                            CuotaMensual = reader.GetDouble("CuotaMensual"),
+
+                            // ⭐ CARGAR OBJETO USUARIO RELACIONADO
+                            Usuario = new E_Usuario
+                            {
+                                IdUsuario = reader.GetInt32("IdUsuario"),
+                                Nombre = reader.GetString("Nombre"),
+                                Apellido = reader.GetString("Apellido"),
+                                Dni = reader.GetString("Dni"),
+                                Telefono = reader.GetString("Telefono"),
+                                Email = reader.GetString("Email")
+                            }
+                        };
+
+                        return socio;
+                    }
+                }
+            }
+            return null;
+        }
+        // Obtener socio por DNI del usuario
+        public E_Socio ObtenerPorDniUsuario(string dni)
+        {
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = @"
+                SELECT 
+                    s.NroSocio, 
+                    s.IdUsuario,
+                    s.EstadoHabilitacion, 
+                    s.CarnetEntregado, 
+                    s.CuotaMensual,
+                    u.Nombre, 
+                    u.Apellido, 
+                    u.Dni, 
+                    u.Telefono, 
+                    u.Email
+                FROM Socio s
+                INNER JOIN Usuario u ON s.IdUsuario = u.IdUsuario
+                WHERE u.Dni = @Dni";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Dni", dni);
+
+                conn.Open();
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new E_Socio
+                        {
+                            NroSocio = reader.GetInt32("NroSocio"),
+                            IdUsuario = reader.GetInt32("IdUsuario"),
+                            EstadoHabilitacion = reader.GetString("EstadoHabilitacion"),
+                            CarnetEntregado = reader.GetBoolean("CarnetEntregado"),
+                            CuotaMensual = reader.GetDouble("CuotaMensual"),
+                            Usuario = new E_Usuario
+                            {
+                                IdUsuario = reader.GetInt32("IdUsuario"),
+                                Nombre = reader.GetString("Nombre"),
+                                Apellido = reader.GetString("Apellido"),
+                                Dni = reader.GetString("Dni"),
+                                Telefono = reader.GetString("Telefono"),
+                                Email = reader.GetString("Email")
+                            }
+                        };
+                    }
+                }
+            }
+            return null;
         }
 
     }
