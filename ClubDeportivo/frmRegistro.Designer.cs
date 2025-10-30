@@ -47,10 +47,9 @@
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.lblImporte = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.dgvActividades = new System.Windows.Forms.DataGridView();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.cboActividad = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
+            this.cboPago = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +60,7 @@
             this.label1.Location = new System.Drawing.Point(2, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(969, 33);
+            this.label1.Size = new System.Drawing.Size(579, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "REGISTRO DE SOCIO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -70,7 +69,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(88, 151);
+            this.label2.Location = new System.Drawing.Point(123, 128);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 19);
@@ -81,7 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(88, 204);
+            this.label3.Location = new System.Drawing.Point(123, 181);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 19);
@@ -92,7 +91,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(88, 96);
+            this.label4.Location = new System.Drawing.Point(123, 73);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 19);
@@ -103,7 +102,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(88, 252);
+            this.label5.Location = new System.Drawing.Point(123, 229);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 19);
@@ -114,7 +113,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(88, 302);
+            this.label6.Location = new System.Drawing.Point(123, 279);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 19);
@@ -125,7 +124,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(88, 347);
+            this.label7.Location = new System.Drawing.Point(123, 324);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(137, 19);
@@ -137,10 +136,10 @@
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(294, 463);
+            this.btnLimpiar.Location = new System.Drawing.Point(306, 546);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(165, 57);
+            this.btnLimpiar.Size = new System.Drawing.Size(141, 47);
             this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "Limpiar datos";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -151,10 +150,10 @@
             this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.btnAtras.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnAtras.ForeColor = System.Drawing.Color.White;
-            this.btnAtras.Location = new System.Drawing.Point(60, 463);
+            this.btnAtras.Location = new System.Drawing.Point(135, 546);
             this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(164, 57);
+            this.btnAtras.Size = new System.Drawing.Size(142, 47);
             this.btnAtras.TabIndex = 8;
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = false;
@@ -164,7 +163,7 @@
             // 
             this.chkCerMedico.AutoSize = true;
             this.chkCerMedico.BackColor = System.Drawing.Color.White;
-            this.chkCerMedico.Location = new System.Drawing.Point(294, 352);
+            this.chkCerMedico.Location = new System.Drawing.Point(329, 329);
             this.chkCerMedico.Margin = new System.Windows.Forms.Padding(4);
             this.chkCerMedico.Name = "chkCerMedico";
             this.chkCerMedico.Size = new System.Drawing.Size(15, 14);
@@ -175,7 +174,7 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtNombre.Location = new System.Drawing.Point(215, 147);
+            this.txtNombre.Location = new System.Drawing.Point(250, 124);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(197, 23);
@@ -187,7 +186,7 @@
             // txtApellido
             // 
             this.txtApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtApellido.Location = new System.Drawing.Point(215, 196);
+            this.txtApellido.Location = new System.Drawing.Point(250, 173);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(197, 23);
@@ -199,7 +198,7 @@
             // txtDni
             // 
             this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtDni.Location = new System.Drawing.Point(215, 96);
+            this.txtDni.Location = new System.Drawing.Point(250, 73);
             this.txtDni.Margin = new System.Windows.Forms.Padding(4);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(197, 23);
@@ -211,7 +210,7 @@
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtTelefono.Location = new System.Drawing.Point(215, 243);
+            this.txtTelefono.Location = new System.Drawing.Point(250, 220);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(197, 23);
@@ -222,7 +221,7 @@
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtEmail.Location = new System.Drawing.Point(215, 294);
+            this.txtEmail.Location = new System.Drawing.Point(250, 271);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(197, 23);
@@ -233,7 +232,7 @@
             // txtImporte
             // 
             this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtImporte.Location = new System.Drawing.Point(698, 96);
+            this.txtImporte.Location = new System.Drawing.Point(259, 364);
             this.txtImporte.Margin = new System.Windows.Forms.Padding(4);
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.Size = new System.Drawing.Size(206, 23);
@@ -246,7 +245,7 @@
             // 
             this.lblImporte.AutoSize = true;
             this.lblImporte.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblImporte.Location = new System.Drawing.Point(561, 100);
+            this.lblImporte.Location = new System.Drawing.Point(123, 364);
             this.lblImporte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblImporte.Name = "lblImporte";
             this.lblImporte.Size = new System.Drawing.Size(107, 19);
@@ -259,23 +258,14 @@
             this.btnImprimir.Enabled = false;
             this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(752, 463);
+            this.btnImprimir.Location = new System.Drawing.Point(306, 606);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(152, 57);
+            this.btnImprimir.Size = new System.Drawing.Size(141, 42);
             this.btnImprimir.TabIndex = 11;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // dgvActividades
-            // 
-            this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvActividades.Location = new System.Drawing.Point(561, 139);
-            this.dgvActividades.Name = "dgvActividades";
-            this.dgvActividades.Size = new System.Drawing.Size(342, 178);
-            this.dgvActividades.TabIndex = 23;
-            this.dgvActividades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActividades_CellContentClick);
             // 
             // btnRegistrar
             // 
@@ -283,31 +273,41 @@
             this.btnRegistrar.Enabled = false;
             this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Location = new System.Drawing.Point(529, 463);
+            this.btnRegistrar.Location = new System.Drawing.Point(135, 601);
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(152, 57);
+            this.btnRegistrar.Size = new System.Drawing.Size(140, 52);
             this.btnRegistrar.TabIndex = 10;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // cboActividad
+            // cboPago
             // 
-            this.cboActividad.FormattingEnabled = true;
-            this.cboActividad.Location = new System.Drawing.Point(561, 342);
-            this.cboActividad.Name = "cboActividad";
-            this.cboActividad.Size = new System.Drawing.Size(342, 23);
-            this.cboActividad.TabIndex = 7;
+            this.cboPago.FormattingEnabled = true;
+            this.cboPago.Location = new System.Drawing.Point(259, 423);
+            this.cboPago.Name = "cboPago";
+            this.cboPago.Size = new System.Drawing.Size(206, 23);
+            this.cboPago.TabIndex = 20;
+            this.cboPago.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(124, 431);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 15);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Forma de Pago";
             // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(973, 555);
-            this.Controls.Add(this.cboActividad);
-            this.Controls.Add(this.dgvActividades);
+            this.ClientSize = new System.Drawing.Size(581, 661);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cboPago);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lblImporte);
             this.Controls.Add(this.txtImporte);
@@ -333,7 +333,6 @@
             this.Name = "frmRegistro";
             this.Text = "Registro";
             this.Load += new System.EventHandler(this.frmRegistro_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,8 +358,8 @@
         private System.Windows.Forms.TextBox txtImporte;
         private System.Windows.Forms.Label lblImporte;
         private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.DataGridView dgvActividades;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.ComboBox cboActividad;
+        private System.Windows.Forms.ComboBox cboPago;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -50,7 +50,7 @@ namespace ClubDeportivo.Datos
                 int NroSocio = Convert.ToInt32(cmd.ExecuteScalar());
 
                 MessageBox.Show("Registro Exito");
-                E_Socio socio =  ObtenerPorId(NroSocio); ;
+                E_Socio socio =  ObtenerConUsuario(NroSocio); ;
                 sqlCon.Close();
                 return socio;
                
@@ -69,12 +69,16 @@ namespace ClubDeportivo.Datos
 
         protected override E_Socio MapearDesdeReader(MySqlDataReader reader)
         {
-            //buscar como mapear el usuario dentro del socio
+            //buscar new E_Sociocomo mapear el usuario dentro del socio
             return new E_Socio
-            {
+                {
+                NroSocio = reader.GetInt32("NroSocio"),
+                IdUsuario = reader.GetInt32("IdUsuario"),
                 EstadoHabilitacion = reader.GetString("EstadoHabilitacion"),
-                CuotaMensual = reader.GetDouble("CuotaMensual"),
                 CarnetEntregado = reader.GetBoolean("CarnetEntregado"),
+                CuotaMensual = reader.GetDouble("CuotaMensual"),
+
+                // ⭐ CARGAR OBJETO USUARIO RELACIONADO
                 Usuario = new E_Usuario
                 {
                     IdUsuario = reader.GetInt32("IdUsuario"),
@@ -82,9 +86,7 @@ namespace ClubDeportivo.Datos
                     Apellido = reader.GetString("Apellido"),
                     Dni = reader.GetString("Dni"),
                     Telefono = reader.GetString("Telefono"),
-                    Email = reader.GetString("Email"),
-                    FechaRegistro = reader.GetDateTime("FechaRegistro"),
-                    CertificadoMedico = reader.GetBoolean("CertificadoMedico")
+                    Email = reader.GetString("Email")
                 }
             };
         }
@@ -168,27 +170,9 @@ namespace ClubDeportivo.Datos
                     if (reader.Read())
                     {
                         // ⭐ MAPEO: Crear objeto Socio
-                        E_Socio socio = new E_Socio
-                        {
-                            NroSocio = reader.GetInt32("NroSocio"),
-                            IdUsuario = reader.GetInt32("IdUsuario"),
-                            EstadoHabilitacion = reader.GetString("EstadoHabilitacion"),
-                            CarnetEntregado = reader.GetBoolean("CarnetEntregado"),
-                            CuotaMensual = reader.GetDouble("CuotaMensual"),
+                       
 
-                            // ⭐ CARGAR OBJETO USUARIO RELACIONADO
-                            Usuario = new E_Usuario
-                            {
-                                IdUsuario = reader.GetInt32("IdUsuario"),
-                                Nombre = reader.GetString("Nombre"),
-                                Apellido = reader.GetString("Apellido"),
-                                Dni = reader.GetString("Dni"),
-                                Telefono = reader.GetString("Telefono"),
-                                Email = reader.GetString("Email")
-                            }
-                        };
-
-                        return socio;
+                        return MapearDesdeReader(reader);
                     }
                 }
             }

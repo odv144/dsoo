@@ -23,10 +23,10 @@ namespace ClubDeportivo.Datos
         private Conexion()
         {
             this.servidor = "127.0.0.1";
-            this.port = "3307";
+            this.port = "3306";
             this.bd = "proyecto";
             this.usuario = "root";
-            this.pass = "odv144";
+            this.pass = "";
         }
         public MySqlConnection CrearConexion()
         {

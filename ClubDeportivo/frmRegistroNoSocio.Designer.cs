@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvActividades = new System.Windows.Forms.DataGridView();
             this.lblImporte = new System.Windows.Forms.Label();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -45,20 +44,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtObservacion = new System.Windows.Forms.RichTextBox();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.txtObservacion = new System.Windows.Forms.RichTextBox();
+            this.cboActividad = new System.Windows.Forms.ComboBox();
+            this.dgvActividades = new System.Windows.Forms.DataGridView();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvActividades
-            // 
-            this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvActividades.Location = new System.Drawing.Point(510, 118);
-            this.dgvActividades.Name = "dgvActividades";
-            this.dgvActividades.Size = new System.Drawing.Size(342, 80);
-            this.dgvActividades.TabIndex = 38;
             // 
             // lblImporte
             // 
@@ -211,7 +205,7 @@
             this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.btnAtras.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnAtras.ForeColor = System.Drawing.Color.White;
-            this.btnAtras.Location = new System.Drawing.Point(41, 435);
+            this.btnAtras.Location = new System.Drawing.Point(59, 513);
             this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(164, 57);
@@ -225,7 +219,7 @@
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(243, 435);
+            this.btnLimpiar.Location = new System.Drawing.Point(261, 513);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(165, 57);
@@ -233,18 +227,10 @@
             this.btnLimpiar.Text = "Limpiar datos";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
-            // txtObservacion
-            // 
-            this.txtObservacion.Location = new System.Drawing.Point(510, 231);
-            this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(326, 174);
-            this.txtObservacion.TabIndex = 7;
-            this.txtObservacion.Text = "";
-            // 
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Location = new System.Drawing.Point(512, 213);
+            this.lblObservaciones.Location = new System.Drawing.Point(38, 405);
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(78, 13);
             this.lblObservaciones.TabIndex = 44;
@@ -252,7 +238,7 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(460, 435);
+            this.btnRegistrar.Location = new System.Drawing.Point(478, 513);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(151, 57);
             this.btnRegistrar.TabIndex = 10;
@@ -262,7 +248,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(647, 435);
+            this.btnImprimir.Location = new System.Drawing.Point(665, 513);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(178, 57);
             this.btnImprimir.TabIndex = 11;
@@ -270,18 +256,53 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(41, 421);
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(302, 74);
+            this.txtObservacion.TabIndex = 7;
+            this.txtObservacion.Text = "";
+            // 
+            // cboActividad
+            // 
+            this.cboActividad.FormattingEnabled = true;
+            this.cboActividad.Location = new System.Drawing.Point(572, 128);
+            this.cboActividad.Name = "cboActividad";
+            this.cboActividad.Size = new System.Drawing.Size(271, 21);
+            this.cboActividad.TabIndex = 45;
+            // 
+            // dgvActividades
+            // 
+            this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvActividades.Location = new System.Drawing.Point(572, 211);
+            this.dgvActividades.Name = "dgvActividades";
+            this.dgvActividades.Size = new System.Drawing.Size(342, 178);
+            this.dgvActividades.TabIndex = 46;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(850, 125);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 47;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
             // frmRegistroNoSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 544);
+            this.ClientSize = new System.Drawing.Size(950, 600);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.cboActividad);
+            this.Controls.Add(this.dgvActividades);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.lblObservaciones);
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.dgvActividades);
             this.Controls.Add(this.lblImporte);
             this.Controls.Add(this.txtImporte);
             this.Controls.Add(this.txtEmail);
@@ -305,8 +326,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvActividades;
         private System.Windows.Forms.Label lblImporte;
         private System.Windows.Forms.TextBox txtImporte;
         private System.Windows.Forms.TextBox txtEmail;
@@ -323,9 +342,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.RichTextBox txtObservacion;
         private System.Windows.Forms.Label lblObservaciones;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.RichTextBox txtObservacion;
+        private System.Windows.Forms.ComboBox cboActividad;
+        private System.Windows.Forms.DataGridView dgvActividades;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }

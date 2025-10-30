@@ -118,7 +118,7 @@ namespace ClubDeportivo.Datos
                 u.Email,
                 n.Observacion
             FROM nosocio n
-            INNER JOIN usuario u ON n.NroNoSocio = u.IdUsuario";
+            INNER JOIN usuario u ON n.IdUsuario = u.IdUsuario";
 
                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);

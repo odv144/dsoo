@@ -29,22 +29,31 @@ namespace ClubDeportivo
 
         private void btnRegistrar_Click_1(object sender, EventArgs e)
         {
+
+
+
             RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
             usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
                                       txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
 
-            E_Usuario usuario2 = null;
+            RepositoryNoSocio repoNoSocio = new RepositoryNoSocio();
+
+            //E_Usuario usuario2 = null;
             if (chkCerMedico.Checked)
             {
-                RepositoryNoSocio repoNoSocio = new RepositoryNoSocio();
-                usuario2 = repositoryUsuario.Insertar(usuario);
-                usuario2 = repoNoSocio.Insertar(new E_NoSocio(usuario2, txtObservacion.Text));
+
+                E_Usuario user = repositoryUsuario.Insertar(usuario);
+                //E_Socio socio = repoSocio.Insertar(new E_Socio(user, "activo", double.Parse(txtImporte.Text), false));
+
+               // RepositoryNoSocio repoNoSocio = new RepositoryNoSocio();
+               // usuario2 = repositoryUsuario.Insertar(usuario);
+               E_NoSocio noSocio = repoNoSocio.Insertar(new E_NoSocio(user, txtObservacion.Text));
                 // usuario1 = repoSocio.Insertar(new E_Socio(usuario1, "activo", double.Parse(txtImporte.Text), false));
-                frmCarnetPrinter carnet = new frmCarnetPrinter();
+                /*frmCarnetPrinter carnet = new frmCarnetPrinter();
                 carnet.nombre = usuario.Nombre;
                 carnet.apellido = usuario.Apellido;
                 carnet.importe = txtImporte.Text;
-                carnet.ShowDialog();
+                carnet.ShowDialog();*/
 
             }
             else

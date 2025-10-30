@@ -55,15 +55,28 @@ namespace ClubDeportivo
             {
                 E_Usuario user = repositoryUsuario.Insertar(usuario);
                 E_Socio socio = repoSocio.Insertar(new E_Socio(user , "activo", double.Parse(txtImporte.Text), false));
-                
+                RepositoryCuota repoCuota = new RepositoryCuota();
+
+                repoCuota.Insertar(new E_Cuota
+                {
+                    NroSocio = socio.NroSocio,
+                    FechaVencimiento = DateTime.Now.AddMonths(1),
+                    Monto = double.Parse(txtImporte.Text),
+                    MetodoPago = cboPago.SelectedItem.ToString(),
+                    Mes = DateTime.Now.Month,
+                    Anio = DateTime.Now.Year,
+                    FechaPago = DateTime.Now,
+                    EstadoPago = true
+                });
+
                 //usuario1 = repoSocio.Insertar(new E_Socio(usuario1, "activo", double.Parse(txtImporte.Text), false));
                 //crear cuota
-                frmCarnetPrinter carnet = new frmCarnetPrinter();
-                carnet.nroSocio = socio.NroSocio;
-                carnet.nombre = usuario.Nombre;
-                carnet.apellido = usuario.Apellido;
-                carnet.importe = txtImporte.Text;
-                carnet.ShowDialog();
+                /* frmCarnetPrinter carnet = new frmCarnetPrinter();
+                 carnet.nroSocio = socio.NroSocio;
+                 carnet.nombre = usuario.Nombre;
+                 carnet.apellido = usuario.Apellido;
+                 carnet.importe = txtImporte.Text;
+                 carnet.ShowDialog();*/
                 // Notificar al formulario padre para recargar el grid (si existe)
                 formSocio?.CargarSocios();
 
@@ -147,17 +160,23 @@ namespace ClubDeportivo
 
         private void frmRegistro_Load(object sender, EventArgs e)
         {
-            CargarActividades();
-            CargarGrilla();
+            //CargarActividades();
+            cboPago.Items.Clear();
+            cboPago.Items.Add("Efectivo");
+            cboPago.Items.Add("Tarjeta en 3 Cuotas");
+            cboPago.Items.Add("Tarjeta en 6 Cuotas");
+            cboPago.Items.Add("Transferencia");
+            cboPago.SelectedIndex = 0; // seleccionar el primero
+            //CargarGrilla();
         }
-        public void CargarActividades()
+        /*public void CargarActividades()
         {
             var actividades = repoActividad.ObtenerActividadesConCupoDisponible();
             cboActividad.DataSource = actividades;
             cboActividad.DisplayMember = "Nombre";
             cboActividad.ValueMember = "IdActividad";
-        }
-        public void CargarGrilla()
+        }*/
+       /* public void CargarGrilla()
         {
             try
             {
@@ -215,7 +234,7 @@ namespace ClubDeportivo
             dgvActividades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
-        }
+        }*/
 
         private void txtObs_TextChanged(object sender, EventArgs e)
         {
@@ -242,9 +261,9 @@ namespace ClubDeportivo
                 return;
 
             // Ejemplo seguro de acceso a la celda clickeada (sin asumir tipos):
-            var fila = dgvActividades.Rows[e.RowIndex];
-            var celda = fila?.Cells[e.ColumnIndex];
-            var valor = celda?.Value;
+           // var fila = dgvActividades.Rows[e.RowIndex];
+            //var celda = fila?.Cells[e.ColumnIndex];
+           // var valor = celda?.Value;
 
             // Actualmente no se añade más lógica para no cambiar comportamiento.
             // Si quieres que ocurra algo al hacer clic, añade código aquí.
@@ -343,6 +362,11 @@ namespace ClubDeportivo
                 return addr.Address == email;
             }
             catch { return false; }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
