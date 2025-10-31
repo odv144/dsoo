@@ -19,228 +19,211 @@ namespace ClubDeportivo
     {
         private frmApartadoSocio formSocio;
 
+        //repos
+        private RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
+        private RepositoryActividad repoActividad;
+        private RepositorySocioActividad repoSocioActividad;
+        private RepositorySocio repoSocio;
+
+        public int id;
+        private Entidades.E_Usuario usuario;
+
+        //inicializo los repos
+        private void InicializarRepositorios()
+        {
+            repoActividad = new RepositoryActividad();
+            repoSocioActividad = new RepositorySocioActividad();
+            repoSocio = new RepositorySocio();
+        }
+
         public frmRegistro(frmApartadoSocio formSocio = null)
         {
             InitializeComponent();
             this.formSocio = formSocio;
-
-
-            repoActividad = new RepositoryActividad();
-            repoSocioActividad = new RepositorySocioActividad();
-            repoSocio = new RepositorySocio();
+            InicializarRepositorios();
         }
 
-        public int id;
-        private Entidades.E_Usuario usuario;
-        private RepositoryUsuario repositoryUsuario = new RepositoryUsuario();
-        private RepositoryActividad repoActividad;
-        private RepositorySocioActividad repoSocioActividad;
-        private RepositorySocio repoSocio = new RepositorySocio();
         public frmRegistro()
         {
             InitializeComponent();
-            repoActividad = new RepositoryActividad();
-            repoSocioActividad = new RepositorySocioActividad();
-            repoSocio = new RepositorySocio();
-        }
-
-
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            E_Usuario usuario = new Entidades.E_Usuario(txtNombre.Text, txtApellido.Text, txtDni.Text, txtTelefono.Text,
-                                        txtEmail.Text, DateTime.Now, chkCerMedico.Checked);
-
-           
-            if (chkCerMedico.Checked)
-            {
-                E_Usuario user = repositoryUsuario.Insertar(usuario);
-                E_Socio socio = repoSocio.Insertar(new E_Socio(user , "activo", double.Parse(txtImporte.Text), false));
-                RepositoryCuota repoCuota = new RepositoryCuota();
-
-                repoCuota.Insertar(new E_Cuota
-                {
-                    NroSocio = socio.NroSocio,
-                    FechaVencimiento = DateTime.Now.AddMonths(1),
-                    Monto = double.Parse(txtImporte.Text),
-                    MetodoPago = cboPago.SelectedItem.ToString(),
-                    Mes = DateTime.Now.Month,
-                    Anio = DateTime.Now.Year,
-                    FechaPago = DateTime.Now,
-                    EstadoPago = true
-                });
-
-                //usuario1 = repoSocio.Insertar(new E_Socio(usuario1, "activo", double.Parse(txtImporte.Text), false));
-                //crear cuota
-                /* frmCarnetPrinter carnet = new frmCarnetPrinter();
-                 carnet.nroSocio = socio.NroSocio;
-                 carnet.nombre = usuario.Nombre;
-                 carnet.apellido = usuario.Apellido;
-                 carnet.importe = txtImporte.Text;
-                 carnet.ShowDialog();*/
-                // Notificar al formulario padre para recargar el grid (si existe)
-                formSocio?.CargarSocios();
-
-                // Opcional: cerrar el formulario tras registrar
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("El certificado médico es obligatorio para registrar un socio.",
-                    "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-
-            Utilidades.LimpiarControles(this);
-        }
-
-
-
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            RepositoryUsuario repo = new RepositoryUsuario();
-            E_Usuario socio = null;
-
-
-            repo.CambioEstadoCarnet(id, true);
-            
-            frmCarnetPrinter carnet = new frmCarnetPrinter();
-            carnet.nroSocio = id;
-            carnet.nombre = usuario.Nombre;
-            carnet.apellido = usuario.Apellido;
-            carnet.importe = txtImporte.Text;
-
-            /*
-             * Esto seria para la reimpresion en caso de algun error cuando se registro
-             * tener en cuenta que el importe se toma del textbox que ahora estaria vacio
-             * 
-            socio = repo.ObtenerSocio(id);
-            frmCarnetPrinter carnet = new frmCarnetPrinter();
-            carnet.nroSocio = id.ToString(); ;
-            carnet.nombre = socio.Nombre;
-            carnet.apellido = socio.Apellido;
-            carnet.ShowDialog();
-           */
-
-
-            //utilizarlo en registrar no socio
-            // repo.ImpresionComprobante(usuario, id);
-
+            InicializarRepositorios();
 
         }
 
+                                        //eventos de form
 
-        private void HabilitarBotones(object sender, EventArgs e)
-        {
-            if (chkCerMedico.Checked)
-            {
-
-                Utilidades.HabilitarBotones(this, true);
-            }
-            else
-            {
-                Utilidades.HabilitarBotones(this, false);
-
-            }
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            Utilidades.LimpiarControles(this);
-        }
-
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            
-                formSocio.CargarSocios();
-                formSocio.Show();
-            
-            this.Close();
-        }
 
         private void frmRegistro_Load(object sender, EventArgs e)
         {
-            //CargarActividades();
+            // poblar metodos de pago
             cboPago.Items.Clear();
             cboPago.Items.Add("Efectivo");
             cboPago.Items.Add("Tarjeta en 3 Cuotas");
             cboPago.Items.Add("Tarjeta en 6 Cuotas");
             cboPago.Items.Add("Transferencia");
-            cboPago.SelectedIndex = 0; // seleccionar el primero
-            //CargarGrilla();
+            cboPago.SelectedIndex = 0;
+
+            // sincroniza estado inicial de botones con el check
+            Utilidades.HabilitarBotones(this, chkCerMedico.Checked);
         }
-        /*public void CargarActividades()
+
+        private void btnAtras_Click(object sender, EventArgs e)
         {
-            var actividades = repoActividad.ObtenerActividadesConCupoDisponible();
-            cboActividad.DataSource = actividades;
-            cboActividad.DisplayMember = "Nombre";
-            cboActividad.ValueMember = "IdActividad";
-        }*/
-       /* public void CargarGrilla()
+            formSocio.CargarSocios();
+            formSocio.Show();
+            this.Close();
+        }
+            
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Utilidades.LimpiarControles(this);
+        }
+
+        private void HabilitarBotones(object sender, EventArgs e)
+        {
+
+            Utilidades.HabilitarBotones(this, chkCerMedico.Checked);
+        }
+
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            // parseo de importe
+            double importe;
+            if (!double.TryParse(
+                    txtImporte.Text,
+                    System.Globalization.NumberStyles.Any,
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    out importe) || importe <= 0)
+            {
+                MessageBox.Show("Ingrese un importe numérico válido mayor a 0.", "Validación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtImporte.Focus();
+                return;
+            }
+
+            // mapeo de método de pago
+            string metodoPago = "Efectivo";
+            switch (cboPago.SelectedItem?.ToString())
+            {
+                case "Tarjeta en 3 Cuotas":
+                    metodoPago = "Tarjeta 3";
+                    break;
+                case "Tarjeta en 6 Cuotas":
+                    metodoPago = "Tarjeta 6";
+                    break;
+                case "Transferencia":
+                    metodoPago = "Transferencia";
+                    break;
+                default:
+                    metodoPago = "Efectivo";
+                    break;
+            }
+
+            // crear usuario
+            this.usuario = new E_Usuario(
+                txtNombre.Text,
+                txtApellido.Text,
+                txtDni.Text,
+                txtTelefono.Text,
+                txtEmail.Text,
+                DateTime.Now,
+                chkCerMedico.Checked
+            );
+
+            // persistir usuario
+            E_Usuario user = repositoryUsuario.Insertar(usuario);
+
+            // crear socio con cuota mensual = importe ingresado
+            E_Socio socio = repoSocio.Insertar(new E_Socio(user, "activo", importe, false));
+            this.id = socio.NroSocio; //esto servira para imprimir el carnet despues
+
+
+            // crear cuota inicial
+            RepositoryCuota repoCuota = new RepositoryCuota();
+            repoCuota.Insertar(new E_Cuota
+            {
+                NroSocio = socio.NroSocio,
+                FechaVencimiento = DateTime.Now.AddMonths(1),
+                Monto = importe,
+                MetodoPago = metodoPago,
+                Mes = DateTime.Now.Month,
+                Anio = DateTime.Now.Year,
+                FechaPago = DateTime.Now,
+                EstadoPago = true
+            });
+
+            // preguntar si quiere imprimir carnet
+            var respuesta = MessageBox.Show(
+            "Socio registrado correctamente.\n¿Desea imprimir el carnet ahora?",
+            "Registro exitoso",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                ImprimirCarnetRecienCreado(socio, importe);
+            }
+            
+            formSocio?.CargarSocios();
+            Utilidades.LimpiarControles(this);
+
+  
+
+        }
+
+        //para imprimir el carnet recien creado
+        private void ImprimirCarnetRecienCreado(E_Socio socio, double importe)
         {
             try
             {
+                // actualizar estado carnet en BD
+                repoSocio.CambioEstadoCarnet(socio.NroSocio, true);
 
-                RepositoryActividad repo = new RepositoryActividad();
-                repo.ObtenerActividadesConCupoDisponible();
+                // preparar datos del carnet
+                var carnet = new frmCarnetPrinter
+                {
+                    nroSocio = socio.NroSocio,
+                    nombre = usuario.Nombre,
+                    apellido = usuario.Apellido,
+                    importe = importe.ToString("N2")
+                };
 
-
-                List<E_Actividad> actividades = repo.ObtenerTodos();
-                dgvActividades.DataSource = null;
-                dgvActividades.Rows.Clear();
-                dgvActividades.DataSource = actividades;
-                PersonalizarColumnas();
+                carnet.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar actividades: {ex.Message}",
+                MessageBox.Show($"Error al imprimir carnet: {ex.Message}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            // repo.ObtenerActividadesConCupoDisponible();
         }
-        private void PersonalizarColumnas()
-        { // Ocultar columnas que no quieres mostrar
-            if (dgvActividades.Columns["IdActividad"] != null)
-                dgvActividades.Columns["IdActividad"].Visible = false;
-
-            // Cambiar nombres de encabezados
-            if (dgvActividades.Columns["Nombre"] != null)
-                dgvActividades.Columns["Nombre"].Visible = false;
-            dgvActividades.Columns["Nombre"].HeaderText = "Actividad";
-
-            if (dgvActividades.Columns["Descripcion"] != null)
-                dgvActividades.Columns["Descripcion"].HeaderText = "Descripción";
-
-            if (dgvActividades.Columns["TarifaSocio"] != null)
-            {
-                dgvActividades.Columns["TarifaSocio"].Visible = false;
-                dgvActividades.Columns["TarifaSocio"].HeaderText = "Tarifa Socio";
-                dgvActividades.Columns["TarifaSocio"].DefaultCellStyle.Format = "C2"; // Formato moneda
-            }
-
-            if (dgvActividades.Columns["TarifaNoSocio"] != null)
-            {
-                dgvActividades.Columns["TarifaNoSocio"].HeaderText = "Tarifa No Socio";
-                dgvActividades.Columns["TarifaNoSocio"].DefaultCellStyle.Format = "C2";
-            }
-
-            if (dgvActividades.Columns["CupoMaximo"] != null)
-                dgvActividades.Columns["CupoMaximo"].HeaderText = "Cupo Máximo";
-
-            if (dgvActividades.Columns["Turno"] != null)
-                dgvActividades.Columns["Turno"].HeaderText = "Turno";
-
-            // Ajustar ancho de columnas
-            dgvActividades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
-        }*/
-
-        private void txtObs_TextChanged(object sender, EventArgs e)
+        private void btnImprimir_Click(object sender, EventArgs e)
         {
+            // protege si alguien presiona imprimir sin registrar
+            if (usuario == null)
+            {
+                MessageBox.Show("No hay datos de usuario cargados para imprimir el carnet.",
+                                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            RepositorySocio repo = new RepositorySocio();
+            repo.CambioEstadoCarnet(id, true);
+
+            var carnet = new frmCarnetPrinter
+            {
+                nroSocio = id,
+                nombre = usuario.Nombre,
+                apellido = usuario.Apellido,
+                importe = txtImporte.Text
+            };
+            carnet.ShowDialog();
 
         }
-
+       
         private void txtDni_Leave(object sender, EventArgs e)
         {
             RepositoryUsuario repo = new RepositoryUsuario();
@@ -254,41 +237,14 @@ namespace ClubDeportivo
             }
         }
 
-        private void dgvActividades_CellContentClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
-        {
-            // Protección básica: fila o columna de encabezado (índice -1) no procesar.
-            if (e == null || e.RowIndex < 0 || e.ColumnIndex < 0)
-                return;
-
-            // Ejemplo seguro de acceso a la celda clickeada (sin asumir tipos):
-           // var fila = dgvActividades.Rows[e.RowIndex];
-            //var celda = fila?.Cells[e.ColumnIndex];
-           // var valor = celda?.Value;
-
-            // Actualmente no se añade más lógica para no cambiar comportamiento.
-            // Si quieres que ocurra algo al hacer clic, añade código aquí.
-        }
-
-        private void txtDni_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+  
+    
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             int pos = txtNombre.SelectionStart;
             txtNombre.Text = txtNombre.Text.ToUpper();
             txtNombre.SelectionStart = pos;
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtImporte_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
@@ -303,10 +259,7 @@ namespace ClubDeportivo
                 e.Handled = true;
         }
 
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -364,9 +317,7 @@ namespace ClubDeportivo
             catch { return false; }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
+        
     }
 }

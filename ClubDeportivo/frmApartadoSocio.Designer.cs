@@ -105,7 +105,7 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lblNombre);
             this.Name = "frmApartadoSocio";
-            this.Text = "frmApartadoSocio";
+            this.Text = "frmListadoSocio";
             this.Load += new System.EventHandler(this.frmApartadoSocio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSocio)).EndInit();
             this.ResumeLayout(false);

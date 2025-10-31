@@ -40,6 +40,7 @@
             this.lblActividad = new System.Windows.Forms.Label();
             this.lblAct = new System.Windows.Forms.Label();
             this.lblFechaVencimiento = new System.Windows.Forms.Label();
+            //this.btnCerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNroSocio

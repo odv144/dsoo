@@ -27,7 +27,16 @@ namespace ClubDeportivo
             btnImprimir.Visible=false;
             PrintDocument pd = new PrintDocument();
             pd.PrintPage += new PrintPageEventHandler(ImprimirCarnet);
-            pd.Print();
+            PrintDialog printDlg = new PrintDialog();
+            printDlg.AllowSomePages=true;
+            printDlg.AllowSelection = true;
+            printDlg.UseEXDialog = true;
+            printDlg.Document = pd;
+            if (printDlg.ShowDialog() == DialogResult.OK)
+            {
+                pd.Print();
+            }
+            //    pd.Print();
             btnImprimir.Visible = true;
             this.Close();
 
@@ -71,6 +80,11 @@ namespace ClubDeportivo
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
