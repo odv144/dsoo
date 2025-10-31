@@ -35,12 +35,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.lblImporteCuota = new System.Windows.Forms.Label();
             this.lblImporte = new System.Windows.Forms.Label();
-            this.Vencimiento = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblActividad = new System.Windows.Forms.Label();
-            this.lblAct = new System.Windows.Forms.Label();
-            this.lblFechaVencimiento = new System.Windows.Forms.Label();
-            //this.btnCerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNroSocio
@@ -124,18 +119,6 @@
             this.lblImporte.Text = "$ 25.000";
             this.lblImporte.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Vencimiento
-            // 
-            this.Vencimiento.AutoSize = true;
-            this.Vencimiento.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Vencimiento.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.Vencimiento.Location = new System.Drawing.Point(12, 201);
-            this.Vencimiento.Name = "Vencimiento";
-            this.Vencimiento.Size = new System.Drawing.Size(128, 25);
-            this.Vencimiento.TabIndex = 8;
-            this.Vencimiento.Text = "Vencimiento:";
-            this.Vencimiento.Click += new System.EventHandler(this.label4_Click);
-            // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(68)))), ((int)(((byte)(94)))));
@@ -149,51 +132,13 @@
             this.label5.Text = "CARNET DE SOCIO";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblActividad
-            // 
-            this.lblActividad.AutoSize = true;
-            this.lblActividad.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActividad.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblActividad.Location = new System.Drawing.Point(12, 167);
-            this.lblActividad.Name = "lblActividad";
-            this.lblActividad.Size = new System.Drawing.Size(95, 25);
-            this.lblActividad.TabIndex = 10;
-            this.lblActividad.Text = "Actvidad:";
-            // 
-            // lblAct
-            // 
-            this.lblAct.AutoSize = true;
-            this.lblAct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAct.ForeColor = System.Drawing.Color.Black;
-            this.lblAct.Location = new System.Drawing.Point(113, 167);
-            this.lblAct.Name = "lblAct";
-            this.lblAct.Size = new System.Drawing.Size(124, 25);
-            this.lblAct.TabIndex = 11;
-            this.lblAct.Text = "Musculación";
-            this.lblAct.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // lblFechaVencimiento
-            // 
-            this.lblFechaVencimiento.AutoSize = true;
-            this.lblFechaVencimiento.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaVencimiento.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaVencimiento.Location = new System.Drawing.Point(146, 201);
-            this.lblFechaVencimiento.Name = "lblFechaVencimiento";
-            this.lblFechaVencimiento.Size = new System.Drawing.Size(116, 25);
-            this.lblFechaVencimiento.TabIndex = 12;
-            this.lblFechaVencimiento.Text = "10/11/2025";
-            // 
             // frmCarnetPrinter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(434, 250);
-            this.Controls.Add(this.lblFechaVencimiento);
-            this.Controls.Add(this.lblAct);
-            this.Controls.Add(this.lblActividad);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Vencimiento);
             this.Controls.Add(this.lblImporte);
             this.Controls.Add(this.lblImporteCuota);
             this.Controls.Add(this.btnImprimir);
@@ -217,10 +162,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label lblImporteCuota;
         private System.Windows.Forms.Label lblImporte;
-        private System.Windows.Forms.Label Vencimiento;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblActividad;
-        private System.Windows.Forms.Label lblAct;
-        private System.Windows.Forms.Label lblFechaVencimiento;
     }
 }
