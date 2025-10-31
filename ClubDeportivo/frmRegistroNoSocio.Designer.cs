@@ -51,6 +51,8 @@
             this.cboActividad = new System.Windows.Forms.ComboBox();
             this.dgvActividades = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,22 +60,21 @@
             // 
             this.lblImporte.AutoSize = true;
             this.lblImporte.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblImporte.Location = new System.Drawing.Point(510, 79);
+            this.lblImporte.Location = new System.Drawing.Point(556, 442);
             this.lblImporte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblImporte.Name = "lblImporte";
-            this.lblImporte.Size = new System.Drawing.Size(133, 19);
+            this.lblImporte.Size = new System.Drawing.Size(79, 19);
             this.lblImporte.TabIndex = 37;
-            this.lblImporte.Text = "Pago de Actividad";
+            this.lblImporte.Text = "Pago total";
             // 
             // txtImporte
             // 
             this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtImporte.Location = new System.Drawing.Point(647, 75);
+            this.txtImporte.Location = new System.Drawing.Point(719, 441);
             this.txtImporte.Margin = new System.Windows.Forms.Padding(4);
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.Size = new System.Drawing.Size(206, 20);
-            this.txtImporte.TabIndex = 6;
-            this.txtImporte.Text = "0";
+            this.txtImporte.TabIndex = 11;
             this.txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtEmail
@@ -84,6 +85,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(197, 20);
             this.txtEmail.TabIndex = 4;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtTelefono
             // 
@@ -93,7 +95,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(197, 20);
             this.txtTelefono.TabIndex = 3;
-            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtDni
             // 
@@ -103,6 +105,8 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(197, 20);
             this.txtDni.TabIndex = 0;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
+            this.txtDni.Leave += new System.EventHandler(this.txtDni_Leave);
             // 
             // txtApellido
             // 
@@ -113,6 +117,7 @@
             this.txtApellido.Size = new System.Drawing.Size(197, 20);
             this.txtApellido.TabIndex = 2;
             this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtNombre
             // 
@@ -122,6 +127,8 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(197, 20);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // chkCerMedico
             // 
@@ -209,7 +216,7 @@
             this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(164, 57);
-            this.btnAtras.TabIndex = 8;
+            this.btnAtras.TabIndex = 12;
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click_1);
@@ -223,7 +230,7 @@
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(165, 57);
-            this.btnLimpiar.TabIndex = 9;
+            this.btnLimpiar.TabIndex = 13;
             this.btnLimpiar.Text = "Limpiar datos";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
@@ -241,7 +248,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(478, 513);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(151, 57);
-            this.btnRegistrar.TabIndex = 10;
+            this.btnRegistrar.TabIndex = 14;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click_1);
@@ -251,7 +258,7 @@
             this.btnImprimir.Location = new System.Drawing.Point(665, 513);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(178, 57);
-            this.btnImprimir.TabIndex = 11;
+            this.btnImprimir.TabIndex = 15;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
@@ -261,39 +268,62 @@
             this.txtObservacion.Location = new System.Drawing.Point(41, 421);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(302, 74);
-            this.txtObservacion.TabIndex = 7;
+            this.txtObservacion.TabIndex = 6;
             this.txtObservacion.Text = "";
             // 
             // cboActividad
             // 
             this.cboActividad.FormattingEnabled = true;
-            this.cboActividad.Location = new System.Drawing.Point(572, 128);
+            this.cboActividad.Location = new System.Drawing.Point(488, 91);
             this.cboActividad.Name = "cboActividad";
-            this.cboActividad.Size = new System.Drawing.Size(271, 21);
-            this.cboActividad.TabIndex = 45;
+            this.cboActividad.Size = new System.Drawing.Size(343, 21);
+            this.cboActividad.TabIndex = 7;
+            this.cboActividad.SelectedIndexChanged += new System.EventHandler(this.cboActividad_SelectedIndexChanged);
             // 
             // dgvActividades
             // 
             this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvActividades.Location = new System.Drawing.Point(572, 211);
+            this.dgvActividades.Location = new System.Drawing.Point(488, 167);
             this.dgvActividades.Name = "dgvActividades";
-            this.dgvActividades.Size = new System.Drawing.Size(342, 178);
-            this.dgvActividades.TabIndex = 46;
+            this.dgvActividades.Size = new System.Drawing.Size(437, 178);
+            this.dgvActividades.TabIndex = 9;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(850, 125);
+            this.btnAgregar.Location = new System.Drawing.Point(837, 91);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 47;
+            this.btnAgregar.Size = new System.Drawing.Size(88, 23);
+            this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Location = new System.Drawing.Point(837, 368);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(88, 23);
+            this.btnBorrar.TabIndex = 10;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(485, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(212, 13);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "Selecione la actividad que el cliente solicite";
             // 
             // frmRegistroNoSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 600);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.cboActividad);
             this.Controls.Add(this.dgvActividades);
@@ -319,6 +349,7 @@
             this.Controls.Add(this.label2);
             this.Name = "frmRegistroNoSocio";
             this.Text = "frmRegistroNoSocio";
+            this.Load += new System.EventHandler(this.frmRegistroNoSocio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -349,5 +380,7 @@
         private System.Windows.Forms.ComboBox cboActividad;
         private System.Windows.Forms.DataGridView dgvActividades;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Label label1;
     }
 }

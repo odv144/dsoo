@@ -33,8 +33,6 @@ namespace ClubDeportivo.Datos
             return new Dictionary<string, object>
         {
             { "@IdActividad", actividad.IdActividad },
-            {"@NroSocio" ,actividad.NroSocio},
-            {"@NroNoSocio", actividad.NroNoSocio },
             { "@Nombre", actividad.Nombre },
             { "@Descripcion", actividad.Descripcion },
             { "@TarifaSocio", actividad.TarifaSocio },

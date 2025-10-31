@@ -55,7 +55,7 @@ namespace ClubDeportivo
 
         private void frmRegistro_Load(object sender, EventArgs e)
         {
-            // poblar métodos de pago
+            // poblar metodos de pago
             cboPago.Items.Clear();
             cboPago.Items.Add("Efectivo");
             cboPago.Items.Add("Tarjeta en 3 Cuotas");
@@ -165,7 +165,7 @@ namespace ClubDeportivo
             {
                 ImprimirCarnetRecienCreado(socio, importe);
             }
-            // refrescar listado en form padre (si lo hay) y cerrar
+            
             formSocio?.CargarSocios();
             Utilidades.LimpiarControles(this);
 
@@ -202,7 +202,7 @@ namespace ClubDeportivo
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            // protege contra null si alguien presiona imprimir sin registrar
+            // protege si alguien presiona imprimir sin registrar
             if (usuario == null)
             {
                 MessageBox.Show("No hay datos de usuario cargados para imprimir el carnet.",
@@ -237,14 +237,7 @@ namespace ClubDeportivo
             }
         }
 
-        private void dgvActividades_CellContentClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
-        {
-            // Protección básica: fila o columna de encabezado (índice -1) no procesar.
-            if (e == null || e.RowIndex < 0 || e.ColumnIndex < 0)
-                return;
-
-        }
-
+  
     
 
         private void txtNombre_TextChanged(object sender, EventArgs e)

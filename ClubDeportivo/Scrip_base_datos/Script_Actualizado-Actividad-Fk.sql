@@ -91,17 +91,29 @@ CREATE TABLE actividad (
 
 CREATE TABLE socio_actividad (
     idinscripcion INT AUTO_INCREMENT,
-    nrosocio INT NULL,
-    nronosocio INT NULL,
+    nrosocio INT NOT NULL,
     idactividad INT NOT NULL,
     fechainscripcion DATETIME NOT NULL,
     estado VARCHAR(20),
-    CONSTRAINT pk_socio_actividad PRIMARY KEY (idinscripcion),
-    CONSTRAINT fk_sa_socio FOREIGN KEY (nrosocio) REFERENCES socio(nrosocio),
-    CONSTRAINT fk_sa_nosocio FOREIGN KEY (nronosocio) REFERENCES nosocio(nronosocio),
-    CONSTRAINT fk_sa_actividad FOREIGN KEY (idactividad) REFERENCES actividad(idactividad),
-    UNIQUE KEY uk_sa_socio_actividad (nrosocio, idactividad),
-    UNIQUE KEY uk_sa_nosocio_actividad (nronosocio, idactividad)
+    PRIMARY KEY (idinscripcion),
+    FOREIGN KEY (nrosocio) REFERENCES socio(nrosocio),
+    FOREIGN KEY (idactividad) REFERENCES actividad(idactividad),
+    UNIQUE KEY uk_socio_actividad (nrosocio, idactividad)
+);
+
+CREATE TABLE nosocio_actividad (
+    idinscripcion INT AUTO_INCREMENT,
+    nronosocio INT NOT NULL,
+    idactividad INT NOT NULL,
+    fechainscripcion DATETIME NOT NULL,
+    estado VARCHAR(20),
+    PRIMARY KEY (idinscripcion),
+    FOREIGN KEY (nronosocio) REFERENCES nosocio(nronosocio),
+    FOREIGN KEY (idactividad) REFERENCES actividad(idactividad),
+    UNIQUE KEY uk_nosocio_actividad (nronosocio, idactividad)
+);
+
+
 );
 
 DROP PROCEDURE IF EXISTS ingresologin;

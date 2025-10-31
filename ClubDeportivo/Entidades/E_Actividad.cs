@@ -1,42 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClubDeportivo.Entidades
+﻿internal class E_Actividad
 {
-    internal class E_Actividad
+    public int IdActividad { get; set; }
+    public string Nombre { get; set; }
+    public string Descripcion { get; set; }
+    public double TarifaSocio { get; set; }
+    public double TarifaNoSocio { get; set; }
+    public int CupoMaximo { get; set; }
+    public string Turno { get; set; }
+
+    public E_Actividad() { }
+
+    public E_Actividad(int idActividad, string nombre, string descripcion,
+        double tarifaSocio, double tarifaNoSocio, int cupoMaximo, string turno)
     {
-        public int IdActividad { get; set; }
-        public int NroSocio {  get; set; }
-        public int NroNoSocio { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-        public double TarifaSocio { get; set; } 
-        public double TarifaNoSocio { get; set; }  
-        public int CupoMaximo { get; set; }  
-        public string Turno { get; set; }
-
-        public List<E_Socio_Actividad> Socios { get; set; }
-        // Constructor vacío
-        public E_Actividad() { }
-
-        // Constructor con parámetros (actualizado con nombres correctos)
-        public E_Actividad(int idActividad,int NroSocio,int NroNoSocio, string nombre, string descripcion,
-            double tarifaSocio, double tarifaNoSocio, int cupoMaximo, string turno)
-        {
-            this.IdActividad = idActividad;
-            this.Nombre = nombre;
-            this.NroSocio= NroSocio;
-            this.NroNoSocio= NroNoSocio;
-            this.Descripcion = descripcion;
-            this.TarifaSocio = tarifaSocio;
-            this.TarifaNoSocio = tarifaNoSocio;
-            this.CupoMaximo = cupoMaximo;
-            this.Turno = turno;
-            this.Socios = new List<E_Socio_Actividad>();
-        }
-
+        IdActividad = idActividad;
+        Nombre = nombre;
+        Descripcion = descripcion;
+        TarifaSocio = tarifaSocio;
+        TarifaNoSocio = tarifaNoSocio;
+        CupoMaximo = cupoMaximo;
+        Turno = turno;
     }
 }
