@@ -35,30 +35,33 @@ namespace ClubDeportivo.Datos
 
             }
         }
-        public void CambioEstadoCarnet(int id, bool Estado)
-        {
-            //llamar a proceso para realizar impresion fisica
-            try
-            {
-                sqlCon = Conexion.getInstancia().CrearConexion();
-                string query = @"UPDATE Socio 
-                     SET CarnetEntregado = @CarnetEntregado
-                     WHERE NroSocio = @NroSocio";
-                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
-                cmd.Parameters.AddWithValue("@NroSocio", id); // FK al Usuario
-                cmd.Parameters.AddWithValue("@CarnetEntregado", Estado);
-                sqlCon.Open();
-                cmd.ExecuteNonQuery();
 
 
-                sqlCon.Close();
+        //esto debe estar en RepositorySocio lo movi y deje comentado por las dudas
+        /* public void CambioEstadoCarnet(int id, bool Estado)
+         {
+             //llamar a proceso para realizar impresion fisica
+             try
+             {
+                 sqlCon = Conexion.getInstancia().CrearConexion();
+                 string query = @"UPDATE Socio 
+                      SET CarnetEntregado = @CarnetEntregado
+                      WHERE NroSocio = @NroSocio";
+                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                 cmd.Parameters.AddWithValue("@NroSocio", id); // FK al Usuario
+                 cmd.Parameters.AddWithValue("@CarnetEntregado", Estado);
+                 sqlCon.Open();
+                 cmd.ExecuteNonQuery();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al momento de Imprimir");
-            }
-        }
+
+                 sqlCon.Close();
+
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Error al momento de Imprimir");
+             }
+         }*/
         public void ImpresionComprobante(E_Usuario usuario, int id)
         {
             MessageBox.Show("Comprobante de pago por actividad para: " + usuario.Nombre.ToString());

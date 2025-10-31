@@ -52,5 +52,10 @@ namespace ClubDeportivo
             lblAyN.Text = apellido + " " + nombre;
             lblImporte.Text = importe;
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -11,10 +11,14 @@ namespace ClubDeportivo.Datos
     internal class RepositoryCuota : RepositoryBase<E_Cuota>
     {
         protected override string ObtenerNombreTabla() => "Cuota";
-        protected override string ObtenerNombreClavePrimaria() => "NroCuota";
+        protected override string ObtenerNombreClavePrimaria() => "IdCuota"; // aqui decia NroCuota
 
         protected override E_Cuota MapearDesdeReader(MySqlDataReader reader)
         {
+            //nos habiamos olvidado de que estado de cuota era un enum
+            string estadoPagoStr = reader.GetString("EstadoPago");
+            bool estadoPagoBool = estadoPagoStr.Equals("Pagada", StringComparison.OrdinalIgnoreCase);
+
             return new E_Cuota
             (
                 reader.GetInt32("IdCuota"),
@@ -27,7 +31,7 @@ namespace ClubDeportivo.Datos
                 reader.IsDBNull(reader.GetOrdinal("MetodoPago"))
                     ? null
                     : reader.GetString("MetodoPago"),
-                reader.GetBoolean("EstadoPago")
+                estadoPagoBool
             );
         }
 

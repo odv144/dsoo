@@ -36,6 +36,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblImporte = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -126,11 +127,22 @@
             this.lblImporte.Text = "$ 25000";
             this.lblImporte.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(255, 191);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(149, 28);
+            this.btnCerrar.TabIndex = 8;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // frmCarnetPrinter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 250);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblImporte);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnImprimir);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblImporte;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

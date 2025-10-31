@@ -67,6 +67,7 @@ namespace ClubDeportivo.Datos
         }
 
 
+
         protected override E_Socio MapearDesdeReader(MySqlDataReader reader)
         {
             //buscar new E_Sociocomo mapear el usuario dentro del socio
@@ -91,7 +92,32 @@ namespace ClubDeportivo.Datos
             };
         }
 
-       
+
+
+        public void CambioEstadoCarnet(int id, bool Estado)
+        {
+            //llamar a proceso para realizar impresion fisica
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                string query = @"UPDATE Socio 
+                     SET CarnetEntregado = @CarnetEntregado
+                     WHERE NroSocio = @NroSocio";
+                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                cmd.Parameters.AddWithValue("@NroSocio", id); // FK al Usuario
+                cmd.Parameters.AddWithValue("@CarnetEntregado", Estado);
+                sqlCon.Open();
+                cmd.ExecuteNonQuery();
+
+
+                sqlCon.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al momento de Imprimir");
+            }
+        }
 
         protected override Dictionary<string, object> ObtenerParametros(E_Socio entidad)
         {
