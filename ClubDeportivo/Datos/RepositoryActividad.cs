@@ -257,56 +257,7 @@ namespace ClubDeportivo.Datos
                 }
             }
             return null;
-            /*
-            MySqlConnection sqlCon = null;
-
-            void IRepository.GuardarDatos()
-            {
-                try
-                {
-                    sqlCon = Conexion.getInstancia().CrearConexion();
-                    string query = "SELECT * FROM Actividad";
-                    MySqlCommand cmd = new MySqlCommand(query, sqlCon);
-                    sqlCon.Open();
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-
-                }
-                catch (Exception ex)
-                {
-                    throw new NotImplementedException();
-
-                }
-            }
-            void IRepository.ModificarDatos()
-            {
-                throw new NotImplementedException();
-            }
-
-            void IRepository.ObtenerDatoPorID()
-            {
-                throw new NotImplementedException();
-            }
-
-            public void ObtenerDatos()
-            {
-                try
-                {
-                    sqlCon = Conexion.getInstancia().CrearConexion();
-                    string query = "SELECT * FROM Actividad";
-                    MySqlCommand cmd = new MySqlCommand(query, sqlCon);
-                    sqlCon.Open();
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-
-                }
-                catch (Exception ex)
-                {
-                    throw new NotImplementedException();
-
-                }
-            }
-            */
+            
         }
     }
 }

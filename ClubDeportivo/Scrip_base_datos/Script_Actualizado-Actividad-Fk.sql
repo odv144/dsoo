@@ -68,25 +68,25 @@ CREATE TABLE cuota (
     monto DOUBLE,
     fechavencimiento DATE,
     fechapago DATE NULL,
-    metodopago ENUM('Efectivo','Tarjeta 3','Tarjeta 6','Transferencia'),
+    metodopago VARCHAR(20),
     estadopago BOOLEAN DEFAULT 0,
     CONSTRAINT pk_cuota PRIMARY KEY (idcuota),
     CONSTRAINT fk_cuota_socio FOREIGN KEY (nrosocio) REFERENCES socio(nrosocio)
 );
-
+-- Necesito que la tabla actividades no tenga ID de soscios porque es independiente
 CREATE TABLE actividad (
     idactividad INT AUTO_INCREMENT,
-    nrosocio INT NULL,
-    nronosocio INT NULL,
+    -- nrosocio INT NULL,
+    -- nronosocio INT NULL,
     nombre VARCHAR(50),
     descripcion VARCHAR(60),
     tarifasocio DOUBLE,
     tarifanosocio DOUBLE,
     cupomaximo INT,
     turno VARCHAR(20),
-    CONSTRAINT pk_actividad PRIMARY KEY (idactividad),
-    CONSTRAINT fk_actividad_socio FOREIGN KEY (nrosocio) REFERENCES socio(nrosocio),
-    CONSTRAINT fk_actividad_nosocio FOREIGN KEY (nronosocio) REFERENCES nosocio(nronosocio)
+    CONSTRAINT pk_actividad PRIMARY KEY (idactividad)
+    -- CONSTRAINT fk_actividad_socio FOREIGN KEY (nrosocio) REFERENCES socio(nrosocio),
+    -- CONSTRAINT fk_actividad_nosocio FOREIGN KEY (nronosocio) REFERENCES nosocio(nronosocio)
 );
 
 CREATE TABLE socio_actividad (

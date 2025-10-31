@@ -15,24 +15,24 @@ namespace ClubDeportivo.Datos
 
         protected override E_Cuota MapearDesdeReader(MySqlDataReader reader)
         {
-            //nos habiamos olvidado de que estado de cuota era un enum
-            string estadoPagoStr = reader.GetString("EstadoPago");
-            bool estadoPagoBool = estadoPagoStr.Equals("Pagada", StringComparison.OrdinalIgnoreCase);
+            //nos habiamos olvidado de que estado de cuota era un enum lo cambie en bd a string
+           // string estadoPagoStr = reader.GetString("EstadoPago");
+            //bool estadoPagoBool = estadoPagoStr.Equals("Pagada", StringComparison.OrdinalIgnoreCase);
 
             return new E_Cuota
-            (
-                reader.GetInt32("IdCuota"),
-                reader.GetInt32("NroSocio"),
-                reader.GetInt32("Mes"),
-                reader.GetInt32("Anio"),
-                reader.GetDouble("Monto"),
-                reader.GetDateTime("FechaVencimiento"),
-                reader.GetDateTime("FechaPago"),
-                reader.IsDBNull(reader.GetOrdinal("MetodoPago"))
+            {
+                IdCuota= reader.GetInt32("IdCuota"),
+                NroSocio= reader.GetInt32("NroSocio"),
+                Mes=reader.GetInt32("Mes"),
+                Anio=reader.GetInt32("Anio"),
+                Monto=reader.GetDouble("Monto"),
+                FechaVencimiento=reader.GetDateTime("FechaVencimiento"),
+                FechaPago=reader.GetDateTime("FechaPago"),
+                MetodoPago=reader.IsDBNull(reader.GetOrdinal("MetodoPago"))
                     ? null
                     : reader.GetString("MetodoPago"),
-                estadoPagoBool
-            );
+                EstadoPago= reader.GetBoolean("estadoPago")
+            };
         }
 
         protected override Dictionary<string, object> ObtenerParametros(E_Cuota cuota)

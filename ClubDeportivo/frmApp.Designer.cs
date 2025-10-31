@@ -123,6 +123,7 @@
             this.btnActividad.TabIndex = 8;
             this.btnActividad.Text = "Gestion Actividades";
             this.btnActividad.UseVisualStyleBackColor = false;
+            this.btnActividad.Click += new System.EventHandler(this.btnActividad_Click);
             // 
             // btnSocio
             // 
