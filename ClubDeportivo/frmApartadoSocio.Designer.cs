@@ -34,6 +34,7 @@
             this.btnRegistrarSocio = new System.Windows.Forms.Button();
             this.dgvListaSocio = new System.Windows.Forms.DataGridView();
             this.btnAtras = new System.Windows.Forms.Button();
+            this.btnCobrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSocio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(772, 219);
+            this.btnEditar.Location = new System.Drawing.Point(772, 204);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(210, 53);
             this.btnEditar.TabIndex = 9;
@@ -57,7 +58,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(772, 352);
+            this.btnEliminar.Location = new System.Drawing.Point(772, 362);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(210, 52);
             this.btnEliminar.TabIndex = 10;
@@ -93,11 +94,22 @@
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
+            // btnCobrar
+            // 
+            this.btnCobrar.Location = new System.Drawing.Point(772, 278);
+            this.btnCobrar.Name = "btnCobrar";
+            this.btnCobrar.Size = new System.Drawing.Size(210, 52);
+            this.btnCobrar.TabIndex = 14;
+            this.btnCobrar.Text = "Cobrar Cuota";
+            this.btnCobrar.UseVisualStyleBackColor = true;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
+            // 
             // frmApartadoSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 617);
+            this.Controls.Add(this.btnCobrar);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.dgvListaSocio);
             this.Controls.Add(this.btnRegistrarSocio);
@@ -120,5 +132,6 @@
         private System.Windows.Forms.Button btnRegistrarSocio;
         private System.Windows.Forms.DataGridView dgvListaSocio;
         private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.Button btnCobrar;
     }
 }

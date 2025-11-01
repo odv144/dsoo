@@ -47,7 +47,7 @@ namespace ClubDeportivo.Datos
             using (MySqlConnection conn = ObtenerConexion())
             {
                 string query = @"INSERT INTO Actividad 
-                (NroSocio,NroNoSocio,Nombre, Descripcion, TarifaSocio, TarifaNoSocio, CupoMaximo, Turno)
+                (Nombre, Descripcion, TarifaSocio, TarifaNoSocio, CupoMaximo, Turno)
                 VALUES (@Nombre, @Descripcion, @TarifaSocio, @TarifaNoSocio, @CupoMaximo, @Turno);
                 SELECT LAST_INSERT_ID();";
 
@@ -72,9 +72,7 @@ namespace ClubDeportivo.Datos
             using (MySqlConnection conn = ObtenerConexion())
             {
                 string query = @"UPDATE Actividad 
-                SET NroSocio = @NroSocio,
-                    NroNoSocio=@NroNoSocio,
-                    Nombre = @Nombre,
+                SET Nombre = @Nombre,
                     Descripcion = @Descripcion,
                     TarifaSocio = @TarifaSocio,
                     TarifaNoSocio = @TarifaNoSocio,

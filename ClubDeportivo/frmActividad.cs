@@ -1,5 +1,6 @@
 ﻿using ClubDeportivo.Datos;
 using ClubDeportivo.Entidades;
+using ClubDeportivo.util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -77,6 +78,43 @@ namespace ClubDeportivo
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmNuevaActividad nuevo = new frmNuevaActividad(this);
+            nuevo.Show();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvActividades_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvActividades.CurrentRow;
+                
+                try
+                {
+                    //NroSocioSeleccionado = Convert.ToInt32(fila.Cells["NroSocio"].Value);
+                    frmUpdateActividad frmUpdate = new frmUpdateActividad(fila, this);
+                    
+                    
+                    frmUpdate.Show();
+
+                }
+                    
+
+                    
+                
+                catch (Exception ex) {
+                    MessageBox.Show("Error");
+                }
+            }
         }
     }
 }

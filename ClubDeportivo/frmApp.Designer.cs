@@ -34,7 +34,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblSeccion = new System.Windows.Forms.Label();
-            this.btnCuota = new System.Windows.Forms.Button();
             this.btnActividad = new System.Windows.Forms.Button();
             this.btnSocio = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -100,18 +99,6 @@
             this.lblSeccion.TabIndex = 6;
             this.lblSeccion.Text = "Inicio Sección como:";
             // 
-            // btnCuota
-            // 
-            this.btnCuota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.btnCuota.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnCuota.ForeColor = System.Drawing.Color.White;
-            this.btnCuota.Location = new System.Drawing.Point(12, 314);
-            this.btnCuota.Name = "btnCuota";
-            this.btnCuota.Size = new System.Drawing.Size(152, 59);
-            this.btnCuota.TabIndex = 7;
-            this.btnCuota.Text = "Gestion Cuota";
-            this.btnCuota.UseVisualStyleBackColor = false;
-            // 
             // btnActividad
             // 
             this.btnActividad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
@@ -164,7 +151,6 @@
             this.Controls.Add(this.btnApartadoNoSocio);
             this.Controls.Add(this.btnSocio);
             this.Controls.Add(this.btnActividad);
-            this.Controls.Add(this.btnCuota);
             this.Controls.Add(this.lblSeccion);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
@@ -189,7 +175,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblSeccion;
-        private System.Windows.Forms.Button btnCuota;
         private System.Windows.Forms.Button btnActividad;
         private System.Windows.Forms.Button btnSocio;
         private System.Windows.Forms.Button btnApartadoNoSocio;

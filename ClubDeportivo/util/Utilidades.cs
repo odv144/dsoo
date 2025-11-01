@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ClubDeportivo.util
 {
@@ -50,6 +51,22 @@ namespace ClubDeportivo.util
                         control.Enabled = estado;
                     }
                 }
+            }
+        }
+        public static T? ConvertirCampos<T>(TextBox txt) where T : struct
+        {
+            string texto = txt.Text.Trim();
+
+            try
+            {
+                // Intenta convertir al tipo especificado
+                var valor = (T)Convert.ChangeType(texto, typeof(T));
+                return valor;
+            }
+            catch
+            {
+              
+                return null;
             }
         }
         public static void TextBox_Leave(object sender, EventArgs e)

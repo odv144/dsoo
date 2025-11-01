@@ -83,5 +83,15 @@ namespace ClubDeportivo
             CargarSocios();
 
         }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            //tomar los datos del grid seleccionado
+            //buscar cuotas pendientes
+            //cargar un grid con dichas cuotas 
+            //en el formulario  con las cuotas al seleccionar permitir pagarlas
+            //actualizar la tabla de cuotas con el proximo vencimiento
+
+        }
     }
 }

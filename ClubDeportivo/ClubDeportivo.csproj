@@ -154,11 +154,23 @@
     <Compile Include="frmApp.Designer.cs">
       <DependentUpon>frmApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevaActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevaActividad.Designer.cs">
+      <DependentUpon>frmNuevaActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistroNoSocio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRegistroNoSocio.Designer.cs">
       <DependentUpon>frmRegistroNoSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateActividad.Designer.cs">
+      <DependentUpon>frmUpdateActividad.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -189,8 +201,14 @@
     <EmbeddedResource Include="frmLoggin.resx">
       <DependentUpon>frmLoggin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevaActividad.resx">
+      <DependentUpon>frmNuevaActividad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroNoSocio.resx">
       <DependentUpon>frmRegistroNoSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateActividad.resx">
+      <DependentUpon>frmUpdateActividad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
