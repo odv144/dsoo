@@ -84,6 +84,16 @@ namespace ClubDeportivo
 
                 MessageBox.Show("Cliente No Socio registrado exitosamente.",
                     "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Impresion de comprobante de pago
+                frmComprobantePago pago = new frmComprobantePago()
+                {
+                    nroSocio = nuevoNoSocio.IdUsuario,
+                    nombre = nuevoNoSocio.Nombre,
+                    apellido = nuevoNoSocio.Apellido,
+                    importe = txtImporte.Text,
+                    socio = false
+                };
+                pago.ShowDialog();
 
                 formNoSocio?.CargarNoSocios();
                 Utilidades.LimpiarControles(this);

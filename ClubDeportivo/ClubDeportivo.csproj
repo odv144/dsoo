@@ -140,6 +140,12 @@
     <Compile Include="frmCarnetPrinter.Designer.cs">
       <DependentUpon>frmCarnetPrinter.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmComprobantePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmComprobantePago.Designer.cs">
+      <DependentUpon>frmComprobantePago.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCarnetPrinter.resx">
       <DependentUpon>frmCarnetPrinter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComprobantePago.resx">
+      <DependentUpon>frmComprobantePago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConexion.resx">
       <DependentUpon>frmConexion.cs</DependentUpon>
