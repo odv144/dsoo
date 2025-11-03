@@ -26,7 +26,7 @@ namespace ClubDeportivo.Datos
                 sqlCon = Conexion.getInstancia().CrearConexion();
 
                 string query = @"INSERT INTO nosocio (IdUsuario, Observacion)
-                                 VALUES (@IdUsuario, @Observacion)";
+                                 VALUES (@IdUsuario, @Observacion);SELECT LAST_INSERT_ID();";
 
                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
                 var parametros = ObtenerParametros(entidad);
@@ -37,7 +37,8 @@ namespace ClubDeportivo.Datos
                 }
 
                 sqlCon.Open();
-                cmd.ExecuteNonQuery();
+                int NroSocio = Convert.ToInt32(cmd.ExecuteScalar());
+                entidad.NroNoSocio = NroSocio;
                 sqlCon.Close();
 
                 MessageBox.Show("Registro exitoso de No Socio");

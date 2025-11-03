@@ -57,6 +57,7 @@ namespace ClubDeportivo
         private void frmComprobantePago_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = socio ? "PAGO CUOTA SOCIO" : "PAGO ACTIVIDAD NO SOCIO";
+            lblNroSocio.Text = socio ? "Nro Socio" : "Nro No Socio";
             lblNro.Text = nroSocio.ToString();
             lblAyN.Text = apellido + " " + nombre;
             lblImporte.Text = importe;

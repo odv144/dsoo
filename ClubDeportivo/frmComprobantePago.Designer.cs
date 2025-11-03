@@ -48,7 +48,7 @@
             this.lblUsuario.Location = new System.Drawing.Point(11, 22);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(435, 33);
+            this.lblUsuario.Size = new System.Drawing.Size(515, 33);
             this.lblUsuario.TabIndex = 17;
             this.lblUsuario.Text = "PAGO DE NO SOCIO";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -57,7 +57,7 @@
             // 
             this.lblImporte.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblImporte.ForeColor = System.Drawing.Color.Black;
-            this.lblImporte.Location = new System.Drawing.Point(196, 168);
+            this.lblImporte.Location = new System.Drawing.Point(423, 168);
             this.lblImporte.Name = "lblImporte";
             this.lblImporte.Size = new System.Drawing.Size(103, 25);
             this.lblImporte.TabIndex = 16;
@@ -101,25 +101,26 @@
             // 
             // lblAyN
             // 
-            this.lblAyN.AutoSize = true;
             this.lblAyN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAyN.ForeColor = System.Drawing.Color.Black;
-            this.lblAyN.Location = new System.Drawing.Point(201, 131);
+            this.lblAyN.Location = new System.Drawing.Point(235, 131);
             this.lblAyN.Name = "lblAyN";
-            this.lblAyN.Size = new System.Drawing.Size(161, 25);
+            this.lblAyN.Size = new System.Drawing.Size(296, 25);
             this.lblAyN.TabIndex = 12;
             this.lblAyN.Text = "Virili Omar Dario";
+            this.lblAyN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblNro
             // 
             this.lblNro.AutoSize = true;
             this.lblNro.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNro.ForeColor = System.Drawing.Color.Black;
-            this.lblNro.Location = new System.Drawing.Point(109, 100);
+            this.lblNro.Location = new System.Drawing.Point(448, 100);
             this.lblNro.Name = "lblNro";
             this.lblNro.Size = new System.Drawing.Size(78, 25);
             this.lblNro.TabIndex = 11;
             this.lblNro.Text = "123456";
+            this.lblNro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblNroSocio
             // 
@@ -147,17 +148,18 @@
             // 
             this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.Black;
-            this.lblFecha.Location = new System.Drawing.Point(136, 65);
+            this.lblFecha.Location = new System.Drawing.Point(300, 65);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(226, 25);
             this.lblFecha.TabIndex = 19;
             this.lblFecha.Text = "Fecha de Hoy";
+            this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmComprobantePago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 316);
+            this.ClientSize = new System.Drawing.Size(539, 316);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUsuario);

@@ -178,6 +178,7 @@ namespace ClubDeportivo
         {
             try
             {
+                
                 // actualizar estado carnet en BD
                 repoSocio.CambioEstadoCarnet(socio.NroSocio, true);
 
