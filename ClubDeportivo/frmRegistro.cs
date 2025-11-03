@@ -165,7 +165,16 @@ namespace ClubDeportivo
             {
                 ImprimirCarnetRecienCreado(socio, importe);
             }
-            
+            // Impresion de comprobante de pago
+            frmComprobantePago pago = new frmComprobantePago()
+            {
+                nroSocio = socio.NroSocio,
+                nombre = user.Nombre,
+                apellido = user.Apellido,
+                importe = importe.ToString(),
+                socio = true
+            };
+            pago.ShowDialog();
             formSocio?.CargarSocios();
             Utilidades.LimpiarControles(this);
 

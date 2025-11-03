@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApp));
-            this.btnCobro = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,18 +39,6 @@
             this.btnApartadoNoSocio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnCobro
-            // 
-            this.btnCobro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.btnCobro.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnCobro.ForeColor = System.Drawing.Color.White;
-            this.btnCobro.Location = new System.Drawing.Point(372, 22);
-            this.btnCobro.Name = "btnCobro";
-            this.btnCobro.Size = new System.Drawing.Size(152, 59);
-            this.btnCobro.TabIndex = 1;
-            this.btnCobro.Text = "Cobrar";
-            this.btnCobro.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
@@ -156,7 +143,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnCobro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -169,7 +155,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnCobro;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;

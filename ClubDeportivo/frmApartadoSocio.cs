@@ -86,7 +86,32 @@ namespace ClubDeportivo
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            //tomar los datos del grid seleccionado
+            DataGridViewRow fila = dgvListaSocio.CurrentRow;
+            if ( fila!=null)
+            {
+                try
+                {
+                    //NroSocioSeleccionado = Convert.ToInt32(fila.Cells["NroSocio"].Value);
+                    frmComprobantePago pago = new frmComprobantePago() 
+                    {
+                        nroSocio = Convert.ToInt32(fila.Cells["NroSocio"].Value),
+                        apellido = Convert.ToString(fila.Cells["Apellido"].Value),
+                        nombre = Convert.ToString(fila.Cells["Nombre"].Value),
+                        socio = true,
+                        importe = Convert.ToDouble(fila.Cells["CuotaMensual"].Value).ToString(),
+                    };
+
+                    pago.ShowDialog();
+                }
+
+
+
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }//tomar los datos del grid seleccionado
             //buscar cuotas pendientes
             //cargar un grid con dichas cuotas 
             //en el formulario  con las cuotas al seleccionar permitir pagarlas
