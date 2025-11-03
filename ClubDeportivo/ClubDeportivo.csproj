@@ -140,6 +140,12 @@
     <Compile Include="frmCarnetPrinter.Designer.cs">
       <DependentUpon>frmCarnetPrinter.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConexion.Designer.cs">
+      <DependentUpon>frmConexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoggin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCarnetPrinter.resx">
       <DependentUpon>frmCarnetPrinter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConexion.resx">
+      <DependentUpon>frmConexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoggin.resx">
       <DependentUpon>frmLoggin.cs</DependentUpon>

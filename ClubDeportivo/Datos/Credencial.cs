@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ClubDeportivo.Datos
 {
@@ -31,7 +32,8 @@ namespace ClubDeportivo.Datos
             }
             catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Error al conectarse a la base de datos");
+                return null;
             }
             finally
             {
