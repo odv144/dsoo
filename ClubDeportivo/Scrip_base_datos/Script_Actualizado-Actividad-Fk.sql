@@ -114,8 +114,6 @@ CREATE TABLE nosocio_actividad (
 );
 
 
-);
-
 DROP PROCEDURE IF EXISTS ingresologin;
 DELIMITER ;;
 CREATE PROCEDURE ingresologin(IN usu VARCHAR(20), IN pass VARCHAR(15))
