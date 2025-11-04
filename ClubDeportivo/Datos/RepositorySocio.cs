@@ -50,7 +50,7 @@ namespace ClubDeportivo.Datos
                 int NroSocio = Convert.ToInt32(cmd.ExecuteScalar());
 
                 MessageBox.Show("Registro Exito");
-                E_Socio socio =  ObtenerConUsuario(NroSocio); ;
+                E_Socio socio =  ObtenerConUsuario(NroSocio); 
                 sqlCon.Close();
                 return socio;
                

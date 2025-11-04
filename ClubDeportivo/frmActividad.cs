@@ -91,29 +91,32 @@ namespace ClubDeportivo
         {
 
         }
-
-        private void dgvActividades_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnActividad_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
+           
+            if (dgvActividades.SelectedRows.Count == 0)
             {
-                DataGridViewRow fila = dgvActividades.CurrentRow;
-                
-                try
-                {
-                    //NroSocioSeleccionado = Convert.ToInt32(fila.Cells["NroSocio"].Value);
-                    frmUpdateActividad frmUpdate = new frmUpdateActividad(fila, this);
-                    
-                    
-                    frmUpdate.Show();
+                MessageBox.Show("Seleccione una actividad para editar.", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-                }
-                    
+     
+            DataGridViewRow fila = dgvActividades.SelectedRows[0];
 
-                    
+            try
+            {
                 
-                catch (Exception ex) {
-                    MessageBox.Show("Error");
-                }
+                frmUpdateActividad frmUpdate = new frmUpdateActividad(fila, this);
+                frmUpdate.ShowDialog(); 
+
+                
+                CargarActividades();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al intentar editar la actividad:\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

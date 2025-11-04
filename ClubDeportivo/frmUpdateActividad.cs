@@ -21,7 +21,9 @@ namespace ClubDeportivo
         public double TarifaNoSocio;
         public int CupoMaximo;
         public string Turno;
-        private frmActividad frmActividad = new frmActividad();
+        //private frmActividad frmActividad = new frmActividad(); crea una nueva ventana
+        private frmActividad frmActividad; // paso la referencia por el constructor
+
         public frmUpdateActividad( DataGridViewRow fila ,frmActividad frmActividad)
         {
             InitializeComponent();
@@ -39,39 +41,85 @@ namespace ClubDeportivo
         {
             try
             {
+                //validacion  de campos obligatorios
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                    string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
+                    string.IsNullOrWhiteSpace(txtTarifaSocio.Text) ||
+                    string.IsNullOrWhiteSpace(txtTarifaNoSocio.Text) ||
+                    string.IsNullOrWhiteSpace(txtCupo.Text) ||
+                    cboTurno.SelectedItem == null)
+                {
+                    MessageBox.Show("Todos los campos son obligatorios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
+                // validacion de los datos numericos
+                if (!double.TryParse(txtTarifaSocio.Text, out double tarifaSocio) ||
+                    !double.TryParse(txtTarifaNoSocio.Text, out double tarifaNoSocio) ||
+                    !int.TryParse(txtCupo.Text, out int cupoMaximo))
+                {
+                    MessageBox.Show("Verifique que los valores numéricos sean correctos.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // obtengo el turno actual modificado
+                string turnoSeleccionado = cboTurno.SelectedItem.ToString();
+
+                // persitencia en la BD
                 RepositoryActividad repoActividad = new RepositoryActividad();
                 repoActividad.Actualizar(new E_Actividad
                 {
                     IdActividad = IdActividad,
-                    Nombre = txtNombre.Text,
-                    Descripcion = txtDescripcion.Text,
-                    TarifaSocio = Convert.ToDouble(txtTarifaSocio.Text),
-                    TarifaNoSocio = Convert.ToDouble(txtTarifaNoSocio.Text),
-                    CupoMaximo = Convert.ToInt16(txtCupo.Text),
-                    Turno = cboTurno.SelectedItem.ToString(),
+                    Nombre = txtNombre.Text.Trim(),
+                    Descripcion = txtDescripcion.Text.Trim(),
+                    TarifaSocio = tarifaSocio,
+                    TarifaNoSocio = tarifaNoSocio,
+                    CupoMaximo = cupoMaximo,
+                    Turno = turnoSeleccionado
                 });
-                MessageBox.Show("Registro actualizado correctamente");
 
+                
+                MessageBox.Show("Actividad actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmActividad?.CargarActividades();
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Se genero un error al momento de actualizar los datos");
+                MessageBox.Show("Se produjo un error al actualizar los datos.\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+
         private void frmUpdateActividad_Load(object sender, EventArgs e)
         {
+
+            // cargar opciones posibles del turno
+            cboTurno.Items.Clear();
+            cboTurno.Items.AddRange(new string[] { "mañana", "tarde", "noche" });
+
             txtNombre.Text = this.Nombre;
             txtDescripcion.Text = this.Descripcion;
             txtTarifaSocio.Text = this.TarifaSocio.ToString();
             txtTarifaNoSocio.Text = this.TarifaNoSocio.ToString();
             txtCupo.Text=this.CupoMaximo.ToString();
-            cboTurno.SelectedItem = Turno.ToString();
+
+            if (!string.IsNullOrEmpty(Turno))
+            {
+                // normalizar el turno para comparacion
+                string turnoNormalizado = Turno.Trim().ToLower();
+
+                foreach (string item in cboTurno.Items)
+                {
+                    if (item.ToLower() == turnoNormalizado)
+                    {
+                        cboTurno.SelectedItem = item;
+                        break;
+                    }
 
 
+                }
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
