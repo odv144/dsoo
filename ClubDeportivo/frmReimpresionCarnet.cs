@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClubDeportivo.Datos;
+using ClubDeportivo.Entidades;
 using MySql.Data.MySqlClient;
 
 namespace ClubDeportivo
@@ -23,6 +25,9 @@ namespace ClubDeportivo
         public int nroSocio;
         public string importe;
 
+        private E_Socio socio = null;
+        RepositoryUsuario repoUsuario = new RepositoryUsuario();
+        RepositorySocio repoSocio = new RepositorySocio();
         //Imprimir Carnet:
         private void btnImprimir_Click(object sender, EventArgs e)
         {
@@ -37,6 +42,7 @@ namespace ClubDeportivo
             if (printDlg.ShowDialog() == DialogResult.OK)
             {
                 pd.Print();
+                repoSocio.CambioEstadoCarnet(socio.NroSocio, true);
             }
             //    pd.Print();
             btnImprimir.Visible = true;
@@ -61,6 +67,7 @@ namespace ClubDeportivo
 
         private void frmCarnetPrinter_Load(object sender, EventArgs e)
         {
+            lblFecha.Text = "Fecha: " + DateTime.Now.ToString();
             lblNro.Text = nroSocio.ToString();
             lblAyN.Text = apellido + " " + nombre;
             lblImporte.Text = importe;
@@ -105,79 +112,29 @@ namespace ClubDeportivo
                 return;
             }
 
-            var persona = BuscarPorDni(dni);
-
+            E_Usuario persona = repoUsuario.ObtenerUsuarioPorDni(dni);
+            socio = repoSocio.ObtenerPorDniUsuario(dni);
             if (persona != null)
             {
                 MessageBox.Show($"Persona encontrada: {persona.Nombre} {persona.Apellido}");
 
                 lblAyN.Text = persona.Apellido + " " + persona.Nombre;
-                lblNro.Text = persona.NroSocio.ToString();
-                lblImporte.Text = persona.Importe;
+                lblNro.Text = socio.NroSocio.ToString();
+                lblImporte.Text = socio.CuotaMensual.ToString();
 
                 nombre = persona.Nombre;
                 apellido = persona.Apellido;
-                nroSocio = persona.NroSocio;
-                importe = persona.Importe;
+                nroSocio = socio.NroSocio;
+                importe = socio.CuotaMensual.ToString();
             }
             else
             {
                 MessageBox.Show("No se encontró ningún registro con ese DNI.", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        
-        // MÉTODO PARA BUSCAR PERSONA POR DNI EN LA BASE DE DATOS:
-        private Persona BuscarPorDni(string dni)
-        {
-            Persona personaEncontrada = null;
 
-            // ⚠️ Cambiar los datos de conexión por los de su entorno local:
-            string connectionString = "server=localhost;database=proyecto;uid=root;pwd=2728;";
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "SELECT * FROM usuario WHERE dni = @dni LIMIT 1";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@dni", dni);
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            personaEncontrada = new Persona
-                            {
-                                Dni = reader["dni"].ToString(),
-                                Nombre = reader["nombre"].ToString(),
-                                Apellido = reader["apellido"].ToString(),
-                                NroSocio = Convert.ToInt32(reader["id_usuario"]),
-                                Importe = "0" // Tengo que traer importe de cuota
-                            };
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al buscar en la base de datos: " + ex.Message);
-                }
-            }
-
-            return personaEncontrada;
-        }
     }
-
- 
-    // CLASE PERSONA AUXILIAR
-    public class Persona
-    {
-        public string Dni { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public int NroSocio { get; set; }
-        public string Importe { get; set; }
-    }
-
 }
 

@@ -61,5 +61,11 @@ namespace ClubDeportivo
             frmActividad actividad = new frmActividad();
             actividad.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmReimpresionCarnet reeimpresion = new frmReimpresionCarnet();
+            reeimpresion.ShowDialog();
+        }
     }
 }
