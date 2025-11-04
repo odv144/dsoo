@@ -113,9 +113,8 @@ CREATE TABLE nosocio_actividad (
     UNIQUE KEY uk_nosocio_actividad (nronosocio, idactividad)
 );
 
-
 DROP PROCEDURE IF EXISTS ingresologin;
-DELIMITER ;;
+DELIMITER //
 CREATE PROCEDURE ingresologin(IN usu VARCHAR(20), IN pass VARCHAR(15))
 BEGIN
     SELECT nomrol
@@ -124,5 +123,6 @@ BEGIN
     WHERE c.nombreusu = usu
       AND c.passusu = pass
       AND c.activo = 1;
-END ;;
-DELIMITER ;
+END //
+DELIMITER //
+
