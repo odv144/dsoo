@@ -86,13 +86,13 @@ namespace ClubDeportivo
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
+            //Tomamos los datos de la grilla y eso se usa para el comprobante de pago
             DataGridViewRow fila = dgvListaSocio.CurrentRow;
             if ( fila!=null)
             {
                 try
                 {
-                    //NroSocioSeleccionado = Convert.ToInt32(fila.Cells["NroSocio"].Value);
-                    frmComprobantePago pago = new frmComprobantePago() 
+                  frmComprobantePago pago = new frmComprobantePago() 
                     {
                         nroSocio = Convert.ToInt32(fila.Cells["NroSocio"].Value),
                         apellido = Convert.ToString(fila.Cells["Apellido"].Value),
@@ -100,22 +100,16 @@ namespace ClubDeportivo
                         socio = true,
                         importe = Convert.ToDouble(fila.Cells["CuotaMensual"].Value).ToString(),
                     };
-
                     pago.ShowDialog();
-                }
-
-
-
-
-                catch (Exception ex)
+                }catch (Exception ex)
                 {
                     MessageBox.Show("Error");
                 }
-            }//tomar los datos del grid seleccionado
-            //buscar cuotas pendientes
-            //cargar un grid con dichas cuotas 
-            //en el formulario  con las cuotas al seleccionar permitir pagarlas
-            //actualizar la tabla de cuotas con el proximo vencimiento
+            }
+            
+            //actualizar la tabla de cuota cambiando estadoPago a true 
+            //crear un nuevo registro de cuota del socio con la nueva fecha de vencimiento
+
 
         }
     }
