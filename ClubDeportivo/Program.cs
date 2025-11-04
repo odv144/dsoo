@@ -18,7 +18,7 @@ namespace ClubDeportivo
             Application.SetCompatibleTextRenderingDefault(false);
             frmConexion frmConexion = new frmConexion();
             frmConexion.ShowDialog();
-            Application.Run(new frmLoggin());
+            Application.Run(new frmReimpresionCarnet());
         }
     }
 }

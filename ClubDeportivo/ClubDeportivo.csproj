@@ -116,6 +116,12 @@
     <Compile Include="Entidades\E_Socio.cs" />
     <Compile Include="Entidades\E_Socio_Actividad.cs" />
     <Compile Include="Entidades\E_Usuario.cs" />
+    <Compile Include="frmReimpresionCarnet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReimpresionCarnet.Designer.cs">
+      <DependentUpon>frmReimpresionCarnet.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmApartadoNoSocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="util\Utilidades.cs" />
+    <EmbeddedResource Include="frmReimpresionCarnet.resx">
+      <DependentUpon>frmReimpresionCarnet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmActividad.resx">
       <DependentUpon>frmActividad.cs</DependentUpon>
     </EmbeddedResource>
