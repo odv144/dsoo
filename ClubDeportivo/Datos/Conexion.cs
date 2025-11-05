@@ -26,11 +26,11 @@ namespace ClubDeportivo.Datos
        
         public Conexion()
         {
-            this.servidor = "127.0.0.1";
-            this.puerto =  "3307";
+            this.servidor = "localhost";
+            this.puerto =  "3306";
             this.bd = "proyecto";
             this.usuario = "root";
-            this.password = "odv144";
+            this.password = "1234";
         }
       
         public static Conexion getInstancia()
@@ -107,6 +107,6 @@ namespace ClubDeportivo.Datos
                 mensaje = $"Error inesperado: {ex.Message}";
                 return false;
             }
-        }
-    }
+        }
+    }
 }

@@ -61,5 +61,12 @@ namespace ClubDeportivo
             frmActividad actividad = new frmActividad();
             actividad.ShowDialog();
         }
+
+        private void btnListadoVencimientos_Click(object sender, EventArgs e)
+        {
+            frmControlVencimiento ventana = new frmControlVencimiento();
+            ventana.StartPosition = FormStartPosition.CenterScreen; // que se abra centrado
+            ventana.ShowDialog(); // se abre como ventana modal
+        }
     }
 }

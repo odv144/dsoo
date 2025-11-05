@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApp));
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnListadoVencimientos = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblSeccion = new System.Windows.Forms.Label();
             this.btnActividad = new System.Windows.Forms.Button();
@@ -52,17 +52,18 @@
             this.button2.Text = "Reeimpresión Carnet";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnListadoVencimientos
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(772, 22);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 59);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Listado Vencimientos";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnListadoVencimientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
+            this.btnListadoVencimientos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnListadoVencimientos.ForeColor = System.Drawing.Color.White;
+            this.btnListadoVencimientos.Location = new System.Drawing.Point(772, 22);
+            this.btnListadoVencimientos.Name = "btnListadoVencimientos";
+            this.btnListadoVencimientos.Size = new System.Drawing.Size(152, 59);
+            this.btnListadoVencimientos.TabIndex = 3;
+            this.btnListadoVencimientos.Text = "Listado Vencimientos";
+            this.btnListadoVencimientos.UseVisualStyleBackColor = false;
+            this.btnListadoVencimientos.Click += new System.EventHandler(this.btnListadoVencimientos_Click);
             // 
             // button1
             // 
@@ -141,7 +142,7 @@
             this.Controls.Add(this.lblSeccion);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnListadoVencimientos);
             this.Controls.Add(this.button2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmApp";
@@ -156,7 +157,7 @@
 
         #endregion
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnListadoVencimientos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblSeccion;
