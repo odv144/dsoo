@@ -42,7 +42,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
+            this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(572, 22);
@@ -51,6 +51,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Reeimpresión Carnet";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnListadoVencimientos
             // 
@@ -70,7 +71,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(410, 379);
+            this.button1.Location = new System.Drawing.Point(387, 379);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 59);
             this.button1.TabIndex = 5;
@@ -89,12 +90,12 @@
             // 
             // btnActividad
             // 
-            this.btnActividad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
+            this.btnActividad.BackColor = System.Drawing.Color.Green;
             this.btnActividad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnActividad.ForeColor = System.Drawing.Color.White;
-            this.btnActividad.Location = new System.Drawing.Point(12, 379);
+            this.btnActividad.Location = new System.Drawing.Point(387, 27);
             this.btnActividad.Name = "btnActividad";
-            this.btnActividad.Size = new System.Drawing.Size(152, 59);
+            this.btnActividad.Size = new System.Drawing.Size(152, 54);
             this.btnActividad.TabIndex = 8;
             this.btnActividad.Text = "Gestion Actividades";
             this.btnActividad.UseVisualStyleBackColor = false;
@@ -102,12 +103,15 @@
             // 
             // btnSocio
             // 
+            this.btnSocio.BackColor = System.Drawing.Color.Green;
+            this.btnSocio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSocio.ForeColor = System.Drawing.Color.White;
             this.btnSocio.Location = new System.Drawing.Point(31, 27);
             this.btnSocio.Name = "btnSocio";
-            this.btnSocio.Size = new System.Drawing.Size(156, 54);
+            this.btnSocio.Size = new System.Drawing.Size(165, 54);
             this.btnSocio.TabIndex = 9;
             this.btnSocio.Text = "Apartado Socio";
-            this.btnSocio.UseVisualStyleBackColor = true;
+            this.btnSocio.UseVisualStyleBackColor = false;
             this.btnSocio.Click += new System.EventHandler(this.btnSocio_Click);
             // 
             // pictureBox1
@@ -122,12 +126,15 @@
             // 
             // btnApartadoNoSocio
             // 
+            this.btnApartadoNoSocio.BackColor = System.Drawing.Color.Green;
+            this.btnApartadoNoSocio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnApartadoNoSocio.ForeColor = System.Drawing.Color.White;
             this.btnApartadoNoSocio.Location = new System.Drawing.Point(208, 27);
             this.btnApartadoNoSocio.Name = "btnApartadoNoSocio";
-            this.btnApartadoNoSocio.Size = new System.Drawing.Size(141, 54);
+            this.btnApartadoNoSocio.Size = new System.Drawing.Size(150, 54);
             this.btnApartadoNoSocio.TabIndex = 11;
             this.btnApartadoNoSocio.Text = "Apartado No Socio";
-            this.btnApartadoNoSocio.UseVisualStyleBackColor = true;
+            this.btnApartadoNoSocio.UseVisualStyleBackColor = false;
             this.btnApartadoNoSocio.Click += new System.EventHandler(this.btnApartadoNoSocio_Click);
             // 
             // frmApp

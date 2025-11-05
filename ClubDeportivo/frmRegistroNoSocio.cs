@@ -97,6 +97,10 @@ namespace ClubDeportivo
 
                 formNoSocio?.CargarNoSocios();
                 Utilidades.LimpiarControles(this);
+                dtSeleccionActividades.Clear();         
+                cboActividad.SelectedIndex = -1;         
+                txtImporte.Text = "0";                   
+
 
             }
             catch (Exception ex)

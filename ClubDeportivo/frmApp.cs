@@ -68,5 +68,11 @@ namespace ClubDeportivo
             ventana.StartPosition = FormStartPosition.CenterScreen; // que se abra centrado
             ventana.ShowDialog(); // se abre como ventana modal
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmReimpresionCarnet reeimpresion = new frmReimpresionCarnet();
+            reeimpresion.ShowDialog();
+        }
     }
 }
