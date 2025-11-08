@@ -35,7 +35,14 @@ namespace ClubDeportivo
                     FROM cuota c
                     INNER JOIN socio s ON c.nrosocio = s.nrosocio
                     INNER JOIN usuario u ON s.idusuario = u.idusuario
-                    ORDER BY c.fechavencimiento ASC;
+                    ORDER BY
+                    CASE 
+                    WHEN CURDATE() > c.fechavencimiento THEN 1
+                    WHEN DATEDIFF(c.fechavencimiento, CURDATE()) <= 3 THEN 2
+                    ELSE 3
+                END,
+                c.fechavencimiento ASC;
+        
                 ";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
@@ -59,8 +66,6 @@ namespace ClubDeportivo
             dgvVencimientos.Columns["fechavencimiento"].HeaderText = "Vencimiento";
             dgvVencimientos.Columns["Estado"].HeaderText = "Estado";
 
-            dgvVencimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
 
             foreach (DataGridViewRow fila in dgvVencimientos.Rows)
             {
@@ -69,23 +74,42 @@ namespace ClubDeportivo
                 string estado = fila.Cells["Estado"].Value.ToString();
 
                 if (estado == "VENCIDO")
-                    fila.DefaultCellStyle.BackColor = Color.LightCoral;
+                    fila.DefaultCellStyle.BackColor = Color.FromArgb(255, 205, 210);
                 else if (estado == "PRÓXIMO A VENCER")
-                    fila.DefaultCellStyle.BackColor = Color.Khaki;
+                    fila.DefaultCellStyle.BackColor = Color.FromArgb(255, 249, 196);
                 else
-                    fila.DefaultCellStyle.BackColor = Color.LightGreen;
+                    fila.DefaultCellStyle.BackColor = Color.FromArgb(200, 230, 201);
             }
+            dgvVencimientos.Columns["nrosocio"].Width = 60;
+            dgvVencimientos.Columns["NombreCompleto"].Width = 133;
+            dgvVencimientos.Columns["mes"].Width = 40;
+            dgvVencimientos.Columns["anio"].Width = 40;
+            dgvVencimientos.Columns["monto"].Width = 60;
+            dgvVencimientos.Columns["fechavencimiento"].Width = 80;
+            dgvVencimientos.Columns["Estado"].Width = 130;
+            // Centrar solo el encabezado de la columna "Monto"
+            dgvVencimientos.Columns["monto"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+            dgvVencimientos.AllowUserToResizeColumns = false;
+
+            // 🎯 Centramos columnas específicas
+            dgvVencimientos.Columns["mes"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvVencimientos.Columns["anio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvVencimientos.Columns["monto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvVencimientos.Columns["fechavencimiento"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
         }
+
+
+
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             CargarVencimientos();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dgvVencimientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -100,12 +124,13 @@ namespace ClubDeportivo
 
         private void CrearLeyendaColores()
         {
-            
+            // 🔹 Posición base
             int baseY = dgvVencimientos.Bottom + 15;
             int baseX = 30;
 
-   
-            // 🔴 LABEL - VENCIDO
+            // ================================
+            // 🔴 CUADRADO - VENCIDO
+            // ================================
             Panel pnlVencido = new Panel();
             pnlVencido.BackColor = Color.LightCoral;
             pnlVencido.Size = new Size(20, 20);
@@ -119,8 +144,9 @@ namespace ClubDeportivo
             lblVencido.Location = new Point(pnlVencido.Right + 8, baseY - 1);
             this.Controls.Add(lblVencido);
 
-           
-            // 🟡 LABEL - PRÓXIMO A VENCER
+            // ================================
+            // 🟡 CUADRADO - PRÓXIMO A VENCER
+            // ================================
             Panel pnlProximo = new Panel();
             pnlProximo.BackColor = Color.Khaki;
             pnlProximo.Size = new Size(20, 20);
@@ -134,7 +160,9 @@ namespace ClubDeportivo
             lblProximo.Location = new Point(pnlProximo.Right + 8, baseY - 1);
             this.Controls.Add(lblProximo);
 
+            // ================================
             // 🟢 CUADRADO - AL DÍA
+            // ================================
             Panel pnlAlDia = new Panel();
             pnlAlDia.BackColor = Color.LightGreen;
             pnlAlDia.Size = new Size(20, 20);
@@ -158,3 +186,4 @@ namespace ClubDeportivo
 
     }
 }
+
