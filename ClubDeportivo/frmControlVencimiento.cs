@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClubDeportivo.Datos;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
@@ -8,44 +9,39 @@ namespace ClubDeportivo
 {
     public partial class frmControlVencimiento : Form
     {
-        private string connectionString = "server=localhost;database=proyecto;uid=root;pwd=1234;";
+        private RepositoryCuota repoCuota = new RepositoryCuota();
+
+
+        private DataTable dtOriginal; //  sin filtrar
 
         public frmControlVencimiento()
         {
             InitializeComponent();
         }
-  
+
         private void CargarVencimientos()
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            try
             {
-                string query = @"
-                    SELECT 
-                        s.nrosocio,
-                        CONCAT(u.nombre, ' ', u.apellido) AS NombreCompleto,
-                        c.mes,
-                        c.anio,
-                        c.monto,
-                        c.fechavencimiento,
-                        CASE 
-                            WHEN CURDATE() > c.fechavencimiento THEN 'VENCIDO'
-                            WHEN DATEDIFF(c.fechavencimiento, CURDATE()) <= 3 THEN 'PRÓXIMO A VENCER'
-                            ELSE 'AL DÍA'
-                        END AS Estado
-                    FROM cuota c
-                    INNER JOIN socio s ON c.nrosocio = s.nrosocio
-                    INNER JOIN usuario u ON s.idusuario = u.idusuario
-                    ORDER BY c.fechavencimiento ASC;
-                ";
+                // Obtenemos los datos desde el repositorio
+                DataTable dt = repoCuota.ObtenerVencimientos();
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
+                // Guardamos una copia intacta (para filtros)
+                dtOriginal = dt.Copy();
+
+                // Mostramos los datos en la grilla
                 dgvVencimientos.DataSource = dt;
 
+                // Aplicamos el formato visual
                 FormatearGrilla();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los vencimientos:\n" + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void FormatearGrilla()
         {
@@ -79,7 +75,15 @@ namespace ClubDeportivo
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            string filtroSeleccionado = cmbFiltroVencimiento.SelectedItem?.ToString();
             CargarVencimientos();
+
+            // Si había un filtro activo, lo aplicamos de nuevo
+            if (!string.IsNullOrEmpty(filtroSeleccionado) && filtroSeleccionado != "Todos")
+            {
+                cmbFiltroVencimiento.SelectedItem = filtroSeleccionado;
+                cmbFiltroVencimiento_SelectedIndexChanged(null, null);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,15 +100,16 @@ namespace ClubDeportivo
         {
             CargarVencimientos();
             CrearLeyendaColores();
+            InicializarFiltro();
         }
 
         private void CrearLeyendaColores()
         {
-            
+
             int baseY = dgvVencimientos.Bottom + 15;
             int baseX = 30;
 
-   
+
             // 🔴 LABEL - VENCIDO
             Panel pnlVencido = new Panel();
             pnlVencido.BackColor = Color.LightCoral;
@@ -119,7 +124,7 @@ namespace ClubDeportivo
             lblVencido.Location = new Point(pnlVencido.Right + 8, baseY - 1);
             this.Controls.Add(lblVencido);
 
-           
+
             // 🟡 LABEL - PRÓXIMO A VENCER
             Panel pnlProximo = new Panel();
             pnlProximo.BackColor = Color.Khaki;
@@ -156,5 +161,36 @@ namespace ClubDeportivo
             this.Close();
         }
 
+
+        private void InicializarFiltro()
+        {
+            cmbFiltroVencimiento.Items.Clear();
+            cmbFiltroVencimiento.Items.Add("Todos");
+            cmbFiltroVencimiento.Items.Add("VENCIDO");
+            cmbFiltroVencimiento.Items.Add("PRÓXIMO A VENCER");
+            cmbFiltroVencimiento.Items.Add("AL DÍA");
+            cmbFiltroVencimiento.SelectedIndex = 0;
+        }
+
+        private void cmbFiltroVencimiento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (dtOriginal == null || cmbFiltroVencimiento.SelectedItem == null)
+                return;
+
+            string filtro = cmbFiltroVencimiento.SelectedItem.ToString();
+            DataView dv = new DataView(dtOriginal);
+
+            if (filtro == "Todos")
+                dv.RowFilter = ""; // sin filtro
+            else
+                dv.RowFilter = $"Estado = '{filtro}'";
+
+            dgvVencimientos.DataSource = dv;
+            FormatearGrilla();
+
+
+
+        }
     }
 }

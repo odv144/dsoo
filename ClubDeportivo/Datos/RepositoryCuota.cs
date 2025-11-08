@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -168,5 +169,37 @@ namespace ClubDeportivo.Datos
             }
             return lista;
         }
+
+        public DataTable ObtenerVencimientos()
+        {
+            DataTable dt = new DataTable();
+
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = @"
+            SELECT 
+                s.nrosocio,
+                CONCAT(u.nombre, ' ', u.apellido) AS NombreCompleto,
+                c.mes,
+                c.anio,
+                c.monto,
+                c.fechavencimiento,
+                CASE 
+                    WHEN CURDATE() > c.fechavencimiento THEN 'VENCIDO'
+                    WHEN DATEDIFF(c.fechavencimiento, CURDATE()) <= 3 THEN 'PRÓXIMO A VENCER'
+                    ELSE 'AL DÍA'
+                END AS Estado
+            FROM cuota c
+            INNER JOIN socio s ON c.nrosocio = s.nrosocio
+            INNER JOIN usuario u ON s.idusuario = u.idusuario
+            ORDER BY c.fechavencimiento ASC;";
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                adapter.Fill(dt);
+            }
+
+            return dt;
+        }
+
     }
 }
