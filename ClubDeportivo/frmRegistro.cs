@@ -310,9 +310,26 @@ namespace ClubDeportivo
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            if (!EsEmailValido(txtEmail.Text))
+            string email = txtEmail.Text.Trim();
+            if (string.IsNullOrEmpty(email))
+                return;
+
+            if (!EsEmailValido(email))
             {
-                MessageBox.Show("Ingrese un correo electrónico válido.");
+                MessageBox.Show("Ingrese un correo electrónico válido.",
+                                "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtEmail.Focus();
+                return;
+            }
+
+            // Validar duplicado
+            RepositoryUsuario repo = new RepositoryUsuario();
+            E_Usuario usuarioExistente = repo.ObtenerUsuarioPorEmail(email);
+
+            if (usuarioExistente != null)
+            {
+                MessageBox.Show("El correo electrónico ingresado ya está registrado.",
+                                "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtEmail.Focus();
             }
         }

@@ -36,32 +36,6 @@ namespace ClubDeportivo.Datos
             }
         }
 
-
-        //esto debe estar en RepositorySocio lo movi y deje comentado por las dudas
-        /* public void CambioEstadoCarnet(int id, bool Estado)
-         {
-             //llamar a proceso para realizar impresion fisica
-             try
-             {
-                 sqlCon = Conexion.getInstancia().CrearConexion();
-                 string query = @"UPDATE Socio 
-                      SET CarnetEntregado = @CarnetEntregado
-                      WHERE NroSocio = @NroSocio";
-                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
-                 cmd.Parameters.AddWithValue("@NroSocio", id); // FK al Usuario
-                 cmd.Parameters.AddWithValue("@CarnetEntregado", Estado);
-                 sqlCon.Open();
-                 cmd.ExecuteNonQuery();
-
-
-                 sqlCon.Close();
-
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show("Error al momento de Imprimir");
-             }
-         }*/
         public void ImpresionComprobante(E_Usuario usuario, int id)
         {
             MessageBox.Show("Comprobante de pago por actividad para: " + usuario.Nombre.ToString());
@@ -163,9 +137,7 @@ namespace ClubDeportivo.Datos
 
                 sqlCon.Open();
 
-                //actividad.IdActividad = Convert.ToInt32(cmd.ExecuteScalar());
-                //comando.ExecuteNonQuery();
-
+          
                 entidad.IdUsuario = Convert.ToInt32(comando.ExecuteScalar());
 
 
@@ -175,7 +147,7 @@ namespace ClubDeportivo.Datos
             catch
             {
 
-                throw; // Propagamos el error para manejo superior
+                throw; 
             }
 
         }
@@ -212,5 +184,27 @@ namespace ClubDeportivo.Datos
             return usuario;
         }
 
-    }  
+
+        public E_Usuario ObtenerUsuarioPorEmail(string email)
+        {
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = "SELECT * FROM usuario WHERE email = @Email";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                conn.Open();
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return MapearDesdeReader(reader);
+                    }
+                }
+            }
+            return null;
+        }
+
+
+    }
 }
