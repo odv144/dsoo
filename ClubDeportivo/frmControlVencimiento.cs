@@ -103,7 +103,7 @@ namespace ClubDeportivo
             if (!string.IsNullOrEmpty(filtroSeleccionado) && filtroSeleccionado != "Todos")
             {
                 cmbFiltroVencimiento.SelectedItem = filtroSeleccionado;
-                cmbFiltroVencimiento_SelectedIndexChanged(null, null);
+            cmbFiltroVencimiento_SelectedIndexChanged(null, null);
             }
         }
 
@@ -156,9 +156,7 @@ namespace ClubDeportivo
             lblProximo.Location = new Point(pnlProximo.Right + 8, baseY - 1);
             this.Controls.Add(lblProximo);
 
-            // ================================
             // 🟢 CUADRADO - AL DÍA
-            // ================================
             Panel pnlAlDia = new Panel();
             pnlAlDia.BackColor = Color.LightGreen;
             pnlAlDia.Size = new Size(20, 20);
