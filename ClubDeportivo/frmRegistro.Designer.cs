@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistro));
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,96 +49,88 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.cboPago = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(68)))), ((int)(((byte)(94)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(2, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(579, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "REGISTRO DE SOCIO";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(123, 128);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(40, 121);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 19);
+            this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nombre";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(123, 181);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(40, 160);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 19);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Apellido";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(123, 73);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(40, 81);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 19);
+            this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "DNI";
+            this.label4.Text = "DNI N°";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(123, 229);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(38, 201);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 19);
+            this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Télefono";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(123, 279);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(40, 245);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 19);
+            this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "E-mail";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(123, 324);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(40, 286);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(137, 19);
+            this.label7.Size = new System.Drawing.Size(113, 13);
             this.label7.TabIndex = 6;
             this.label7.Text = "Certificado Médico";
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(306, 546);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.btnLimpiar.FlatAppearance.BorderSize = 2;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.Location = new System.Drawing.Point(240, 462);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(141, 47);
+            this.btnLimpiar.Size = new System.Drawing.Size(142, 41);
             this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "Limpiar datos";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -147,13 +138,17 @@
             // 
             // btnAtras
             // 
-            this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.btnAtras.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnAtras.ForeColor = System.Drawing.Color.White;
-            this.btnAtras.Location = new System.Drawing.Point(135, 546);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.btnAtras.FlatAppearance.BorderSize = 2;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnAtras.ForeColor = System.Drawing.Color.Black;
+            this.btnAtras.Location = new System.Drawing.Point(43, 462);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(142, 47);
+            this.btnAtras.Size = new System.Drawing.Size(142, 41);
             this.btnAtras.TabIndex = 8;
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = false;
@@ -163,8 +158,8 @@
             // 
             this.chkCerMedico.AutoSize = true;
             this.chkCerMedico.BackColor = System.Drawing.Color.White;
-            this.chkCerMedico.Location = new System.Drawing.Point(329, 329);
-            this.chkCerMedico.Margin = new System.Windows.Forms.Padding(4);
+            this.chkCerMedico.Location = new System.Drawing.Point(186, 286);
+            this.chkCerMedico.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkCerMedico.Name = "chkCerMedico";
             this.chkCerMedico.Size = new System.Drawing.Size(15, 14);
             this.chkCerMedico.TabIndex = 5;
@@ -173,11 +168,11 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtNombre.Location = new System.Drawing.Point(250, 124);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.txtNombre.Location = new System.Drawing.Point(186, 114);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(197, 23);
+            this.txtNombre.Size = new System.Drawing.Size(196, 20);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
@@ -185,11 +180,11 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtApellido.Location = new System.Drawing.Point(250, 173);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.txtApellido.Location = new System.Drawing.Point(186, 153);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(197, 23);
+            this.txtApellido.Size = new System.Drawing.Size(196, 20);
             this.txtApellido.TabIndex = 2;
             this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
@@ -197,67 +192,75 @@
             // 
             // txtDni
             // 
-            this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtDni.Location = new System.Drawing.Point(250, 73);
-            this.txtDni.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.txtDni.Location = new System.Drawing.Point(186, 74);
+            this.txtDni.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(197, 23);
+            this.txtDni.Size = new System.Drawing.Size(196, 20);
             this.txtDni.TabIndex = 0;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             this.txtDni.Leave += new System.EventHandler(this.txtDni_Leave);
             // 
             // txtTelefono
             // 
-            this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtTelefono.Location = new System.Drawing.Point(250, 220);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.txtTelefono.Location = new System.Drawing.Point(186, 194);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(197, 23);
+            this.txtTelefono.Size = new System.Drawing.Size(196, 20);
             this.txtTelefono.TabIndex = 3;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtEmail
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtEmail.Location = new System.Drawing.Point(250, 271);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.txtEmail.Location = new System.Drawing.Point(186, 238);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(197, 23);
+            this.txtEmail.Size = new System.Drawing.Size(196, 20);
             this.txtEmail.TabIndex = 4;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtImporte
             // 
-            this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtImporte.Location = new System.Drawing.Point(259, 364);
-            this.txtImporte.Margin = new System.Windows.Forms.Padding(4);
+            this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.txtImporte.Location = new System.Drawing.Point(186, 319);
+            this.txtImporte.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtImporte.Name = "txtImporte";
-            this.txtImporte.Size = new System.Drawing.Size(206, 23);
+            this.txtImporte.Size = new System.Drawing.Size(196, 20);
             this.txtImporte.TabIndex = 6;
             this.txtImporte.Text = "0";
             this.txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtImporte.TextChanged += new System.EventHandler(this.txtImporte_TextChanged);
             // 
             // lblImporte
             // 
             this.lblImporte.AutoSize = true;
-            this.lblImporte.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblImporte.Location = new System.Drawing.Point(123, 364);
+            this.lblImporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblImporte.Location = new System.Drawing.Point(40, 326);
             this.lblImporte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblImporte.Name = "lblImporte";
-            this.lblImporte.Size = new System.Drawing.Size(107, 19);
+            this.lblImporte.Size = new System.Drawing.Size(91, 13);
             this.lblImporte.TabIndex = 19;
             this.lblImporte.Text = "Cuota Mensual";
             // 
             // btnImprimir
             // 
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.Enabled = false;
-            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(306, 606);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.btnImprimir.FlatAppearance.BorderSize = 2;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnImprimir.ForeColor = System.Drawing.Color.Black;
+            this.btnImprimir.Location = new System.Drawing.Point(240, 510);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(141, 42);
+            this.btnImprimir.Size = new System.Drawing.Size(142, 41);
             this.btnImprimir.TabIndex = 11;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
@@ -265,14 +268,18 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
+            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrar.Enabled = false;
-            this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Location = new System.Drawing.Point(135, 601);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.btnRegistrar.FlatAppearance.BorderSize = 2;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnRegistrar.ForeColor = System.Drawing.Color.Black;
+            this.btnRegistrar.Location = new System.Drawing.Point(43, 510);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(140, 52);
+            this.btnRegistrar.Size = new System.Drawing.Size(142, 41);
             this.btnRegistrar.TabIndex = 10;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
@@ -280,27 +287,46 @@
             // 
             // cboPago
             // 
+            this.cboPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.cboPago.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboPago.FormattingEnabled = true;
-            this.cboPago.Location = new System.Drawing.Point(259, 423);
+            this.cboPago.Location = new System.Drawing.Point(186, 368);
+            this.cboPago.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboPago.Name = "cboPago";
-            this.cboPago.Size = new System.Drawing.Size(206, 23);
+            this.cboPago.Size = new System.Drawing.Size(196, 21);
             this.cboPago.TabIndex = 20;
+            this.cboPago.SelectedIndexChanged += new System.EventHandler(this.cboPago_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(124, 431);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(40, 371);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 15);
+            this.label8.Size = new System.Drawing.Size(92, 13);
             this.label8.TabIndex = 21;
             this.label8.Text = "Forma de Pago";
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.SteelBlue;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(43, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(339, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "REGISTRO DE SOCIO";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmRegistro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(581, 661);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(430, 573);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cboPago);
             this.Controls.Add(this.btnImprimir);
@@ -322,11 +348,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmRegistro";
-            this.Text = "Registro";
+            this.Text = "Registro de Socio";
             this.Load += new System.EventHandler(this.frmRegistro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -334,8 +360,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -356,5 +380,6 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.ComboBox cboPago;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label1;
     }
 }

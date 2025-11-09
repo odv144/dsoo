@@ -331,5 +331,30 @@ namespace ClubDeportivo
         {
 
         }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtImporte_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

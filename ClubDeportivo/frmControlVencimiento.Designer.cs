@@ -31,6 +31,8 @@
             this.dgvVencimientos = new System.Windows.Forms.DataGridView();
             this.Actualizar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
+            this.cmbFiltroVencimiento = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblTituloPrincipal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVencimientos)).BeginInit();
             this.SuspendLayout();
@@ -39,9 +41,9 @@
             // 
             this.dgvVencimientos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvVencimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVencimientos.Location = new System.Drawing.Point(111, 65);
+            this.dgvVencimientos.Location = new System.Drawing.Point(30, 73);
             this.dgvVencimientos.Name = "dgvVencimientos";
-            this.dgvVencimientos.Size = new System.Drawing.Size(587, 238);
+            this.dgvVencimientos.Size = new System.Drawing.Size(587, 321);
             this.dgvVencimientos.TabIndex = 0;
             this.dgvVencimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVencimientos_CellContentClick);
             // 
@@ -53,9 +55,9 @@
             this.Actualizar.FlatAppearance.BorderSize = 2;
             this.Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Actualizar.ForeColor = System.Drawing.Color.Black;
-            this.Actualizar.Location = new System.Drawing.Point(240, 354);
+            this.Actualizar.Location = new System.Drawing.Point(637, 306);
             this.Actualizar.Name = "Actualizar";
-            this.Actualizar.Size = new System.Drawing.Size(139, 36);
+            this.Actualizar.Size = new System.Drawing.Size(142, 41);
             this.Actualizar.TabIndex = 1;
             this.Actualizar.Text = "Actualizar";
             this.Actualizar.UseVisualStyleBackColor = false;
@@ -69,29 +71,56 @@
             this.btnAtras.FlatAppearance.BorderSize = 2;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.ForeColor = System.Drawing.Color.Black;
-            this.btnAtras.Location = new System.Drawing.Point(435, 354);
+            this.btnAtras.Location = new System.Drawing.Point(637, 353);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(139, 36);
+            this.btnAtras.Size = new System.Drawing.Size(142, 41);
             this.btnAtras.TabIndex = 2;
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // cmbFiltroVencimiento
+            // 
+            this.cmbFiltroVencimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.cmbFiltroVencimiento.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmbFiltroVencimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbFiltroVencimiento.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.cmbFiltroVencimiento.FormattingEnabled = true;
+            this.cmbFiltroVencimiento.Location = new System.Drawing.Point(637, 103);
+            this.cmbFiltroVencimiento.Name = "cmbFiltroVencimiento";
+            this.cmbFiltroVencimiento.Size = new System.Drawing.Size(142, 21);
+            this.cmbFiltroVencimiento.TabIndex = 3;
+            this.cmbFiltroVencimiento.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroVencimiento_SelectedIndexChanged_1);
+            this.cmbFiltroVencimiento.SelectedValueChanged += new System.EventHandler(this.cmbFiltroVencimiento_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(644, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Filtro de Vencimiento";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTituloPrincipal
             // 
             this.lblTituloPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTituloPrincipal.AutoSize = true;
-            this.lblTituloPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.lblTituloPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
-            this.lblTituloPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(78)))), ((int)(((byte)(124)))));
-            this.lblTituloPrincipal.Location = new System.Drawing.Point(310, 30);
+            this.lblTituloPrincipal.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblTituloPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblTituloPrincipal.ForeColor = System.Drawing.Color.White;
+            this.lblTituloPrincipal.Location = new System.Drawing.Point(30, 22);
             this.lblTituloPrincipal.Name = "lblTituloPrincipal";
-            this.lblTituloPrincipal.Size = new System.Drawing.Size(216, 20);
+            this.lblTituloPrincipal.Size = new System.Drawing.Size(749, 33);
             this.lblTituloPrincipal.TabIndex = 3;
-            this.lblTituloPrincipal.Text = "Listado de Vencimientos";
+            this.lblTituloPrincipal.Text = "LISTADO DE VENCIMIENTOS";
             this.lblTituloPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTituloPrincipal.Click += new System.EventHandler(this.lblTituloPrincipal_Click);
             // 
             // frmControlVencimiento
             // 
@@ -100,7 +129,9 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmbFiltroVencimiento);
             this.Controls.Add(this.lblTituloPrincipal);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.Actualizar);
             this.Controls.Add(this.dgvVencimientos);
@@ -119,5 +150,7 @@
         private System.Windows.Forms.Button Actualizar;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Label lblTituloPrincipal;
+        private System.Windows.Forms.ComboBox cmbFiltroVencimiento;
+        private System.Windows.Forms.Label label1;
     }
 }

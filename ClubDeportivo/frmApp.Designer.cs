@@ -35,19 +35,23 @@
             this.lblSeccion = new System.Windows.Forms.Label();
             this.btnActividad = new System.Windows.Forms.Button();
             this.btnSocio = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnApartadoNoSocio = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Green;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.button2.FlatAppearance.BorderSize = 2;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(572, 22);
+            this.button2.Location = new System.Drawing.Point(559, 27);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 59);
+            this.button2.Size = new System.Drawing.Size(165, 54);
             this.button2.TabIndex = 2;
             this.button2.Text = "Reeimpresión Carnet";
             this.button2.UseVisualStyleBackColor = false;
@@ -55,12 +59,16 @@
             // 
             // btnListadoVencimientos
             // 
-            this.btnListadoVencimientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.btnListadoVencimientos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnListadoVencimientos.BackColor = System.Drawing.Color.Green;
+            this.btnListadoVencimientos.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnListadoVencimientos.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnListadoVencimientos.FlatAppearance.BorderSize = 2;
+            this.btnListadoVencimientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListadoVencimientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnListadoVencimientos.ForeColor = System.Drawing.Color.White;
-            this.btnListadoVencimientos.Location = new System.Drawing.Point(772, 22);
+            this.btnListadoVencimientos.Location = new System.Drawing.Point(735, 27);
             this.btnListadoVencimientos.Name = "btnListadoVencimientos";
-            this.btnListadoVencimientos.Size = new System.Drawing.Size(152, 59);
+            this.btnListadoVencimientos.Size = new System.Drawing.Size(165, 54);
             this.btnListadoVencimientos.TabIndex = 3;
             this.btnListadoVencimientos.Text = "Listado Vencimientos";
             this.btnListadoVencimientos.UseVisualStyleBackColor = false;
@@ -68,12 +76,14 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(387, 379);
+            this.button1.Location = new System.Drawing.Point(384, 375);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 59);
+            this.button1.Size = new System.Drawing.Size(165, 54);
             this.button1.TabIndex = 5;
             this.button1.Text = "Salir";
             this.button1.UseVisualStyleBackColor = false;
@@ -91,11 +101,15 @@
             // btnActividad
             // 
             this.btnActividad.BackColor = System.Drawing.Color.Green;
-            this.btnActividad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnActividad.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnActividad.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnActividad.FlatAppearance.BorderSize = 2;
+            this.btnActividad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnActividad.ForeColor = System.Drawing.Color.White;
-            this.btnActividad.Location = new System.Drawing.Point(387, 27);
+            this.btnActividad.Location = new System.Drawing.Point(384, 27);
             this.btnActividad.Name = "btnActividad";
-            this.btnActividad.Size = new System.Drawing.Size(152, 54);
+            this.btnActividad.Size = new System.Drawing.Size(165, 54);
             this.btnActividad.TabIndex = 8;
             this.btnActividad.Text = "Gestion Actividades";
             this.btnActividad.UseVisualStyleBackColor = false;
@@ -104,7 +118,10 @@
             // btnSocio
             // 
             this.btnSocio.BackColor = System.Drawing.Color.Green;
-            this.btnSocio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSocio.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnSocio.FlatAppearance.BorderSize = 2;
+            this.btnSocio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSocio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnSocio.ForeColor = System.Drawing.Color.White;
             this.btnSocio.Location = new System.Drawing.Point(31, 27);
             this.btnSocio.Name = "btnSocio";
@@ -113,6 +130,22 @@
             this.btnSocio.Text = "Apartado Socio";
             this.btnSocio.UseVisualStyleBackColor = false;
             this.btnSocio.Click += new System.EventHandler(this.btnSocio_Click);
+            // 
+            // btnApartadoNoSocio
+            // 
+            this.btnApartadoNoSocio.BackColor = System.Drawing.Color.Green;
+            this.btnApartadoNoSocio.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnApartadoNoSocio.FlatAppearance.BorderSize = 2;
+            this.btnApartadoNoSocio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApartadoNoSocio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnApartadoNoSocio.ForeColor = System.Drawing.Color.White;
+            this.btnApartadoNoSocio.Location = new System.Drawing.Point(208, 27);
+            this.btnApartadoNoSocio.Name = "btnApartadoNoSocio";
+            this.btnApartadoNoSocio.Size = new System.Drawing.Size(165, 54);
+            this.btnApartadoNoSocio.TabIndex = 11;
+            this.btnApartadoNoSocio.Text = "Apartado No Socio";
+            this.btnApartadoNoSocio.UseVisualStyleBackColor = false;
+            this.btnApartadoNoSocio.Click += new System.EventHandler(this.btnApartadoNoSocio_Click);
             // 
             // pictureBox1
             // 
@@ -124,24 +157,11 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // btnApartadoNoSocio
-            // 
-            this.btnApartadoNoSocio.BackColor = System.Drawing.Color.Green;
-            this.btnApartadoNoSocio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnApartadoNoSocio.ForeColor = System.Drawing.Color.White;
-            this.btnApartadoNoSocio.Location = new System.Drawing.Point(208, 27);
-            this.btnApartadoNoSocio.Name = "btnApartadoNoSocio";
-            this.btnApartadoNoSocio.Size = new System.Drawing.Size(150, 54);
-            this.btnApartadoNoSocio.TabIndex = 11;
-            this.btnApartadoNoSocio.Text = "Apartado No Socio";
-            this.btnApartadoNoSocio.UseVisualStyleBackColor = false;
-            this.btnApartadoNoSocio.Click += new System.EventHandler(this.btnApartadoNoSocio_Click);
-            // 
             // frmApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(929, 450);
             this.Controls.Add(this.btnApartadoNoSocio);
             this.Controls.Add(this.btnSocio);

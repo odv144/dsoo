@@ -42,24 +42,24 @@ namespace ClubDeportivo
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(68)))), ((int)(((byte)(94)))));
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.BackColor = System.Drawing.Color.SteelBlue;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(-6, 9);
+            this.label4.Location = new System.Drawing.Point(-9, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(246, 29);
+            this.label4.Size = new System.Drawing.Size(249, 29);
             this.label4.TabIndex = 7;
             this.label4.Text = "INICIAR SESIÓN";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtPass
             // 
-            this.txtPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPass.Location = new System.Drawing.Point(22, 208);
+            this.txtPass.Location = new System.Drawing.Point(22, 210);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(188, 22);
+            this.txtPass.Size = new System.Drawing.Size(188, 20);
             this.txtPass.TabIndex = 11;
             this.txtPass.Text = "Contraseña";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -68,12 +68,12 @@ namespace ClubDeportivo
             // 
             // txtUser
             // 
-            this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(230)))), ((int)(((byte)(218)))));
-            this.txtUser.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtUser.Location = new System.Drawing.Point(22, 180);
+            this.txtUser.Location = new System.Drawing.Point(22, 184);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(188, 22);
+            this.txtUser.Size = new System.Drawing.Size(188, 20);
             this.txtUser.TabIndex = 10;
             this.txtUser.Text = "Usuario";
             this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -82,8 +82,9 @@ namespace ClubDeportivo
             // 
             // btnIngreso
             // 
-            this.btnIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(154)))), ((int)(((byte)(180)))));
-            this.btnIngreso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngreso.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnIngreso.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngreso.ForeColor = System.Drawing.Color.White;
             this.btnIngreso.Location = new System.Drawing.Point(22, 236);
             this.btnIngreso.Name = "btnIngreso";
@@ -107,7 +108,7 @@ namespace ClubDeportivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(233, 301);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);

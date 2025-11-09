@@ -34,70 +34,111 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnActividad = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvActividades
             // 
+            this.dgvActividades.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvActividades.Location = new System.Drawing.Point(10, 24);
+            this.dgvActividades.Location = new System.Drawing.Point(15, 63);
             this.dgvActividades.Name = "dgvActividades";
-            this.dgvActividades.Size = new System.Drawing.Size(600, 387);
+            this.dgvActividades.Size = new System.Drawing.Size(597, 353);
             this.dgvActividades.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(632, 44);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(629, 63);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 38);
+            this.button1.Size = new System.Drawing.Size(142, 41);
             this.button1.TabIndex = 1;
             this.button1.Text = "Nuevo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(632, 170);
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.button3.FlatAppearance.BorderSize = 2;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(629, 175);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 38);
+            this.button3.Size = new System.Drawing.Size(142, 41);
             this.button3.TabIndex = 3;
             this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(632, 234);
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.button4.FlatAppearance.BorderSize = 2;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(629, 232);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(148, 38);
+            this.button4.Size = new System.Drawing.Size(142, 41);
             this.button4.TabIndex = 4;
             this.button4.Text = "Asignar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(632, 292);
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.button5.FlatAppearance.BorderSize = 2;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(629, 290);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(148, 38);
+            this.button5.Size = new System.Drawing.Size(142, 41);
             this.button5.TabIndex = 5;
             this.button5.Text = "Atras";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnActividad
             // 
-            this.btnActividad.Location = new System.Drawing.Point(632, 105);
+            this.btnActividad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.btnActividad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActividad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.btnActividad.FlatAppearance.BorderSize = 2;
+            this.btnActividad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActividad.Location = new System.Drawing.Point(629, 119);
             this.btnActividad.Name = "btnActividad";
-            this.btnActividad.Size = new System.Drawing.Size(148, 40);
+            this.btnActividad.Size = new System.Drawing.Size(142, 41);
             this.btnActividad.TabIndex = 6;
             this.btnActividad.Text = "Editar Actividad";
-            this.btnActividad.UseVisualStyleBackColor = true;
+            this.btnActividad.UseVisualStyleBackColor = false;
             this.btnActividad.Click += new System.EventHandler(this.btnActividad_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.SteelBlue;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(15, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(756, 33);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "GESTION DE ACTIVIDADES";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(792, 441);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnActividad);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -120,5 +161,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnActividad;
+        private System.Windows.Forms.Label label1;
     }
 }

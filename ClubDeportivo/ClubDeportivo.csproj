@@ -210,6 +210,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="util\Utilidades.cs" />
+    <EmbeddedResource Include="frmApartadoNoSocio.resx">
+      <DependentUpon>frmApartadoNoSocio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReimpresionCarnet.resx">
       <DependentUpon>frmReimpresionCarnet.cs</DependentUpon>
     </EmbeddedResource>
