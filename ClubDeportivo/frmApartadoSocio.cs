@@ -1,4 +1,5 @@
 ﻿using ClubDeportivo.Datos;
+using ClubDeportivo.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,6 +102,28 @@ namespace ClubDeportivo
                         importe = Convert.ToDouble(fila.Cells["CuotaMensual"].Value).ToString(),
                     };
                     pago.ShowDialog();
+                    RepositoryCuota repoCuota = new RepositoryCuota();
+                    List<E_Cuota> cuotas = repoCuota.ObtenerCuotasPorSocio(pago.nroSocio);
+                    foreach(E_Cuota cuota in cuotas)
+                    {
+                       
+                        cuota.FechaPago = DateTime.Now;
+                       
+                        cuota.EstadoPago = true;
+                        repoCuota.Actualizar(cuota);
+                       /* repoCuota.Insertar(new E_Cuota
+                        {
+                            NroSocio = cuota.NroSocio,
+                            FechaVencimiento = DateTime.Now.AddMonths(1),
+                            Monto = cuota.Monto,
+                            MetodoPago = cuota.MetodoPago,
+                            Mes = DateTime.Now.Month,
+                            Anio = DateTime.Now.Year,
+                            //FechaPago = DateTime.Now.AddDays(1),
+                            EstadoPago = false
+                        });
+                       */
+                    }
                 }catch (Exception ex)
                 {
                     MessageBox.Show("Error");

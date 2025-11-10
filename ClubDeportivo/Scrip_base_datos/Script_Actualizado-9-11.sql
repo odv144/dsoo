@@ -126,6 +126,19 @@ BEGIN
 END //
 DELIMITER //
 
+INSERT INTO usuario (nombre, apellido, dni, telefono, email, fecharegistro, certificadomedico) VALUES
+('Luis', 'Carrizo', '30345678', '381100000', 'luiscarrizo@mail.com', '2025-11-01', TRUE),
+('Patricia', 'Medina', '31345678', '381200000', 'patriciamedina@mail.com', '2025-11-02', TRUE),
+('Héctor', 'Salas', '32345679', '381300000', 'hectorsalas@mail.com', '2025-11-03', TRUE),
+('Brenda', 'Aguilar', '33345678', '381400000', 'brendaaguilar@mail.com', '2025-11-04', TRUE),
+('Felipe', 'Cabrera', '34345678', '381500000', 'felipecabrera@mail.com', '2025-11-05', TRUE),
+('Tamara', 'Juárez', '35345678', '381600000', 'tamarajuarez@mail.com', '2025-11-06', TRUE),
+('Santiago', 'Maidana', '36345678', '381700000', 'santiagomaidana@mail.com', '2025-11-07', TRUE),
+('Gabriela', 'Olivera', '37345678', '381800000', 'gabrielaolivera@mail.com', '2025-11-08', TRUE),
+('Matías', 'Peralta', '38345678', '381900000', 'matiasperalta@mail.com', '2025-11-09', TRUE),
+('Florencia', 'Quiroga', '39345678', '381999000', 'florenciaquiroga@mail.com', '2025-11-10', TRUE);
+-- 7 vencidas (antes del 2025-11-01)
+
 
 -- ======= INSERTAR USUARIOS SOCIOS =======
 INSERT INTO usuario (nombre, apellido, dni, telefono, email, fecharegistro, certificadomedico) VALUES
@@ -174,7 +187,8 @@ INSERT INTO socio (idusuario, estadohabilitacion, cuotamensual, carnetentregado)
 (20, 'activo', 5600, TRUE);
 
 -- ======= INSERTAR CUOTAS =======
--- 7 vencidas (antes del 2025-11-01)
+
+
 INSERT INTO cuota (nrosocio, mes, anio, monto, fechavencimiento, fechapago, metodopago, estadopago) VALUES
 (1, 10, 2025, 5500, '2025-10-20', NULL, 'Efectivo', 0),
 (2, 10, 2025, 4800, '2025-10-25', NULL, 'Transferencia', 0),
@@ -203,18 +217,7 @@ INSERT INTO cuota (nrosocio, mes, anio, monto, fechavencimiento, fechapago, meto
 (19, 11, 2025, 4900, '2025-12-15', NULL, 'Efectivo', 0),
 (20, 11, 2025, 5600, '2025-12-20', '2025-11-06', 'Efectivo', 1);
 
--- ======= INSERTAR USUARIOS NO SOCIOS =======
-INSERT INTO usuario (nombre, apellido, dni, telefono, email, fecharegistro, certificadomedico) VALUES
-('Luis', 'Carrizo', '30345678', '381100000', 'luiscarrizo@mail.com', '2025-11-01', TRUE),
-('Patricia', 'Medina', '31345678', '381200000', 'patriciamedina@mail.com', '2025-11-02', TRUE),
-('Héctor', 'Salas', '32345679', '381300000', 'hectorsalas@mail.com', '2025-11-03', TRUE),
-('Brenda', 'Aguilar', '33345678', '381400000', 'brendaaguilar@mail.com', '2025-11-04', TRUE),
-('Felipe', 'Cabrera', '34345678', '381500000', 'felipecabrera@mail.com', '2025-11-05', TRUE),
-('Tamara', 'Juárez', '35345678', '381600000', 'tamarajuarez@mail.com', '2025-11-06', TRUE),
-('Santiago', 'Maidana', '36345678', '381700000', 'santiagomaidana@mail.com', '2025-11-07', TRUE),
-('Gabriela', 'Olivera', '37345678', '381800000', 'gabrielaolivera@mail.com', '2025-11-08', TRUE),
-('Matías', 'Peralta', '38345678', '381900000', 'matiasperalta@mail.com', '2025-11-09', TRUE),
-('Florencia', 'Quiroga', '39345678', '381999000', 'florenciaquiroga@mail.com', '2025-11-10', TRUE);
+
 
 INSERT INTO nosocio (idusuario, observacion) VALUES
 (21, 'Participa en natación ocasionalmente'),

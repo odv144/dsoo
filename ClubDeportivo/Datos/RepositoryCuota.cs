@@ -17,18 +17,18 @@ namespace ClubDeportivo.Datos
         protected override E_Cuota MapearDesdeReader(MySqlDataReader reader)
         {
             //nos habiamos olvidado de que estado de cuota era un enum lo cambie en bd a string
-           // string estadoPagoStr = reader.GetString("EstadoPago");
+            // string estadoPagoStr = reader.GetString("EstadoPago");
             //bool estadoPagoBool = estadoPagoStr.Equals("Pagada", StringComparison.OrdinalIgnoreCase);
-
+            DateTime fecha = new DateTime();
             return new E_Cuota
             {
-                IdCuota= reader.GetInt32("IdCuota"),
-                NroSocio= reader.GetInt32("NroSocio"),
-                Mes=reader.GetInt32("Mes"),
-                Anio=reader.GetInt32("Anio"),
-                Monto=reader.GetDouble("Monto"),
-                FechaVencimiento=reader.GetDateTime("FechaVencimiento"),
-                FechaPago=reader.GetDateTime("FechaPago"),
+                IdCuota = reader.GetInt32("IdCuota"),
+                NroSocio = reader.GetInt32("NroSocio"),
+                Mes = reader.GetInt32("Mes"),
+                Anio = reader.GetInt32("Anio"),
+                Monto = reader.GetDouble("Monto"),
+                FechaVencimiento = reader.GetDateTime("FechaVencimiento"),
+                FechaPago =fecha,//reader.GetDateTime("FechaPago"),
                 MetodoPago=reader.IsDBNull(reader.GetOrdinal("MetodoPago"))
                     ? null
                     : reader.GetString("MetodoPago"),
@@ -40,7 +40,7 @@ namespace ClubDeportivo.Datos
         {
             return new Dictionary<string, object>
         {
-            { "@NroCuota", cuota.IdCuota },
+            { "@IdCuota", cuota.IdCuota },
             { "@NroSocio", cuota.NroSocio },
             { "@Mes", cuota.Mes },
             { "@Anio", cuota.Anio },
@@ -66,7 +66,7 @@ namespace ClubDeportivo.Datos
 
                 foreach (var param in parametros)
                 {
-                    if (param.Key != "@NroCuota")
+                    if (param.Key != "@IdCuota")
                         cmd.Parameters.AddWithValue(param.Key, param.Value);
                 }
 
@@ -90,7 +90,7 @@ namespace ClubDeportivo.Datos
                     FechaPago = @FechaPago,
                     MetodoPago = @MetodoPago,
                     EstadoPago = @EstadoPago
-                WHERE NroCuota = @NroCuota";
+                WHERE IdCuota = @IdCuota";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 var parametros = ObtenerParametros(cuota);
@@ -107,13 +107,13 @@ namespace ClubDeportivo.Datos
             return ObtenerPorId(cuota.IdCuota);
         }
 
-        public override bool Eliminar(int nroCuota)
+        public override bool Eliminar(int IdCuota)
         {
             using (MySqlConnection conn = ObtenerConexion())
             {
-                string query = "DELETE FROM Cuota WHERE NroCuota = @NroCuota";
+                string query = "DELETE FROM Cuota WHERE IdCuota = @IdCuota";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@NroCuota", nroCuota);
+                cmd.Parameters.AddWithValue("@IdCuota", IdCuota);
 
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
