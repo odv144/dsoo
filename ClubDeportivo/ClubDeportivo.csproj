@@ -122,6 +122,12 @@
     <Compile Include="frmListaCuotaVencida.Designer.cs">
       <DependentUpon>frmListaCuotaVencida.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarSocio.Designer.cs">
+      <DependentUpon>frmEditarSocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReimpresionCarnet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaCuotaVencida.resx">
       <DependentUpon>frmListaCuotaVencida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarSocio.resx">
+      <DependentUpon>frmEditarSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReimpresionCarnet.resx">
       <DependentUpon>frmReimpresionCarnet.cs</DependentUpon>

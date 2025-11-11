@@ -87,7 +87,7 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(142, 41);
             this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.Text = "Eliminar Socio";
+            this.btnEliminar.Text = "Revisar Quitar?";
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnAtras

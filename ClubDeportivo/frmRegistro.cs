@@ -63,6 +63,9 @@ namespace ClubDeportivo
             cboPago.Items.Add("Transferencia");
             cboPago.SelectedIndex = 0;
 
+            txtDni.MaxLength = 8;
+            txtTelefono.MaxLength = 15;
+
             // sincroniza estado inicial de botones con el check
             Utilidades.HabilitarBotones(this, chkCerMedico.Checked);
         }

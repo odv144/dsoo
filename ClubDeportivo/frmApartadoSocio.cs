@@ -44,33 +44,20 @@ namespace ClubDeportivo
             {
                 DataTable socios = repoSocio.ListarSocios();
 
-                if (socios.Rows.Count > 0)
-                {
-                    dgvListaSocio.DataSource = socios;
-                    dgvListaSocio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    dgvListaSocio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                    dgvListaSocio.ReadOnly = true;  
-                }
-                else
-                {
-                    dgvListaSocio.DataSource = null;
-                    MessageBox.Show("No hay socios registrados.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                dgvListaSocio.DataSource = socios;
+                dgvListaSocio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvListaSocio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dgvListaSocio.ReadOnly = true;
+                dgvListaSocio.MultiSelect = false;
+                dgvListaSocio.ClearSelection(); 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los socios: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar los socios: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-
-        private void dgvListaSocio_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-          CargarSocios();
-        }
-
-        // Agrega el método frmApartadoSocio_Load para solucionar el error CS010
 
 
 
@@ -81,10 +68,58 @@ namespace ClubDeportivo
 
         private void frmApartadoSocio_Load(object sender, EventArgs e)
         {
+            dgvListaSocio.AllowUserToAddRows = false;
+            dgvListaSocio.AllowUserToDeleteRows = false;
+            dgvListaSocio.ReadOnly = true;
+            dgvListaSocio.MultiSelect = false;
+            dgvListaSocio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListaSocio.RowHeadersVisible = false; // elimina la flecha lateral izquierda
+
+ 
+            dgvListaSocio.DefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dgvListaSocio.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvListaSocio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            //evento para seleccionar correctamente la fila al hacer clic
+            dgvListaSocio.CellClick += (s, ev) =>
+            {
+                if (ev.RowIndex >= 0)
+                    dgvListaSocio.Rows[ev.RowIndex].Selected = true;
+            };
+
+          
             CargarSocios();
+            dgvListaSocio.ClearSelection();
 
         }
 
-       
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            
+            if (dgvListaSocio.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Por favor seleccione un socio de la lista para editar.",
+                                "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            DataGridViewRow fila = dgvListaSocio.SelectedRows[0];
+
+           
+            if (fila.Cells["NroSocio"] == null || fila.Cells["NroSocio"].Value == null)
+            {
+                MessageBox.Show("No se pudo identificar el socio seleccionado.",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int nroSocio = Convert.ToInt32(fila.Cells["NroSocio"].Value);
+            frmEditarSocio frmEditar = new frmEditarSocio(nroSocio, this);
+            frmEditar.ShowDialog(); 
+            CargarSocios();
+        }
+
+        private void s(object sender, DataGridViewCellEventArgs e)
+        {
+        }
     }
 }

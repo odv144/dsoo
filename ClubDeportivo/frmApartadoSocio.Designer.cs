@@ -62,6 +62,7 @@
             this.btnEditar.TabIndex = 9;
             this.btnEditar.Text = "Editar Socio";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -74,7 +75,7 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(142, 41);
             this.btnEliminar.TabIndex = 10;
-            this.btnEliminar.Text = "Eliminar Socio";
+            this.btnEliminar.Text = "Revisar Inhabilitar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnRegistrarSocio
@@ -100,7 +101,7 @@
             this.dgvListaSocio.Name = "dgvListaSocio";
             this.dgvListaSocio.Size = new System.Drawing.Size(754, 459);
             this.dgvListaSocio.TabIndex = 12;
-            this.dgvListaSocio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaSocio_CellContentClick);
+            this.dgvListaSocio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.s);
             // 
             // btnAtras
             // 

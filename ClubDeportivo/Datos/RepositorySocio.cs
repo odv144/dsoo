@@ -16,9 +16,9 @@ namespace ClubDeportivo.Datos
         MySqlConnection sqlCon;
         protected override string ObtenerNombreTabla() => "Socio";
         protected override string ObtenerNombreClavePrimaria() => "NroSocio";
-        public override E_Socio Actualizar(E_Socio entidad)
+        public override E_Socio Actualizar(E_Socio socio)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public override bool Eliminar(int id)

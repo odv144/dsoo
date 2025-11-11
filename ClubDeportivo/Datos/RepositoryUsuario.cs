@@ -165,9 +165,31 @@ namespace ClubDeportivo.Datos
 
         }
 
-        public override E_Usuario Actualizar(E_Usuario entidad)
+        public override E_Usuario Actualizar(E_Usuario usuario)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = @"UPDATE usuario 
+                         SET nombre = @nombre,
+                             apellido = @apellido,
+                             telefono = @telefono,
+                             email = @email,
+                             certificadomedico = @certificadomedico
+                         WHERE idusuario = @idusuario";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", usuario.Apellido);
+                cmd.Parameters.AddWithValue("@telefono", usuario.Telefono);
+                cmd.Parameters.AddWithValue("@email", usuario.Email);
+                cmd.Parameters.AddWithValue("@certificadomedico", usuario.CertificadoMedico);
+                cmd.Parameters.AddWithValue("@idusuario", usuario.IdUsuario);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            return usuario;
         }
 
         public override bool Eliminar(int id)
@@ -217,6 +239,45 @@ namespace ClubDeportivo.Datos
             }
             return null;
         }
+
+        public E_Usuario ObtenerPorId(int idUsuario)
+        {
+            E_Usuario usuario = null;
+
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = @"SELECT idusuario, nombre, apellido, dni, telefono, email, 
+                                fecharegistro, certificadomedico 
+                         FROM usuario 
+                         WHERE idusuario = @idusuario";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@idusuario", idUsuario);
+
+                conn.Open();
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        usuario = new E_Usuario
+                        {
+                            IdUsuario = reader.GetInt32("idusuario"),
+                            Nombre = reader.GetString("nombre"),
+                            Apellido = reader.GetString("apellido"),
+                            Dni = reader.GetString("dni"),
+                            Telefono = reader.GetString("telefono"),
+                            Email = reader.GetString("email"),
+                            FechaRegistro = reader.GetDateTime("fecharegistro"),
+                            CertificadoMedico = reader.GetBoolean("certificadomedico")
+                        };
+                    }
+                }
+            }
+
+            return usuario;
+        }
+
 
 
     }
