@@ -48,7 +48,20 @@ namespace ClubDeportivo.Datos
 
                 sqlCon = Conexion.getInstancia().CrearConexion();
                 //obtengo los datos para  del socio
-                string querySelect = @"SELECT * FROM Socio s INNER JOIN Usuario u ON u.IdUsuario = s.NroSocio WHERE s.NroSocio = @NroSocio";
+                string querySelect = @"SELECT 
+                                s.NroSocio, 
+                                s.IdUsuario,
+                                s.EstadoHabilitacion, 
+                                s.CarnetEntregado, 
+                                s.CuotaMensual,
+                                u.Nombre, 
+                                u.Apellido, 
+                                u.Dni, 
+                                u.Telefono, 
+                                u.Email
+                            FROM Socio s
+                            INNER JOIN Usuario u ON s.IdUsuario = u.IdUsuario
+                            WHERE s.NroSocio =  @NroSocio";
                 MySqlCommand cmdSelect = new MySqlCommand(querySelect, sqlCon);
                 cmdSelect.Parameters.AddWithValue("@NroSocio", id);
                 sqlCon.Open();
@@ -56,13 +69,13 @@ namespace ClubDeportivo.Datos
 
                 if (reader.Read())
                 {
-                    
-                    socio.Nombre = reader.GetString("Nombre");
-                    socio.Apellido = reader.GetString("Apellido");
-                      //     CarnetEntregado = reader.GetBoolean("CarnetEntregado"),
-                        // ... otros campos que necesites
-                    
-                    
+                    MapearDesdeReader(reader);
+                    //socio.Nombre = reader.GetString("Nombre");
+                    //socio.Apellido = reader.GetString("Apellido");
+                    //     CarnetEntregado = reader.GetBoolean("CarnetEntregado"),
+                    // ... otros campos que necesites
+
+
                 }
 
                 //listo
@@ -87,7 +100,7 @@ namespace ClubDeportivo.Datos
                 FechaRegistro = reader.GetDateTime("FechaRegistro"),
                 CertificadoMedico = reader.GetBoolean("CertificadoMedico")
             };
-        
+
         }
 
 
@@ -104,7 +117,7 @@ namespace ClubDeportivo.Datos
         protected override Dictionary<string, object> ObtenerParametros(E_Usuario entidad)
         {
             return new Dictionary<string, object>
-            { 
+            {
 
                 { "@IdUsuario", entidad.IdUsuario},
                 { "@Nombre", entidad.Nombre },
@@ -137,7 +150,7 @@ namespace ClubDeportivo.Datos
 
                 sqlCon.Open();
 
-          
+
                 entidad.IdUsuario = Convert.ToInt32(comando.ExecuteScalar());
 
 
@@ -147,7 +160,7 @@ namespace ClubDeportivo.Datos
             catch
             {
 
-                throw; 
+                throw;
             }
 
         }

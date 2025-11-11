@@ -23,21 +23,29 @@ namespace ClubDeportivo
         
         private void btnIngreso_Click(object sender, EventArgs e)
         {
-            Datos.Credencial datos = new Datos.Credencial();
-            // Log_Usu metodo que llama al Stored Procedure de la base de datos
-            tablaLogin = datos.Log_Usu(txtUser.Text, txtPass.Text);
-            if (tablaLogin.Rows.Count > 0)
+            try
             {
-                frmApp frmApp = new frmApp();
-                frmApp.rol = Convert.ToString(tablaLogin.Rows[0][0]);
-                frmApp.usuario = Convert.ToString(txtUser.Text);
-                frmApp.Show();
-                this.Hide();
-               
+
+                Datos.Credencial datos = new Datos.Credencial();
+                // Log_Usu metodo que llama al Stored Procedure de la base de datos
+                tablaLogin = datos.Log_Usu(txtUser.Text, txtPass.Text);
+                if (tablaLogin.Rows.Count > 0)
+                {
+                    frmApp frmApp = new frmApp();
+                    frmApp.rol = Convert.ToString(tablaLogin.Rows[0][0]);
+                    frmApp.usuario = Convert.ToString(txtUser.Text);
+                    frmApp.Show();
+                    this.Hide();
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o contraseña incorrecta.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Usuario y/o contraseña incorrecta.");
+                MessageBox.Show(ex.Message);
             }
         }
 

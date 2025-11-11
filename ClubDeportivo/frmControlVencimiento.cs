@@ -19,7 +19,7 @@ namespace ClubDeportivo
             InitializeComponent();
         }
 
-        private void CargarVencimientos()
+        public void CargarVencimientos()
         {
             try
             {
@@ -219,6 +219,33 @@ namespace ClubDeportivo
         {
 
         }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            //Tomamos los datos de la grilla y eso se usa para el comprobante de pago
+            DataGridViewRow fila = dgvVencimientos.CurrentRow;
+            if (fila != null)
+            {
+                try
+                {
+                    RepositoryCuota repoCuota = new RepositoryCuota();
+                    frmListaCuotaVencida listado = new frmListaCuotaVencida(this);
+                    listado.cuotas = repoCuota.ObtenerCuotasPorSocio(Convert.ToInt32(fila.Cells["NroSocio"].Value));
+                    listado.ShowDialog();
+                   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+
+            //actualizar la tabla de cuota cambiando estadoPago a true 
+            //crear un nuevo registro de cuota del socio con la nueva fecha de vencimiento
+
+
+        }
     }
+    
 }
 

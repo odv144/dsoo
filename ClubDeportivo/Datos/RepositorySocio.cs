@@ -71,24 +71,25 @@ namespace ClubDeportivo.Datos
         protected override E_Socio MapearDesdeReader(MySqlDataReader reader)
         {
             //buscar new E_Sociocomo mapear el usuario dentro del socio
+            E_Usuario usuario = new E_Usuario
+            {
+                IdUsuario = reader.GetInt32("IdUsuario"),
+                Nombre = reader.GetString("U_Nombre"),
+                Apellido = reader.GetString("U_Apellido"),
+                Dni = reader.GetString("U_Dni"),
+                Telefono = reader.GetString("U_Telefono"),
+                Email = reader.GetString("U_Email")
+            };
+
             return new E_Socio
-                {
+            {
+                // ⭐ CARGAR OBJETO USUARIO RELACIONADO
                 NroSocio = reader.GetInt32("NroSocio"),
                 IdUsuario = reader.GetInt32("IdUsuario"),
                 EstadoHabilitacion = reader.GetString("EstadoHabilitacion"),
                 CarnetEntregado = reader.GetBoolean("CarnetEntregado"),
                 CuotaMensual = reader.GetDouble("CuotaMensual"),
-
-                // ⭐ CARGAR OBJETO USUARIO RELACIONADO
-                Usuario = new E_Usuario
-                {
-                    IdUsuario = reader.GetInt32("IdUsuario"),
-                    Nombre = reader.GetString("Nombre"),
-                    Apellido = reader.GetString("Apellido"),
-                    Dni = reader.GetString("Dni"),
-                    Telefono = reader.GetString("Telefono"),
-                    Email = reader.GetString("Email")
-                }
+                Usuario = usuario,
             };
         }
 
@@ -172,21 +173,21 @@ namespace ClubDeportivo.Datos
             {
                 // JOIN entre Socio y Usuario
                 string query = @"
-                SELECT 
-                    s.NroSocio, 
-                    s.IdUsuario,
-                    s.EstadoHabilitacion, 
-                    s.CarnetEntregado, 
-                    s.CuotaMensual,
-                    u.Nombre, 
-                    u.Apellido, 
-                    u.Dni, 
-                    u.Telefono, 
-                    u.Email
-                FROM Socio s
-                INNER JOIN Usuario u ON s.IdUsuario = u.IdUsuario
-                WHERE s.NroSocio = @NroSocio";
-
+                            SELECT 
+                                s.NroSocio,
+                                s.IdUsuario,
+                                s.EstadoHabilitacion,
+                                s.CarnetEntregado,
+                                s.CuotaMensual,
+                                u.IdUsuario AS U_IdUsuario,
+                                u.Nombre AS U_Nombre,
+                                u.Apellido AS U_Apellido,
+                                u.Dni AS U_Dni,
+                                u.Telefono AS U_Telefono,
+                                u.Email AS U_Email
+                            FROM Socio s
+                            INNER JOIN Usuario u ON s.IdUsuario = u.IdUsuario
+                            WHERE s.NroSocio = @NroSocio";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@NroSocio", nroSocio);
 
@@ -195,10 +196,7 @@ namespace ClubDeportivo.Datos
                 {
                     if (reader.Read())
                     {
-                        // ⭐ MAPEO: Crear objeto Socio
-                       
-
-                        return MapearDesdeReader(reader);
+                            return MapearDesdeReader(reader);
                     }
                 }
             }

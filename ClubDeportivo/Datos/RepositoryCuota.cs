@@ -19,7 +19,7 @@ namespace ClubDeportivo.Datos
             //nos habiamos olvidado de que estado de cuota era un enum lo cambie en bd a string
             // string estadoPagoStr = reader.GetString("EstadoPago");
             //bool estadoPagoBool = estadoPagoStr.Equals("Pagada", StringComparison.OrdinalIgnoreCase);
-            DateTime fecha = new DateTime();
+           
             return new E_Cuota
             {
                 IdCuota = reader.GetInt32("IdCuota"),
@@ -28,11 +28,11 @@ namespace ClubDeportivo.Datos
                 Anio = reader.GetInt32("Anio"),
                 Monto = reader.GetDouble("Monto"),
                 FechaVencimiento = reader.GetDateTime("FechaVencimiento"),
-                FechaPago =fecha,//reader.GetDateTime("FechaPago"),
-                MetodoPago=reader.IsDBNull(reader.GetOrdinal("MetodoPago"))
+                FechaPago = new DateTime(),//reader.GetDateTime("FechaPago"),
+                MetodoPago = reader.IsDBNull(reader.GetOrdinal("MetodoPago"))
                     ? null
                     : reader.GetString("MetodoPago"),
-                EstadoPago= reader.GetBoolean("estadoPago")
+                EstadoPago = reader.GetBoolean("estadoPago")
             };
         }
 
@@ -192,6 +192,7 @@ namespace ClubDeportivo.Datos
             FROM cuota c
             INNER JOIN socio s ON c.nrosocio = s.nrosocio
             INNER JOIN usuario u ON s.idusuario = u.idusuario
+            WHERE c.estadopago = false
             ORDER BY c.fechavencimiento ASC;";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);

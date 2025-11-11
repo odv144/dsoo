@@ -34,6 +34,7 @@
             this.cmbFiltroVencimiento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTituloPrincipal = new System.Windows.Forms.Label();
+            this.btnCobrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVencimientos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +123,21 @@
             this.lblTituloPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblTituloPrincipal.Click += new System.EventHandler(this.lblTituloPrincipal_Click);
             // 
+            // btnCobrar
+            // 
+            this.btnCobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.btnCobrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCobrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.btnCobrar.FlatAppearance.BorderSize = 2;
+            this.btnCobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCobrar.Location = new System.Drawing.Point(637, 259);
+            this.btnCobrar.Name = "btnCobrar";
+            this.btnCobrar.Size = new System.Drawing.Size(142, 41);
+            this.btnCobrar.TabIndex = 15;
+            this.btnCobrar.Text = "Cobrar Cuota";
+            this.btnCobrar.UseVisualStyleBackColor = false;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
+            // 
             // frmControlVencimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,6 +145,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCobrar);
             this.Controls.Add(this.cmbFiltroVencimiento);
             this.Controls.Add(this.lblTituloPrincipal);
             this.Controls.Add(this.label1);
@@ -152,5 +169,6 @@
         private System.Windows.Forms.Label lblTituloPrincipal;
         private System.Windows.Forms.ComboBox cmbFiltroVencimiento;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCobrar;
     }
 }
