@@ -44,7 +44,7 @@
             this.lblNombre.ForeColor = System.Drawing.Color.White;
             this.lblNombre.Location = new System.Drawing.Point(15, 32);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(922, 33);
+            this.lblNombre.Size = new System.Drawing.Size(1015, 33);
             this.lblNombre.TabIndex = 7;
             this.lblNombre.Text = "APARTADO SOCIO";
             this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -56,7 +56,7 @@
             this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditar.FlatAppearance.BorderSize = 2;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(795, 153);
+            this.btnEditar.Location = new System.Drawing.Point(1050, 180);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(142, 41);
             this.btnEditar.TabIndex = 9;
@@ -71,7 +71,7 @@
             this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEliminar.FlatAppearance.BorderSize = 2;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(795, 284);
+            this.btnEliminar.Location = new System.Drawing.Point(1050, 311);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(142, 41);
             this.btnEliminar.TabIndex = 10;
@@ -85,7 +85,7 @@
             this.btnRegistrarSocio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnRegistrarSocio.FlatAppearance.BorderSize = 2;
             this.btnRegistrarSocio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarSocio.Location = new System.Drawing.Point(795, 89);
+            this.btnRegistrarSocio.Location = new System.Drawing.Point(1050, 116);
             this.btnRegistrarSocio.Name = "btnRegistrarSocio";
             this.btnRegistrarSocio.Size = new System.Drawing.Size(142, 41);
             this.btnRegistrarSocio.TabIndex = 11;
@@ -99,9 +99,8 @@
             this.dgvListaSocio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaSocio.Location = new System.Drawing.Point(18, 89);
             this.dgvListaSocio.Name = "dgvListaSocio";
-            this.dgvListaSocio.Size = new System.Drawing.Size(754, 459);
+            this.dgvListaSocio.Size = new System.Drawing.Size(1012, 459);
             this.dgvListaSocio.TabIndex = 12;
-            this.dgvListaSocio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.s);
             // 
             // btnAtras
             // 
@@ -110,7 +109,7 @@
             this.btnAtras.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnAtras.FlatAppearance.BorderSize = 2;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtras.Location = new System.Drawing.Point(795, 350);
+            this.btnAtras.Location = new System.Drawing.Point(1050, 377);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(142, 41);
             this.btnAtras.TabIndex = 13;
@@ -123,7 +122,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(965, 569);
+            this.ClientSize = new System.Drawing.Size(1204, 569);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.dgvListaSocio);
             this.Controls.Add(this.btnRegistrarSocio);

@@ -94,7 +94,17 @@ namespace ClubDeportivo.Datos
 
         public override E_NoSocio Actualizar(E_NoSocio entidad)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = "UPDATE no_socio SET observacion = @observacion WHERE nronosocio = @nronosocio";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@observacion", entidad.Observacion);
+               // cmd.Parameters.AddWithValue("@nronosocio", entidad.NroNoSocio);  no tocaria el ID
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            return entidad;
         }
 
         public override bool Eliminar(int id)

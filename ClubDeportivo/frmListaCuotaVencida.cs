@@ -27,6 +27,7 @@ namespace ClubDeportivo
         RepositoryCuota repoCuota = new RepositoryCuota();
         private void frmListaCuotaVencida_Load(object sender, EventArgs e)
         {
+            ConfigurarGrilla();
             dgvListaCuotaVencida.DataSource = cuotas;
         }
 
@@ -34,14 +35,6 @@ namespace ClubDeportivo
         {
             try
             {
-                /*
-                if (dgvListaCuotaVencida.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Seleccione una actividad para editar.", "Atención",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }*/
-                //DataGridViewRow fila = dgvListaCuotaVencida.SelectedRows[0];
                 DataGridViewRow fila = dgvListaCuotaVencida.CurrentRow;
                 int nroSocio = Convert.ToInt32(fila.Cells["IdCuota"].Value);
                 repoCuota.Actualizar(new E_Cuota
@@ -98,6 +91,29 @@ namespace ClubDeportivo
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ConfigurarGrilla()
+        {
+            dgvListaCuotaVencida.AllowUserToAddRows = false;
+            dgvListaCuotaVencida.AllowUserToDeleteRows = false;
+            dgvListaCuotaVencida.ReadOnly = true;
+            dgvListaCuotaVencida.RowHeadersVisible = false;
+            dgvListaCuotaVencida.MultiSelect = false;
+            dgvListaCuotaVencida.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListaCuotaVencida.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListaCuotaVencida.AutoGenerateColumns = true;
+
+            dgvListaCuotaVencida.EnableHeadersVisualStyles = false;
+            dgvListaCuotaVencida.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            dgvListaCuotaVencida.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvListaCuotaVencida.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvListaCuotaVencida.DefaultCellStyle.SelectionBackColor = Color.LightSteelBlue;
+            dgvListaCuotaVencida.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            // evento: cuando se termine de enlazar, limpiar selección inicial
+            dgvListaCuotaVencida.DataBindingComplete += (s, e) => dgvListaCuotaVencida.ClearSelection();
         }
     }
 }

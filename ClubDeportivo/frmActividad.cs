@@ -25,7 +25,9 @@ namespace ClubDeportivo
 
         private void frmActividad_Load(object sender, EventArgs e)
         {
+            ConfigurarGrilla();
             CargarActividades();
+            
         }
 
         public void CargarActividades()
@@ -87,13 +89,10 @@ namespace ClubDeportivo
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
-        }
         private void btnActividad_Click(object sender, EventArgs e)
         {
-           
+
             if (dgvActividades.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione una actividad para editar.", "Atención",
@@ -101,16 +100,16 @@ namespace ClubDeportivo
                 return;
             }
 
-     
+
             DataGridViewRow fila = dgvActividades.SelectedRows[0];
 
             try
             {
-                
-                frmUpdateActividad frmUpdate = new frmUpdateActividad(fila, this);
-                frmUpdate.ShowDialog(); 
 
-                
+                frmUpdateActividad frmUpdate = new frmUpdateActividad(fila, this);
+                frmUpdate.ShowDialog();
+
+
                 CargarActividades();
             }
             catch (Exception ex)
@@ -119,5 +118,18 @@ namespace ClubDeportivo
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+           private void ConfigurarGrilla()
+        {
+            dgvActividades.AllowUserToAddRows = false;
+            dgvActividades.AllowUserToDeleteRows = false;
+            dgvActividades.RowHeadersVisible = false; // oculta la columna de flecha
+            dgvActividades.MultiSelect = false;
+            dgvActividades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvActividades.DefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dgvActividades.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvActividades.ReadOnly = true;
+        }
     }
 }
+

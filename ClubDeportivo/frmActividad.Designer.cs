@@ -44,7 +44,7 @@
             this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvActividades.Location = new System.Drawing.Point(15, 63);
             this.dgvActividades.Name = "dgvActividades";
-            this.dgvActividades.Size = new System.Drawing.Size(597, 353);
+            this.dgvActividades.Size = new System.Drawing.Size(922, 385);
             this.dgvActividades.TabIndex = 0;
             // 
             // button1
@@ -54,7 +54,7 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.button1.FlatAppearance.BorderSize = 2;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(629, 63);
+            this.button1.Location = new System.Drawing.Point(953, 117);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 41);
             this.button1.TabIndex = 1;
@@ -69,7 +69,7 @@
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.button3.FlatAppearance.BorderSize = 2;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(629, 175);
+            this.button3.Location = new System.Drawing.Point(953, 229);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(142, 41);
             this.button3.TabIndex = 3;
@@ -83,7 +83,7 @@
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.button4.FlatAppearance.BorderSize = 2;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(629, 232);
+            this.button4.Location = new System.Drawing.Point(953, 286);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(142, 41);
             this.button4.TabIndex = 4;
@@ -97,7 +97,7 @@
             this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.button5.FlatAppearance.BorderSize = 2;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(629, 290);
+            this.button5.Location = new System.Drawing.Point(953, 344);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(142, 41);
             this.button5.TabIndex = 5;
@@ -112,7 +112,7 @@
             this.btnActividad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnActividad.FlatAppearance.BorderSize = 2;
             this.btnActividad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActividad.Location = new System.Drawing.Point(629, 119);
+            this.btnActividad.Location = new System.Drawing.Point(953, 173);
             this.btnActividad.Name = "btnActividad";
             this.btnActividad.Size = new System.Drawing.Size(142, 41);
             this.btnActividad.TabIndex = 6;
@@ -127,7 +127,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(15, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(756, 33);
+            this.label1.Size = new System.Drawing.Size(922, 33);
             this.label1.TabIndex = 7;
             this.label1.Text = "GESTION DE ACTIVIDADES";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(792, 441);
+            this.ClientSize = new System.Drawing.Size(1107, 486);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnActividad);
             this.Controls.Add(this.button5);

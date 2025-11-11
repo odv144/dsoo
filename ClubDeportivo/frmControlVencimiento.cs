@@ -1,5 +1,4 @@
 ﻿using ClubDeportivo.Datos;
-using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
@@ -9,243 +8,169 @@ namespace ClubDeportivo
 {
     public partial class frmControlVencimiento : Form
     {
-        private RepositoryCuota repoCuota = new RepositoryCuota();
-
-
-        private DataTable dtOriginal; //  sin filtrar
+        private readonly RepositoryCuota repoCuota = new RepositoryCuota();
+        private DataTable dtOriginal;
 
         public frmControlVencimiento()
         {
             InitializeComponent();
         }
 
+        private void frmControlVencimiento_Load(object sender, EventArgs e)
+        {
+            ConfigurarGrilla();
+            InicializarFiltro();
+            CargarVencimientos();
+            CrearLeyendaColores();
+        }
+
+        private void ConfigurarGrilla()
+        {
+            dgvVencimientos.AllowUserToAddRows = false;
+            dgvVencimientos.AllowUserToDeleteRows = false;
+            dgvVencimientos.ReadOnly = true;
+            dgvVencimientos.MultiSelect = false;
+            dgvVencimientos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvVencimientos.RowHeadersVisible = false;
+            dgvVencimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVencimientos.EnableHeadersVisualStyles = false;
+
+            dgvVencimientos.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            dgvVencimientos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        }
+
         public void CargarVencimientos()
         {
             try
             {
-                // Obtenemos los datos desde el repositorio
-                DataTable dt = repoCuota.ObtenerVencimientos();
-
-                // Guardamos una copia intacta (para filtros)
+                var dt = repoCuota.ObtenerVencimientos();
                 dtOriginal = dt.Copy();
-
-                // Mostramos los datos en la grilla
                 dgvVencimientos.DataSource = dt;
 
-                // Aplicamos el formato visual
-                FormatearGrilla();
+                AplicarColores();
+                dgvVencimientos.ClearSelection();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los vencimientos:\n" + ex.Message,
+                MessageBox.Show($"Error al cargar los vencimientos:\n{ex.Message}",
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-        private void FormatearGrilla()
+        private void AplicarColores()
         {
-            if (dgvVencimientos.Columns.Count == 0) return;
-
-            dgvVencimientos.Columns["nrosocio"].HeaderText = "N° Socio";
-            dgvVencimientos.Columns["NombreCompleto"].HeaderText = "Nombre";
-            dgvVencimientos.Columns["mes"].HeaderText = "Mes";
-            dgvVencimientos.Columns["anio"].HeaderText = "Año";
-            dgvVencimientos.Columns["monto"].HeaderText = "Monto";
-            dgvVencimientos.Columns["fechavencimiento"].HeaderText = "Vencimiento";
-            dgvVencimientos.Columns["Estado"].HeaderText = "Estado";
-
-
             foreach (DataGridViewRow fila in dgvVencimientos.Rows)
             {
-                if (fila.Cells["Estado"].Value == null) continue;
+                if (fila.IsNewRow) continue;
 
-                string estado = fila.Cells["Estado"].Value.ToString();
+                string estado = fila.Cells["Estado"]?.Value?.ToString() ?? "";
+                Color color = Color.White;
 
-                if (estado == "VENCIDO")
-                    fila.DefaultCellStyle.BackColor = Color.FromArgb(255, 205, 210);
-                else if (estado == "PRÓXIMO A VENCER")
-                    fila.DefaultCellStyle.BackColor = Color.FromArgb(255, 249, 196);
-                else
-                    fila.DefaultCellStyle.BackColor = Color.FromArgb(200, 230, 201);
-            }
-            dgvVencimientos.Columns["nrosocio"].Width = 60;
-            dgvVencimientos.Columns["NombreCompleto"].Width = 133;
-            dgvVencimientos.Columns["mes"].Width = 40;
-            dgvVencimientos.Columns["anio"].Width = 40;
-            dgvVencimientos.Columns["monto"].Width = 60;
-            dgvVencimientos.Columns["fechavencimiento"].Width = 80;
-            dgvVencimientos.Columns["Estado"].Width = 130;
-            // Centrar solo el encabezado de la columna "Monto"
-            dgvVencimientos.Columns["monto"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                switch (estado)
+                {
+                    case "VENCIDO": color = Color.FromArgb(255, 205, 210); break;
+                    case "PRÓXIMO A VENCER": color = Color.FromArgb(255, 249, 196); break;
+                    case "AL DÍA": color = Color.FromArgb(200, 230, 201); break;
+                }
 
-
-            dgvVencimientos.AllowUserToResizeColumns = false;
-
-            // 🎯 Centramos columnas específicas
-            dgvVencimientos.Columns["mes"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvVencimientos.Columns["anio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvVencimientos.Columns["monto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvVencimientos.Columns["fechavencimiento"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-
-        }
-
-
-
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            string filtroSeleccionado = cmbFiltroVencimiento.SelectedItem?.ToString();
-            CargarVencimientos();
-
-            // Si había un filtro activo, lo aplicamos de nuevo
-            if (!string.IsNullOrEmpty(filtroSeleccionado) && filtroSeleccionado != "Todos")
-            {
-                cmbFiltroVencimiento.SelectedItem = filtroSeleccionado;
-            cmbFiltroVencimiento_SelectedIndexChanged(null, null);
+                fila.DefaultCellStyle.BackColor = color;
+                fila.DefaultCellStyle.SelectionBackColor = ControlPaint.Dark(color, 0.15f);
+                fila.DefaultCellStyle.SelectionForeColor = Color.Black;
             }
         }
-
-
-        private void dgvVencimientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void frmControlVencimiento_Load(object sender, EventArgs e)
-        {
-            CargarVencimientos();
-            CrearLeyendaColores();
-            InicializarFiltro();
-        }
-
-        private void CrearLeyendaColores()
-        {
-
-            int baseY = dgvVencimientos.Bottom + 15;
-            int baseX = 30;
-
-
-            // 🔴 LABEL - VENCIDO
-            Panel pnlVencido = new Panel();
-            pnlVencido.BackColor = Color.LightCoral;
-            pnlVencido.Size = new Size(20, 20);
-            pnlVencido.Location = new Point(baseX, baseY);
-            this.Controls.Add(pnlVencido);
-
-            Label lblVencido = new Label();
-            lblVencido.Text = "Vencido";
-            lblVencido.Font = new Font("Segoe UI", 10);
-            lblVencido.AutoSize = true;
-            lblVencido.Location = new Point(pnlVencido.Right + 8, baseY - 1);
-            this.Controls.Add(lblVencido);
-
-
-            // 🟡 LABEL - PRÓXIMO A VENCER
-            Panel pnlProximo = new Panel();
-            pnlProximo.BackColor = Color.Khaki;
-            pnlProximo.Size = new Size(20, 20);
-            pnlProximo.Location = new Point(lblVencido.Right + 40, baseY);
-            this.Controls.Add(pnlProximo);
-
-            Label lblProximo = new Label();
-            lblProximo.Text = "Próximo a vencer (3 días)";
-            lblProximo.Font = new Font("Segoe UI", 10);
-            lblProximo.AutoSize = true;
-            lblProximo.Location = new Point(pnlProximo.Right + 8, baseY - 1);
-            this.Controls.Add(lblProximo);
-
-            // 🟢 CUADRADO - AL DÍA
-            Panel pnlAlDia = new Panel();
-            pnlAlDia.BackColor = Color.LightGreen;
-            pnlAlDia.Size = new Size(20, 20);
-            pnlAlDia.Location = new Point(lblProximo.Right + 40, baseY);
-            this.Controls.Add(pnlAlDia);
-
-            Label lblAlDia = new Label();
-            lblAlDia.Text = "Al día";
-            lblAlDia.Font = new Font("Segoe UI", 10);
-            lblAlDia.AutoSize = true;
-            lblAlDia.Location = new Point(pnlAlDia.Right + 8, baseY - 1);
-            this.Controls.Add(lblAlDia);
-        }
-
-
-
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
 
         private void InicializarFiltro()
         {
             cmbFiltroVencimiento.Items.Clear();
-            cmbFiltroVencimiento.Items.Add("Todos");
-            cmbFiltroVencimiento.Items.Add("VENCIDO");
-            cmbFiltroVencimiento.Items.Add("PRÓXIMO A VENCER");
-            cmbFiltroVencimiento.Items.Add("AL DÍA");
+            cmbFiltroVencimiento.Items.AddRange(new object[]
+            {
+                "Todos", "VENCIDO", "PRÓXIMO A VENCER", "AL DÍA"
+            });
             cmbFiltroVencimiento.SelectedIndex = 0;
         }
 
         private void cmbFiltroVencimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (dtOriginal == null || cmbFiltroVencimiento.SelectedItem == null)
-                return;
+            if (dtOriginal == null) return;
 
             string filtro = cmbFiltroVencimiento.SelectedItem.ToString();
-            DataView dv = new DataView(dtOriginal);
+            DataView vista = new DataView(dtOriginal)
+            {
+                RowFilter = (filtro == "Todos") ? "" : $"Estado = '{filtro}'"
+            };
 
-            if (filtro == "Todos")
-                dv.RowFilter = ""; // sin filtro
-            else
-                dv.RowFilter = $"Estado = '{filtro}'";
-
-            dgvVencimientos.DataSource = dv;
-            FormatearGrilla();
-
-
-
+            dgvVencimientos.DataSource = vista;
+            AplicarColores();
+            dgvVencimientos.ClearSelection();
         }
 
-        private void cmbFiltroVencimiento_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void btnActualizar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void lblTituloPrincipal_Click(object sender, EventArgs e)
-        {
-
+            CargarVencimientos();
         }
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            //Tomamos los datos de la grilla y eso se usa para el comprobante de pago
-            DataGridViewRow fila = dgvVencimientos.CurrentRow;
-            if (fila != null)
+            if (dgvVencimientos.CurrentRow == null)
             {
-                try
-                {
-                    RepositoryCuota repoCuota = new RepositoryCuota();
-                    frmListaCuotaVencida listado = new frmListaCuotaVencida(this);
-                    listado.cuotas = repoCuota.ObtenerCuotasPorSocio(Convert.ToInt32(fila.Cells["NroSocio"].Value));
-                    listado.ShowDialog();
-                   
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error");
-                }
+                MessageBox.Show("Seleccione una fila antes de continuar.", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
-            //actualizar la tabla de cuota cambiando estadoPago a true 
-            //crear un nuevo registro de cuota del socio con la nueva fecha de vencimiento
+            try
+            {
+                int nroSocio = Convert.ToInt32(dgvVencimientos.CurrentRow.Cells["NroSocio"].Value);
+                frmListaCuotaVencida listado = new frmListaCuotaVencida(this)
+                {
+                    cuotas = repoCuota.ObtenerCuotasPorSocio(nroSocio)
+                };
+                listado.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al abrir cuotas:\n{ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void CrearLeyendaColores()
+        {
+            // Pequeño bloque para mostrar los colores de referencia (igual que antes)
+            int y = dgvVencimientos.Bottom + 15;
+            int x = 30;
 
+            AgregarLeyenda(Color.LightCoral, "Vencido", x, y);
+            AgregarLeyenda(Color.Khaki, "Próximo a vencer (3 días)", x + 150, y);
+            AgregarLeyenda(Color.LightGreen, "Al día", x + 400, y);
+        }
+
+        private void AgregarLeyenda(Color color, string texto, int x, int y)
+        {
+            Panel pnl = new Panel
+            {
+                BackColor = color,
+                Size = new Size(20, 20),
+                Location = new Point(x, y)
+            };
+            this.Controls.Add(pnl);
+
+            Label lbl = new Label
+            {
+                Text = texto,
+                AutoSize = true,
+                Font = new Font("Segoe UI", 10),
+                Location = new Point(x + 28, y - 1)
+            };
+            this.Controls.Add(lbl);
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
-    
 }
+
+
 

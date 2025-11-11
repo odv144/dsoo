@@ -116,6 +116,12 @@
     <Compile Include="Entidades\E_Socio.cs" />
     <Compile Include="Entidades\E_Socio_Actividad.cs" />
     <Compile Include="Entidades\E_Usuario.cs" />
+    <Compile Include="frmEditarNoSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarNoSocio.Designer.cs">
+      <DependentUpon>frmEditarNoSocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListaCuotaVencida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     <Compile Include="util\Utilidades.cs" />
     <EmbeddedResource Include="frmApartadoNoSocio.resx">
       <DependentUpon>frmApartadoNoSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarNoSocio.resx">
+      <DependentUpon>frmEditarNoSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaCuotaVencida.resx">
       <DependentUpon>frmListaCuotaVencida.cs</DependentUpon>

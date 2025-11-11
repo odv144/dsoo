@@ -44,9 +44,8 @@
             this.dgvVencimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVencimientos.Location = new System.Drawing.Point(30, 73);
             this.dgvVencimientos.Name = "dgvVencimientos";
-            this.dgvVencimientos.Size = new System.Drawing.Size(587, 321);
+            this.dgvVencimientos.Size = new System.Drawing.Size(966, 355);
             this.dgvVencimientos.TabIndex = 0;
-            this.dgvVencimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVencimientos_CellContentClick);
             // 
             // Actualizar
             // 
@@ -56,7 +55,7 @@
             this.Actualizar.FlatAppearance.BorderSize = 2;
             this.Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Actualizar.ForeColor = System.Drawing.Color.Black;
-            this.Actualizar.Location = new System.Drawing.Point(637, 306);
+            this.Actualizar.Location = new System.Drawing.Point(1015, 306);
             this.Actualizar.Name = "Actualizar";
             this.Actualizar.Size = new System.Drawing.Size(142, 41);
             this.Actualizar.TabIndex = 1;
@@ -72,7 +71,7 @@
             this.btnAtras.FlatAppearance.BorderSize = 2;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.ForeColor = System.Drawing.Color.Black;
-            this.btnAtras.Location = new System.Drawing.Point(637, 353);
+            this.btnAtras.Location = new System.Drawing.Point(1015, 353);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(142, 41);
             this.btnAtras.TabIndex = 2;
@@ -87,11 +86,10 @@
             this.cmbFiltroVencimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbFiltroVencimiento.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.cmbFiltroVencimiento.FormattingEnabled = true;
-            this.cmbFiltroVencimiento.Location = new System.Drawing.Point(637, 103);
+            this.cmbFiltroVencimiento.Location = new System.Drawing.Point(1015, 103);
             this.cmbFiltroVencimiento.Name = "cmbFiltroVencimiento";
             this.cmbFiltroVencimiento.Size = new System.Drawing.Size(142, 21);
             this.cmbFiltroVencimiento.TabIndex = 3;
-            this.cmbFiltroVencimiento.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroVencimiento_SelectedIndexChanged_1);
             this.cmbFiltroVencimiento.SelectedValueChanged += new System.EventHandler(this.cmbFiltroVencimiento_SelectedIndexChanged);
             // 
             // label1
@@ -100,7 +98,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(644, 76);
+            this.label1.Location = new System.Drawing.Point(1022, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 13);
             this.label1.TabIndex = 4;
@@ -117,11 +115,10 @@
             this.lblTituloPrincipal.ForeColor = System.Drawing.Color.White;
             this.lblTituloPrincipal.Location = new System.Drawing.Point(30, 22);
             this.lblTituloPrincipal.Name = "lblTituloPrincipal";
-            this.lblTituloPrincipal.Size = new System.Drawing.Size(749, 33);
+            this.lblTituloPrincipal.Size = new System.Drawing.Size(1150, 33);
             this.lblTituloPrincipal.TabIndex = 3;
             this.lblTituloPrincipal.Text = "LISTADO DE VENCIMIENTOS";
             this.lblTituloPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTituloPrincipal.Click += new System.EventHandler(this.lblTituloPrincipal_Click);
             // 
             // btnCobrar
             // 
@@ -130,7 +127,7 @@
             this.btnCobrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnCobrar.FlatAppearance.BorderSize = 2;
             this.btnCobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCobrar.Location = new System.Drawing.Point(637, 259);
+            this.btnCobrar.Location = new System.Drawing.Point(1015, 259);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(142, 41);
             this.btnCobrar.TabIndex = 15;
@@ -144,7 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1201, 450);
             this.Controls.Add(this.btnCobrar);
             this.Controls.Add(this.cmbFiltroVencimiento);
             this.Controls.Add(this.lblTituloPrincipal);

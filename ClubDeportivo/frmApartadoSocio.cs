@@ -117,9 +117,5 @@ namespace ClubDeportivo
             frmEditar.ShowDialog(); 
             CargarSocios();
         }
-
-        private void s(object sender, DataGridViewCellEventArgs e)
-        {
-        }
     }
 }

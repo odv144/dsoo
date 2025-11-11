@@ -41,7 +41,7 @@
             this.dgvListaCuotaVencida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaCuotaVencida.Location = new System.Drawing.Point(16, 67);
             this.dgvListaCuotaVencida.Name = "dgvListaCuotaVencida";
-            this.dgvListaCuotaVencida.Size = new System.Drawing.Size(599, 352);
+            this.dgvListaCuotaVencida.Size = new System.Drawing.Size(997, 352);
             this.dgvListaCuotaVencida.TabIndex = 0;
             // 
             // btnActulizarCuota
@@ -51,7 +51,7 @@
             this.btnActulizarCuota.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnActulizarCuota.FlatAppearance.BorderSize = 2;
             this.btnActulizarCuota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActulizarCuota.Location = new System.Drawing.Point(633, 311);
+            this.btnActulizarCuota.Location = new System.Drawing.Point(1032, 311);
             this.btnActulizarCuota.Name = "btnActulizarCuota";
             this.btnActulizarCuota.Size = new System.Drawing.Size(142, 41);
             this.btnActulizarCuota.TabIndex = 7;
@@ -67,7 +67,7 @@
             this.btnAtras.FlatAppearance.BorderSize = 2;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.ForeColor = System.Drawing.Color.Black;
-            this.btnAtras.Location = new System.Drawing.Point(633, 378);
+            this.btnAtras.Location = new System.Drawing.Point(1032, 378);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(142, 41);
             this.btnAtras.TabIndex = 8;
@@ -79,7 +79,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(174, 22);
+            this.label1.Location = new System.Drawing.Point(370, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(334, 20);
             this.label1.TabIndex = 9;
@@ -90,7 +90,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1196, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnActulizarCuota);

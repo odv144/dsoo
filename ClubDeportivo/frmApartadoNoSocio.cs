@@ -41,39 +41,43 @@ namespace ClubDeportivo
             try
             {
                 DataTable noSocios = repoNoSocio.ListarNoSocios();
+                dgvListaNoSocio.DataSource = noSocios;
+                dgvListaNoSocio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                if (noSocios.Rows.Count > 0)
+                if (noSocios.Rows.Count == 0)
                 {
-                    dgvListaNoSocio.DataSource = noSocios;
-                    dgvListaNoSocio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    dgvListaNoSocio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                    dgvListaNoSocio.ReadOnly = true;
+                    MessageBox.Show("No hay no socios registrados.",
+                                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                {
-                    dgvListaNoSocio.DataSource = null;
-                    MessageBox.Show("No hay no socios registrados.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+
+            
+                dgvListaNoSocio.ClearSelection();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los no socios: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar los no socios: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void frmApartadoNoSocio_Load(object sender, EventArgs e)
         {
+            ConfigurarGrilla();
             CargarNoSocios();
+            
         }
 
-        private void dgvListaNoSocio_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            CargarNoSocios();
-        }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void ConfigurarGrilla()
         {
-
+            dgvListaNoSocio.AllowUserToAddRows = false;
+            dgvListaNoSocio.AllowUserToDeleteRows = false;
+            dgvListaNoSocio.RowHeadersVisible = false; // oculta la columna de flecha
+            dgvListaNoSocio.MultiSelect = false;
+            dgvListaNoSocio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListaNoSocio.DefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dgvListaNoSocio.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvListaNoSocio.ReadOnly = true;
         }
     }
 }
