@@ -109,35 +109,46 @@ namespace ClubDeportivo.Datos
         }
 
         // ====== MÉTODOS ESPECÍFICOS COMO REGLAS DEL NEGOCIO ======
-        public void DescontarCupo(int idActividad)
+        /*public void DescontarCupo(int idActividad)
         {
-
-        }
+            using (var conn = ObtenerConexion())
+            {
+                string query = @"UPDATE Actividad 
+                         SET CupoMaximo = CupoMaximo - 1 
+                         WHERE IdActividad = @IdActividad 
+                         AND CupoMaximo > 0;";
+                var cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@IdActividad", idActividad);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }*/
         //
         public bool TieneCupoDisponible(int idActividad)
         {
             using (MySqlConnection conn = ObtenerConexion())
             {
-                // Cuenta cuántos socios están inscritos actualmente
                 string query = @"SELECT 
-                a.CupoMaximo,
-                COUNT(DISTINCT sa.NroSocio) as Inscritos
-            FROM Actividad a
-            LEFT JOIN Socio_Actividad sa ON a.IdActividad = sa.IdActividad
-            WHERE a.IdActividad = @IdActividad
-            GROUP BY a.IdActividad, a.CupoMaximo";
+                            a.CupoMaximo,
+                            (SELECT COUNT(*) 
+                             FROM NoSocio_Actividad nsa 
+                             WHERE nsa.IdActividad = a.IdActividad
+                               AND nsa.Estado = 'Activo') AS InscritosNoSocio
+                        FROM Actividad a
+                        WHERE a.IdActividad = @IdActividad;";
 
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@IdActividad", idActividad);
-
-                conn.Open();
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                using (var cmd = new MySqlCommand(query, conn))
                 {
-                    if (reader.Read())
+                    cmd.Parameters.AddWithValue("@IdActividad", idActividad);
+                    conn.Open();
+                    using (var r = cmd.ExecuteReader())
                     {
-                        int cupoMaximo = reader.GetInt32("CupoMaximo");
-                        int inscritos = reader.GetInt32("Inscritos");
-                        return inscritos < cupoMaximo;
+                        if (r.Read())
+                        {
+                            int cupoMax = r.GetInt32(r.GetOrdinal("CupoMaximo"));
+                            int inscritosNoSocio = r.GetInt32(r.GetOrdinal("InscritosNoSocio"));
+                            return inscritosNoSocio < cupoMax;
+                        }
                     }
                 }
             }
@@ -257,7 +268,9 @@ namespace ClubDeportivo.Datos
                 }
             }
             return null;
-            
         }
+
+
     }
 }
+

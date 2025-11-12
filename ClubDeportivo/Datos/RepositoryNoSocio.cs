@@ -96,11 +96,13 @@ namespace ClubDeportivo.Datos
         {
             using (MySqlConnection conn = ObtenerConexion())
             {
-                string query = "UPDATE no_socio SET observacion = @observacion WHERE nronosocio = @nronosocio";
+                string query = @"UPDATE nosocio 
+                         SET Observacion = @observacion 
+
+                         WHERE NroNoSocio = @nronosocio";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@observacion", entidad.Observacion);
-               // cmd.Parameters.AddWithValue("@nronosocio", entidad.NroNoSocio);  no tocaria el ID
-
+                cmd.Parameters.AddWithValue("@nronosocio", entidad.NroNoSocio); //  se pasa la PK (no se edita, solo se usa en WHERE)
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -131,6 +133,25 @@ namespace ClubDeportivo.Datos
                 n.Observacion
             FROM nosocio n
             INNER JOIN usuario u ON n.IdUsuario = u.IdUsuario";
+                //esta consulta "GARANTIZARIA" mostrar activo si se registra hoy e inactivo una vez terminado el dia
+                /*SELECT 
+                    n.NroNoSocio,
+                    u.Nombre,
+                    u.Apellido,
+                    u.Dni,
+                    u.Telefono,
+                    u.Email,
+                    u.FechaRegistro,
+                    n.Observacion,
+                    COALESCE(
+                        (SELECT Estado FROM NoSocio_Actividad na 
+                         WHERE na.NroNoSocio = n.NroNoSocio 
+                         ORDER BY na.FechaInscripcion DESC LIMIT 1),
+                        'Inactivo'
+                    ) AS Estado
+                FROM nosocio n
+                INNER JOIN usuario u ON n.IdUsuario = u.IdUsuario;
+                */
 
                 MySqlCommand cmd = new MySqlCommand(query, sqlCon);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);

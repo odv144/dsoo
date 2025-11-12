@@ -43,6 +43,7 @@ namespace ClubDeportivo
             CargarGrilla();
             CargarComboActividades();
             GridSeleccion();
+            txtDni.MaxLength = 8;
         }
         
         
@@ -54,19 +55,103 @@ namespace ClubDeportivo
         }
 
 
-        private void btnRegistrar_Click_1(object sender, EventArgs e)
+        /*   private void btnRegistrar_Click_1(object sender, EventArgs e)
+           {
+               if (!chkCerMedico.Checked)
+               {
+                   MessageBox.Show("El certificado médico es obligatorio para registrar un no socio.",
+                       "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   return;
+               }
+
+               try
+               {
+                   // solo creo el usuario
+                   usuario = new E_Usuario(
+                       txtNombre.Text,
+                       txtApellido.Text,
+                       txtDni.Text,
+                       txtTelefono.Text,
+                       txtEmail.Text,
+                       DateTime.Now,
+                       chkCerMedico.Checked
+                   );
+
+                   //Inserto un usuario
+                   E_Usuario nuevoUsuario = repositoryUsuario.Insertar(usuario);
+
+                   // recien inserto el socio
+                   E_NoSocio nuevoNoSocio = new E_NoSocio(nuevoUsuario, txtObservacion.Text);
+                   E_NoSocio noSocio =  repoNoSocio.Insertar(nuevoNoSocio);
+
+                   //falta insertar las actividades
+                   RepositoryNoSocioActividad repoNoSocioActi = new RepositoryNoSocioActividad();
+                   RepositoryActividad repoActividad = new RepositoryActividad();
+                   foreach(DataGridViewRow fila in dgvActividades.Rows)
+                   {
+                       E_NoSocio_Actividad noSocioActividad = new E_NoSocio_Actividad
+                       {
+                           NroNoSocio = noSocio.NroNoSocio,
+                           IdActividad = Convert.ToInt32(fila.Cells["idactividad"].Value),
+                           FechaInscripcion = DateTime.Now,
+                           Estado = "Activo",
+
+                       };
+                       //verificar si hay cupos disponibles
+                       if(repoActividad.TieneCupoDisponible(noSocioActividad.IdActividad))
+                       { 
+                           repoNoSocioActi.Insertar(noSocioActividad);
+                       /**********************************/
+        //descontar cupo de la actividad recien asignada
+        // repoActividad.DescontarCupo();
+        /* }
+         else
+         {
+             MessageBox.Show("No hay cupos disponibles para esta actividad");
+         }
+     }
+     MessageBox.Show("Cliente No Socio registrado exitosamente.",
+         "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+     // Impresion de comprobante de pago
+     frmComprobantePago pago = new frmComprobantePago()
+     {
+         nroSocio = noSocio.NroNoSocio,
+         nombre = nuevoNoSocio.Nombre,
+         apellido = nuevoNoSocio.Apellido,
+         importe = txtImporte.Text,
+         socio = false
+     };
+     pago.ShowDialog();
+
+     formNoSocio?.CargarNoSocios();
+     Utilidades.LimpiarControles(this);
+     dtSeleccionActividades.Clear();         
+     cboActividad.SelectedIndex = -1;         
+     txtImporte.Text = "0";                   
+
+
+ }
+ catch (Exception ex)
+ {
+     MessageBox.Show($"Error al registrar el no socio:\n{ex.Message}",
+         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+ }
+}*/
+
+
+    private void btnRegistrar_Click_1(object sender, EventArgs e)
         {
-            if (!chkCerMedico.Checked)
+        if (!chkCerMedico.Checked)
             {
                 MessageBox.Show("El certificado médico es obligatorio para registrar un no socio.",
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            try
+        try
             {
-                // solo creo el usuario
-                usuario = new E_Usuario(
+              //  Crear el usuario base
+                var usuario = new E_Usuario(
                     txtNombre.Text,
                     txtApellido.Text,
                     txtDni.Text,
@@ -76,59 +161,75 @@ namespace ClubDeportivo
                     chkCerMedico.Checked
                 );
 
-                //Inserto un usuario
-                E_Usuario nuevoUsuario = repositoryUsuario.Insertar(usuario);
+                var nuevoUsuario = repositoryUsuario.Insertar(usuario);
 
-                // recien inserto el socio
-                E_NoSocio nuevoNoSocio = new E_NoSocio(nuevoUsuario, txtObservacion.Text);
-                E_NoSocio noSocio =  repoNoSocio.Insertar(nuevoNoSocio);
+                //  Crear el no socio
+                var nuevoNoSocio = new E_NoSocio(nuevoUsuario, txtObservacion.Text);
+                var noSocio = repoNoSocio.Insertar(nuevoNoSocio);
 
-                //falta insertar las actividades
-                RepositoryNoSocioActividad repoNoSocioActi = new RepositoryNoSocioActividad();
-                RepositoryActividad repoActividad = new RepositoryActividad();
-                foreach(DataGridViewRow fila in dgvActividades.Rows)
+                //  Repositorios auxiliares
+                var repoNoSocioActi = new RepositoryNoSocioActividad();
+                var repoActividad = new RepositoryActividad();
+
+                int actividadesRegistradas = 0;
+
+                //  Recorrer actividades seleccionadas
+                foreach (DataGridViewRow fila in dgvActividades.Rows)
                 {
-                    E_NoSocio_Actividad noSocioActividad = new E_NoSocio_Actividad
-                    {
-                        NroNoSocio = noSocio.NroNoSocio,
-                        IdActividad = Convert.ToInt32(fila.Cells["idactividad"].Value),
-                        FechaInscripcion = DateTime.Now,
-                        Estado = "Activo",
+                    int idActividad = Convert.ToInt32(fila.Cells["IdActividad"].Value);
 
-                    };
-                    //verificar si hay cupos disponibles
-                    if(repoActividad.TieneCupoDisponible(noSocioActividad.IdActividad))
-                    { 
+                    // Verificar cupo disponible SOLO para no socios
+                    if (repoActividad.TieneCupoDisponible(idActividad))
+                    {
+                        var noSocioActividad = new E_NoSocio_Actividad
+                        {
+                            NroNoSocio = noSocio.NroNoSocio,
+                            IdActividad = idActividad,
+                            FechaInscripcion = DateTime.Now,
+                            Estado = "Activo"
+                        };
+
                         repoNoSocioActi.Insertar(noSocioActividad);
-                    /**********************************/
-                    //descontar cupo de la actividad recien asignada
-                   // repoActividad.DescontarCupo();
+                        actividadesRegistradas++;
                     }
                     else
                     {
-                        MessageBox.Show("No hay cupos disponibles para esta actividad");
+                        MessageBox.Show($"No hay cupos disponibles para la actividad '{fila.Cells["Nombre"].Value}'.",
+                            "Sin cupo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                MessageBox.Show("Cliente No Socio registrado exitosamente.",
-                    "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Impresion de comprobante de pago
-                frmComprobantePago pago = new frmComprobantePago()
-                {
-                    nroSocio = noSocio.NroNoSocio,
-                    nombre = nuevoNoSocio.Nombre,
-                    apellido = nuevoNoSocio.Apellido,
-                    importe = txtImporte.Text,
-                    socio = false
-                };
-                pago.ShowDialog();
 
+                if (actividadesRegistradas > 0)
+                {
+                    MessageBox.Show($"No socio registrado exitosamente con {actividadesRegistradas} actividad(es).",
+                        "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("El no socio fue registrado, pero no se pudo inscribir en ninguna actividad (sin cupos).",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                //  Mostrar comprobante de pago solo si hubo al menos una actividad
+                if (actividadesRegistradas > 0)
+                {
+                    var pago = new frmComprobantePago
+                    {
+                        nroSocio = noSocio.NroNoSocio,
+                        nombre = nuevoNoSocio.Nombre,
+                        apellido = nuevoNoSocio.Apellido,
+                        importe = txtImporte.Text,
+                        socio = false
+                    };
+                    pago.ShowDialog();
+                }
+
+                //  Refrescar y limpiar
                 formNoSocio?.CargarNoSocios();
                 Utilidades.LimpiarControles(this);
-                dtSeleccionActividades.Clear();         
-                cboActividad.SelectedIndex = -1;         
-                txtImporte.Text = "0";                   
-
-
+                dtSeleccionActividades.Clear();
+                cboActividad.SelectedIndex = -1;
+                txtImporte.Text = "0";
             }
             catch (Exception ex)
             {
@@ -136,6 +237,7 @@ namespace ClubDeportivo
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {

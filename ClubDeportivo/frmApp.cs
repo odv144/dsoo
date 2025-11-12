@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubDeportivo.Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,9 @@ namespace ClubDeportivo
 
         private void frmApp_Load(object sender, EventArgs e)
         {
+            // actualizo la fecha para comprobar socios activos no activos
+            var repo = new RepositoryNoSocioActividad();
+            repo.ActualizarEstadosDiarios();
             lblSeccion.Text += "USUARIO: " + usuario + " (" + rol + ")"; 
             //frmLoggin login = new frmLoggin();
             //login.ShowDialog();

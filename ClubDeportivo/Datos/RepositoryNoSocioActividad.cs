@@ -204,17 +204,19 @@ namespace ClubDeportivo.Datos
         {
             using (MySqlConnection conn = ObtenerConexion())
             {
-                string query = @"SELECT COUNT(*) FROM Socio_Actividad 
+                string query = @"SELECT COUNT(*) 
+                           FROM NoSocio_Actividad 
                            WHERE NroNoSocio = @NroNoSocio 
                            AND IdActividad = @IdActividad
                            AND Estado = 'Activo'";
 
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@NroNoSocio", nroNoSocio);
-                cmd.Parameters.AddWithValue("@IdActividad", idActividad);
-
-                conn.Open();
-                return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@NroNoSocio", nroNoSocio);
+                    cmd.Parameters.AddWithValue("@IdActividad", idActividad);
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+                }
             }
         }
         //metodo para devolver una relacion entre actividad y no socio
@@ -362,6 +364,23 @@ namespace ClubDeportivo.Datos
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
+
+        public void ActualizarEstadosDiarios()
+        {
+            using (var conn = ObtenerConexion())
+            {
+                string query = @"
+            UPDATE NoSocio_Actividad
+            SET Estado = 'Inactivo'
+            WHERE DATE(FechaInscripcion) < CURDATE()
+              AND Estado = 'Activo';";
+
+                var cmd = new MySqlCommand(query, conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 
 
