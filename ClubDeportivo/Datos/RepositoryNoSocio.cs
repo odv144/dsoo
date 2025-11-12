@@ -127,6 +127,7 @@ namespace ClubDeportivo.Datos
                 u.Dni,
                 u.Telefono,
                 u.Email,
+                u.FechaRegistro,
                 n.Observacion
             FROM nosocio n
             INNER JOIN usuario u ON n.IdUsuario = u.IdUsuario";

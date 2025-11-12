@@ -108,12 +108,14 @@
     <Compile Include="Datos\RepositoryCuota.cs" />
     <Compile Include="Datos\RepositoryNoSocio.cs" />
     <Compile Include="Datos\RepositorySocio.cs" />
+    <Compile Include="Datos\RepositoryNoSocioActividad.cs" />
     <Compile Include="Datos\RepositorySocioActividad.cs" />
     <Compile Include="Datos\RepositoryUsuario.cs" />
     <Compile Include="Entidades\E_Actividad.cs" />
     <Compile Include="Entidades\E_Cuota.cs" />
     <Compile Include="Entidades\E_NoSocio.cs" />
     <Compile Include="Entidades\E_Socio.cs" />
+    <Compile Include="Entidades\E_NoSocio_Actividad.cs" />
     <Compile Include="Entidades\E_Socio_Actividad.cs" />
     <Compile Include="Entidades\E_Usuario.cs" />
     <Compile Include="frmEditarNoSocio.cs">

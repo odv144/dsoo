@@ -109,7 +109,11 @@ namespace ClubDeportivo.Datos
         }
 
         // ====== MÉTODOS ESPECÍFICOS COMO REGLAS DEL NEGOCIO ======
+        public void DescontarCupo(int idActividad)
+        {
 
+        }
+        //
         public bool TieneCupoDisponible(int idActividad)
         {
             using (MySqlConnection conn = ObtenerConexion())

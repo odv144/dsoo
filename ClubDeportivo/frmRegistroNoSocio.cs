@@ -76,12 +76,39 @@ namespace ClubDeportivo
                     chkCerMedico.Checked
                 );
 
+                //Inserto un usuario
                 E_Usuario nuevoUsuario = repositoryUsuario.Insertar(usuario);
 
                 // recien inserto el socio
                 E_NoSocio nuevoNoSocio = new E_NoSocio(nuevoUsuario, txtObservacion.Text);
                 E_NoSocio noSocio =  repoNoSocio.Insertar(nuevoNoSocio);
 
+                //falta insertar las actividades
+                RepositoryNoSocioActividad repoNoSocioActi = new RepositoryNoSocioActividad();
+                RepositoryActividad repoActividad = new RepositoryActividad();
+                foreach(DataGridViewRow fila in dgvActividades.Rows)
+                {
+                    E_NoSocio_Actividad noSocioActividad = new E_NoSocio_Actividad
+                    {
+                        NroNoSocio = noSocio.NroNoSocio,
+                        IdActividad = Convert.ToInt32(fila.Cells["idactividad"].Value),
+                        FechaInscripcion = DateTime.Now,
+                        Estado = "Activo",
+
+                    };
+                    //verificar si hay cupos disponibles
+                    if(repoActividad.TieneCupoDisponible(noSocioActividad.IdActividad))
+                    { 
+                        repoNoSocioActi.Insertar(noSocioActividad);
+                    /**********************************/
+                    //descontar cupo de la actividad recien asignada
+                   // repoActividad.DescontarCupo();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay cupos disponibles para esta actividad");
+                    }
+                }
                 MessageBox.Show("Cliente No Socio registrado exitosamente.",
                     "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Impresion de comprobante de pago

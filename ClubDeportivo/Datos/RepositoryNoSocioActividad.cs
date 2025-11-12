@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace ClubDeportivo.Datos
 {
-    internal class RepositorySocioActividad : RepositoryBase<E_Socio_Actividad>
+    internal class RepositoryNoSocioActividad : RepositoryBase<E_NoSocio_Actividad>
     {
-        protected override string ObtenerNombreClavePrimaria() => "E_Socio_Acitividad";
-        protected override string ObtenerNombreTabla() => "Socio_Actividad";
-        protected override E_Socio_Actividad MapearDesdeReader(MySqlDataReader reader)
+        protected override string ObtenerNombreClavePrimaria() => "idinscripcion";
+        protected override string ObtenerNombreTabla() => "nosocio_Actividad";
+        protected override E_NoSocio_Actividad MapearDesdeReader(MySqlDataReader reader)
         {
-            return new E_Socio_Actividad
+            return new E_NoSocio_Actividad
             {
                 IdInscripcion = reader.GetInt32("IdInscripcion"),
-                NroSocio = reader.GetInt32("NroSocio"),
+                NroNoSocio = reader.GetInt32("NroNoSocio"),
                 IdActividad = reader.GetInt32("IdActividad"),
                 FechaInscripcion = reader.GetDateTime("FechaInscripcion"),
                 Estado = reader.GetString("Estado")
@@ -26,24 +26,24 @@ namespace ClubDeportivo.Datos
 
 
 
-        protected override Dictionary<string, object> ObtenerParametros(E_Socio_Actividad SocioActividad)
+        protected override Dictionary<string, object> ObtenerParametros(E_NoSocio_Actividad SocioActividad)
         {
             return new Dictionary<string, object>
         {
             { "@IdInscripcion", SocioActividad.IdInscripcion },
-            { "@NroSocio", SocioActividad.NroSocio },
+            { "@NroNoSocio", SocioActividad.NroNoSocio },
             { "@IdActividad", SocioActividad.IdActividad },
             { "@FechaInscripcion", SocioActividad.FechaInscripcion },
             { "@Estado", SocioActividad.Estado }
         };
         }
-        public override E_Socio_Actividad Insertar(E_Socio_Actividad SocioActividad)
+        public override E_NoSocio_Actividad Insertar(E_NoSocio_Actividad SocioActividad)
         {
             using (MySqlConnection conn = ObtenerConexion())
             {
-                string query = @"INSERT INTO Socio_Actividad 
-                (NroSocio, IdActividad, FechaInscripcion, Estado)
-                VALUES (@NroSocio, @IdActividad, @FechaInscripcion, @Estado);
+                string query = @"INSERT INTO NoSocio_Actividad 
+                (NroNoSocio, IdActividad, FechaInscripcion, Estado)
+                VALUES (@NroNoSocio, @IdActividad, @FechaInscripcion, @Estado);
                 SELECT LAST_INSERT_ID();";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -61,12 +61,12 @@ namespace ClubDeportivo.Datos
 
             return ObtenerPorId(SocioActividad.IdInscripcion);
         }
-        public override E_Socio_Actividad Actualizar(E_Socio_Actividad SocioActividad)
+        public override E_NoSocio_Actividad Actualizar(E_NoSocio_Actividad SocioActividad)
         {
             using (MySqlConnection conn = ObtenerConexion())
             {
                 string query = @"UPDATE Socio_Actividad 
-                SET NroSocio = @NroSocio,
+                SET NroNoSocio = @NroNoSocio,
                     IdActividad = @IdActividad,
                     FechaInscripcion = @FechaInscripcion,
                     Estado = @Estado
@@ -103,9 +103,9 @@ namespace ClubDeportivo.Datos
         // ====== MÉTODOS ESPECÍFICOS DEL NEGOCIO ======
 
         // Obtener todas las actividades de un socio
-        public List<E_Socio_Actividad> ObtenerActividadesPorSocio(int nroSocio)
+        public List<E_NoSocio_Actividad> ObtenerActividadesPorSocio(int nroSocio)
         {
-            List<E_Socio_Actividad> lista = new List<E_Socio_Actividad>();
+            List<E_NoSocio_Actividad> lista = new List<E_NoSocio_Actividad>();
 
             using (MySqlConnection conn = ObtenerConexion())
             {
@@ -126,7 +126,7 @@ namespace ClubDeportivo.Datos
                 {
                     while (reader.Read())
                     {
-                        E_Socio_Actividad sa = MapearDesdeReader(reader);
+                        E_NoSocio_Actividad sa = MapearDesdeReader(reader);
 
                         // Cargar datos de la actividad
                         sa.Actividad = new E_Actividad
@@ -146,18 +146,18 @@ namespace ClubDeportivo.Datos
         }
 
         // Obtener todos los socios inscritos en una actividad
-        public List<E_Socio_Actividad> ObtenerSociosPorActividad(int idActividad)
+        public List<E_NoSocio_Actividad> ObtenerSociosPorActividad(int idActividad)
         {
-            List<E_Socio_Actividad> lista = new List<E_Socio_Actividad>();
+            List<E_NoSocio_Actividad> lista = new List<E_NoSocio_Actividad>();
 
             using (MySqlConnection conn = ObtenerConexion())
             {
                 string query = @"SELECT 
                 sa.*,
-                s.NroSocio, s.CarnetEntregado,
+                s.NroNoSocio, s.CarnetEntregado,
                 u.Nombre, u.Apellido, u.Dni, u.Telefono, u.Email
             FROM Socio_Actividad sa
-            INNER JOIN Socio s ON sa.NroSocio = s.NroSocio
+            INNER JOIN Socio s ON sa.NroNoSocio = s.NroNoSocio
             INNER JOIN Usuario u ON s.IdUsuario = u.IdUsuario
             WHERE sa.IdActividad = @IdActividad
             AND sa.Estado = 'Activo'
@@ -171,7 +171,7 @@ namespace ClubDeportivo.Datos
                 {
                     while (reader.Read())
                     {
-                        E_Socio_Actividad sa = MapearDesdeReader(reader);
+                        E_NoSocio_Actividad sa = MapearDesdeReader(reader);
 
                         // Cargar datos del socio y usuario
                         sa.Socio = new E_Socio
@@ -200,29 +200,83 @@ namespace ClubDeportivo.Datos
         }
 
         // Verificar si un socio ya está inscrito en una actividad
-        public bool EstaInscrito(int nroSocio, int idActividad)
+        public bool EstaInscrito(int nroNoSocio, int idActividad)
         {
             using (MySqlConnection conn = ObtenerConexion())
             {
                 string query = @"SELECT COUNT(*) FROM Socio_Actividad 
-                           WHERE NroSocio = @NroSocio 
+                           WHERE NroNoSocio = @NroNoSocio 
                            AND IdActividad = @IdActividad
                            AND Estado = 'Activo'";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@NroSocio", nroSocio);
+                cmd.Parameters.AddWithValue("@NroNoSocio", nroNoSocio);
                 cmd.Parameters.AddWithValue("@IdActividad", idActividad);
 
                 conn.Open();
                 return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
             }
         }
+        //metodo para devolver una relacion entre actividad y no socio
+        /******/
+         public DateTime? ObtenerUltimaFechaInscripcion(int nroNoSocio)
+{
+    using (MySqlConnection conn = ObtenerConexion())
+    {
+        string query = @"SELECT MAX(fechainscripcion) AS FechaUltimaInscripcion
+                        FROM nosocio_actividad
+                        WHERE nronosocio = @NroNoSocio";
+        
+        MySqlCommand cmd = new MySqlCommand(query, conn);
+        cmd.Parameters.AddWithValue("@NroNoSocio", nroNoSocio);
+        
+        conn.Open();
+        
+        object resultado = cmd.ExecuteScalar();
+        
+        if (resultado != null && resultado != DBNull.Value)
+            return Convert.ToDateTime(resultado);
+        else
+            return null;
+    }
+}
+        /***** */
+        public E_NoSocio_Actividad ObtenerActividadPorId(int nroNoSocio, int idActividad)
+        {
+            using (MySqlConnection conn = ObtenerConexion())
+            {
+                string query = @"SELECT * FROM Socio_Actividad 
+                           WHERE NroNoSocio = @NroNoSocio 
+                           AND IdActividad = @IdActividad
+                           AND Estado = 'Activo'";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@NroNoSocio", nroNoSocio);
+                cmd.Parameters.AddWithValue("@IdActividad", idActividad);
+
+                conn.Open();
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        E_NoSocio_Actividad actividad =  MapearDesdeReader(reader);
+                    
+                    
+                        return actividad;
+                    }
+                    else
+                    {
+                        return null; // No se encontró el registro
+                    }
+                }
+            }
+        }
 
         // Inscribir socio en actividad (con validaciones)
-        public E_Socio_Actividad InscribirSocioEnActividad(int nroSocio, int idActividad)
+        public E_NoSocio_Actividad InscribirSocioEnActividad(int nroNoSocio, int idActividad)
         {
             // Validar que no esté ya inscrito
-            if (EstaInscrito(nroSocio, idActividad))
+            if (EstaInscrito(nroNoSocio, idActividad))
             {
                 throw new Exception("El socio ya está inscrito en esta actividad");
             }
@@ -235,17 +289,18 @@ namespace ClubDeportivo.Datos
             }
 
             // Validar que el socio esté habilitado
-            RepositorySocio socioRepo = new RepositorySocio();
-            E_Socio socio = socioRepo.ObtenerPorId(nroSocio);
+            RepositoryNoSocio socioNoRepo = new RepositoryNoSocio();
+            E_NoSocio socio = socioNoRepo.ObtenerPorId(nroNoSocio);
+            /*
             if (socio.EstadoHabilitacion != "Activo")
             {
                 throw new Exception("El socio no está habilitado");
             }
-
+            */
             // Crear inscripción
-            E_Socio_Actividad inscripcion = new E_Socio_Actividad
+            E_NoSocio_Actividad inscripcion = new E_NoSocio_Actividad
             {
-                NroSocio = nroSocio,
+                NroNoSocio = nroNoSocio,
                 IdActividad = idActividad,
                 FechaInscripcion = DateTime.Now,
                 Estado = "Activo"
@@ -255,18 +310,18 @@ namespace ClubDeportivo.Datos
         }
 
         // Cancelar inscripción
-        public bool CancelarInscripcion(int nroSocio, int idActividad)
+        public bool CancelarInscripcion(int nroNoSocio, int idActividad)
         {
             using (MySqlConnection conn = ObtenerConexion())
             {
                 string query = @"UPDATE Socio_Actividad 
                 SET Estado = 'Cancelado'
-                WHERE NroSocio = @NroSocio 
+                WHERE NroNoSocio = @NroNoSocio 
                 AND IdActividad = @IdActividad
                 AND Estado = 'Activo'";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@NroSocio", nroSocio);
+                cmd.Parameters.AddWithValue("@NroSocio", nroNoSocio);
                 cmd.Parameters.AddWithValue("@IdActividad", idActividad);
 
                 conn.Open();
@@ -280,11 +335,11 @@ namespace ClubDeportivo.Datos
             using (MySqlConnection conn = ObtenerConexion())
             {
                 string query = @"SELECT COUNT(*) FROM Socio_Actividad 
-                           WHERE NroSocio = @NroSocio 
+                           WHERE NroNoSocio = @NroNoSocio 
                            AND Estado = 'Activo'";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@NroSocio", nroSocio);
+                cmd.Parameters.AddWithValue("@NroNoSocio", nroSocio);
 
                 conn.Open();
                 return Convert.ToInt32(cmd.ExecuteScalar());
@@ -296,7 +351,7 @@ namespace ClubDeportivo.Datos
         {
             using (MySqlConnection conn = ObtenerConexion())
             {
-                string query = @"SELECT COUNT(*) FROM Socio_Actividad 
+                string query = @"SELECT COUNT(*) FROM NoSocio_Actividad 
                            WHERE IdActividad = @IdActividad 
                            AND Estado = 'Activo'";
 

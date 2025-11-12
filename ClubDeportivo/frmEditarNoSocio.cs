@@ -21,7 +21,7 @@ namespace ClubDeportivo
         private readonly int _nroSocio; // ID que llega desde el grid
 
 
-        private readonly frmApartadoSocio _formSocio;
+        private readonly frmApartadoNoSocio _formSocio;
         private readonly RepositorySocio repoSocio = new RepositorySocio();
         private readonly RepositoryUsuario repoUsuario = new RepositoryUsuario();
 
@@ -29,7 +29,7 @@ namespace ClubDeportivo
         private int _idUsuario;
         private string _emailOriginal;
 
-        public frmEditarNoSocio(int nroSocio, frmApartadoSocio formSocio = null)
+        public frmEditarNoSocio(int nroSocio, frmApartadoNoSocio formSocio = null)
         {
             InitializeComponent();
             _nroSocio = nroSocio;
@@ -81,12 +81,7 @@ namespace ClubDeportivo
 
 
 
-        public frmEditarSocio()
-        {
-            InitializeComponent();
-
-        }
-
+       
        
 
 

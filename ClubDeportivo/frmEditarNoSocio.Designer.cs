@@ -270,7 +270,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(445, 679);
+            this.ClientSize = new System.Drawing.Size(852, 679);
             this.Controls.Add(this.lblObservaciones);
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.chkCerMedico);

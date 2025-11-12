@@ -74,6 +74,7 @@
             this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar No Socios";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -130,6 +131,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmApartadoNoSocio";
             this.Text = "Apartado No Socio";
+            this.Load += new System.EventHandler(this.frmApartadoNoSocio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaNoSocio)).EndInit();
             this.ResumeLayout(false);
 
