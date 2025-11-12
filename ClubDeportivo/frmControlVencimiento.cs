@@ -1,4 +1,5 @@
 ﻿using ClubDeportivo.Datos;
+using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Data;
 using System.Drawing;
@@ -8,6 +9,7 @@ namespace ClubDeportivo
 {
     public partial class frmControlVencimiento : Form
     {
+        private readonly RepositorySocio repoSocio = new RepositorySocio();
         private readonly RepositoryCuota repoCuota = new RepositoryCuota();
         private DataTable dtOriginal;
 
@@ -68,7 +70,12 @@ namespace ClubDeportivo
 
                 switch (estado)
                 {
-                    case "VENCIDO": color = Color.FromArgb(255, 205, 210); break;
+                    case "VENCIDO":
+                        {
+                            color = Color.FromArgb(255, 205, 210);
+                            repoSocio.CambiarEstadoHabilitacion(Convert.ToInt32(fila.Cells["NroSocio"].Value), "suspendido");
+                            break;
+                        }
                     case "PRÓXIMO A VENCER": color = Color.FromArgb(255, 249, 196); break;
                     case "AL DÍA": color = Color.FromArgb(200, 230, 201); break;
                 }

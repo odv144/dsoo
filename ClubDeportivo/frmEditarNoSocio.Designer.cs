@@ -121,11 +121,11 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(45, 595);
+            this.btnLimpiar.Location = new System.Drawing.Point(407, 595);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(125, 41);
-            this.btnLimpiar.TabIndex = 9;
+            this.btnLimpiar.TabIndex = 13;
             this.btnLimpiar.Text = "Limpiar datos";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -139,11 +139,11 @@
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnAtras.ForeColor = System.Drawing.Color.Black;
-            this.btnAtras.Location = new System.Drawing.Point(396, 595);
+            this.btnAtras.Location = new System.Drawing.Point(45, 595);
             this.btnAtras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(123, 41);
-            this.btnAtras.TabIndex = 8;
+            this.btnAtras.TabIndex = 12;
             this.btnAtras.Text = "Atrás";
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
@@ -209,7 +209,7 @@
             this.lblEditarSocio.Location = new System.Drawing.Point(52, 29);
             this.lblEditarSocio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEditarSocio.Name = "lblEditarSocio";
-            this.lblEditarSocio.Size = new System.Drawing.Size(845, 29);
+            this.lblEditarSocio.Size = new System.Drawing.Size(872, 29);
             this.lblEditarSocio.TabIndex = 0;
             this.lblEditarSocio.Text = "EDITAR NO  SOCIO";
             this.lblEditarSocio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -223,11 +223,11 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(745, 595);
+            this.btnGuardar.Location = new System.Drawing.Point(771, 595);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(152, 41);
-            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.TabIndex = 14;
             this.btnGuardar.Text = "Guardar Cambios";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -240,7 +240,7 @@
             this.chkCerMedico.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkCerMedico.Name = "chkCerMedico";
             this.chkCerMedico.Size = new System.Drawing.Size(15, 14);
-            this.chkCerMedico.TabIndex = 11;
+            this.chkCerMedico.TabIndex = 5;
             this.chkCerMedico.UseVisualStyleBackColor = false;
             // 
             // label7
@@ -270,7 +270,7 @@
             this.txtObservacion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(372, 74);
-            this.txtObservacion.TabIndex = 45;
+            this.txtObservacion.TabIndex = 6;
             this.txtObservacion.Text = "";
             // 
             // label1
@@ -286,11 +286,11 @@
             // btnBorrar
             // 
             this.btnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBorrar.Location = new System.Drawing.Point(794, 413);
+            this.btnBorrar.Location = new System.Drawing.Point(821, 411);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(103, 23);
-            this.btnBorrar.TabIndex = 53;
+            this.btnBorrar.TabIndex = 10;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = false;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
@@ -300,11 +300,11 @@
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(795, 136);
+            this.btnAgregar.Location = new System.Drawing.Point(822, 136);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(102, 24);
-            this.btnAgregar.TabIndex = 51;
+            this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -317,8 +317,8 @@
             this.cboActividad.Location = new System.Drawing.Point(418, 139);
             this.cboActividad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboActividad.Name = "cboActividad";
-            this.cboActividad.Size = new System.Drawing.Size(355, 21);
-            this.cboActividad.TabIndex = 50;
+            this.cboActividad.Size = new System.Drawing.Size(396, 21);
+            this.cboActividad.TabIndex = 7;
             // 
             // dgvActividades
             // 
@@ -327,8 +327,8 @@
             this.dgvActividades.Location = new System.Drawing.Point(418, 207);
             this.dgvActividades.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvActividades.Name = "dgvActividades";
-            this.dgvActividades.Size = new System.Drawing.Size(479, 178);
-            this.dgvActividades.TabIndex = 52;
+            this.dgvActividades.Size = new System.Drawing.Size(506, 178);
+            this.dgvActividades.TabIndex = 9;
             // 
             // lblImporte
             // 
@@ -344,11 +344,12 @@
             // txtImporte
             // 
             this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
-            this.txtImporte.Location = new System.Drawing.Point(657, 481);
+            this.txtImporte.Location = new System.Drawing.Point(684, 481);
             this.txtImporte.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtImporte.Name = "txtImporte";
+            this.txtImporte.ReadOnly = true;
             this.txtImporte.Size = new System.Drawing.Size(240, 20);
-            this.txtImporte.TabIndex = 54;
+            this.txtImporte.TabIndex = 11;
             this.txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frmEditarNoSocio
@@ -356,7 +357,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(929, 679);
+            this.ClientSize = new System.Drawing.Size(945, 679);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnAgregar);

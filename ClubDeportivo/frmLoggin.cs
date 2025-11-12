@@ -89,5 +89,16 @@ namespace ClubDeportivo
         {
             Application.Exit();
         }
+
+       
+
+        private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar== (char)Keys.Enter)
+            {
+                btnIngreso_Click(sender, e);
+            }
+                
+        }
     }
 }

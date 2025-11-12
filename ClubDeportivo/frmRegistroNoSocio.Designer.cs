@@ -46,7 +46,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.txtObservacion = new System.Windows.Forms.RichTextBox();
             this.cboActividad = new System.Windows.Forms.ComboBox();
             this.dgvActividades = new System.Windows.Forms.DataGridView();
@@ -235,7 +234,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(278, 513);
+            this.btnLimpiar.Location = new System.Drawing.Point(441, 513);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(142, 41);
@@ -262,7 +261,7 @@
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnRegistrar.ForeColor = System.Drawing.Color.Black;
-            this.btnRegistrar.Location = new System.Drawing.Point(625, 513);
+            this.btnRegistrar.Location = new System.Drawing.Point(834, 513);
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(142, 41);
@@ -270,24 +269,6 @@
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click_1);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
-            this.btnImprimir.FlatAppearance.BorderSize = 2;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnImprimir.ForeColor = System.Drawing.Color.Black;
-            this.btnImprimir.Location = new System.Drawing.Point(834, 513);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(142, 41);
-            this.btnImprimir.TabIndex = 15;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // txtObservacion
             // 
@@ -379,7 +360,6 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.cboActividad);
             this.Controls.Add(this.dgvActividades);
-            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.lblObservaciones);
             this.Controls.Add(this.txtObservacion);
@@ -429,7 +409,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Label lblObservaciones;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.RichTextBox txtObservacion;
         private System.Windows.Forms.ComboBox cboActividad;
         private System.Windows.Forms.DataGridView dgvActividades;

@@ -1,4 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `proyecto` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+DROP DATABASE IF EXISTS `proyecto`;
+CREATE DATABASE  IF NOT EXISTS `proyecto` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `proyecto`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
@@ -26,32 +27,23 @@ DROP TABLE IF EXISTS `actividad`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `actividad` (
   `idactividad` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) DEFAULT NULL,
-  `descripcion` varchar(60) DEFAULT NULL,
+  `nombre` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `descripcion` varchar(60) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `tarifasocio` double DEFAULT NULL,
   `tarifanosocio` double DEFAULT NULL,
   `cupomaximo` int DEFAULT NULL,
-  `turno` varchar(20) DEFAULT NULL,
+  `turno` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`idactividad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-INSERT INTO actividad (nombre, descripcion, tarifasocio, tarifanosocio, cupomaximo, turno) VALUES
-('Fútbol 5', 'Partidos de fútbol 5 con árbitro', 1500.00, 2500.00, 10, 'Mañana'),
-('Natación Adultos', 'Clases de natación para adultos principiantes', 2000.00, 3500.00, 15, 'Tarde'),
-('Yoga', 'Sesiones de yoga y meditación', 1800.00, 3000.00, 20, 'Mañana'),
-('Tenis', 'Clases de tenis individuales y grupales', 2500.00, 4000.00, 8, 'Tarde'),
-('Gimnasio', 'Acceso a sala de musculación y máquinas', 3000.00, 5000.00, 30, 'Noche'),
-('Pilates', 'Clases de pilates con instructora certificada', 2200.00, 3800.00, 12, 'Mañana'),
-('Paddle', 'Alquiler de cancha de paddle por hora', 1200.00, 2000.00, 4, 'Tarde'),
-('Zumba', 'Clases de baile fitness con música latina', 1500.00, 2800.00, 25, 'Noche'),
-('Natación Niños', 'Clases de natación para niños de 6 a 12 años', 1800.00, 3200.00, 12, 'Tarde'),
-('Básquet', 'Entrenamientos y partidos de básquetbol', 1600.00, 2600.00, 12, 'Noche');
+
 --
 -- Dumping data for table `actividad`
 --
 
 LOCK TABLES `actividad` WRITE;
 /*!40000 ALTER TABLE `actividad` DISABLE KEYS */;
+INSERT INTO `actividad` VALUES (1,'Fútbol 5','Partidos de fútbol 5 con árbitro',1500,2500,10,'Mañana'),(2,'Natación Adultos','Clases de natación para adultos principiantes',2000,3500,15,'Tarde'),(3,'Yoga','Sesiones de yoga y meditación',1800,3000,20,'Mañana'),(4,'Tenis','Clases de tenis individuales y grupales',2500,4000,8,'Tarde'),(5,'Gimnasio','Acceso a sala de musculación y máquinas',3000,5000,30,'Noche'),(6,'Pilates','Clases de pilates con instructora certificada',2200,3800,12,'Mañana'),(7,'Paddle','Alquiler de cancha de paddle por hora',1200,2000,4,'Tarde'),(8,'Zumba','Clases de baile fitness con música latina',1500,2800,25,'Noche'),(9,'Natación Niños','Clases de natación para niños de 6 a 12 años',1800,3200,12,'Tarde'),(10,'Básquet','Entrenamientos y partidos de básquetbol',1600,2600,12,'Noche');
 /*!40000 ALTER TABLE `actividad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,14 +56,14 @@ DROP TABLE IF EXISTS `credencial`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `credencial` (
   `codusu` int NOT NULL AUTO_INCREMENT,
-  `nombreusu` varchar(20) DEFAULT NULL,
-  `passusu` varchar(15) DEFAULT NULL,
+  `nombreusu` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `passusu` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `rolusu` int DEFAULT NULL,
   `activo` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`codusu`),
   KEY `fk_credencial_rol` (`rolusu`),
   CONSTRAINT `fk_credencial_rol` FOREIGN KEY (`rolusu`) REFERENCES `roles` (`rolusu`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,12 +91,12 @@ CREATE TABLE `cuota` (
   `monto` double DEFAULT NULL,
   `fechavencimiento` date DEFAULT NULL,
   `fechapago` date DEFAULT NULL,
-  `metodopago` varchar(20) DEFAULT NULL,
+  `metodopago` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `estadopago` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`idcuota`),
   KEY `fk_cuota_socio` (`nrosocio`),
   CONSTRAINT `fk_cuota_socio` FOREIGN KEY (`nrosocio`) REFERENCES `socio` (`nrosocio`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +105,7 @@ CREATE TABLE `cuota` (
 
 LOCK TABLES `cuota` WRITE;
 /*!40000 ALTER TABLE `cuota` DISABLE KEYS */;
-INSERT INTO `cuota` VALUES (1,1,10,2025,5500,'2025-10-20',NULL,'Efectivo',0),(2,2,10,2025,4800,'2025-10-25',NULL,'Transferencia',0),(3,3,10,2025,6000,'2025-10-22',NULL,'Efectivo',0),(4,4,10,2025,7000,'2025-10-18',NULL,'Efectivo',0),(5,5,10,2025,5300,'2025-10-30',NULL,'Transferencia',0),(6,6,10,2025,5900,'2025-10-28',NULL,'Efectivo',0),(7,7,10,2025,6200,'2025-10-15',NULL,'Efectivo',0),(8,8,11,2025,4500,'2025-11-10',NULL,'Efectivo',0),(9,9,11,2025,6800,'2025-11-11',NULL,'Transferencia',0),(10,10,11,2025,4700,'2025-11-12',NULL,'Efectivo',0),(11,11,11,2025,5100,'2025-11-14',NULL,'Efectivo',0),(12,12,11,2025,5600,'2025-11-15',NULL,'Transferencia',0),(13,13,11,2025,4900,'2025-11-16',NULL,'Efectivo',0),(14,14,11,2025,5800,'2025-11-20','2025-11-05','Transferencia',1),(15,15,11,2025,6300,'2025-11-25',NULL,'Efectivo',0),(16,16,11,2025,5200,'2025-11-30',NULL,'Transferencia',0),(17,17,11,2025,5400,'2025-12-02',NULL,'Efectivo',0),(18,18,11,2025,6100,'2025-12-10','2025-11-05','Transferencia',1),(19,19,11,2025,4900,'2025-12-15',NULL,'Efectivo',0),(20,20,11,2025,5600,'2025-12-20','2025-11-06','Efectivo',1);
+INSERT INTO `cuota` VALUES (1,1,10,2025,5500,'2025-10-20','2025-11-10','Efectivo',0),(2,2,10,2025,4800,'2025-10-25',NULL,'Transferencia',0),(3,3,10,2025,6000,'2025-10-22',NULL,'Efectivo',0),(4,4,10,2025,7000,'2025-10-18',NULL,'Efectivo',0),(5,5,10,2025,5300,'2025-10-30',NULL,'Transferencia',0),(6,6,10,2025,5900,'2025-10-28',NULL,'Efectivo',0),(7,7,10,2025,6200,'2025-10-15','2025-11-10','Efectivo',1),(8,8,11,2025,4500,'2025-11-10',NULL,'Efectivo',0),(9,9,11,2025,6800,'2025-11-11',NULL,'Transferencia',0),(10,10,11,2025,4700,'2025-11-12',NULL,'Efectivo',0),(11,11,11,2025,5100,'2025-11-14',NULL,'Efectivo',0),(12,12,11,2025,5600,'2025-11-15',NULL,'Transferencia',0),(13,13,11,2025,4900,'2025-11-16',NULL,'Efectivo',0),(14,14,11,2025,5800,'2025-11-20','2025-11-05','Transferencia',1),(15,15,11,2025,6300,'2025-11-25',NULL,'Efectivo',0),(16,16,11,2025,5200,'2025-11-30',NULL,'Transferencia',0),(17,17,11,2025,5400,'2025-12-02',NULL,'Efectivo',0),(18,18,11,2025,6100,'2025-12-10','2025-11-05','Transferencia',1),(19,19,11,2025,4900,'2025-12-15',NULL,'Efectivo',0),(20,20,11,2025,5600,'2025-12-20','2025-11-06','Efectivo',1),(21,7,11,2025,6200,'2025-12-10','0001-01-01','Efectivo',0);
 /*!40000 ALTER TABLE `cuota` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,11 +119,11 @@ DROP TABLE IF EXISTS `nosocio`;
 CREATE TABLE `nosocio` (
   `nronosocio` int NOT NULL AUTO_INCREMENT,
   `idusuario` int DEFAULT NULL,
-  `observacion` varchar(150) DEFAULT NULL,
+  `observacion` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`nronosocio`),
   KEY `fk_nosocio_usuario` (`idusuario`),
   CONSTRAINT `fk_nosocio_usuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +132,7 @@ CREATE TABLE `nosocio` (
 
 LOCK TABLES `nosocio` WRITE;
 /*!40000 ALTER TABLE `nosocio` DISABLE KEYS */;
-INSERT INTO `nosocio` VALUES (1,21,'Participa en natación ocasionalmente'),(2,22,'Clases de spinning mensuales'),(3,23,'Asiste a yoga los fines de semana'),(4,24,'Uso libre del gimnasio'),(5,25,'Participa en torneos de pádel'),(6,26,'Prueba de funcional por un mes'),(7,27,'Inscripto en zumba semanal'),(8,28,'Pilates dos veces por semana'),(9,29,'Clases libres de boxeo'),(10,30,'Uso eventual de canchas');
+INSERT INTO `nosocio` VALUES (11,21,'Participa en natación ocasionalmente'),(12,22,'Clases de spinning mensuales'),(13,23,'Asiste a yoga los fines de semana'),(14,24,'Uso libre del gimnasio'),(15,25,'Participa en torneos de pádel');
 /*!40000 ALTER TABLE `nosocio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,13 +148,13 @@ CREATE TABLE `nosocio_actividad` (
   `nronosocio` int NOT NULL,
   `idactividad` int NOT NULL,
   `fechainscripcion` datetime NOT NULL,
-  `estado` varchar(20) DEFAULT NULL,
+  `estado` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`idinscripcion`),
   UNIQUE KEY `uk_nosocio_actividad` (`nronosocio`,`idactividad`),
   KEY `idactividad` (`idactividad`),
   CONSTRAINT `nosocio_actividad_ibfk_1` FOREIGN KEY (`nronosocio`) REFERENCES `nosocio` (`nronosocio`),
   CONSTRAINT `nosocio_actividad_ibfk_2` FOREIGN KEY (`idactividad`) REFERENCES `actividad` (`idactividad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,9 +175,9 @@ DROP TABLE IF EXISTS `roles`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `roles` (
   `rolusu` int NOT NULL,
-  `nomrol` varchar(30) DEFAULT NULL,
+  `nomrol` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`rolusu`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,13 +200,13 @@ DROP TABLE IF EXISTS `socio`;
 CREATE TABLE `socio` (
   `nrosocio` int NOT NULL AUTO_INCREMENT,
   `idusuario` int DEFAULT NULL,
-  `estadohabilitacion` enum('activo','suspendido','vencido') NOT NULL DEFAULT 'activo',
+  `estadohabilitacion` enum('activo','suspendido','vencido') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'activo',
   `cuotamensual` double DEFAULT NULL,
   `carnetentregado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`nrosocio`),
   KEY `fk_socio_usuario` (`idusuario`),
   CONSTRAINT `fk_socio_usuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +215,7 @@ CREATE TABLE `socio` (
 
 LOCK TABLES `socio` WRITE;
 /*!40000 ALTER TABLE `socio` DISABLE KEYS */;
-INSERT INTO `socio` VALUES (1,1,'activo',5500,1),(2,2,'activo',4800,1),(3,3,'activo',6000,1),(4,4,'activo',7000,1),(5,5,'activo',5300,1),(6,6,'activo',5900,1),(7,7,'activo',6200,1),(8,8,'activo',4500,1),(9,9,'activo',6800,1),(10,10,'activo',4700,1),(11,11,'activo',5100,1),(12,12,'activo',5600,1),(13,13,'activo',4900,1),(14,14,'activo',5800,1),(15,15,'activo',6300,1),(16,16,'activo',5200,1),(17,17,'activo',5400,1),(18,18,'activo',6100,1),(19,19,'activo',4900,1),(20,20,'activo',5600,1);
+INSERT INTO `socio` VALUES (1,1,'suspendido',5500,1),(2,2,'suspendido',4800,1),(3,3,'suspendido',6000,1),(4,4,'suspendido',7000,1),(5,5,'suspendido',5300,1),(6,6,'suspendido',5900,1),(7,7,'activo',6200,1),(8,8,'suspendido',4500,1),(9,9,'suspendido',6800,1),(10,10,'activo',4700,1),(11,11,'activo',5100,1),(12,12,'activo',5600,1),(13,13,'activo',4900,1),(14,14,'activo',5800,1),(15,15,'activo',6300,1),(16,16,'activo',5200,1),(17,17,'activo',5400,1),(18,18,'activo',6100,1),(19,19,'activo',4900,1),(20,20,'activo',5600,1);
 /*!40000 ALTER TABLE `socio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,13 +231,13 @@ CREATE TABLE `socio_actividad` (
   `nrosocio` int NOT NULL,
   `idactividad` int NOT NULL,
   `fechainscripcion` datetime NOT NULL,
-  `estado` varchar(20) DEFAULT NULL,
+  `estado` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`idinscripcion`),
   UNIQUE KEY `uk_socio_actividad` (`nrosocio`,`idactividad`),
   KEY `idactividad` (`idactividad`),
   CONSTRAINT `socio_actividad_ibfk_1` FOREIGN KEY (`nrosocio`) REFERENCES `socio` (`nrosocio`),
   CONSTRAINT `socio_actividad_ibfk_2` FOREIGN KEY (`idactividad`) REFERENCES `actividad` (`idactividad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -266,15 +258,15 @@ DROP TABLE IF EXISTS `usuario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
   `idusuario` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(20) DEFAULT NULL,
-  `apellido` varchar(15) DEFAULT NULL,
-  `dni` varchar(8) DEFAULT NULL,
-  `telefono` varchar(15) DEFAULT NULL,
-  `email` varchar(60) DEFAULT NULL,
+  `nombre` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `apellido` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `dni` varchar(8) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefono` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(60) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `fecharegistro` date DEFAULT NULL,
   `certificadomedico` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,7 +282,7 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'proyecto'
 --
-/*!50003 DROP PROCEDURE IF EXISTS `ingresologin` */;
+/*!50003 DROP PROCEDURE IF EXISTS `IngresoLogin` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -300,14 +292,17 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ingresologin`(IN usu VARCHAR(20), IN pass VARCHAR(15))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `IngresoLogin`(in Usu varchar(20),in Pass varchar(15))
 BEGIN
-    SELECT nomrol
-    FROM credencial c
-    INNER JOIN roles r ON c.rolusu = r.rolusu
-    WHERE c.nombreusu = usu
-      AND c.passusu = pass
-      AND c.activo = 1;
+
+select NomRol
+
+from credencial u inner join roles r on u.RolUsu = r.RolUsu
+
+where NombreUsu = Usu and PassUsu = Pass /* se compara con los parametros */
+
+and Activo = 1; /* el usuario debe estar activo */
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -324,4 +319,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-09 22:32:13
+-- Dump completed on 2025-11-12 20:31:24

@@ -254,5 +254,28 @@ namespace ClubDeportivo.Datos
             return null;
         }
 
+        internal void CambiarEstadoHabilitacion(int nroSocio,string EstadoHabilitacion)
+        {
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                string query = @"UPDATE Socio 
+                     SET EstadoHabilitacion = @EstadoHabilitacion
+                     WHERE NroSocio = @NroSocio";
+                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                cmd.Parameters.AddWithValue("@NroSocio", nroSocio); // FK al Usuario
+                cmd.Parameters.AddWithValue("@EstadoHabilitacion", EstadoHabilitacion);
+                sqlCon.Open();
+                cmd.ExecuteNonQuery();
+
+
+                sqlCon.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al momento de Imprimir");
+            }
+        }
     }
 }

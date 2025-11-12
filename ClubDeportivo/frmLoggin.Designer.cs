@@ -64,6 +64,7 @@ namespace ClubDeportivo
             this.txtPass.Text = "Contraseña";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPass.Enter += new System.EventHandler(this.LimpiarCampo);
+            this.txtPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass_KeyPress);
             this.txtPass.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtUser

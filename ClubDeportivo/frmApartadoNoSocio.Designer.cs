@@ -31,7 +31,6 @@
             this.dgvListaNoSocio = new System.Windows.Forms.DataGridView();
             this.btnRegistrarNoSocio = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaNoSocio)).BeginInit();
@@ -68,27 +67,13 @@
             this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditar.FlatAppearance.BorderSize = 2;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(1052, 193);
+            this.btnEditar.Location = new System.Drawing.Point(1052, 224);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(142, 41);
             this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar No Socios";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 2;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(1052, 255);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(142, 41);
-            this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.Text = "Revisar Quitar?";
-            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnAtras
             // 
@@ -124,7 +109,6 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1206, 564);
             this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnRegistrarNoSocio);
             this.Controls.Add(this.dgvListaNoSocio);
@@ -141,7 +125,6 @@
         private System.Windows.Forms.DataGridView dgvListaNoSocio;
         private System.Windows.Forms.Button btnRegistrarNoSocio;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Label label1;
     }

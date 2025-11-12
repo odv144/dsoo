@@ -52,7 +52,7 @@ namespace ClubDeportivo
                 });
 
                 E_Socio socio = repoSocio.ObtenerConUsuario(nroSocio);
-            
+                repoSocio.CambiarEstadoHabilitacion(nroSocio, "activo");
               
                 frmComprobantePago pago = new frmComprobantePago()
                 {

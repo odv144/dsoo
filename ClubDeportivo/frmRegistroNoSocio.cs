@@ -403,6 +403,14 @@ namespace ClubDeportivo
             dgvActividades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvActividades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvActividades.ReadOnly = true; // por ahora solo agregamos desde el botón
+            dgvActividades.AllowUserToAddRows = false;
+            dgvActividades.AllowUserToDeleteRows = false;
+            dgvActividades.MultiSelect = false;
+            dgvActividades.RowHeadersVisible = false; // elimina la flecha lateral izquierda
+            dgvActividades.DefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dgvActividades.DefaultCellStyle.SelectionForeColor = Color.White;
+           
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
