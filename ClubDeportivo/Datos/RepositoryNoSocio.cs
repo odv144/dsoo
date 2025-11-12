@@ -60,7 +60,7 @@ namespace ClubDeportivo.Datos
                 E_Usuario usuario = new E_Usuario
                 {
                     
-                    IdUsuario = reader.GetInt32("NroNoSocio"),
+                    IdUsuario = reader.GetInt32("IdUsuario"),
                     
                     Nombre = reader["Nombre"] != DBNull.Value ? reader.GetString("Nombre") : "",
                     Apellido = reader["Apellido"] != DBNull.Value ? reader.GetString("Apellido") : "",
@@ -70,7 +70,7 @@ namespace ClubDeportivo.Datos
                     FechaRegistro = reader["FechaRegistro"] != DBNull.Value ? reader.GetDateTime("FechaRegistro") : DateTime.Now,
                     CertificadoMedico = reader["CertificadoMedico"] != DBNull.Value && reader.GetBoolean("CertificadoMedico")
                 };
-
+              
                 string observacion = reader["Observacion"] != DBNull.Value ? reader.GetString("Observacion") : "";
 
                 return new E_NoSocio(usuario, observacion);
@@ -165,7 +165,7 @@ namespace ClubDeportivo.Datos
         }
 
 
-        /*  public override E_NoSocio ObtenerPorId(int id)
+         public override E_NoSocio ObtenerPorId(int id)
           {
               E_NoSocio noSocio = null;
 
@@ -174,9 +174,9 @@ namespace ClubDeportivo.Datos
                   sqlCon = Conexion.getInstancia().CrearConexion();
 
                   // INNER JOIN con la tabla Usuario, ya que hereda de E_Usuario
-                  string query = @"SELECT u.*, n.Observacion 
+                  string query = @"SELECT u.*, n.* 
                                    FROM nosocio n 
-                                   INNER JOIN usuario u ON u.IdUsuario = n.NroNoSocio 
+                                   INNER JOIN usuario u ON u.IdUsuario = n.IdUsuario 
                                    WHERE n.NroNoSocio = @NroNoSocio";
 
                   MySqlCommand cmd = new MySqlCommand(query, sqlCon);
@@ -198,6 +198,6 @@ namespace ClubDeportivo.Datos
               }
 
               return noSocio;
-          }*/
+          }
     }
 }

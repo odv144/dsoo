@@ -47,6 +47,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.txtObservacion = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.cboActividad = new System.Windows.Forms.ComboBox();
+            this.dgvActividades = new System.Windows.Forms.DataGridView();
+            this.lblImporte = new System.Windows.Forms.Label();
+            this.txtImporte = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -113,7 +121,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(285, 568);
+            this.btnLimpiar.Location = new System.Drawing.Point(45, 595);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(125, 41);
@@ -131,7 +139,7 @@
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnAtras.ForeColor = System.Drawing.Color.Black;
-            this.btnAtras.Location = new System.Drawing.Point(6, 568);
+            this.btnAtras.Location = new System.Drawing.Point(396, 595);
             this.btnAtras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(123, 41);
@@ -201,7 +209,7 @@
             this.lblEditarSocio.Location = new System.Drawing.Point(52, 29);
             this.lblEditarSocio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEditarSocio.Name = "lblEditarSocio";
-            this.lblEditarSocio.Size = new System.Drawing.Size(341, 29);
+            this.lblEditarSocio.Size = new System.Drawing.Size(845, 29);
             this.lblEditarSocio.TabIndex = 0;
             this.lblEditarSocio.Text = "EDITAR NO  SOCIO";
             this.lblEditarSocio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -215,7 +223,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(130, 626);
+            this.btnGuardar.Location = new System.Drawing.Point(745, 595);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(152, 41);
@@ -265,12 +273,97 @@
             this.txtObservacion.TabIndex = 45;
             this.txtObservacion.Text = "";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(415, 117);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 13);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Selecione la actividad que el cliente solicite";
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBorrar.Location = new System.Drawing.Point(794, 413);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(103, 23);
+            this.btnBorrar.TabIndex = 53;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregar.Location = new System.Drawing.Point(795, 136);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(102, 24);
+            this.btnAgregar.TabIndex = 51;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // cboActividad
+            // 
+            this.cboActividad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.cboActividad.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cboActividad.FormattingEnabled = true;
+            this.cboActividad.Location = new System.Drawing.Point(418, 139);
+            this.cboActividad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboActividad.Name = "cboActividad";
+            this.cboActividad.Size = new System.Drawing.Size(355, 21);
+            this.cboActividad.TabIndex = 50;
+            // 
+            // dgvActividades
+            // 
+            this.dgvActividades.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvActividades.Location = new System.Drawing.Point(418, 207);
+            this.dgvActividades.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvActividades.Name = "dgvActividades";
+            this.dgvActividades.Size = new System.Drawing.Size(479, 178);
+            this.dgvActividades.TabIndex = 52;
+            // 
+            // lblImporte
+            // 
+            this.lblImporte.AutoSize = true;
+            this.lblImporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblImporte.Location = new System.Drawing.Point(543, 488);
+            this.lblImporte.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblImporte.Name = "lblImporte";
+            this.lblImporte.Size = new System.Drawing.Size(65, 13);
+            this.lblImporte.TabIndex = 55;
+            this.lblImporte.Text = "Pago total";
+            // 
+            // txtImporte
+            // 
+            this.txtImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
+            this.txtImporte.Location = new System.Drawing.Point(657, 481);
+            this.txtImporte.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtImporte.Name = "txtImporte";
+            this.txtImporte.Size = new System.Drawing.Size(240, 20);
+            this.txtImporte.TabIndex = 54;
+            this.txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // frmEditarNoSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(852, 679);
+            this.ClientSize = new System.Drawing.Size(929, 679);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.cboActividad);
+            this.Controls.Add(this.dgvActividades);
+            this.Controls.Add(this.lblImporte);
+            this.Controls.Add(this.txtImporte);
             this.Controls.Add(this.lblObservaciones);
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.chkCerMedico);
@@ -295,6 +388,7 @@
             this.Name = "frmEditarNoSocio";
             this.Text = "Edición de NO SOCIO";
             this.Load += new System.EventHandler(this.frmEditarSocio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +413,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblObservaciones;
         private System.Windows.Forms.RichTextBox txtObservacion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.ComboBox cboActividad;
+        private System.Windows.Forms.DataGridView dgvActividades;
+        private System.Windows.Forms.Label lblImporte;
+        private System.Windows.Forms.TextBox txtImporte;
     }
 }

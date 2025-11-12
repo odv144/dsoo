@@ -103,7 +103,7 @@ namespace ClubDeportivo.Datos
         // ====== MÉTODOS ESPECÍFICOS DEL NEGOCIO ======
 
         // Obtener todas las actividades de un socio
-        public List<E_NoSocio_Actividad> ObtenerActividadesPorSocio(int nroSocio)
+        public List<E_NoSocio_Actividad> ObtenerActividadesPorSocio(int nroNoSocio)
         {
             List<E_NoSocio_Actividad> lista = new List<E_NoSocio_Actividad>();
 
@@ -112,14 +112,14 @@ namespace ClubDeportivo.Datos
                 string query = @"SELECT 
                 sa.*,
                 a.Nombre, a.Descripcion, a.TarifaSocio, a.Turno
-            FROM Socio_Actividad sa
+            FROM NoSocio_Actividad sa
             INNER JOIN Actividad a ON sa.IdActividad = a.IdActividad
-            WHERE sa.NroSocio = @NroSocio
+            WHERE sa.NroNoSocio = @NroNoSocio
             AND sa.Estado = 'Activo'
             ORDER BY a.Turno, a.Nombre";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@NroSocio", nroSocio);
+                cmd.Parameters.AddWithValue("@NroNoSocio", nroNoSocio);
 
                 conn.Open();
                 using (MySqlDataReader reader = cmd.ExecuteReader())
