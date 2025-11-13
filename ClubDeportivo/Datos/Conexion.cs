@@ -28,10 +28,10 @@ namespace ClubDeportivo.Datos
         public Conexion()
         {
             this.servidor = "localhost";
-            this.puerto =  "3307";
+            this.puerto =  "3306";
             this.bd = "proyecto";
             this.usuario = "root";
-            this.password = "odv144";
+            this.password = "";
         }
       
         public static Conexion getInstancia()
