@@ -30,7 +30,6 @@
         {
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnRegistrarSocio = new System.Windows.Forms.Button();
             this.dgvListaSocio = new System.Windows.Forms.DataGridView();
             this.btnAtras = new System.Windows.Forms.Button();
@@ -56,27 +55,13 @@
             this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnEditar.FlatAppearance.BorderSize = 2;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(1050, 180);
+            this.btnEditar.Location = new System.Drawing.Point(1050, 246);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(142, 41);
             this.btnEditar.TabIndex = 9;
             this.btnEditar.Text = "Editar Socio";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(229)))), ((int)(((byte)(252)))));
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 2;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(1050, 311);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(142, 41);
-            this.btnEliminar.TabIndex = 10;
-            this.btnEliminar.Text = "Revisar Inhabilitar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnRegistrarSocio
             // 
@@ -109,7 +94,7 @@
             this.btnAtras.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
             this.btnAtras.FlatAppearance.BorderSize = 2;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtras.Location = new System.Drawing.Point(1050, 377);
+            this.btnAtras.Location = new System.Drawing.Point(1050, 376);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(142, 41);
             this.btnAtras.TabIndex = 13;
@@ -126,7 +111,6 @@
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.dgvListaSocio);
             this.Controls.Add(this.btnRegistrarSocio);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lblNombre);
             this.Name = "frmApartadoSocio";
@@ -140,7 +124,6 @@
         #endregion
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnRegistrarSocio;
         private System.Windows.Forms.DataGridView dgvListaSocio;
         private System.Windows.Forms.Button btnAtras;

@@ -118,7 +118,7 @@ namespace ClubDeportivo
                 txtTelefono.Text = noSocio.Telefono;
                 txtEmail.Text = noSocio.Email;
                 chkCerMedico.Checked = noSocio.CertificadoMedico;
-
+                txtObservacion.Text = noSocio.Observacion;
                 //agrega al datagridview las actividades que tiene asignadas
                 dgvActividades.DataSource = null;
 
