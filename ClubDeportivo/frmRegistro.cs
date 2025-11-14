@@ -138,12 +138,8 @@ namespace ClubDeportivo
             E_Usuario user = repositoryUsuario.Insertar(usuario);
 
             // crear socio con cuota mensual = importe ingresado
-            E_Socio nuevoSocio = new E_Socio();
-            nuevoSocio.Usuario = user;
-            nuevoSocio.EstadoHabilitacion = "activo";
-            nuevoSocio.CuotaMensual = importe;
-            nuevoSocio.CarnetEntregado = false;
-            //E_Socio socio = repoSocio.Insertar(new E_Socio(user, "activo", importe, false));
+            E_Socio nuevoSocio = new E_Socio(user,"activo",importe,false);
+           
             E_Socio socio = repoSocio.Insertar(nuevoSocio);
             this.id = socio.NroSocio; //esto servira para imprimir el carnet despues
 

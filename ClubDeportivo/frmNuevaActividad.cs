@@ -22,6 +22,7 @@ namespace ClubDeportivo
             this.frmActivadad = actividad;
 
         }
+        //instancia del repositorio para actividades
         private RepositoryActividad repoActividad = new RepositoryActividad();
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -44,7 +45,7 @@ namespace ClubDeportivo
             frmActivadad?.CargarActividades();
             this.Close();
         }
-
+        //validaciones 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
@@ -82,6 +83,8 @@ namespace ClubDeportivo
                 btnGuardar.Enabled = true;
             }
         }
+        //fin validaciones 
+
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {

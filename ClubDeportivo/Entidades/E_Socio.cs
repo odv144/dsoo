@@ -24,7 +24,7 @@ namespace ClubDeportivo.Entidades
         public E_Socio() { }
         
         // Constructor con parámetros
-        /*
+        
         public E_Socio(E_Usuario usuario,
             string estadoHabilitacion,
             double cuotaMensual,
@@ -36,7 +36,7 @@ namespace ClubDeportivo.Entidades
             CuotaMensual = cuotaMensual;
             CarnetEntregado = carnetEntregado;
             Actividades = new List<E_Socio_Actividad>();
-        }*/
+        }
        
     }
 
